@@ -39,26 +39,54 @@
 
     body {
       margin: 0;
-      font-family:
-        Inter, "Segoe UI", Arial, sans-serif;
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
       line-height: 1.7;
       color: var(--text);
       background:
-        radial-gradient(
-          circle at top left,
-          rgba(6, 182, 212, 0.12),
-          transparent 32%
-        ),
-        radial-gradient(
-          circle at bottom right,
-          rgba(124, 58, 237, 0.1),
-          transparent 30%
-        ),
+        radial-gradient(circle at top left, rgba(6, 182, 212, 0.12), transparent 32%),
+        radial-gradient(circle at bottom right, rgba(124, 58, 237, 0.1), transparent 30%),
         var(--background);
     }
 
     a {
       color: inherit;
+    }
+
+    .language-switcher {
+      position: fixed;
+      top: 18px;
+      right: 18px;
+      z-index: 1000;
+      display: flex;
+      gap: 8px;
+      padding: 7px;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      border-radius: 14px;
+      background: rgba(15, 23, 42, 0.55);
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.2);
+      backdrop-filter: blur(14px);
+    }
+
+    .language-button {
+      border: 0;
+      padding: 9px 13px;
+      color: white;
+      font: inherit;
+      font-weight: 800;
+      cursor: pointer;
+      border-radius: 10px;
+      background: transparent;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .language-button:hover {
+      transform: translateY(-1px);
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .language-button.active {
+      color: var(--navy);
+      background: white;
     }
 
     header {
@@ -495,9 +523,14 @@
     }
 
     @media (max-width: 760px) {
+      .language-switcher {
+        top: 10px;
+        right: 10px;
+      }
+
       header {
         min-height: auto;
-        padding: 100px 20px;
+        padding: 110px 20px 90px;
       }
 
       header h1 {
@@ -549,22 +582,33 @@
 
 <body>
 
+  <div class="language-switcher" aria-label="Language selection">
+    <button class="language-button active" type="button" data-language="en">
+      EN
+    </button>
+    <button class="language-button" type="button" data-language="de">
+      DE
+    </button>
+  </div>
+
   <header>
     <div class="hero-content">
-      <div class="eyebrow">Engineering ideas into reality</div>
+      <div class="eyebrow" data-i18n="eyebrow">
+        Engineering ideas into reality
+      </div>
 
       <h1>Assem <span>Ryan</span></h1>
 
-      <p class="hero-subtitle">
+      <p class="hero-subtitle" data-i18n="heroSubtitle">
         Mechanical Engineer focused on product development, robotics,
         manufacturing, automation and simulation.
       </p>
 
       <nav aria-label="Main navigation">
-        <a href="#about">About Me</a>
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
+        <a href="#about" data-i18n="navAbout">About Me</a>
+        <a href="#projects" data-i18n="navProjects">Projects</a>
+        <a href="#skills" data-i18n="navSkills">Skills</a>
+        <a href="#contact" data-i18n="navContact">Contact</a>
       </nav>
     </div>
   </header>
@@ -572,12 +616,12 @@
   <main>
     <section id="about">
       <div class="section-heading">
-        <span class="section-label">Who I Am</span>
-        <h2>Engineering with purpose and precision.</h2>
+        <span class="section-label" data-i18n="aboutLabel">Who I Am</span>
+        <h2 data-i18n="aboutTitle">Engineering with purpose and precision.</h2>
       </div>
 
       <div class="about-card">
-        <p>
+        <p data-i18n="aboutText">
           I am a Mechanical Engineering master's student at Dortmund University
           of Applied Sciences, specializing in Product Development and
           Simulation. I enjoy turning technical challenges into practical
@@ -590,20 +634,19 @@
     <section id="projects">
       <div>
         <div class="section-heading">
-          <span class="section-label">Selected Work</span>
-          <h2>Engineering projects</h2>
-          <p class="section-intro">
+          <span class="section-label" data-i18n="projectsLabel">Selected Work</span>
+          <h2 data-i18n="projectsTitle">Engineering projects</h2>
+          <p class="section-intro" data-i18n="projectsIntro">
             A selection of projects involving robotics, automation, motor
             control and manufacturing technology.
           </p>
         </div>
 
         <div class="project-grid">
-
           <article class="card">
             <div class="project-number">01</div>
-            <h3>Medical Robot Gripper</h3>
-            <p>
+            <h3 data-i18n="project1Title">Medical Robot Gripper</h3>
+            <p data-i18n="project1Text">
               Development of a robotic gripper for handling medical
               instruments. The project received third place at the
               MittelstandsMakerthon NRW.
@@ -612,8 +655,8 @@
 
           <article class="card">
             <div class="project-number">02</div>
-            <h3>Nuevo 35 Test Bench Automation</h3>
-            <p>
+            <h3 data-i18n="project2Title">Nuevo 35 Test Bench Automation</h3>
+            <p data-i18n="project2Text">
               Member of the test bench automation team, working with NI
               LabVIEW on automated testing, system operation and technical
               data evaluation.
@@ -622,8 +665,8 @@
 
           <article class="card">
             <div class="project-number">03</div>
-            <h3>PMSM Control</h3>
-            <p>
+            <h3 data-i18n="project3Title">PMSM Control</h3>
+            <p data-i18n="project3Text">
               Commissioning, parameterization and control of a
               permanent-magnet synchronous motor using Hybrid-Kit, One Eye
               and NI LabVIEW.
@@ -632,22 +675,21 @@
 
           <article class="card">
             <div class="project-number">04</div>
-            <h3>3D Printer with Laser Engraver</h3>
-            <p>
+            <h3 data-i18n="project4Title">3D Printer with Laser Engraver</h3>
+            <p data-i18n="project4Text">
               Bachelor's thesis focused on the design and development of a
               3D printer with an integrated laser engraving system.
             </p>
           </article>
-
         </div>
       </div>
     </section>
 
     <section id="skills">
       <div class="section-heading">
-        <span class="section-label">Capabilities</span>
-        <h2>Technical skills</h2>
-        <p class="section-intro">
+        <span class="section-label" data-i18n="skillsLabel">Capabilities</span>
+        <h2 data-i18n="skillsTitle">Technical skills</h2>
+        <p class="section-intro" data-i18n="skillsIntro">
           Tools and disciplines I use to design, build, test and improve
           engineering systems.
         </p>
@@ -657,25 +699,29 @@
         <span>SolidWorks</span>
         <span>SolidCAM</span>
         <span>NI LabVIEW</span>
-        <span>CNC Manufacturing</span>
-        <span>3D Printing</span>
-        <span>Quality Control</span>
-        <span>Product Development</span>
-        <span>Simulation</span>
-        <span>Automation</span>
+        <span data-i18n="skillCnc">CNC Manufacturing</span>
+        <span data-i18n="skill3d">3D Printing</span>
+        <span data-i18n="skillQuality">Quality Control</span>
+        <span data-i18n="skillProduct">Product Development</span>
+        <span data-i18n="skillSimulation">Simulation</span>
+        <span data-i18n="skillAutomation">Automation</span>
         <span>Microsoft Office</span>
       </div>
     </section>
 
     <section id="contact">
       <div class="contact-card">
-        <span class="section-label" style="color: #67e8f9;">
+        <span
+          class="section-label"
+          style="color: #67e8f9;"
+          data-i18n="contactLabel"
+        >
           Get in touch
         </span>
 
-        <h2>Let’s build something meaningful.</h2>
+        <h2 data-i18n="contactTitle">Let’s build something meaningful.</h2>
 
-        <p>
+        <p data-i18n="contactText">
           I am open to engineering opportunities, technical collaborations
           and conversations about product development, robotics and
           manufacturing.
@@ -685,6 +731,7 @@
           <a
             class="button button-primary"
             href="mailto:assemamer13@gmail.com"
+            data-i18n="emailButton"
           >
             Email Me
           </a>
@@ -698,22 +745,170 @@
             LinkedIn
           </a>
 
-         <a
-  class="button button-secondary"
-  href="Assem-Ryan-Resume.pdf"
-  target="_blank"
-  rel="noopener noreferrer"
->
-  📄 Download Resume
-</a>
+          <a
+            class="button button-secondary"
+            href="Assem-Ryan-Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-i18n="resumeButton"
+          >
+            📄 Download Resume
+          </a>
         </div>
       </div>
     </section>
   </main>
 
   <footer>
-    <p>© 2026 Assem Ryan. Designed with precision.</p>
+    <p data-i18n="footerText">
+      © 2026 Assem Ryan. Designed with precision.
+    </p>
   </footer>
+
+  <script>
+    const translations = {
+      en: {
+        pageTitle: "Assem Ryan | Mechanical Engineer",
+        pageDescription:
+          "Portfolio of Assem Ryan, a mechanical engineer specializing in product development, robotics, manufacturing and simulation.",
+        eyebrow: "Engineering ideas into reality",
+        heroSubtitle:
+          "Mechanical Engineer focused on product development, robotics, manufacturing, automation and simulation.",
+        navAbout: "About Me",
+        navProjects: "Projects",
+        navSkills: "Skills",
+        navContact: "Contact",
+        aboutLabel: "Who I Am",
+        aboutTitle: "Engineering with purpose and precision.",
+        aboutText:
+          "I am a Mechanical Engineering master's student at Dortmund University of Applied Sciences, specializing in Product Development and Simulation. I enjoy turning technical challenges into practical solutions through mechanical design, manufacturing, automation and analytical thinking.",
+        projectsLabel: "Selected Work",
+        projectsTitle: "Engineering projects",
+        projectsIntro:
+          "A selection of projects involving robotics, automation, motor control and manufacturing technology.",
+        project1Title: "Medical Robot Gripper",
+        project1Text:
+          "Development of a robotic gripper for handling medical instruments. The project received third place at the MittelstandsMakerthon NRW.",
+        project2Title: "Nuevo 35 Test Bench Automation",
+        project2Text:
+          "Member of the test bench automation team, working with NI LabVIEW on automated testing, system operation and technical data evaluation.",
+        project3Title: "PMSM Control",
+        project3Text:
+          "Commissioning, parameterization and control of a permanent-magnet synchronous motor using Hybrid-Kit, One Eye and NI LabVIEW.",
+        project4Title: "3D Printer with Laser Engraver",
+        project4Text:
+          "Bachelor's thesis focused on the design and development of a 3D printer with an integrated laser engraving system.",
+        skillsLabel: "Capabilities",
+        skillsTitle: "Technical skills",
+        skillsIntro:
+          "Tools and disciplines I use to design, build, test and improve engineering systems.",
+        skillCnc: "CNC Manufacturing",
+        skill3d: "3D Printing",
+        skillQuality: "Quality Control",
+        skillProduct: "Product Development",
+        skillSimulation: "Simulation",
+        skillAutomation: "Automation",
+        contactLabel: "Get in touch",
+        contactTitle: "Let’s build something meaningful.",
+        contactText:
+          "I am open to engineering opportunities, technical collaborations and conversations about product development, robotics and manufacturing.",
+        emailButton: "Email Me",
+        resumeButton: "📄 Download Resume",
+        footerText: "© 2026 Assem Ryan. Designed with precision."
+      },
+
+      de: {
+        pageTitle: "Assem Ryan | Maschinenbauingenieur",
+        pageDescription:
+          "Portfolio von Assem Ryan, Maschinenbauingenieur mit Schwerpunkt Produktentwicklung, Robotik, Fertigung und Simulation.",
+        eyebrow: "Technische Ideen werden Realität",
+        heroSubtitle:
+          "Maschinenbauingenieur mit Schwerpunkt Produktentwicklung, Robotik, Fertigung, Automatisierung und Simulation.",
+        navAbout: "Über mich",
+        navProjects: "Projekte",
+        navSkills: "Kenntnisse",
+        navContact: "Kontakt",
+        aboutLabel: "Über mich",
+        aboutTitle: "Ingenieurwesen mit Ziel und Präzision.",
+        aboutText:
+          "Ich bin Masterstudent im Studiengang Maschinenbau an der Fachhochschule Dortmund mit dem Schwerpunkt Produktentwicklung und Simulation. Ich entwickle gerne praktische Lösungen für technische Herausforderungen durch mechanische Konstruktion, Fertigung, Automatisierung und analytisches Denken.",
+        projectsLabel: "Ausgewählte Arbeiten",
+        projectsTitle: "Technische Projekte",
+        projectsIntro:
+          "Eine Auswahl meiner Projekte aus den Bereichen Robotik, Automatisierung, Motorregelung und Fertigungstechnik.",
+        project1Title: "Medizinischer Robotergreifer",
+        project1Text:
+          "Entwicklung eines Robotergreifers zur Handhabung medizinischer Instrumente. Das Projekt erreichte den dritten Platz beim MittelstandsMakerthon NRW.",
+        project2Title: "Automatisierung des Nuevo-35-Prüfstands",
+        project2Text:
+          "Mitarbeit im Team für Prüfstandsautomatisierung mit NI LabVIEW zur automatisierten Prüfung, Systembedienung und Auswertung technischer Daten.",
+        project3Title: "PMSM-Regelung",
+        project3Text:
+          "Inbetriebnahme, Parametrierung und Regelung einer permanentmagneterregten Synchronmaschine mit Hybrid-Kit, One Eye und NI LabVIEW.",
+        project4Title: "3D-Drucker mit Lasergravur",
+        project4Text:
+          "Bachelorarbeit über die Konstruktion und Entwicklung eines 3D-Druckers mit integriertem Lasergravursystem.",
+        skillsLabel: "Kompetenzen",
+        skillsTitle: "Technische Kenntnisse",
+        skillsIntro:
+          "Werkzeuge und Fachgebiete, mit denen ich technische Systeme konstruiere, fertige, prüfe und optimiere.",
+        skillCnc: "CNC-Fertigung",
+        skill3d: "3D-Druck",
+        skillQuality: "Qualitätskontrolle",
+        skillProduct: "Produktentwicklung",
+        skillSimulation: "Simulation",
+        skillAutomation: "Automatisierung",
+        contactLabel: "Kontakt aufnehmen",
+        contactTitle: "Lassen Sie uns etwas Sinnvolles entwickeln.",
+        contactText:
+          "Ich bin offen für berufliche Möglichkeiten, technische Kooperationen und Gespräche über Produktentwicklung, Robotik und Fertigung.",
+        emailButton: "E-Mail senden",
+        resumeButton: "📄 Lebenslauf herunterladen",
+        footerText: "© 2026 Assem Ryan. Mit Präzision gestaltet."
+      }
+    };
+
+    const languageButtons = document.querySelectorAll(".language-button");
+    const translatableElements = document.querySelectorAll("[data-i18n]");
+    const descriptionMeta = document.querySelector('meta[name="description"]');
+
+    function setLanguage(language) {
+      const selected = translations[language] || translations.en;
+
+      document.documentElement.lang = language;
+      document.title = selected.pageTitle;
+      descriptionMeta.setAttribute("content", selected.pageDescription);
+
+      translatableElements.forEach((element) => {
+        const key = element.dataset.i18n;
+
+        if (selected[key]) {
+          element.textContent = selected[key];
+        }
+      });
+
+      languageButtons.forEach((button) => {
+        const isActive = button.dataset.language === language;
+        button.classList.toggle("active", isActive);
+        button.setAttribute("aria-pressed", String(isActive));
+      });
+
+      localStorage.setItem("portfolio-language", language);
+    }
+
+    languageButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        setLanguage(button.dataset.language);
+      });
+    });
+
+    const savedLanguage = localStorage.getItem("portfolio-language");
+    const browserLanguage = navigator.language.toLowerCase().startsWith("de")
+      ? "de"
+      : "en";
+
+    setLanguage(savedLanguage || browserLanguage);
+  </script>
 
 </body>
 </html>
