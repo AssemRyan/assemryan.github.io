@@ -4,96 +4,545 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <meta
+    name="description"
+    content="Portfolio of Assem Ryan, a mechanical engineer specializing in product development, robotics, manufacturing and simulation."
+  >
+
   <title>Assem Ryan | Mechanical Engineer</title>
 
   <style>
+    :root {
+      --navy: #102a43;
+      --blue: #2563eb;
+      --cyan: #06b6d4;
+      --orange: #f97316;
+      --purple: #7c3aed;
+      --green: #10b981;
+      --text: #1f2937;
+      --muted: #64748b;
+      --surface: #ffffff;
+      --background: #f8fafc;
+      --border: rgba(148, 163, 184, 0.22);
+      --shadow: 0 18px 45px rgba(15, 23, 42, 0.12);
+      --radius: 20px;
+    }
+
     * {
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 30px;
+    }
+
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      color: #222;
-      background: #f5f6f8;
+      font-family:
+        Inter, "Segoe UI", Arial, sans-serif;
+      line-height: 1.7;
+      color: var(--text);
+      background:
+        radial-gradient(
+          circle at top left,
+          rgba(6, 182, 212, 0.12),
+          transparent 32%
+        ),
+        radial-gradient(
+          circle at bottom right,
+          rgba(124, 58, 237, 0.1),
+          transparent 30%
+        ),
+        var(--background);
+    }
+
+    a {
+      color: inherit;
     }
 
     header {
-      background: #17324d;
+      position: relative;
+      min-height: 720px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 90px 24px;
       color: white;
-      padding: 80px 20px;
       text-align: center;
+      background:
+        linear-gradient(
+          135deg,
+          rgba(16, 42, 67, 0.98),
+          rgba(37, 99, 235, 0.94) 50%,
+          rgba(124, 58, 237, 0.92)
+        );
+    }
+
+    header::before,
+    header::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(2px);
+      opacity: 0.55;
+    }
+
+    header::before {
+      width: 360px;
+      height: 360px;
+      top: -100px;
+      right: -80px;
+      background: rgba(6, 182, 212, 0.55);
+    }
+
+    header::after {
+      width: 300px;
+      height: 300px;
+      bottom: -130px;
+      left: -70px;
+      background: rgba(249, 115, 22, 0.5);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 950px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 22px;
+      padding: 8px 16px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(12px);
     }
 
     header h1 {
       margin: 0;
-      font-size: 48px;
+      font-size: clamp(52px, 9vw, 92px);
+      line-height: 1;
+      letter-spacing: -4px;
     }
 
-    header p {
-      font-size: 20px;
-      margin: 12px 0 24px;
+    header h1 span {
+      color: #67e8f9;
+    }
+
+    .hero-subtitle {
+      max-width: 800px;
+      margin: 24px auto 35px;
+      font-size: clamp(18px, 3vw, 25px);
+      color: rgba(255, 255, 255, 0.88);
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
     }
 
     nav a,
     .button {
-      display: inline-block;
-      margin: 6px;
-      padding: 10px 18px;
-      color: white;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 11px 20px;
+      font-weight: 700;
       text-decoration: none;
-      border: 1px solid white;
-      border-radius: 6px;
+      border-radius: 12px;
+      transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
     }
 
-    .button-dark {
-      background: #17324d;
+    nav a {
       color: white;
-      border: none;
+      border: 1px solid rgba(255, 255, 255, 0.45);
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+    }
+
+    nav a:hover {
+      transform: translateY(-3px);
+      background: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.2);
+    }
+
+    main {
+      overflow: hidden;
     }
 
     section {
-      max-width: 1000px;
+      max-width: 1120px;
       margin: auto;
-      padding: 55px 20px;
+      padding: 90px 24px;
+    }
+
+    .section-heading {
+      max-width: 720px;
+      margin-bottom: 42px;
+    }
+
+    .section-label {
+      display: inline-block;
+      margin-bottom: 8px;
+      color: var(--blue);
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
     }
 
     h2 {
-      color: #17324d;
-      margin-bottom: 24px;
+      margin: 0 0 14px;
+      color: var(--navy);
+      font-size: clamp(34px, 5vw, 48px);
+      line-height: 1.15;
+      letter-spacing: -1.5px;
+    }
+
+    .section-intro {
+      margin: 0;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .about-card {
+      position: relative;
+      overflow: hidden;
+      padding: 42px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: var(--shadow);
+    }
+
+    .about-card::before {
+      content: "";
+      position: absolute;
+      width: 8px;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background: linear-gradient(var(--cyan), var(--blue), var(--purple));
+    }
+
+    .about-card p {
+      margin: 0;
+      font-size: clamp(18px, 2.5vw, 22px);
+      color: #334155;
+    }
+
+    #projects {
+      max-width: none;
+      background:
+        linear-gradient(
+          180deg,
+          rgba(226, 232, 240, 0.35),
+          rgba(255, 255, 255, 0.7)
+        );
+    }
+
+    #projects > div {
+      max-width: 1120px;
+      margin: auto;
     }
 
     .project-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 24px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 25px;
     }
 
     .card {
-      background: white;
-      padding: 24px;
-      border-radius: 10px;
-      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+      position: relative;
+      overflow: hidden;
+      min-height: 290px;
+      padding: 32px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: 0 10px 35px rgba(15, 23, 42, 0.08);
+      transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+    }
+
+    .card::after {
+      content: "";
+      position: absolute;
+      width: 140px;
+      height: 140px;
+      right: -55px;
+      bottom: -60px;
+      border-radius: 50%;
+      opacity: 0.12;
+      transition: transform 0.35s ease;
+    }
+
+    .card:nth-child(1) {
+      border-top: 5px solid var(--cyan);
+    }
+
+    .card:nth-child(1)::after {
+      background: var(--cyan);
+    }
+
+    .card:nth-child(2) {
+      border-top: 5px solid var(--orange);
+    }
+
+    .card:nth-child(2)::after {
+      background: var(--orange);
+    }
+
+    .card:nth-child(3) {
+      border-top: 5px solid var(--purple);
+    }
+
+    .card:nth-child(3)::after {
+      background: var(--purple);
+    }
+
+    .card:nth-child(4) {
+      border-top: 5px solid var(--green);
+    }
+
+    .card:nth-child(4)::after {
+      background: var(--green);
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 24px 50px rgba(15, 23, 42, 0.15);
+    }
+
+    .card:hover::after {
+      transform: scale(1.25);
+    }
+
+    .project-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 46px;
+      height: 46px;
+      margin-bottom: 22px;
+      color: white;
+      font-weight: 800;
+      border-radius: 14px;
+    }
+
+    .card:nth-child(1) .project-number {
+      background: linear-gradient(135deg, var(--cyan), var(--blue));
+    }
+
+    .card:nth-child(2) .project-number {
+      background: linear-gradient(135deg, #f59e0b, var(--orange));
+    }
+
+    .card:nth-child(3) .project-number {
+      background: linear-gradient(135deg, #a855f7, var(--purple));
+    }
+
+    .card:nth-child(4) .project-number {
+      background: linear-gradient(135deg, #34d399, var(--green));
+    }
+
+    .card h3 {
+      position: relative;
+      z-index: 1;
+      margin: 0 0 14px;
+      color: var(--navy);
+      font-size: 24px;
+      line-height: 1.3;
+    }
+
+    .card p {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
     }
 
     .skills span {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      padding: 11px 17px;
+      color: var(--navy);
+      font-weight: 700;
+      border: 1px solid rgba(37, 99, 235, 0.15);
+      border-radius: 999px;
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.95),
+          rgba(219, 234, 254, 0.65)
+        );
+      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.08);
+      transition:
+        transform 0.25s ease,
+        background 0.25s ease;
+    }
+
+    .skills span:hover {
+      transform: translateY(-3px) scale(1.03);
+      color: white;
+      background: linear-gradient(135deg, var(--blue), var(--purple));
+    }
+
+    #contact {
+      padding-bottom: 110px;
+    }
+
+    .contact-card {
+      position: relative;
+      overflow: hidden;
+      padding: 55px;
+      color: white;
+      border-radius: 28px;
+      background:
+        linear-gradient(
+          135deg,
+          var(--navy),
+          var(--blue) 55%,
+          var(--purple)
+        );
+      box-shadow: 0 25px 60px rgba(37, 99, 235, 0.28);
+    }
+
+    .contact-card::before {
+      content: "";
+      position: absolute;
+      width: 240px;
+      height: 240px;
+      top: -120px;
+      right: -80px;
+      border-radius: 50%;
+      background: rgba(103, 232, 249, 0.2);
+    }
+
+    .contact-card h2 {
+      position: relative;
+      margin-bottom: 16px;
+      color: white;
+    }
+
+    .contact-card > p {
+      position: relative;
+      max-width: 650px;
+      margin-bottom: 30px;
+      color: rgba(255, 255, 255, 0.82);
+      font-size: 18px;
+    }
+
+    .contact-links {
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .button {
+      border: 1px solid rgba(255, 255, 255, 0.4);
+    }
+
+    .button-primary {
+      color: var(--navy);
       background: white;
-      margin: 5px;
-      padding: 8px 12px;
-      border-radius: 5px;
+      border-color: white;
+    }
+
+    .button-secondary {
+      color: white;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+    }
+
+    .button:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.25);
     }
 
     footer {
+      padding: 32px 20px;
+      color: rgba(255, 255, 255, 0.76);
       text-align: center;
-      background: #17324d;
-      color: white;
-      padding: 30px 20px;
+      background: #0b1f33;
     }
 
-    footer a {
-      color: white;
+    footer p {
+      margin: 0;
+    }
+
+    @media (max-width: 760px) {
+      header {
+        min-height: auto;
+        padding: 100px 20px;
+      }
+
+      header h1 {
+        letter-spacing: -2px;
+      }
+
+      nav {
+        flex-direction: column;
+        align-items: stretch;
+        max-width: 360px;
+        margin: auto;
+      }
+
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 70px 20px;
+      }
+
+      .about-card,
+      .contact-card {
+        padding: 32px 26px;
+      }
+
+      .contact-links {
+        flex-direction: column;
+      }
+
+      .button {
+        width: 100%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition: none !important;
+      }
     }
   </style>
 </head>
@@ -101,101 +550,169 @@
 <body>
 
   <header>
-    <h1>Assem Ryan</h1>
-    <p>Mechanical Engineer | Product Development | Robotics | Manufacturing</p>
+    <div class="hero-content">
+      <div class="eyebrow">Engineering ideas into reality</div>
 
-    <nav>
-      <a href="#about">About Me</a>
-      <a href="#projects">Projects</a>
-      <a href="#skills">Skills</a>
-      <a href="#contact">Contact</a>
-    </nav>
+      <h1>Assem <span>Ryan</span></h1>
+
+      <p class="hero-subtitle">
+        Mechanical Engineer focused on product development, robotics,
+        manufacturing, automation and simulation.
+      </p>
+
+      <nav aria-label="Main navigation">
+        <a href="#about">About Me</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
   </header>
 
-  <section id="about">
-    <h2>About Me</h2>
+  <main>
+    <section id="about">
+      <div class="section-heading">
+        <span class="section-label">Who I Am</span>
+        <h2>Engineering with purpose and precision.</h2>
+      </div>
 
-    <p>
-      I am a Mechanical Engineering master's student at Dortmund University
-      of Applied Sciences, specializing in Product Development and Simulation.
-      I enjoy solving engineering problems through mechanical design,
-      manufacturing, automation and analytical thinking.
-    </p>
-  </section>
-
-  <section id="projects">
-    <h2>Engineering Projects</h2>
-
-    <div class="project-grid">
-
-      <div class="card">
-        <h3>Medical Robot Gripper</h3>
+      <div class="about-card">
         <p>
-          Development of a robotic gripper for handling medical instruments.
-          The project received third place at the MittelstandsMakerthon NRW.
+          I am a Mechanical Engineering master's student at Dortmund University
+          of Applied Sciences, specializing in Product Development and
+          Simulation. I enjoy turning technical challenges into practical
+          solutions through mechanical design, manufacturing, automation and
+          analytical thinking.
+        </p>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div>
+        <div class="section-heading">
+          <span class="section-label">Selected Work</span>
+          <h2>Engineering projects</h2>
+          <p class="section-intro">
+            A selection of projects involving robotics, automation, motor
+            control and manufacturing technology.
+          </p>
+        </div>
+
+        <div class="project-grid">
+
+          <article class="card">
+            <div class="project-number">01</div>
+            <h3>Medical Robot Gripper</h3>
+            <p>
+              Development of a robotic gripper for handling medical
+              instruments. The project received third place at the
+              MittelstandsMakerthon NRW.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="project-number">02</div>
+            <h3>Nuevo 35 Test Bench Automation</h3>
+            <p>
+              Member of the test bench automation team, working with NI
+              LabVIEW on automated testing, system operation and technical
+              data evaluation.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="project-number">03</div>
+            <h3>PMSM Control</h3>
+            <p>
+              Commissioning, parameterization and control of a
+              permanent-magnet synchronous motor using Hybrid-Kit, One Eye
+              and NI LabVIEW.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="project-number">04</div>
+            <h3>3D Printer with Laser Engraver</h3>
+            <p>
+              Bachelor's thesis focused on the design and development of a
+              3D printer with an integrated laser engraving system.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="section-heading">
+        <span class="section-label">Capabilities</span>
+        <h2>Technical skills</h2>
+        <p class="section-intro">
+          Tools and disciplines I use to design, build, test and improve
+          engineering systems.
         </p>
       </div>
 
-      <div class="card">
-        <h3>Nuevo 35 Test Bench Automation</h3>
-        <p>
-          Member of the test bench automation team, working with NI LabVIEW
-          on automated testing and technical data evaluation.
-        </p>
+      <div class="skills">
+        <span>SolidWorks</span>
+        <span>SolidCAM</span>
+        <span>NI LabVIEW</span>
+        <span>CNC Manufacturing</span>
+        <span>3D Printing</span>
+        <span>Quality Control</span>
+        <span>Product Development</span>
+        <span>Simulation</span>
+        <span>Automation</span>
+        <span>Microsoft Office</span>
       </div>
+    </section>
 
-      <div class="card">
-        <h3>PMSM Control</h3>
+    <section id="contact">
+      <div class="contact-card">
+        <span class="section-label" style="color: #67e8f9;">
+          Get in touch
+        </span>
+
+        <h2>Let’s build something meaningful.</h2>
+
         <p>
-          Commissioning, parameterization and control of a permanent-magnet
-          synchronous motor using Hybrid-Kit, One Eye and NI LabVIEW.
+          I am open to engineering opportunities, technical collaborations
+          and conversations about product development, robotics and
+          manufacturing.
         </p>
+
+        <div class="contact-links">
+          <a
+            class="button button-primary"
+            href="mailto:assemamer13@gmail.com"
+          >
+            Email Me
+          </a>
+
+          <a
+            class="button button-secondary"
+            href="YOUR-LINKEDIN-URL"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            LinkedIn
+          </a>
+
+          <a
+            class="button button-secondary"
+            href="Assem-Ryan-CV.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Download CV
+          </a>
+        </div>
       </div>
-
-      <div class="card">
-        <h3>3D Printer with Laser Engraver</h3>
-        <p>
-          Bachelor's thesis focused on the design and development of a
-          3D printer with an integrated laser engraving system.
-        </p>
-      </div>
-
-    </div>
-  </section>
-
-  <section id="skills">
-    <h2>Technical Skills</h2>
-
-    <div class="skills">
-      <span>SolidWorks</span>
-      <span>SolidCAM</span>
-      <span>NI LabVIEW</span>
-      <span>CNC</span>
-      <span>3D Printing</span>
-      <span>Quality Control</span>
-      <span>Product Development</span>
-      <span>Simulation</span>
-      <span>Microsoft Office</span>
-    </div>
-  </section>
-
-  <section id="contact">
-    <h2>Contact</h2>
-
-    <p>Email: <a href="mailto:assemamer13@gmail.com">assemamer13@gmail.com</a></p>
-
-    <p>
-      LinkedIn:
-      <a href="YOUR-LINKEDIN-URL" target="_blank">View my profile</a>
-    </p>
-
-    <a class="button button-dark" href="Assem-Ryan-CV.pdf" target="_blank">
-      Download CV
-    </a>
-  </section>
+    </section>
+  </main>
 
   <footer>
-    <p>© 2026 Assem Ryan</p>
+    <p>© 2026 Assem Ryan. Designed with precision.</p>
   </footer>
 
 </body>
