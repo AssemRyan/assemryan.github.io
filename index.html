@@ -54,7 +54,6 @@
 
       box-sizing: border-box;
 
-
     }
 
     html {
@@ -164,7 +163,6 @@
       min-height: 720px;
 
       display: flex;
-
 
       align-items: center;
 
@@ -276,7 +274,6 @@
 
       backdrop-filter: blur(12px);
 
-
     }
 
     header h1 {
@@ -386,7 +383,6 @@
       margin: auto;
 
       padding: 90px 24px;
-
 
     }
 
@@ -498,7 +494,6 @@
 
           rgba(226, 232, 240, 0.35),
 
-
           rgba(255, 255, 255, 0.7)
 
         );
@@ -517,7 +512,7 @@
 
       display: grid;
 
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
 
       gap: 25px;
 
@@ -529,9 +524,9 @@
 
       overflow: hidden;
 
-      min-height: 290px;
+      min-height: 100%;
 
-      padding: 32px;
+      padding: 0;
 
       border: 1px solid var(--border);
 
@@ -608,7 +603,6 @@
     }
 
     .card:nth-child(4) {
-
 
       border-top: 5px solid var(--green);
 
@@ -706,6 +700,90 @@
 
       color: var(--muted);
 
+      font-size: 15.5px;
+
+      line-height: 1.72;
+
+    }
+
+    .project-card-media {
+      position: relative;
+      height: 185px;
+      overflow: hidden;
+      background: #e2e8f0;
+    }
+
+    .project-card-media img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.35s ease;
+    }
+
+    .card:hover .project-card-media img {
+      transform: scale(1.045);
+    }
+
+    .project-card-placeholder {
+      display: grid;
+      place-items: center;
+      color: white;
+      background:
+        radial-gradient(circle at 22% 20%, rgba(103, 232, 249, 0.34), transparent 28%),
+        linear-gradient(135deg, var(--navy), var(--blue) 58%, var(--purple));
+    }
+
+    .project-card-placeholder::before,
+    .project-card-placeholder::after {
+      content: "";
+      position: absolute;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 50%;
+    }
+
+    .project-card-placeholder::before {
+      width: 190px;
+      height: 190px;
+    }
+
+
+    .project-card-placeholder::after {
+      width: 115px;
+      height: 115px;
+    }
+
+    .project-card-placeholder span {
+      position: relative;
+      z-index: 1;
+      font-size: 32px;
+      font-weight: 900;
+      letter-spacing: -1px;
+    }
+
+    .project-card-content {
+      padding: 27px 28px 30px;
+    }
+
+    .project-tags {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 18px;
+    }
+
+    .project-tags span {
+      display: inline-flex;
+      padding: 6px 9px;
+      color: #334155;
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1;
+      border: 1px solid rgba(37, 99, 235, 0.14);
+      border-radius: 999px;
+      background: #eff6ff;
     }
 
     .skills {
@@ -719,7 +797,6 @@
       position: relative;
       overflow: hidden;
       min-height: 150px;
-
       padding: 25px;
       color: var(--navy);
       text-align: left;
@@ -738,6 +815,7 @@
         transform 0.28s ease,
         box-shadow 0.28s ease,
         border-color 0.28s ease;
+
     }
 
     .skill-category-button::after {
@@ -806,6 +884,7 @@
 
     .skill-category-button:nth-child(2) .skill-category-code {
       background: linear-gradient(135deg, #f59e0b, var(--orange));
+
     }
 
     .skill-category-button:nth-child(3) .skill-category-code {
@@ -830,7 +909,6 @@
     .skill-category-title {
       position: relative;
       z-index: 1;
-
       display: block;
       margin-bottom: 8px;
       color: var(--navy);
@@ -846,6 +924,202 @@
       color: var(--muted);
       font-size: 15px;
       line-height: 1.55;
+    }
+
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      max-width: 820px;
+      margin: 34px auto 0;
+    }
+
+    .hero-stat {
+      padding: 14px 13px;
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      border-radius: 15px;
+      background: rgba(255, 255, 255, 0.10);
+      backdrop-filter: blur(10px);
+    }
+
+    .hero-stat strong {
+      display: block;
+      margin-bottom: 2px;
+      color: white;
+      font-size: 22px;
+      line-height: 1.1;
+    }
+
+    .hero-stat span {
+      display: block;
+
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1.35;
+    }
+
+    .skill-category-cta {
+      position: relative;
+      z-index: 1;
+      display: inline-flex;
+      margin-top: 16px;
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 850;
+    }
+
+    #credentials {
+      max-width: none;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(219, 234, 254, 0.36));
+    }
+
+    #credentials > div {
+      max-width: 1120px;
+      margin: auto;
+    }
+
+    .credential-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .credential-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 305px;
+      padding: 30px;
+      color: inherit;
+      text-decoration: none;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      background: white;
+      box-shadow: 0 12px 35px rgba(15, 23, 42, 0.09);
+      transition: transform 0.28s ease, box-shadow 0.28s ease;
+    }
+
+    .credential-card::after {
+      content: "";
+      position: absolute;
+      width: 155px;
+      height: 155px;
+      right: -66px;
+      bottom: -73px;
+      border-radius: 50%;
+      opacity: 0.11;
+      background: var(--blue);
+    }
+
+    .credential-card:nth-child(1) {
+      border-top: 5px solid var(--orange);
+    }
+
+    .credential-card:nth-child(1)::after {
+      background: var(--orange);
+    }
+
+    .credential-card:nth-child(2) {
+
+      border-top: 5px solid var(--green);
+    }
+
+    .credential-card:nth-child(2)::after {
+      background: var(--green);
+    }
+
+    .credential-card:nth-child(3) {
+      border-top: 5px solid var(--blue);
+    }
+
+    .credential-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 24px 50px rgba(15, 23, 42, 0.15);
+    }
+
+    .credential-card:focus-visible {
+      outline: 4px solid rgba(37, 99, 235, 0.25);
+      outline-offset: 5px;
+    }
+
+    .credential-icon {
+      position: relative;
+      z-index: 1;
+      display: inline-grid;
+      place-items: center;
+      width: 52px;
+      height: 52px;
+      margin-bottom: 21px;
+      color: white;
+      font-size: 23px;
+      border-radius: 15px;
+      background: linear-gradient(135deg, #f59e0b, var(--orange));
+    }
+
+    .credential-card:nth-child(2) .credential-icon {
+      background: linear-gradient(135deg, #34d399, var(--green));
+    }
+
+    .credential-card:nth-child(3) .credential-icon {
+      background: linear-gradient(135deg, var(--cyan), var(--blue));
+    }
+
+    .credential-type {
+      position: absolute;
+      top: 30px;
+      right: 27px;
+      z-index: 1;
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .credential-card h3 {
+      position: relative;
+      z-index: 1;
+      margin: 0 0 12px;
+      color: var(--navy);
+      font-size: 22px;
+      line-height: 1.25;
+    }
+
+    .credential-card p {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+
+      color: var(--muted);
+      font-size: 15.5px;
+      line-height: 1.68;
+    }
+
+    .credential-meta {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 20px 0 18px;
+    }
+
+    .credential-meta span {
+      padding: 7px 10px;
+      color: #334155;
+      font-size: 12px;
+      font-weight: 850;
+      border-radius: 999px;
+      background: #f1f5f9;
+    }
+
+    .credential-link {
+      position: relative;
+      z-index: 1;
+      color: var(--blue);
+      font-weight: 850;
     }
 
 
@@ -956,6 +1230,7 @@
 
       border-color: white;
 
+
     }
 
     .button-secondary {
@@ -997,7 +1272,6 @@
     .profile-photo {
       display: block;
       width: 180px;
-
       height: 180px;
       margin: 0 auto 30px;
       object-fit: cover;
@@ -1054,7 +1328,6 @@
       letter-spacing: -0.5px;
     }
 
-
     .read-more {
       position: relative;
       z-index: 2;
@@ -1093,6 +1366,7 @@
       overflow-y: auto;
       border: 1px solid rgba(255, 255, 255, 0.38);
       border-radius: 28px;
+
       background: white;
       box-shadow: 0 35px 90px rgba(0, 0, 0, 0.38);
       animation: modalOpen 0.28s ease;
@@ -1109,7 +1383,6 @@
       border-radius: 50%;
       color: white;
       font-size: 30px;
-
       line-height: 1;
       cursor: pointer;
       background: rgba(15, 23, 42, 0.76);
@@ -1165,7 +1438,6 @@
     .modal-intro {
       max-width: 760px;
       margin: 0;
-
       color: var(--muted);
       font-size: 19px;
     }
@@ -1221,7 +1493,6 @@
     }
 
     .automation-project-card:focus-visible {
-
       outline: 4px solid rgba(249, 115, 22, 0.28);
       outline-offset: 5px;
     }
@@ -1232,6 +1503,7 @@
 
     .thesis-project-card:focus-visible {
       outline: 4px solid rgba(124, 58, 237, 0.28);
+
       outline-offset: 5px;
     }
 
@@ -1277,7 +1549,6 @@
 
     .project-media-item figcaption {
       padding: 12px 15px;
-
       color: var(--muted);
       font-size: 14px;
       font-weight: 700;
@@ -1301,6 +1572,7 @@
 
     .video-caption {
       margin: 14px 0 0;
+
       color: var(--muted);
       font-size: 15px;
       line-height: 1.65;
@@ -1333,7 +1605,6 @@
       background:
         radial-gradient(circle at 22% 28%, rgba(103, 232, 249, 0.32), transparent 25%),
         linear-gradient(135deg, #0b2942, #2563eb 58%, #06b6d4);
-
     }
 
     .capability-hero-manufacturing {
@@ -1370,6 +1641,7 @@
 
     .capability-box h3 {
       margin: 0 0 10px;
+
       color: var(--navy);
       font-size: 20px;
     }
@@ -1389,7 +1661,6 @@
     .capability-tools span {
       padding: 8px 12px;
       color: var(--navy);
-
       font-size: 13px;
       font-weight: 800;
       border: 1px solid rgba(37, 99, 235, 0.16);
@@ -1439,13 +1710,13 @@
     .capability-section-title {
       margin: 38px 0 15px;
       color: var(--navy);
+
       font-size: 26px;
     }
 
     .modal-action-button {
       display: inline-flex;
       align-items: center;
-
       justify-content: center;
       margin-top: 22px;
       min-height: 46px;
@@ -1501,7 +1772,6 @@
       justify-content: space-between;
       gap: 14px;
       margin-bottom: 10px;
-
     }
 
     .solidworks-project h3 {
@@ -1509,6 +1779,7 @@
       color: var(--navy);
       font-size: 23px;
       line-height: 1.3;
+
     }
 
     .solidworks-project p {
@@ -1557,7 +1828,6 @@
       padding: 5px 9px;
       color: white;
       font-size: 11px;
-
       font-weight: 800;
       border-radius: 999px;
       background: rgba(15, 23, 42, 0.76);
@@ -1579,9 +1849,23 @@
         transform: translateY(24px) scale(0.98);
       }
 
+
       to {
         opacity: 1;
         transform: translateY(0) scale(1);
+      }
+    }
+
+
+
+    @media (max-width: 980px) {
+      .project-grid,
+      .credential-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .credential-card:last-child {
+        grid-column: 1 / -1;
       }
     }
 
@@ -1627,10 +1911,20 @@
 
       }
 
-      .project-grid {
+      .project-grid,
+      .credential-grid {
 
         grid-template-columns: 1fr;
 
+      }
+
+
+      .credential-card:last-child {
+        grid-column: auto;
+      }
+
+      .hero-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
       .skills,
@@ -1693,6 +1987,7 @@
         height: 210px;
       }
 
+
       .solidworks-project-grid {
         grid-template-columns: 1fr;
       }
@@ -1723,7 +2018,6 @@
       *,
 
       *::before,
-
 
       *::after {
 
@@ -1761,6 +2055,7 @@
 <img
         src="Profile.jpeg"
         alt="Portrait of Assem Ryan"
+
         class="profile-photo"
       >
       <div class="eyebrow" data-i18n="eyebrow">
@@ -1787,9 +2082,30 @@
 
         <a href="#skills" data-i18n="navSkills">Skills</a>
 
+        <a href="#credentials" data-i18n="navCredentials">Awards &amp; Certificates</a>
+
         <a href="#contact" data-i18n="navContact">Contact</a>
 
       </nav>
+
+      <div class="hero-stats" aria-label="Portfolio highlights">
+        <div class="hero-stat">
+          <strong>5+</strong>
+          <span data-i18n="statProjects">Engineering projects</span>
+        </div>
+        <div class="hero-stat">
+          <strong>3rd</strong>
+          <span data-i18n="statAward">Makerthon award</span>
+        </div>
+        <div class="hero-stat">
+          <strong>C1</strong>
+          <span data-i18n="statGerman">German proficiency</span>
+        </div>
+        <div class="hero-stat">
+          <strong>7.5</strong>
+          <span data-i18n="statEnglish">IELTS Academic</span>
+        </div>
+      </div>
 
     </div>
 
@@ -1808,6 +2124,7 @@
       </div>
 
       <div class="about-card">
+
 
         <p data-i18n="aboutText">
 
@@ -1835,7 +2152,6 @@
 
           <span class="section-label" data-i18n="projectsLabel">Selected Work</span>
 
-
           <h2 data-i18n="projectsTitle">Engineering projects</h2>
 
           <p class="section-intro" data-i18n="projectsIntro">
@@ -1860,24 +2176,32 @@
             onkeydown="handleProjectKey(event)"
           >
 
-            <div class="project-visual" aria-hidden="true">
-              <div class="project-visual-ring"></div>
-              <div class="project-visual-core">MR</div>
+            <div class="project-card-media project-card-placeholder" aria-hidden="true">
+              <span>MR</span>
             </div>
 
-            <div class="project-number">01</div>
+            <div class="project-card-content">
+              <div class="project-number">01</div>
 
-            <h3 data-i18n="project1Title">Medical Robot Gripper</h3>
+              <h3 data-i18n="project1Title">Medical Robot Gripper</h3>
 
-            <p data-i18n="project1Text">
-              Development of a sterilization-oriented quick-change concept
-              for robotic surgical instruments. The project received third
-              place at the MittelstandsMakerthon NRW.
-            </p>
+              <p data-i18n="project1Text">
+                Development of a sterilization-oriented quick-change concept
+                for robotic surgical instruments. The project received third
+                place at the MittelstandsMakerthon NRW.
+              </p>
 
-            <span class="read-more" data-i18n="readMore">
-              Project overview →
-            </span>
+              <div class="project-tags" aria-label="Project technologies">
+                <span>SolidWorks</span>
+
+                <span data-i18n="tagProductDevelopment">Product Development</span>
+                <span data-i18n="tagMedicalRobotics">Medical Robotics</span>
+              </div>
+
+              <span class="read-more" data-i18n="readMore">
+                Project overview →
+              </span>
+            </div>
 
           </article>
 
@@ -1891,19 +2215,34 @@
             onkeydown="handleAutomationKey(event)"
           >
 
+            <div class="project-card-media">
+              <img
+                src="nuevo35-solution.png"
+                alt="NI LabVIEW controlled shutdown implementation for the Nuevo 35 test bench"
+                loading="lazy"
+              >
+            </div>
 
-            <div class="project-number">02</div>
+            <div class="project-card-content">
+              <div class="project-number">02</div>
 
-            <h3 data-i18n="project2Title">Nuevo 35 Test Bench Automation</h3>
+              <h3 data-i18n="project2Title">Nuevo 35 Test Bench Automation</h3>
 
-            <p data-i18n="project2Text">
-              Development of a controlled shutdown sequence in NI LabVIEW
-              to improve test-bench safety and system behavior.
-            </p>
+              <p data-i18n="project2Text">
+                Development of a controlled shutdown sequence in NI LabVIEW
+                to improve test-bench safety and system behavior.
+              </p>
 
-            <span class="read-more" data-i18n="automationReadMore">
-              View automation project →
-            </span>
+              <div class="project-tags" aria-label="Project technologies">
+                <span>NI LabVIEW</span>
+                <span data-i18n="tagAutomation">Automation</span>
+                <span data-i18n="tagTestEngineering">Test Engineering</span>
+              </div>
+
+              <span class="read-more" data-i18n="automationReadMore">
+                View automation project →
+              </span>
+            </div>
 
           </article>
 
@@ -1917,18 +2256,35 @@
             onkeydown="handleHybridPrinterKey(event)"
           >
 
-            <div class="project-number">03</div>
+            <div class="project-card-media">
+              <img
+                src="project3-laser-engraving-process.png"
+                alt="Integrated laser engraving process on the hybrid 3D-printer platform"
+                loading="lazy"
+              >
 
-            <h3 data-i18n="project3Title">3D Printer with Laser Engraver</h3>
+            </div>
 
-            <p data-i18n="project3Text">
-              Bachelor's thesis focused on a dual-purpose machine combining
-              FDM 3D printing and laser engraving on one motion platform.
-            </p>
+            <div class="project-card-content">
+              <div class="project-number">03</div>
 
-            <span class="read-more" data-i18n="project3ReadMore">
-              View thesis project →
-            </span>
+              <h3 data-i18n="project3Title">3D Printer with Laser Engraver</h3>
+
+              <p data-i18n="project3Text">
+                Bachelor's thesis focused on a dual-purpose machine combining
+                FDM 3D printing and laser engraving on one motion platform.
+              </p>
+
+              <div class="project-tags" aria-label="Project technologies">
+                <span data-i18n="tag3dPrinting">3D Printing</span>
+                <span data-i18n="tagLaserEngraving">Laser Engraving</span>
+                <span data-i18n="tagPrototyping">Prototyping</span>
+              </div>
+
+              <span class="read-more" data-i18n="project3ReadMore">
+                View thesis project →
+              </span>
+            </div>
 
           </article>
 
@@ -1975,7 +2331,9 @@
           </span>
           <span class="skill-category-summary" data-i18n="skillDesignSummary">
             SolidWorks, parametric design, assemblies, drawings and simulation.
+
           </span>
+          <span class="skill-category-cta" data-i18n="skillExplore">Explore capability →</span>
         </button>
 
         <button
@@ -1996,12 +2354,12 @@
           <span class="skill-category-summary" data-i18n="skillManufacturingSummary">
             SolidCAM, CNC manufacturing, process planning and 3D printing.
           </span>
+          <span class="skill-category-cta" data-i18n="skillExplore">Explore capability →</span>
         </button>
 
         <button
           class="skill-category-button"
           type="button"
-
           aria-haspopup="dialog"
           aria-controls="automationSkillModal"
           aria-label="View automation and test-engineering capability"
@@ -2017,6 +2375,7 @@
           <span class="skill-category-summary" data-i18n="skillAutomationSummary">
             NI LabVIEW, test-bench logic, controlled sequences and safety behavior.
           </span>
+          <span class="skill-category-cta" data-i18n="skillExplore">Explore capability →</span>
         </button>
 
         <button
@@ -2037,8 +2396,88 @@
           <span class="skill-category-summary" data-i18n="skillQualitySummary">
             Inspection, technical reports, data evaluation and Microsoft Office.
           </span>
+          <span class="skill-category-cta" data-i18n="skillExplore">Explore capability →</span>
         </button>
 
+      </div>
+
+
+    </section>
+
+    <section id="credentials">
+
+      <div>
+        <div class="section-heading">
+          <span class="section-label" data-i18n="credentialsLabel">Recognition</span>
+          <h2 data-i18n="credentialsTitle">Awards &amp; certifications</h2>
+          <p class="section-intro" data-i18n="credentialsIntro">
+            Independent recognition of engineering work and certified language
+            proficiency for German and international professional environments.
+          </p>
+        </div>
+
+        <div class="credential-grid">
+          <a
+            class="credential-card"
+            href="Mittelstandsurkunde.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span class="credential-icon" aria-hidden="true">🏆</span>
+            <span class="credential-type" data-i18n="credentialAwardType">Award</span>
+            <h3 data-i18n="credentialAwardTitle">3rd Place – MittelstandsMAKERTHON NRW</h3>
+            <p data-i18n="credentialAwardText">
+              Awarded for an innovative quick-change concept for robotic surgical
+              instruments, developed as part of a student engineering team.
+            </p>
+            <div class="credential-meta">
+              <span>2026</span>
+              <span data-i18n="credentialAwardMeta">RegionWestfalen · 3rd place</span>
+            </div>
+            <span class="credential-link" data-i18n="viewCertificate">View certificate ↗</span>
+          </a>
+
+          <a
+            class="credential-card"
+            href="Telc C1.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span class="credential-icon" aria-hidden="true">DE</span>
+            <span class="credential-type" data-i18n="credentialLanguageType">Language</span>
+            <h3 data-i18n="credentialTelcTitle">telc Deutsch C1 Hochschule</h3>
+            <p data-i18n="credentialTelcText">
+              Certified advanced German proficiency for academic study and
+              professional technical communication.
+            </p>
+            <div class="credential-meta">
+              <span>2025</span>
+              <span data-i18n="credentialTelcMeta">Result: Good · 189/214 points</span>
+            </div>
+            <span class="credential-link" data-i18n="viewCertificate">View certificate ↗</span>
+          </a>
+
+          <a
+            class="credential-card"
+            href="IELTS Zertifikat.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span class="credential-icon" aria-hidden="true">EN</span>
+            <span class="credential-type" data-i18n="credentialLanguageType">Language</span>
+            <h3 data-i18n="credentialIeltsTitle">IELTS Academic – CEFR C1</h3>
+            <p data-i18n="credentialIeltsText">
+              Advanced English proficiency demonstrated through the IELTS
+              Academic examination for international study and work.
+
+            </p>
+            <div class="credential-meta">
+              <span>2023</span>
+              <span data-i18n="credentialIeltsMeta">Overall band score: 7.5</span>
+            </div>
+            <span class="credential-link" data-i18n="viewCertificate">View certificate ↗</span>
+          </a>
+        </div>
       </div>
 
     </section>
@@ -2106,13 +2545,21 @@
           </a>
 
           <a
+            class="button button-secondary"
+            href="https://github.com/AssemRyan"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub
+          </a>
+
+          <a
 
             class="button button-secondary"
 
             href="assem-ryan-resume-en.pdf"
 
             target="_blank"
-
 
             rel="noopener noreferrer"
 
@@ -2160,6 +2607,7 @@
 
     <div class="project-modal-content">
 
+
       <button
         class="modal-close"
         type="button"
@@ -2168,7 +2616,6 @@
       >
         ×
       </button>
-
 
       <div class="modal-visual" aria-hidden="true">
         <div class="modal-visual-ring"></div>
@@ -2224,11 +2671,11 @@
           <div class="detail-box">
             <h3 data-i18n="statusTitle">Current Status</h3>
             <p data-i18n="statusText">
-
               Further technical development, simulation and intellectual
               property evaluation are ongoing.
             </p>
           </div>
+
 
         </div>
 
@@ -2280,7 +2727,6 @@
 
       <div class="modal-body">
         <span class="section-label" data-i18n="automationCaseLabel">
-
           Automation Project
         </span>
 
@@ -2298,6 +2744,7 @@
             <h3 data-i18n="automationProblemTitle">Initial Situation</h3>
             <p data-i18n="automationProblemText">
               Pressing Stop immediately terminated the program without a
+
               controlled deceleration, creating a potential safety risk.
             </p>
           </div>
@@ -2336,7 +2783,6 @@
             <img
               src="nuevo35-problem.png"
               alt="Initial LabVIEW program state before the controlled shutdown improvement"
-
             >
             <figcaption data-i18n="automationImage1Caption">
               Initial situation: pressing Stop ended the program immediately without controlled deceleration.
@@ -2367,6 +2813,7 @@
             <li data-i18n="automationHighlight2">
               Correct voltage calculations maintained during deceleration.
             </li>
+
             <li data-i18n="automationHighlight3">
               Restart blocked until the test bench reaches complete standstill.
             </li>
@@ -2392,7 +2839,6 @@
             The video shows the controlled ramp-down sequence and confirms that
             restart remains blocked until the test bench reaches complete standstill.
           </p>
-
         </div>
       </div>
     </div>
@@ -2436,6 +2882,7 @@
         <p class="modal-intro" data-i18n="project3ModalIntro">
           Design and development of a dual-purpose prototype that combines FDM
           additive manufacturing and laser engraving on a shared motion system.
+
         </p>
 
         <div class="project-details-grid">
@@ -2448,7 +2895,6 @@
           </div>
 
           <div class="detail-box">
-
             <h3 data-i18n="project3DesignTitle">Mechanical Development</h3>
             <p data-i18n="project3DesignText">
               The work covered the machine structure, linear motion, build area
@@ -2504,8 +2950,8 @@
             <img
               loading="lazy"
               src="project3-finished-printed-parts.jpg"
-
               alt="Finished brown 3D-printed bust and medallion prototypes"
+
             >
             <figcaption data-i18n="project3Image3Caption">
               Finished prototypes used to demonstrate detail reproduction and overall print quality.
@@ -2560,7 +3006,6 @@
 
         <p class="modal-intro" data-i18n="solidworksIntro">
           Parametric mechanical design from early concepts through assemblies, technical drawings, design evaluation and manufacturing-ready documentation.
-
         </p>
 
         <div class="capability-grid">
@@ -2575,6 +3020,7 @@
             <p data-i18n="designDevelopmentText">
               Converting functional requirements into concepts, refining geometry through iteration and considering manufacturability and assembly from the beginning.
             </p>
+
           </div>
           <div class="capability-box">
             <h3 data-i18n="designDrawingsTitle">Technical Drawings</h3>
@@ -2616,7 +3062,6 @@
             <div class="solidworks-gallery">
               <figure>
                 <img loading="lazy" src="bottle-assembly-cad-render.jpg" alt="SolidWorks bottle and lid assembly render">
-
                 <figcaption data-i18n="swCaptionAssembly">Assembly</figcaption>
               </figure>
               <figure>
@@ -2644,6 +3089,7 @@
                 <h3 data-i18n="swBracketTitle">Formed Sheet-Metal Bracket</h3>
                 <span class="solidworks-tag" data-i18n="swTagSheetMetal">Sheet metal</span>
               </div>
+
               <p data-i18n="swBracketText">
                 Manufacturing-oriented bracket modeled with bends, edge returns, mounting holes and cutouts, then documented with the dimensions required for fabrication.
               </p>
@@ -2672,7 +3118,6 @@
             </div>
             <div class="solidworks-gallery">
               <figure>
-
                 <img loading="lazy" src="sheet-metal-frame-cad-render.jpg" alt="Multi-bend sheet-metal support frame CAD render">
                 <figcaption data-i18n="swCaptionModel">3D model</figcaption>
               </figure>
@@ -2728,7 +3173,6 @@
                 <img loading="lazy" src="threaded-valve-cad-render.jpg" alt="Threaded valve housing CAD render">
                 <figcaption data-i18n="swCaptionModel">3D model</figcaption>
               </figure>
-
               <figure>
                 <img loading="lazy" src="threaded-valve-section-view.jpg" alt="Threaded valve housing section view">
                 <figcaption data-i18n="swCaptionSection">Section view</figcaption>
@@ -2782,9 +3226,9 @@
             <h3 data-i18n="manufacturingCamTitle">CAM Preparation</h3>
             <p data-i18n="manufacturingCamText">
               Preparing machining operations in SolidCAM, selecting suitable strategies and organizing toolpaths around the component geometry.
+
             </p>
           </div>
-
           <div class="capability-box">
             <h3 data-i18n="manufacturingCncTitle">CNC Manufacturing</h3>
             <p data-i18n="manufacturingCncText">
@@ -2852,6 +3296,7 @@
           </figure>
         </div>
 
+
         <div class="capability-workflow manufacturing">
           <h3 data-i18n="manufacturingWorkflowTitle">Typical workflow</h3>
           <ol>
@@ -2895,7 +3340,6 @@
         <span class="section-label" data-i18n="capabilityLabel">Capability Area</span>
 
         <h2 id="automationSkillModalTitle" data-i18n="automationSkillModalTitleText">
-
           Automation &amp; Test Engineering
         </h2>
 
@@ -2920,6 +3364,7 @@
             <h3 data-i18n="automationSequenceTitle">Sequence &amp; State Logic</h3>
             <p data-i18n="automationSequenceText">
               Defining ramp-up, normal operation, ramp-down, stop and restart conditions to prevent conflicting actions and unpredictable transitions.
+
             </p>
           </div>
           <div class="capability-box">
@@ -2951,7 +3396,6 @@
           >
             View the Nuevo 35 project →
           </button>
-
         </div>
       </div>
     </div>
@@ -2990,6 +3434,7 @@
           Quality &amp; Engineering Documentation
         </h2>
 
+
         <p class="modal-intro" data-i18n="qualityModalIntro">
           Structured verification and communication of engineering work through dimensional checks, technical drawings, measurement records, reports and clear project documentation.
         </p>
@@ -3007,7 +3452,6 @@
               Organizing measurement results and calculations so trends, deviations and conclusions can be reviewed efficiently.
             </p>
           </div>
-
           <div class="capability-box">
             <h3 data-i18n="qualityReportsTitle">Technical Reports</h3>
             <p data-i18n="qualityReportsText">
@@ -3059,6 +3503,7 @@
 
     const translations = {
 
+
       en: {
 
         pageTitle: "Assem Ryan | Mechanical Engineer",
@@ -3079,7 +3524,17 @@
 
         navSkills: "Skills",
 
+        navCredentials: "Awards & Certificates",
+
         navContact: "Contact",
+
+        statProjects: "Engineering projects",
+
+        statAward: "Makerthon award",
+
+        statGerman: "German proficiency",
+
+        statEnglish: "IELTS Academic",
 
         aboutLabel: "Who I Am",
 
@@ -3097,11 +3552,26 @@
 
           "A selection of projects involving robotics, automation and manufacturing technology.",
 
+        tagProductDevelopment: "Product Development",
+
+        tagMedicalRobotics: "Medical Robotics",
+
+        tagAutomation: "Automation",
+
+        tagTestEngineering: "Test Engineering",
+
+        tag3dPrinting: "3D Printing",
+
+        tagLaserEngraving: "Laser Engraving",
+
+        tagPrototyping: "Prototyping",
+
         project1Title: "Medical Robot Gripper",
 
         project1Text:
 
           "Development of a sterilization-oriented quick-change concept for robotic surgical instruments. The project received third place at the MittelstandsMakerthon NRW.",
+
 
         project2Title: "Nuevo 35 Test Bench Automation",
 
@@ -3171,6 +3641,7 @@
 
         project3Text:
 
+
           "Bachelor's thesis focused on a dual-purpose machine combining FDM 3D printing and laser engraving on one motion platform.",
 
         project3ReadMore: "View thesis project →",
@@ -3229,7 +3700,6 @@
 
         modalProjectIntro:
 
-
           "A quick-change concept for robotic surgical instruments, developed with a focus on cleanability, reduced component complexity and suitability for medical environments.",
 
         challengeTitle: "The Challenge",
@@ -3239,6 +3709,7 @@
           "Conventional industrial tool-changing concepts are often not suitable for medical environments because cleaning, sterilization and safe handling require additional design considerations.",
 
         approachTitle: "My Approach",
+
 
         approachText:
 
@@ -3285,7 +3756,6 @@
         designDevelopmentText:
           "Converting functional requirements into concepts, refining geometry through iteration and considering manufacturability and assembly from the beginning.",
 
-
         designDrawingsTitle: "Technical Drawings",
 
         designDrawingsText:
@@ -3308,6 +3778,7 @@
 
         swBottleText:
           "Parametric bottle and offset drinking-lid concept developed as a multi-part assembly, including ergonomic body geometry, threaded interfaces, assembly fit and production drawings.",
+
 
         swBracketTitle: "Formed Sheet-Metal Bracket",
 
@@ -3340,7 +3811,6 @@
         swCaptionAssembly: "Assembly",
 
         swCaptionPart: "Part model",
-
 
         swCaptionModel: "3D model",
 
@@ -3380,6 +3850,8 @@
         skillQualitySummary:
           "Inspection, technical reports, data evaluation and Microsoft Office.",
 
+        skillExplore: "Explore capability →",
+
         capabilityLabel: "Capability Area",
 
         manufacturingModalTitle: "Manufacturing & Prototyping",
@@ -3396,7 +3868,6 @@
 
         manufacturingCncText:
           "Considering workholding, tool access, operation order, cutting conditions and safe machine execution when planning a machined part.",
-
 
         manufacturingPrintTitle: "3D Printing",
 
@@ -3508,7 +3979,6 @@
 
         qualityOutput1: "Dimensioned manufacturing and assembly drawings.",
 
-
         qualityOutput2: "Measurement tables, calculations and inspection records.",
 
         qualityOutput3: "Structured project, test and design reports.",
@@ -3526,6 +3996,40 @@
         skillSimulation: "Simulation",
 
         skillAutomation: "Automation",
+
+        credentialsLabel: "Recognition",
+
+        credentialsTitle: "Awards & certifications",
+
+        credentialsIntro:
+          "Independent recognition of engineering work and certified language proficiency for German and international professional environments.",
+
+        credentialAwardType: "Award",
+
+        credentialLanguageType: "Language",
+
+        credentialAwardTitle: "3rd Place – MittelstandsMAKERTHON NRW",
+
+        credentialAwardText:
+          "Awarded for an innovative quick-change concept for robotic surgical instruments, developed as part of a student engineering team.",
+
+        credentialAwardMeta: "RegionWestfalen · 3rd place",
+
+        credentialTelcTitle: "telc Deutsch C1 Hochschule",
+
+        credentialTelcText:
+          "Certified advanced German proficiency for academic study and professional technical communication.",
+
+        credentialTelcMeta: "Result: Good · 189/214 points",
+
+        credentialIeltsTitle: "IELTS Academic – CEFR C1",
+
+        credentialIeltsText:
+          "Advanced English proficiency demonstrated through the IELTS Academic examination for international study and work.",
+
+        credentialIeltsMeta: "Overall band score: 7.5",
+
+        viewCertificate: "View certificate ↗",
 
         contactLabel: "Get in touch",
 
@@ -3565,7 +4069,17 @@
 
         navSkills: "Kenntnisse",
 
+        navCredentials: "Auszeichnungen & Zertifikate",
+
         navContact: "Kontakt",
+
+        statProjects: "Technische Projekte",
+
+        statAward: "Makerthon-Auszeichnung",
+
+        statGerman: "Deutschkenntnisse",
+
+        statEnglish: "IELTS Academic",
 
         aboutLabel: "Über mich",
 
@@ -3582,6 +4096,20 @@
         projectsIntro:
 
           "Eine Auswahl meiner Projekte aus den Bereichen Robotik, Automatisierung und Fertigungstechnik.",
+
+        tagProductDevelopment: "Produktentwicklung",
+
+        tagMedicalRobotics: "Medizinrobotik",
+
+        tagAutomation: "Automatisierung",
+
+        tagTestEngineering: "Prüftechnik",
+
+        tag3dPrinting: "3D-Druck",
+
+        tagLaserEngraving: "Lasergravur",
+
+        tagPrototyping: "Prototyping",
 
         project1Title: "Medizinischer Robotergreifer",
 
@@ -3618,7 +4146,6 @@
 
         automationSolutionText:
           "Die LabVIEW-Logik wurde um eine Ramp-Down-Sequenz, kontrollierte Spannungsberechnungen, eine Zustandsverwaltung und eine Neustartsperre während des Abbremsens erweitert.",
-
 
         automationResultTitle: "Ergebnis",
 
@@ -3730,7 +4257,6 @@
 
           "Im Projekt wurde ein vereinfachtes mechanisches Konzept untersucht, das unnötige Komplexität reduzieren und die Reinigung erleichtern soll, während die erforderliche Werkzeugwechselfunktion erhalten bleibt.",
 
-
         focusTitle: "Schwerpunkte",
 
         focusText:
@@ -3785,7 +4311,6 @@
         designToolProduct: "Produktentwicklung",
 
         designToolSimulation: "Simulation",
-
 
         designToolDrawings: "Technische Zeichnungen",
 
@@ -3842,7 +4367,6 @@
 
         skillsTitle: "Technische Kenntnisse",
 
-
         skillsIntro:
 
           "Vier miteinander verbundene Kompetenzbereiche vom Konzept und der Konstruktion über Fertigung und Prüfung bis zur Verifikation und Dokumentation.",
@@ -3866,6 +4390,8 @@
 
         skillQualitySummary:
           "Prüfung, technische Berichte, Datenauswertung und Microsoft Office.",
+
+        skillExplore: "Kompetenz ansehen →",
 
         capabilityLabel: "Kompetenzbereich",
 
@@ -3897,7 +4423,6 @@
         manufacturingToolProcess: "Prozessplanung",
 
         manufacturingToolDfm: "Fertigungsgerechte Konstruktion",
-
 
         manufacturingGalleryTitle: "Beispiele aus der additiven Fertigung",
 
@@ -4003,16 +4528,50 @@
 
         skillCnc: "CNC-Fertigung",
 
+
         skill3d: "3D-Druck",
 
         skillQuality: "Qualitätskontrolle",
 
         skillProduct: "Produktentwicklung",
 
-
         skillSimulation: "Simulation",
 
         skillAutomation: "Automatisierung",
+
+        credentialsLabel: "Nachweise",
+
+        credentialsTitle: "Auszeichnungen & Zertifikate",
+
+        credentialsIntro:
+          "Unabhängige Anerkennung technischer Arbeit sowie zertifizierte Sprachkenntnisse für deutsche und internationale Berufsumgebungen.",
+
+        credentialAwardType: "Auszeichnung",
+
+        credentialLanguageType: "Sprache",
+
+        credentialAwardTitle: "3. Platz – MittelstandsMAKERTHON NRW",
+
+        credentialAwardText:
+          "Auszeichnung für ein innovatives Schnellwechselkonzept für robotische chirurgische Instrumente, entwickelt in einem studentischen Engineering-Team.",
+
+        credentialAwardMeta: "RegionWestfalen · 3. Platz",
+
+        credentialTelcTitle: "telc Deutsch C1 Hochschule",
+
+        credentialTelcText:
+          "Zertifizierte fortgeschrittene Deutschkenntnisse für Studium und professionelle technische Kommunikation.",
+
+        credentialTelcMeta: "Prädikat: Gut · 189/214 Punkte",
+
+        credentialIeltsTitle: "IELTS Academic – GER C1",
+
+        credentialIeltsText:
+          "Fortgeschrittene Englischkenntnisse, nachgewiesen durch die IELTS-Academic-Prüfung für internationales Studium und Beruf.",
+
+        credentialIeltsMeta: "Gesamtpunktzahl: Band 7,5",
+
+        viewCertificate: "Zertifikat ansehen ↗",
 
         contactLabel: "Kontakt aufnehmen",
 
@@ -4037,6 +4596,7 @@
     const languageButtons = document.querySelectorAll(".language-button");
 
     const translatableElements = document.querySelectorAll("[data-i18n]");
+
 
     const descriptionMeta = document.querySelector('meta[name="description"]');
 
@@ -4105,6 +4665,7 @@
 
     function handleProjectKey(event) {
       if (event.key === "Enter" || event.key === " ") {
+
         event.preventDefault();
         openProjectModal();
       }
@@ -4119,7 +4680,6 @@
 
       if (automationModal.classList.contains("open")) {
         closeAutomationModal();
-
       }
 
       if (hybridPrinterModal.classList.contains("open")) {
@@ -4174,8 +4734,8 @@
       hybridPrinterModal.setAttribute("aria-hidden", "false");
       document.body.style.overflow = "hidden";
       hybridPrinterModal.querySelector(".modal-close").focus();
-    }
 
+    }
 
     function closeHybridPrinterModal() {
       hybridPrinterModal.classList.remove("open");
@@ -4231,7 +4791,6 @@
       automationSkillModal.setAttribute("aria-hidden", "false");
       document.body.style.overflow = "hidden";
       automationSkillModal.querySelector(".modal-close").focus();
-
     }
 
     function closeAutomationSkillModal() {
@@ -4244,6 +4803,7 @@
     const qualitySkillModal = document.getElementById("qualitySkillModal");
 
     function openQualitySkillModal() {
+
       qualitySkillModal.classList.add("open");
       qualitySkillModal.setAttribute("aria-hidden", "false");
       document.body.style.overflow = "hidden";
