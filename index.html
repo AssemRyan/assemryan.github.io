@@ -1,700 +1,2570 @@
 <!DOCTYPE html>
 
+ 
+
 <html lang="en">
+
+ 
 
 <head>
 
+ 
+
   <meta charset="UTF-8">
+
+ 
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+ 
+
   <meta
+
+ 
 
     name="description"
 
+ 
+
     content="Portfolio of Assem Ryan, a mechanical engineer specializing in product development, robotics, manufacturing and simulation."
+
+ 
 
   >
 
+ 
+
   <title>Assem Ryan | Mechanical Engineer</title>
+
+ 
 
   <style>
 
+ 
+
     :root {
+
+ 
 
       --navy: #102a43;
 
+ 
+
       --blue: #2563eb;
+
+ 
 
       --cyan: #06b6d4;
 
+ 
+
       --orange: #f97316;
+
+ 
 
       --purple: #7c3aed;
 
+ 
+
       --green: #10b981;
+
+ 
 
       --text: #1f2937;
 
+ 
+
       --muted: #64748b;
+
+ 
 
       --surface: #ffffff;
 
+ 
+
       --background: #f8fafc;
+
+ 
 
       --border: rgba(148, 163, 184, 0.22);
 
+ 
+
       --shadow: 0 18px 45px rgba(15, 23, 42, 0.12);
+
+ 
 
       --radius: 20px;
 
+ 
+
     }
+
+ 
 
     * {
 
+ 
+
       box-sizing: border-box;
 
+ 
+
     }
+
+ 
 
     html {
 
+ 
+
       scroll-behavior: smooth;
+
+ 
 
       scroll-padding-top: 30px;
 
+ 
+
     }
+
+ 
 
     body {
 
+ 
+
       margin: 0;
+
+ 
 
       font-family: Inter, "Segoe UI", Arial, sans-serif;
 
+ 
+
       line-height: 1.7;
+
+ 
 
       color: var(--text);
 
+ 
+
       background:
+
+ 
 
         radial-gradient(circle at top left, rgba(6, 182, 212, 0.12), transparent 32%),
 
+ 
+
         radial-gradient(circle at bottom right, rgba(124, 58, 237, 0.1), transparent 30%),
+
+ 
 
         var(--background);
 
+ 
+
     }
+
+ 
 
     a {
 
+ 
+
       color: inherit;
 
+ 
+
     }
+
+ 
 
     .language-switcher {
 
+ 
+
       position: fixed;
+
+ 
 
       top: 18px;
 
+ 
+
       right: 18px;
+
+ 
 
       z-index: 1000;
 
+ 
+
       display: flex;
 
+ 
+
       gap: 8px;
+
+ 
 
       padding: 7px;
 
+ 
+
       border: 1px solid rgba(255, 255, 255, 0.35);
 
+ 
+
       border-radius: 14px;
+
+ 
 
       background: rgba(15, 23, 42, 0.55);
 
+ 
+
       box-shadow: 0 10px 30px rgba(15, 23, 42, 0.2);
+
+ 
 
       backdrop-filter: blur(14px);
 
+ 
+
     }
+
+ 
 
     .language-button {
 
+ 
+
       border: 0;
+
+ 
 
       padding: 9px 13px;
 
+ 
+
       color: white;
+
+ 
 
       font: inherit;
 
+ 
+
       font-weight: 800;
+
+ 
 
       cursor: pointer;
 
+ 
+
       border-radius: 10px;
+
+ 
 
       background: transparent;
 
+ 
+
       transition: background 0.2s ease, transform 0.2s ease;
 
+ 
+
     }
+
+ 
 
     .language-button:hover {
 
+ 
+
       transform: translateY(-1px);
+
+ 
 
       background: rgba(255, 255, 255, 0.12);
 
+ 
+
     }
+
+ 
 
     .language-button.active {
 
+ 
+
       color: var(--navy);
+
+ 
 
       background: white;
 
+ 
+
     }
+
+ 
 
     header {
 
+ 
+
       position: relative;
+
+ 
 
       min-height: 720px;
 
+ 
+
       display: flex;
+
+ 
 
       align-items: center;
 
+ 
+
       justify-content: center;
+
+ 
 
       overflow: hidden;
 
+ 
+
       padding: 90px 24px;
 
+ 
+
       color: white;
+
+ 
 
       text-align: center;
 
+ 
+
       background:
 
+ 
+
         linear-gradient(
+
+ 
 
           135deg,
 
+ 
+
           rgba(16, 42, 67, 0.98),
+
+ 
 
           rgba(37, 99, 235, 0.94) 50%,
 
+ 
+
           rgba(124, 58, 237, 0.92)
+
+ 
 
         );
 
+ 
+
     }
+
+ 
 
     header::before,
 
+ 
+
     header::after {
+
+ 
 
       content: "";
 
+ 
+
       position: absolute;
 
+ 
+
       border-radius: 50%;
+
+ 
 
       filter: blur(2px);
 
+ 
+
       opacity: 0.55;
 
+ 
+
     }
+
+ 
 
     header::before {
 
+ 
+
       width: 360px;
+
+ 
 
       height: 360px;
 
+ 
+
       top: -100px;
+
+ 
 
       right: -80px;
 
+ 
+
       background: rgba(6, 182, 212, 0.55);
 
+ 
+
     }
+
+ 
 
     header::after {
 
+ 
+
       width: 300px;
+
+ 
 
       height: 300px;
 
+ 
+
       bottom: -130px;
+
+ 
 
       left: -70px;
 
+ 
+
       background: rgba(249, 115, 22, 0.5);
 
+ 
+
     }
+
+ 
 
     .hero-content {
 
+ 
+
       position: relative;
+
+ 
 
       z-index: 2;
 
+ 
+
       max-width: 950px;
 
+ 
+
     }
+
+ 
 
     .eyebrow {
 
+ 
+
       display: inline-flex;
 
+ 
+
       align-items: center;
+
+ 
 
       gap: 8px;
 
+ 
+
       margin-bottom: 22px;
+
+ 
 
       padding: 8px 16px;
 
+ 
+
       font-size: 14px;
 
+ 
+
       font-weight: 700;
+
+ 
 
       letter-spacing: 1.5px;
 
+ 
+
       text-transform: uppercase;
+
+ 
 
       border: 1px solid rgba(255, 255, 255, 0.4);
 
+ 
+
       border-radius: 999px;
+
+ 
 
       background: rgba(255, 255, 255, 0.12);
 
+ 
+
       backdrop-filter: blur(12px);
 
+ 
+
     }
+
+ 
 
     header h1 {
 
+ 
+
       margin: 0;
+
+ 
 
       font-size: clamp(52px, 9vw, 92px);
 
+ 
+
       line-height: 1;
+
+ 
 
       letter-spacing: -4px;
 
+ 
+
     }
+
+ 
 
     header h1 span {
 
+ 
+
       color: #67e8f9;
 
+ 
+
     }
+
+ 
 
     .hero-subtitle {
 
+ 
+
       max-width: 800px;
+
+ 
 
       margin: 24px auto 35px;
 
+ 
+
       font-size: clamp(18px, 3vw, 25px);
+
+ 
 
       color: rgba(255, 255, 255, 0.88);
 
+ 
+
     }
+
+ 
 
     nav {
 
+ 
+
       display: flex;
+
+ 
 
       flex-wrap: wrap;
 
+ 
+
       justify-content: center;
+
+ 
 
       gap: 12px;
 
+ 
+
     }
+
+ 
 
     nav a,
 
+ 
+
     .button {
+
+ 
 
       display: inline-flex;
 
+ 
+
       align-items: center;
 
+ 
+
       justify-content: center;
+
+ 
 
       min-height: 48px;
 
+ 
+
       padding: 11px 20px;
+
+ 
 
       font-weight: 700;
 
+ 
+
       text-decoration: none;
+
+ 
 
       border-radius: 12px;
 
+ 
+
       transition:
+
+ 
 
         transform 0.25s ease,
 
+ 
+
         box-shadow 0.25s ease,
+
+ 
 
         background 0.25s ease;
 
+ 
+
     }
+
+ 
 
     nav a {
 
+ 
+
       color: white;
+
+ 
 
       border: 1px solid rgba(255, 255, 255, 0.45);
 
+ 
+
       background: rgba(255, 255, 255, 0.1);
+
+ 
 
       backdrop-filter: blur(10px);
 
+ 
+
     }
+
+ 
 
     nav a:hover {
 
+ 
+
       transform: translateY(-3px);
+
+ 
 
       background: rgba(255, 255, 255, 0.2);
 
+ 
+
       box-shadow: 0 12px 28px rgba(15, 23, 42, 0.2);
 
+ 
+
     }
+
+ 
 
     main {
 
+ 
+
       overflow: hidden;
 
+ 
+
     }
+
+ 
 
     section {
 
+ 
+
       max-width: 1120px;
 
+ 
+
       margin: auto;
+
+ 
 
       padding: 90px 24px;
 
+ 
+
     }
+
+ 
 
     .section-heading {
 
+ 
+
       max-width: 720px;
+
+ 
 
       margin-bottom: 42px;
 
+ 
+
     }
+
+ 
 
     .section-label {
 
+ 
+
       display: inline-block;
+
+ 
 
       margin-bottom: 8px;
 
+ 
+
       color: var(--blue);
+
+ 
 
       font-size: 14px;
 
+ 
+
       font-weight: 800;
+
+ 
 
       letter-spacing: 1.6px;
 
+ 
+
       text-transform: uppercase;
 
+ 
+
     }
+
+ 
 
     h2 {
 
+ 
+
       margin: 0 0 14px;
+
+ 
 
       color: var(--navy);
 
+ 
+
       font-size: clamp(34px, 5vw, 48px);
+
+ 
 
       line-height: 1.15;
 
+ 
+
       letter-spacing: -1.5px;
 
+ 
+
     }
+
+ 
 
     .section-intro {
 
+ 
+
       margin: 0;
+
+ 
 
       color: var(--muted);
 
+ 
+
       font-size: 18px;
 
+ 
+
     }
+
+ 
 
     .about-card {
 
+ 
+
       position: relative;
 
+ 
+
       overflow: hidden;
+
+ 
 
       padding: 42px;
 
+ 
+
       border: 1px solid var(--border);
 
+ 
+
       border-radius: var(--radius);
+
+ 
 
       background: rgba(255, 255, 255, 0.9);
 
+ 
+
       box-shadow: var(--shadow);
 
+ 
+
     }
+
+ 
 
     .about-card::before {
 
+ 
+
       content: "";
 
+ 
+
       position: absolute;
+
+ 
 
       width: 8px;
 
+ 
+
       height: 100%;
+
+ 
 
       top: 0;
 
+ 
+
       left: 0;
+
+ 
 
       background: linear-gradient(var(--cyan), var(--blue), var(--purple));
 
+ 
+
     }
+
+ 
 
     .about-card p {
 
+ 
+
       margin: 0;
+
+ 
 
       font-size: clamp(18px, 2.5vw, 22px);
 
+ 
+
       color: #334155;
 
+ 
+
     }
+
+ 
 
     #projects {
 
+ 
+
       max-width: none;
+
+ 
 
       background:
 
+ 
+
         linear-gradient(
+
+ 
 
           180deg,
 
+ 
+
           rgba(226, 232, 240, 0.35),
+
+ 
 
           rgba(255, 255, 255, 0.7)
 
+ 
+
         );
 
+ 
+
     }
+
+ 
 
     #projects > div {
 
+ 
+
       max-width: 1120px;
+
+ 
 
       margin: auto;
 
+ 
+
     }
+
+ 
 
     .project-grid {
 
+ 
+
       display: grid;
+
+ 
 
       grid-template-columns: repeat(2, minmax(0, 1fr));
 
+ 
+
       gap: 25px;
 
+ 
+
     }
+
+ 
 
     .card {
 
+ 
+
       position: relative;
+
+ 
 
       overflow: hidden;
 
+ 
+
       min-height: 290px;
+
+ 
 
       padding: 32px;
 
+ 
+
       border: 1px solid var(--border);
+
+ 
 
       border-radius: var(--radius);
 
+ 
+
       background: var(--surface);
+
+ 
 
       box-shadow: 0 10px 35px rgba(15, 23, 42, 0.08);
 
+ 
+
       transition:
+
+ 
 
         transform 0.3s ease,
 
+ 
+
         box-shadow 0.3s ease;
 
+ 
+
     }
+
+ 
 
     .card::after {
 
+ 
+
       content: "";
+
+ 
 
       position: absolute;
 
+ 
+
       width: 140px;
+
+ 
 
       height: 140px;
 
+ 
+
       right: -55px;
+
+ 
 
       bottom: -60px;
 
+ 
+
       border-radius: 50%;
+
+ 
 
       opacity: 0.12;
 
+ 
+
       transition: transform 0.35s ease;
 
+ 
+
     }
+
+ 
 
     .card:nth-child(1) {
 
+ 
+
       border-top: 5px solid var(--cyan);
 
+ 
+
     }
+
+ 
 
     .card:nth-child(1)::after {
 
+ 
+
       background: var(--cyan);
 
+ 
+
     }
+
+ 
 
     .card:nth-child(2) {
 
+ 
+
       border-top: 5px solid var(--orange);
 
+ 
+
     }
+
+ 
 
     .card:nth-child(2)::after {
 
+ 
+
       background: var(--orange);
 
+ 
+
     }
+
+ 
 
     .card:nth-child(3) {
 
+ 
+
       border-top: 5px solid var(--purple);
 
+ 
+
     }
+
+ 
 
     .card:nth-child(3)::after {
 
+ 
+
       background: var(--purple);
 
+ 
+
     }
+
+ 
 
     .card:nth-child(4) {
 
+ 
+
       border-top: 5px solid var(--green);
 
+ 
+
     }
+
+ 
 
     .card:nth-child(4)::after {
 
+ 
+
       background: var(--green);
 
+ 
+
     }
+
+ 
 
     .card:hover {
 
+ 
+
       transform: translateY(-8px);
+
+ 
 
       box-shadow: 0 24px 50px rgba(15, 23, 42, 0.15);
 
+ 
+
     }
+
+ 
 
     .card:hover::after {
 
+ 
+
       transform: scale(1.25);
 
+ 
+
     }
+
+ 
 
     .project-number {
 
+ 
+
       display: inline-flex;
+
+ 
 
       align-items: center;
 
+ 
+
       justify-content: center;
+
+ 
 
       width: 46px;
 
+ 
+
       height: 46px;
+
+ 
 
       margin-bottom: 22px;
 
+ 
+
       color: white;
+
+ 
 
       font-weight: 800;
 
+ 
+
       border-radius: 14px;
 
+ 
+
     }
+
+ 
 
     .card:nth-child(1) .project-number {
 
+ 
+
       background: linear-gradient(135deg, var(--cyan), var(--blue));
 
+ 
+
     }
+
+ 
 
     .card:nth-child(2) .project-number {
 
+ 
+
       background: linear-gradient(135deg, #f59e0b, var(--orange));
 
+ 
+
     }
+
+ 
 
     .card:nth-child(3) .project-number {
 
+ 
+
       background: linear-gradient(135deg, #a855f7, var(--purple));
 
+ 
+
     }
+
+ 
 
     .card:nth-child(4) .project-number {
 
+ 
+
       background: linear-gradient(135deg, #34d399, var(--green));
+
+ 
 
     }
 
+ 
+
     .card h3 {
+
+ 
+
+      position: relative;
+
+ 
+
+      z-index: 1;
+
+ 
+
+      margin: 0 0 14px;
+
+ 
+
+      color: var(--navy);
+
+ 
+
+      font-size: 24px;
+
+ 
+
+      line-height: 1.3;
+
+ 
+
+    }
+
+ 
+
+    .card p {
+
+ 
+
+      position: relative;
+
+ 
+
+      z-index: 1;
+
+ 
+
+      margin: 0;
+
+ 
+
+      color: var(--muted);
+
+ 
+
+    }
+
+ 
+
+    .skills {
+
+ 
+
+      display: flex;
+
+ 
+
+      flex-wrap: wrap;
+
+ 
+
+      gap: 12px;
+
+ 
+
+    }
+
+ 
+
+    .skills > span,
+
+    .skill-button {
+
+ 
+
+      display: inline-flex;
+
+ 
+
+      align-items: center;
+
+ 
+
+      padding: 11px 17px;
+
+ 
+
+      color: var(--navy);
+
+ 
+
+      font-weight: 700;
+
+ 
+
+      border: 1px solid rgba(37, 99, 235, 0.15);
+
+ 
+
+      border-radius: 999px;
+
+ 
+
+      background:
+
+ 
+
+        linear-gradient(
+
+ 
+
+          135deg,
+
+ 
+
+          rgba(255, 255, 255, 0.95),
+
+ 
+
+          rgba(219, 234, 254, 0.65)
+
+ 
+
+        );
+
+ 
+
+      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.08);
+
+ 
+
+      transition:
+
+ 
+
+        transform 0.25s ease,
+
+ 
+
+        background 0.25s ease;
+
+ 
+
+    }
+
+ 
+
+    .skills > span:hover,
+
+    .skill-button:hover {
+
+ 
+
+      transform: translateY(-3px) scale(1.03);
+
+ 
+
+      color: white;
+
+ 
+
+      background: linear-gradient(135deg, var(--blue), var(--purple));
+
+ 
+
+    }
+
+ 
+
+ 
+
+ 
+
+    .skill-button {
+
+      appearance: none;
+
+      font: inherit;
+
+      line-height: inherit;
+
+      cursor: pointer;
+
+    }
+
+ 
+
+    .skill-button:focus-visible {
+
+      outline: 4px solid rgba(37, 99, 235, 0.24);
+
+      outline-offset: 4px;
+
+    }
+
+ 
+
+    .skill-button .skill-link-icon {
+
+      margin-left: 7px;
+
+      font-size: 14px;
+
+      transition: transform 0.25s ease;
+
+    }
+
+ 
+
+    .skill-button:hover .skill-link-icon {
+
+      transform: translate(2px, -2px);
+
+    }
+
+ 
+
+ 
+
+    #contact {
+
+ 
+
+      padding-bottom: 110px;
+
+ 
+
+    }
+
+ 
+
+    .contact-card {
+
+ 
+
+      position: relative;
+
+ 
+
+      overflow: hidden;
+
+ 
+
+      padding: 55px;
+
+ 
+
+      color: white;
+
+ 
+
+      border-radius: 28px;
+
+ 
+
+      background:
+
+ 
+
+        linear-gradient(
+
+ 
+
+          135deg,
+
+ 
+
+          var(--navy),
+
+ 
+
+          var(--blue) 55%,
+
+ 
+
+          var(--purple)
+
+ 
+
+        );
+
+ 
+
+      box-shadow: 0 25px 60px rgba(37, 99, 235, 0.28);
+
+ 
+
+    }
+
+ 
+
+    .contact-card::before {
+
+ 
+
+      content: "";
+
+ 
+
+      position: absolute;
+
+ 
+
+      width: 240px;
+
+ 
+
+      height: 240px;
+
+ 
+
+      top: -120px;
+
+ 
+
+      right: -80px;
+
+ 
+
+      border-radius: 50%;
+
+ 
+
+      background: rgba(103, 232, 249, 0.2);
+
+ 
+
+    }
+
+ 
+
+    .contact-card h2 {
+
+ 
+
+      position: relative;
+
+ 
+
+      margin-bottom: 16px;
+
+ 
+
+      color: white;
+
+ 
+
+    }
+
+ 
+
+    .contact-card > p {
+
+ 
+
+      position: relative;
+
+ 
+
+      max-width: 650px;
+
+ 
+
+      margin-bottom: 30px;
+
+ 
+
+      color: rgba(255, 255, 255, 0.82);
+
+ 
+
+      font-size: 18px;
+
+ 
+
+    }
+
+ 
+
+    .contact-links {
+
+ 
+
+      position: relative;
+
+ 
+
+      display: flex;
+
+ 
+
+      flex-wrap: wrap;
+
+ 
+
+      gap: 14px;
+
+ 
+
+    }
+
+ 
+
+    .button {
+
+ 
+
+      border: 1px solid rgba(255, 255, 255, 0.4);
+
+ 
+
+    }
+
+ 
+
+    .button-primary {
+
+ 
+
+      color: var(--navy);
+
+ 
+
+      background: white;
+
+ 
+
+      border-color: white;
+
+ 
+
+    }
+
+ 
+
+    .button-secondary {
+
+ 
+
+      color: white;
+
+ 
+
+      background: rgba(255, 255, 255, 0.1);
+
+ 
+
+      backdrop-filter: blur(10px);
+
+ 
+
+    }
+
+ 
+
+    .button:hover {
+
+ 
+
+      transform: translateY(-4px);
+
+ 
+
+      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.25);
+
+ 
+
+    }
+
+ 
+
+    footer {
+
+ 
+
+      padding: 32px 20px;
+
+ 
+
+      color: rgba(255, 255, 255, 0.76);
+
+ 
+
+      text-align: center;
+
+ 
+
+      background: #0b1f33;
+
+ 
+
+    }
+
+ 
+
+    footer p {
+
+ 
+
+      margin: 0;
+
+ 
+
+    }
+
+ 
+
+    .profile-photo {
+
+      display: block;
+
+      width: 180px;
+
+      height: 180px;
+
+      margin: 0 auto 30px;
+
+      object-fit: cover;
+
+      object-position: center;
+
+      border: 6px solid rgba(255, 255, 255, 0.85);
+
+      border-radius: 50%;
+
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    }
+
+ 
+
+    .profile-photo:hover {
+
+      transform: translateY(-4px) scale(1.04);
+
+      box-shadow: 0 26px 50px rgba(0, 0, 0, 0.34);
+
+    }
+
+ 
+
+ 
+
+ 
+
+    .patent-project-card {
+
+      cursor: pointer;
+
+    }
+
+ 
+
+    .patent-project-card:focus-visible {
+
+      outline: 4px solid rgba(37, 99, 235, 0.28);
+
+      outline-offset: 5px;
+
+    }
+
+ 
+
+    .project-visual {
+
+      position: absolute;
+
+      top: 26px;
+
+      right: 26px;
+
+      width: 82px;
+
+      height: 82px;
+
+      display: grid;
+
+      place-items: center;
+
+      border-radius: 50%;
+
+      background: linear-gradient(135deg, rgba(6, 182, 212, 0.14), rgba(37, 99, 235, 0.10));
+
+    }
+
+ 
+
+    .project-visual-ring,
+
+    .modal-visual-ring {
+
+      position: absolute;
+
+      inset: 9px;
+
+      border: 3px solid rgba(37, 99, 235, 0.35);
+
+      border-top-color: var(--cyan);
+
+      border-radius: 50%;
+
+    }
+
+ 
+
+    .project-visual-core,
+
+    .modal-visual-core {
 
       position: relative;
 
       z-index: 1;
 
-      margin: 0 0 14px;
+      color: var(--navy);
+
+      font-weight: 900;
+
+      letter-spacing: -0.5px;
+
+    }
+
+ 
+
+    .read-more {
+
+      position: relative;
+
+      z-index: 2;
+
+      display: inline-block;
+
+      margin-top: 20px;
+
+      color: var(--blue);
+
+      font-weight: 800;
+
+    }
+
+ 
+
+    .project-modal {
+
+      position: fixed;
+
+      inset: 0;
+
+      z-index: 2000;
+
+      display: none;
+
+      align-items: center;
+
+      justify-content: center;
+
+      padding: 24px;
+
+    }
+
+ 
+
+    .project-modal.open {
+
+      display: flex;
+
+    }
+
+ 
+
+    .project-modal-overlay {
+
+      position: absolute;
+
+      inset: 0;
+
+      background: rgba(3, 15, 30, 0.78);
+
+      backdrop-filter: blur(10px);
+
+    }
+
+ 
+
+    .project-modal-content {
+
+      position: relative;
+
+      z-index: 1;
+
+      width: min(900px, 100%);
+
+      max-height: 90vh;
+
+      overflow-y: auto;
+
+      border: 1px solid rgba(255, 255, 255, 0.38);
+
+      border-radius: 28px;
+
+      background: white;
+
+      box-shadow: 0 35px 90px rgba(0, 0, 0, 0.38);
+
+      animation: modalOpen 0.28s ease;
+
+    }
+
+ 
+
+    .modal-close {
+
+      position: absolute;
+
+      top: 18px;
+
+      right: 18px;
+
+      z-index: 3;
+
+      width: 44px;
+
+      height: 44px;
+
+      border: 0;
+
+      border-radius: 50%;
+
+      color: white;
+
+      font-size: 30px;
+
+      line-height: 1;
+
+      cursor: pointer;
+
+      background: rgba(15, 23, 42, 0.76);
+
+    }
+
+ 
+
+    .modal-visual {
+
+      position: relative;
+
+      height: 210px;
+
+      display: grid;
+
+      place-items: center;
+
+      overflow: hidden;
+
+      background:
+
+        radial-gradient(circle at 25% 25%, rgba(103, 232, 249, 0.35), transparent 26%),
+
+        linear-gradient(135deg, var(--navy), var(--blue) 60%, var(--purple));
+
+    }
+
+ 
+
+    .modal-visual::before,
+
+    .modal-visual::after {
+
+      content: "";
+
+      position: absolute;
+
+      border: 1px solid rgba(255, 255, 255, 0.17);
+
+      border-radius: 50%;
+
+    }
+
+ 
+
+    .modal-visual::before {
+
+      width: 300px;
+
+      height: 300px;
+
+    }
+
+ 
+
+    .modal-visual::after {
+
+      width: 180px;
+
+      height: 180px;
+
+    }
+
+ 
+
+    .modal-visual-ring {
+
+      inset: auto;
+
+      width: 120px;
+
+      height: 120px;
+
+      border-width: 5px;
+
+      border-color: rgba(255, 255, 255, 0.46);
+
+      border-top-color: var(--cyan);
+
+    }
+
+ 
+
+    .modal-visual-core {
+
+      color: white;
+
+      font-size: 32px;
+
+    }
+
+ 
+
+    .modal-body {
+
+      padding: 42px;
+
+    }
+
+ 
+
+    .modal-intro {
+
+      max-width: 760px;
+
+      margin: 0;
+
+      color: var(--muted);
+
+      font-size: 19px;
+
+    }
+
+ 
+
+    .project-details-grid {
+
+      display: grid;
+
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+
+      gap: 18px;
+
+      margin: 34px 0;
+
+    }
+
+ 
+
+    .detail-box {
+
+      padding: 24px;
+
+      border: 1px solid var(--border);
+
+      border-radius: 18px;
+
+      background: #f8fafc;
+
+    }
+
+ 
+
+    .detail-box h3 {
+
+      margin: 0 0 10px;
+
+      color: var(--navy);
+
+    }
+
+ 
+
+    .detail-box p {
+
+      margin: 0;
+
+      color: var(--muted);
+
+    }
+
+ 
+
+    .award-box {
+
+      padding: 22px;
+
+      border-left: 5px solid var(--orange);
+
+      border-radius: 14px;
+
+      background: #fff7ed;
+
+    }
+
+ 
+
+    .award-box p {
+
+      margin: 5px 0 0;
+
+    }
+
+ 
+
+    .confidential-note {
+
+      margin: 24px 0 0;
+
+      padding: 18px 20px;
+
+      color: #334155;
+
+      font-weight: 700;
+
+      border: 1px dashed rgba(37, 99, 235, 0.36);
+
+      border-radius: 14px;
+
+      background: #eff6ff;
+
+    }
+
+ 
+
+ 
+
+    .automation-project-card {
+
+      cursor: pointer;
+
+    }
+
+ 
+
+    .automation-project-card:focus-visible {
+
+      outline: 4px solid rgba(249, 115, 22, 0.28);
+
+      outline-offset: 5px;
+
+    }
+
+ 
+
+    .project-gallery-title {
+
+      margin: 30px 0 14px;
 
       color: var(--navy);
 
       font-size: 24px;
+
+    }
+
+ 
+
+    .project-media-grid {
+
+      display: grid;
+
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+
+      gap: 16px;
+
+      margin: 30px 0;
+
+    }
+
+ 
+
+    .project-media-item {
+
+      overflow: hidden;
+
+      margin: 0;
+
+      border: 1px solid var(--border);
+
+      border-radius: 16px;
+
+      background: #f8fafc;
+
+    }
+
+ 
+
+    .project-media-item img,
+
+    .project-video {
+
+      display: block;
+
+      width: 100%;
+
+      height: 260px;
+
+      object-fit: cover;
+
+      background: #0f172a;
+
+    }
+
+ 
+
+    .project-media-item figcaption {
+
+      padding: 12px 15px;
+
+      color: var(--muted);
+
+      font-size: 14px;
+
+      font-weight: 700;
+
+    }
+
+ 
+
+    .project-video-wrap {
+
+      margin: 30px 0 0;
+
+    }
+
+ 
+
+    .project-video-wrap h3 {
+
+      margin: 0 0 12px;
+
+      color: var(--navy);
+
+    }
+
+ 
+
+    .project-video {
+
+      height: auto;
+
+      max-height: 520px;
+
+      border-radius: 18px;
+
+      box-shadow: 0 18px 42px rgba(15, 23, 42, 0.16);
+
+    }
+
+ 
+
+    .video-caption {
+
+      margin: 14px 0 0;
+
+      color: var(--muted);
+
+      font-size: 15px;
+
+      line-height: 1.65;
+
+    }
+
+ 
+
+    .automation-summary {
+
+      margin-top: 24px;
+
+      padding: 22px;
+
+      border-left: 5px solid var(--orange);
+
+      border-radius: 14px;
+
+      background: #fff7ed;
+
+    }
+
+ 
+
+    .automation-summary ul {
+
+      margin: 10px 0 0;
+
+      padding-left: 20px;
+
+    }
+
+ 
+
+    .automation-summary li + li {
+
+      margin-top: 7px;
+
+    }
+
+ 
+
+ 
+
+ 
+
+    .solidworks-modal-content {
+
+      width: min(1160px, 100%);
+
+    }
+
+ 
+
+    .solidworks-hero {
+
+      background:
+
+        radial-gradient(circle at 22% 28%, rgba(103, 232, 249, 0.32), transparent 25%),
+
+        linear-gradient(135deg, #0b2942, #2563eb 58%, #06b6d4);
+
+    }
+
+ 
+
+    .solidworks-project-grid {
+
+      display: grid;
+
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+
+      gap: 22px;
+
+      margin-top: 34px;
+
+    }
+
+ 
+
+    .solidworks-project {
+
+      overflow: hidden;
+
+      border: 1px solid var(--border);
+
+      border-radius: 20px;
+
+      background: #ffffff;
+
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+
+    }
+
+ 
+
+    .solidworks-project-copy {
+
+      padding: 24px 24px 20px;
+
+    }
+
+ 
+
+    .solidworks-project-heading {
+
+      display: flex;
+
+      align-items: flex-start;
+
+      justify-content: space-between;
+
+      gap: 14px;
+
+      margin-bottom: 10px;
+
+    }
+
+ 
+
+    .solidworks-project h3 {
+
+      margin: 0;
+
+      color: var(--navy);
+
+      font-size: 23px;
 
       line-height: 1.3;
 
     }
 
-    .card p {
+ 
 
-      position: relative;
-
-      z-index: 1;
+    .solidworks-project p {
 
       margin: 0;
 
@@ -702,826 +2572,1935 @@
 
     }
 
-    .skills {
+ 
 
-      display: flex;
+    .solidworks-tag {
 
-      flex-wrap: wrap;
+      flex: 0 0 auto;
 
-      gap: 12px;
+      padding: 6px 10px;
 
-    }
+      color: #1d4ed8;
 
-    .skills span {
+      font-size: 12px;
 
-      display: inline-flex;
+      font-weight: 800;
 
-      align-items: center;
+      letter-spacing: 0.5px;
 
-      padding: 11px 17px;
-
-      color: var(--navy);
-
-      font-weight: 700;
-
-      border: 1px solid rgba(37, 99, 235, 0.15);
+      text-transform: uppercase;
 
       border-radius: 999px;
 
-      background:
-
-        linear-gradient(
-
-          135deg,
-
-          rgba(255, 255, 255, 0.95),
-
-          rgba(219, 234, 254, 0.65)
-
-        );
-
-      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.08);
-
-      transition:
-
-        transform 0.25s ease,
-
-        background 0.25s ease;
+      background: #dbeafe;
 
     }
 
-    .skills span:hover {
+ 
 
-      transform: translateY(-3px) scale(1.03);
+    .solidworks-gallery {
 
-      color: white;
+      display: grid;
 
-      background: linear-gradient(135deg, var(--blue), var(--purple));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
 
-    }
+      gap: 1px;
 
-    #contact {
-
-      padding-bottom: 110px;
+      background: #e2e8f0;
 
     }
 
-    .contact-card {
+ 
+
+    .solidworks-gallery figure {
 
       position: relative;
 
-      overflow: hidden;
+      min-width: 0;
 
-      padding: 55px;
-
-      color: white;
-
-      border-radius: 28px;
-
-      background:
-
-        linear-gradient(
-
-          135deg,
-
-          var(--navy),
-
-          var(--blue) 55%,
-
-          var(--purple)
-
-        );
-
-      box-shadow: 0 25px 60px rgba(37, 99, 235, 0.28);
-
-    }
-
-    .contact-card::before {
-
-      content: "";
-
-      position: absolute;
-
-      width: 240px;
-
-      height: 240px;
-
-      top: -120px;
-
-      right: -80px;
-
-      border-radius: 50%;
-
-      background: rgba(103, 232, 249, 0.2);
-
-    }
-
-    .contact-card h2 {
-
-      position: relative;
-
-      margin-bottom: 16px;
-
-      color: white;
-
-    }
-
-    .contact-card > p {
-
-      position: relative;
-
-      max-width: 650px;
-
-      margin-bottom: 30px;
-
-      color: rgba(255, 255, 255, 0.82);
-
-      font-size: 18px;
-
-    }
-
-    .contact-links {
-
-      position: relative;
-
-      display: flex;
-
-      flex-wrap: wrap;
-
-      gap: 14px;
-
-    }
-
-    .button {
-
-      border: 1px solid rgba(255, 255, 255, 0.4);
-
-    }
-
-    .button-primary {
-
-      color: var(--navy);
+      margin: 0;
 
       background: white;
 
-      border-color: white;
-
     }
 
-    .button-secondary {
+ 
 
-      color: white;
+    .solidworks-gallery img {
 
-      background: rgba(255, 255, 255, 0.1);
-
-      backdrop-filter: blur(10px);
-
-    }
-
-    .button:hover {
-
-      transform: translateY(-4px);
-
-      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.25);
-
-    }
-
-    footer {
-
-      padding: 32px 20px;
-
-      color: rgba(255, 255, 255, 0.76);
-
-      text-align: center;
-
-      background: #0b1f33;
-
-    }
-
-    footer p {
-
-      margin: 0;
-
-    }
-
-    .profile-photo {
       display: block;
-      width: 180px;
-      height: 180px;
-      margin: 0 auto 30px;
-      object-fit: cover;
-      object-position: center;
-      border: 6px solid rgba(255, 255, 255, 0.85);
-      border-radius: 50%;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
 
-    .profile-photo:hover {
-      transform: translateY(-4px) scale(1.04);
-      box-shadow: 0 26px 50px rgba(0, 0, 0, 0.34);
-    }
-
-
-
-    .patent-project-card {
-      cursor: pointer;
-    }
-
-    .patent-project-card:focus-visible {
-      outline: 4px solid rgba(37, 99, 235, 0.28);
-      outline-offset: 5px;
-    }
-
-    .project-visual {
-      position: absolute;
-      top: 26px;
-      right: 26px;
-      width: 82px;
-      height: 82px;
-      display: grid;
-      place-items: center;
-      border-radius: 50%;
-      background: linear-gradient(135deg, rgba(6, 182, 212, 0.14), rgba(37, 99, 235, 0.10));
-    }
-
-    .project-visual-ring,
-    .modal-visual-ring {
-      position: absolute;
-      inset: 9px;
-      border: 3px solid rgba(37, 99, 235, 0.35);
-      border-top-color: var(--cyan);
-      border-radius: 50%;
-    }
-
-    .project-visual-core,
-    .modal-visual-core {
-      position: relative;
-      z-index: 1;
-      color: var(--navy);
-      font-weight: 900;
-      letter-spacing: -0.5px;
-    }
-
-    .read-more {
-      position: relative;
-      z-index: 2;
-      display: inline-block;
-      margin-top: 20px;
-      color: var(--blue);
-      font-weight: 800;
-    }
-
-    .project-modal {
-      position: fixed;
-      inset: 0;
-      z-index: 2000;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
-    }
-
-    .project-modal.open {
-      display: flex;
-    }
-
-    .project-modal-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(3, 15, 30, 0.78);
-      backdrop-filter: blur(10px);
-    }
-
-    .project-modal-content {
-      position: relative;
-      z-index: 1;
-      width: min(900px, 100%);
-      max-height: 90vh;
-      overflow-y: auto;
-      border: 1px solid rgba(255, 255, 255, 0.38);
-      border-radius: 28px;
-      background: white;
-      box-shadow: 0 35px 90px rgba(0, 0, 0, 0.38);
-      animation: modalOpen 0.28s ease;
-    }
-
-    .modal-close {
-      position: absolute;
-      top: 18px;
-      right: 18px;
-      z-index: 3;
-      width: 44px;
-      height: 44px;
-      border: 0;
-      border-radius: 50%;
-      color: white;
-      font-size: 30px;
-      line-height: 1;
-      cursor: pointer;
-      background: rgba(15, 23, 42, 0.76);
-    }
-
-    .modal-visual {
-      position: relative;
-      height: 210px;
-      display: grid;
-      place-items: center;
-      overflow: hidden;
-      background:
-        radial-gradient(circle at 25% 25%, rgba(103, 232, 249, 0.35), transparent 26%),
-        linear-gradient(135deg, var(--navy), var(--blue) 60%, var(--purple));
-    }
-
-    .modal-visual::before,
-    .modal-visual::after {
-      content: "";
-      position: absolute;
-      border: 1px solid rgba(255, 255, 255, 0.17);
-      border-radius: 50%;
-    }
-
-    .modal-visual::before {
-      width: 300px;
-      height: 300px;
-    }
-
-    .modal-visual::after {
-      width: 180px;
-      height: 180px;
-    }
-
-    .modal-visual-ring {
-      inset: auto;
-      width: 120px;
-      height: 120px;
-      border-width: 5px;
-      border-color: rgba(255, 255, 255, 0.46);
-      border-top-color: var(--cyan);
-    }
-
-    .modal-visual-core {
-      color: white;
-      font-size: 32px;
-    }
-
-    .modal-body {
-      padding: 42px;
-    }
-
-    .modal-intro {
-      max-width: 760px;
-      margin: 0;
-      color: var(--muted);
-      font-size: 19px;
-    }
-
-    .project-details-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
-      margin: 34px 0;
-    }
-
-    .detail-box {
-      padding: 24px;
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      background: #f8fafc;
-    }
-
-    .detail-box h3 {
-      margin: 0 0 10px;
-      color: var(--navy);
-    }
-
-    .detail-box p {
-      margin: 0;
-      color: var(--muted);
-    }
-
-    .award-box {
-      padding: 22px;
-      border-left: 5px solid var(--orange);
-      border-radius: 14px;
-      background: #fff7ed;
-    }
-
-    .award-box p {
-      margin: 5px 0 0;
-    }
-
-    .confidential-note {
-      margin: 24px 0 0;
-      padding: 18px 20px;
-      color: #334155;
-      font-weight: 700;
-      border: 1px dashed rgba(37, 99, 235, 0.36);
-      border-radius: 14px;
-      background: #eff6ff;
-    }
-
-
-    .automation-project-card {
-      cursor: pointer;
-    }
-
-    .automation-project-card:focus-visible {
-      outline: 4px solid rgba(249, 115, 22, 0.28);
-      outline-offset: 5px;
-    }
-
-    .project-gallery-title {
-      margin: 30px 0 14px;
-      color: var(--navy);
-      font-size: 24px;
-    }
-
-    .project-media-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
-      margin: 30px 0;
-    }
-
-    .project-media-item {
-      overflow: hidden;
-      margin: 0;
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      background: #f8fafc;
-    }
-
-    .project-media-item img,
-    .project-video {
-      display: block;
       width: 100%;
-      height: 260px;
+
+      height: 190px;
+
       object-fit: cover;
-      background: #0f172a;
+
+      background: #f8fafc;
+
     }
 
-    .project-media-item figcaption {
-      padding: 12px 15px;
-      color: var(--muted);
-      font-size: 14px;
-      font-weight: 700;
+ 
+
+    .solidworks-gallery figcaption {
+
+      position: absolute;
+
+      right: 9px;
+
+      bottom: 9px;
+
+      padding: 5px 9px;
+
+      color: white;
+
+      font-size: 11px;
+
+      font-weight: 800;
+
+      border-radius: 999px;
+
+      background: rgba(15, 23, 42, 0.76);
+
+      backdrop-filter: blur(8px);
+
     }
 
-    .project-video-wrap {
-      margin: 30px 0 0;
+ 
+
+    .solidworks-project-wide {
+
+      grid-column: 1 / -1;
+
     }
 
-    .project-video-wrap h3 {
-      margin: 0 0 12px;
-      color: var(--navy);
+ 
+
+    .solidworks-project-wide .solidworks-gallery {
+
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+
     }
 
-    .project-video {
-      height: auto;
-      max-height: 520px;
-      border-radius: 18px;
-      box-shadow: 0 18px 42px rgba(15, 23, 42, 0.16);
-    }
+ 
 
-    .video-caption {
-      margin: 14px 0 0;
-      color: var(--muted);
-      font-size: 15px;
-      line-height: 1.65;
-    }
-
-    .automation-summary {
-      margin-top: 24px;
-      padding: 22px;
-      border-left: 5px solid var(--orange);
-      border-radius: 14px;
-      background: #fff7ed;
-    }
-
-    .automation-summary ul {
-      margin: 10px 0 0;
-      padding-left: 20px;
-    }
-
-    .automation-summary li + li {
-      margin-top: 7px;
-    }
+ 
 
     @keyframes modalOpen {
+
       from {
+
         opacity: 0;
+
         transform: translateY(24px) scale(0.98);
+
       }
 
+ 
+
       to {
+
         opacity: 1;
+
         transform: translateY(0) scale(1);
+
       }
+
     }
+
+ 
 
     @media (max-width: 760px) {
 
+ 
+
       .language-switcher {
+
+ 
 
         top: 10px;
 
+ 
+
         right: 10px;
 
+ 
+
       }
 
+ 
+
       .profile-photo {
+
         width: 150px;
+
         height: 150px;
+
         margin-bottom: 24px;
+
       }
+
+ 
 
       header {
 
+ 
+
         min-height: auto;
+
+ 
 
         padding: 110px 20px 90px;
 
+ 
+
       }
+
+ 
 
       header h1 {
 
+ 
+
         letter-spacing: -2px;
 
+ 
+
       }
+
+ 
 
       nav {
 
+ 
+
         flex-direction: column;
+
+ 
 
         align-items: stretch;
 
+ 
+
         max-width: 360px;
+
+ 
 
         margin: auto;
 
+ 
+
       }
+
+ 
 
       .project-grid {
 
+ 
+
         grid-template-columns: 1fr;
 
+ 
+
       }
+
+ 
 
       section {
 
+ 
+
         padding: 70px 20px;
 
+ 
+
       }
+
+ 
 
       .about-card,
 
+ 
+
       .contact-card {
+
+ 
 
         padding: 32px 26px;
 
+ 
+
       }
+
+ 
 
       .contact-links {
 
+ 
+
         flex-direction: column;
 
+ 
+
       }
+
+ 
 
       .button {
 
+ 
+
         width: 100%;
 
+ 
+
       }
+
+ 
 
       .project-modal {
+
         padding: 12px;
+
       }
+
+ 
 
       .modal-visual {
+
         height: 170px;
+
       }
+
+ 
 
       .modal-body {
+
         padding: 30px 22px;
+
       }
+
+ 
 
       .project-details-grid {
+
         grid-template-columns: 1fr;
+
       }
+
+ 
 
       .project-media-grid {
+
         grid-template-columns: 1fr;
+
       }
+
+ 
 
       .project-media-item img {
+
         height: 210px;
+
       }
 
+ 
+
+      .solidworks-project-grid {
+
+        grid-template-columns: 1fr;
+
+      }
+
+ 
+
+      .solidworks-project-wide {
+
+        grid-column: auto;
+
+      }
+
+ 
+
+      .solidworks-project-wide .solidworks-gallery {
+
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+      }
+
+ 
+
+      .solidworks-gallery img {
+
+        height: 165px;
+
+      }
+
+ 
+
+ 
+
     }
+
+ 
 
     @media (prefers-reduced-motion: reduce) {
 
+ 
+
       html {
+
+ 
 
         scroll-behavior: auto;
 
+ 
+
       }
+
+ 
 
       *,
 
+ 
+
       *::before,
+
+ 
 
       *::after {
 
+ 
+
         transition: none !important;
+
+ 
 
       }
 
+ 
+
     }
+
+ 
 
   </style>
 
+ 
+
 </head>
+
+ 
 
 <body>
 
+ 
+
   <div class="language-switcher" aria-label="Language selection">
+
+ 
 
     <button class="language-button active" type="button" data-language="en">
 
+ 
+
       EN
 
+ 
+
     </button>
+
+ 
 
     <button class="language-button" type="button" data-language="de">
 
+ 
+
       DE
+
+ 
 
     </button>
 
+ 
+
   </div>
+
+ 
 
   <header>
 
+ 
+
     <div class="hero-content">
+
 <img
+
         src="Profile.jpeg"
+
         alt="Portrait of Assem Ryan"
+
         class="profile-photo"
+
       >
+
       <div class="eyebrow" data-i18n="eyebrow">
+
+ 
 
         Engineering ideas into reality
 
+ 
+
       </div>
+
+ 
 
       <h1>Assem <span>Ryan</span></h1>
 
+ 
+
       <p class="hero-subtitle" data-i18n="heroSubtitle">
+
+ 
 
         Mechanical Engineer focused on product development, robotics,
 
+ 
+
         manufacturing, automation and simulation.
+
+ 
 
       </p>
 
+ 
+
       <nav aria-label="Main navigation">
+
+ 
 
         <a href="#about" data-i18n="navAbout">About Me</a>
 
+ 
+
         <a href="#projects" data-i18n="navProjects">Projects</a>
+
+ 
 
         <a href="#skills" data-i18n="navSkills">Skills</a>
 
+ 
+
         <a href="#contact" data-i18n="navContact">Contact</a>
+
+ 
 
       </nav>
 
+ 
+
     </div>
+
+ 
 
   </header>
 
+ 
+
   <main>
+
+ 
 
     <section id="about">
 
+ 
+
       <div class="section-heading">
+
+ 
 
         <span class="section-label" data-i18n="aboutLabel">Who I Am</span>
 
+ 
+
         <h2 data-i18n="aboutTitle">Engineering with purpose and precision.</h2>
 
+ 
+
       </div>
+
+ 
 
       <div class="about-card">
 
+ 
+
         <p data-i18n="aboutText">
+
+ 
 
           I am a Mechanical Engineering master's student at Dortmund University
 
+ 
+
           of Applied Sciences, specializing in Product Development and
+
+ 
 
           Simulation. I enjoy turning technical challenges into practical
 
+ 
+
           solutions through mechanical design, manufacturing, automation and
+
+ 
 
           analytical thinking.
 
+ 
+
         </p>
+
+ 
 
       </div>
 
+ 
+
     </section>
+
+ 
 
     <section id="projects">
 
+ 
+
       <div>
+
+ 
 
         <div class="section-heading">
 
+ 
+
           <span class="section-label" data-i18n="projectsLabel">Selected Work</span>
+
+ 
 
           <h2 data-i18n="projectsTitle">Engineering projects</h2>
 
+ 
+
           <p class="section-intro" data-i18n="projectsIntro">
+
+ 
 
             A selection of projects involving robotics, automation and
 
+ 
+
             manufacturing technology.
+
+ 
 
           </p>
 
+ 
+
         </div>
+
+ 
 
         <div class="project-grid">
 
+ 
+
           <article
+
             class="card patent-project-card"
+
             role="button"
+
             tabindex="0"
+
             aria-haspopup="dialog"
+
             aria-controls="projectModal"
+
             onclick="openProjectModal()"
+
             onkeydown="handleProjectKey(event)"
+
           >
 
+ 
+
             <div class="project-visual" aria-hidden="true">
+
               <div class="project-visual-ring"></div>
+
               <div class="project-visual-core">MR</div>
+
             </div>
+
+ 
 
             <div class="project-number">01</div>
 
+ 
+
             <h3 data-i18n="project1Title">Medical Robot Gripper</h3>
 
+ 
+
             <p data-i18n="project1Text">
+
               Development of a sterilization-oriented quick-change concept
+
               for robotic surgical instruments. The project received third
+
               place at the MittelstandsMakerthon NRW.
+
             </p>
 
+ 
+
             <span class="read-more" data-i18n="readMore">
+
               Project overview →
+
             </span>
+
+ 
 
           </article>
 
+ 
+
           <article
+
             class="card automation-project-card"
+
             role="button"
+
             tabindex="0"
+
             aria-haspopup="dialog"
+
             aria-controls="automationModal"
+
             onclick="openAutomationModal()"
+
             onkeydown="handleAutomationKey(event)"
+
           >
+
+ 
 
             <div class="project-number">02</div>
 
+ 
+
             <h3 data-i18n="project2Title">Nuevo 35 Test Bench Automation</h3>
 
+ 
+
             <p data-i18n="project2Text">
+
               Development of a controlled shutdown sequence in NI LabVIEW
+
               to improve test-bench safety and system behavior.
+
             </p>
 
+ 
+
             <span class="read-more" data-i18n="automationReadMore">
+
               View automation project →
+
             </span>
 
+ 
+
           </article>
+
+ 
 
           <article class="card">
 
+ 
+
             <div class="project-number">03</div>
+
+ 
 
             <h3 data-i18n="project3Title">3D Printer with Laser Engraver</h3>
 
+ 
+
             <p data-i18n="project3Text">
+
               Bachelor's thesis focused on the design and development of a
+
               3D printer with an integrated laser engraving system.
+
             </p>
+
+ 
+
+          </article>
+
+ 
+
+        </div>
+
+ 
+
+      </div>
+
+ 
+
+    </section>
+
+ 
+
+    <section id="skills">
+
+ 
+
+      <div class="section-heading">
+
+ 
+
+        <span class="section-label" data-i18n="skillsLabel">Capabilities</span>
+
+ 
+
+        <h2 data-i18n="skillsTitle">Technical skills</h2>
+
+ 
+
+        <p class="section-intro" data-i18n="skillsIntro">
+
+ 
+
+          Tools and disciplines I use to design, build, test and improve
+
+ 
+
+          engineering systems.
+
+ 
+
+        </p>
+
+ 
+
+      </div>
+
+ 
+
+      <div class="skills">
+
+ 
+
+        <button
+
+          class="skill-button"
+
+          type="button"
+
+          aria-haspopup="dialog"
+
+          aria-controls="solidworksModal"
+
+          aria-label="View SolidWorks projects"
+
+          onclick="openSolidWorksModal()"
+
+        >
+
+          SolidWorks <span class="skill-link-icon" aria-hidden="true">↗</span>
+
+        </button>
+
+ 
+
+        <span>SolidCAM</span>
+
+ 
+
+        <span>NI LabVIEW</span>
+
+ 
+
+        <span data-i18n="skillCnc">CNC Manufacturing</span>
+
+ 
+
+        <span data-i18n="skill3d">3D Printing</span>
+
+ 
+
+        <span data-i18n="skillQuality">Quality Control</span>
+
+ 
+
+        <span data-i18n="skillProduct">Product Development</span>
+
+ 
+
+        <span data-i18n="skillSimulation">Simulation</span>
+
+ 
+
+        <span data-i18n="skillAutomation">Automation</span>
+
+ 
+
+        <span>Microsoft Office</span>
+
+ 
+
+      </div>
+
+ 
+
+    </section>
+
+ 
+
+    <section id="contact">
+
+ 
+
+      <div class="contact-card">
+
+ 
+
+        <span
+
+ 
+
+          class="section-label"
+
+ 
+
+          style="color: #67e8f9;"
+
+ 
+
+          data-i18n="contactLabel"
+
+ 
+
+        >
+
+ 
+
+          Get in touch
+
+ 
+
+        </span>
+
+ 
+
+        <h2 data-i18n="contactTitle">Let’s build something meaningful.</h2>
+
+ 
+
+        <p data-i18n="contactText">
+
+ 
+
+          I am open to engineering opportunities, technical collaborations
+
+ 
+
+          and conversations about product development, robotics and
+
+ 
+
+          manufacturing.
+
+ 
+
+        </p>
+
+ 
+
+        <div class="contact-links">
+
+ 
+
+          <a
+
+ 
+
+            class="button button-primary"
+
+ 
+
+            href="mailto:assemamer13@gmail.com"
+
+ 
+
+            data-i18n="emailButton"
+
+ 
+
+          >
+
+ 
+
+            Email Me
+
+ 
+
+          </a>
+
+ 
+
+          <a
+
+ 
+
+            class="button button-secondary"
+
+ 
+
+            href="https://www.linkedin.com/in/assem-ryan-014516189/"
+
+ 
+
+            target="_blank"
+
+ 
+
+            rel="noopener noreferrer"
+
+ 
+
+          >
+
+ 
+
+            LinkedIn
+
+ 
+
+          </a>
+
+ 
+
+          <a
+
+ 
+
+            class="button button-secondary"
+
+ 
+
+            href="assem-ryan-resume-en.pdf"
+
+ 
+
+            target="_blank"
+
+ 
+
+            rel="noopener noreferrer"
+
+ 
+
+          >
+
+ 
+
+            🇬🇧 <span data-i18n="resumeEnglish">Resume (English)</span>
+
+ 
+
+          </a>
+
+ 
+
+          <a
+
+ 
+
+            class="button button-secondary"
+
+ 
+
+            href="assem-ryan-resume-de.pdf"
+
+ 
+
+            target="_blank"
+
+ 
+
+            rel="noopener noreferrer"
+
+ 
+
+          >
+
+ 
+
+            🇩🇪 <span data-i18n="resumeGerman">Lebenslauf (Deutsch)</span>
+
+ 
+
+          </a>
+
+ 
+
+        </div>
+
+ 
+
+      </div>
+
+ 
+
+    </section>
+
+ 
+
+  </main>
+
+ 
+
+ 
+
+  <div
+
+    class="project-modal"
+
+    id="projectModal"
+
+    role="dialog"
+
+    aria-modal="true"
+
+    aria-labelledby="projectModalTitle"
+
+    aria-hidden="true"
+
+  >
+
+ 
+
+    <div class="project-modal-overlay" onclick="closeProjectModal()"></div>
+
+ 
+
+    <div class="project-modal-content">
+
+ 
+
+      <button
+
+        class="modal-close"
+
+        type="button"
+
+        aria-label="Close project overview"
+
+        onclick="closeProjectModal()"
+
+      >
+
+        ×
+
+      </button>
+
+ 
+
+      <div class="modal-visual" aria-hidden="true">
+
+        <div class="modal-visual-ring"></div>
+
+        <div class="modal-visual-core">MR</div>
+
+      </div>
+
+ 
+
+      <div class="modal-body">
+
+ 
+
+        <span class="section-label" data-i18n="caseStudyLabel">
+
+          Selected Project
+
+        </span>
+
+ 
+
+        <h2 id="projectModalTitle" data-i18n="modalProjectTitle">
+
+          Medical Robot Gripper
+
+        </h2>
+
+ 
+
+        <p class="modal-intro" data-i18n="modalProjectIntro">
+
+          A quick-change concept for robotic surgical instruments, developed
+
+          with a focus on cleanability, reduced component complexity and
+
+          suitability for medical environments.
+
+        </p>
+
+ 
+
+        <div class="project-details-grid">
+
+ 
+
+          <div class="detail-box">
+
+            <h3 data-i18n="challengeTitle">The Challenge</h3>
+
+            <p data-i18n="challengeText">
+
+              Conventional industrial tool-changing concepts are often not
+
+              suitable for medical environments because cleaning,
+
+              sterilization and safe handling require additional design
+
+              considerations.
+
+            </p>
+
+          </div>
+
+ 
+
+          <div class="detail-box">
+
+            <h3 data-i18n="approachTitle">My Approach</h3>
+
+            <p data-i18n="approachText">
+
+              The project explored a simplified mechanical concept intended
+
+              to reduce unnecessary complexity and support easier cleaning
+
+              while maintaining the required tool-changing function.
+
+            </p>
+
+          </div>
+
+ 
+
+          <div class="detail-box">
+
+            <h3 data-i18n="focusTitle">Focus Areas</h3>
+
+            <p data-i18n="focusText">
+
+              Product development, mechanical design, design for
+
+              manufacturing, medical robotics, cleanability and sterilization
+
+              considerations.
+
+            </p>
+
+          </div>
+
+ 
+
+          <div class="detail-box">
+
+            <h3 data-i18n="statusTitle">Current Status</h3>
+
+            <p data-i18n="statusText">
+
+              Further technical development, simulation and intellectual
+
+              property evaluation are ongoing.
+
+            </p>
+
+          </div>
+
+ 
+
+        </div>
+
+ 
+
+        <div class="award-box">
+
+          <strong data-i18n="awardTitle">
+
+            🥉 3rd Place – MittelstandsMakerthon NRW
+
+          </strong>
+
+          <p data-i18n="awardText">
+
+            Recognized for an innovative concept in surgical robotics.
+
+          </p>
+
+        </div>
+
+ 
+
+        <p class="confidential-note" data-i18n="confidentialNote">
+
+          Detailed technical information is currently withheld while
+
+          intellectual property protection is being evaluated.
+
+        </p>
+
+ 
+
+      </div>
+
+ 
+
+    </div>
+
+ 
+
+  </div>
+
+ 
+
+ 
+
+  <div
+
+    class="project-modal"
+
+    id="automationModal"
+
+    role="dialog"
+
+    aria-modal="true"
+
+    aria-labelledby="automationModalTitle"
+
+    aria-hidden="true"
+
+  >
+
+    <div class="project-modal-overlay" onclick="closeAutomationModal()"></div>
+
+ 
+
+    <div class="project-modal-content">
+
+      <button
+
+        class="modal-close"
+
+        type="button"
+
+        aria-label="Close automation project"
+
+        onclick="closeAutomationModal()"
+
+      >
+
+        ×
+
+      </button>
+
+ 
+
+      <div class="modal-visual">
+
+        <div class="modal-visual-ring"></div>
+
+        <div class="modal-visual-core">NI</div>
+
+      </div>
+
+ 
+
+      <div class="modal-body">
+
+        <span class="section-label" data-i18n="automationCaseLabel">
+
+          Automation Project
+
+        </span>
+
+ 
+
+        <h2 id="automationModalTitle" data-i18n="automationModalTitle">
+
+          Nuevo 35 Test Bench Automation
+
+        </h2>
+
+ 
+
+        <p class="modal-intro" data-i18n="automationModalIntro">
+
+          Improvement of the stop behavior of a test-bench control program
+
+          using NI LabVIEW.
+
+        </p>
+
+ 
+
+        <div class="project-details-grid">
+
+          <div class="detail-box">
+
+            <h3 data-i18n="automationProblemTitle">Initial Situation</h3>
+
+            <p data-i18n="automationProblemText">
+
+              Pressing Stop immediately terminated the program without a
+
+              controlled deceleration, creating a potential safety risk.
+
+            </p>
+
+          </div>
+
+ 
+
+          <div class="detail-box">
+
+            <h3 data-i18n="automationGoalTitle">Goal</h3>
+
+            <p data-i18n="automationGoalText">
+
+              Implement a smooth, user-defined shutdown sequence instead of
+
+              an abrupt stop.
+
+            </p>
+
+          </div>
+
+ 
+
+          <div class="detail-box">
+
+            <h3 data-i18n="automationSolutionTitle">Implemented Solution</h3>
+
+            <p data-i18n="automationSolutionText">
+
+              The LabVIEW logic was extended with a ramp-down sequence,
+
+              controlled voltage calculations, stop-state handling and a
+
+              restart lockout during deceleration.
+
+            </p>
+
+          </div>
+
+ 
+
+          <div class="detail-box">
+
+            <h3 data-i18n="automationResultTitle">Result</h3>
+
+            <p data-i18n="automationResultText">
+
+              The test bench now shuts down to zero within a configurable
+
+              time, while restart is only permitted after complete standstill.
+
+            </p>
+
+          </div>
+
+        </div>
+
+ 
+
+        <h3 class="project-gallery-title" data-i18n="automationGalleryTitle">Project gallery</h3>
+
+ 
+
+        <!-- Upload your cropped images using the filenames below. -->
+
+        <div class="project-media-grid">
+
+          <figure class="project-media-item">
+
+            <img
+
+              src="nuevo35-problem.png"
+
+              alt="Initial LabVIEW program state before the controlled shutdown improvement"
+
+            >
+
+            <figcaption data-i18n="automationImage1Caption">
+
+              Initial situation: pressing Stop ended the program immediately without controlled deceleration.
+
+            </figcaption>
+
+          </figure>
+
+ 
+
+          <figure class="project-media-item">
+
+            <img
+
+              src="nuevo35-solution.png"
+
+              alt="Updated LabVIEW implementation with controlled ramp-down logic"
+
+            >
+
+            <figcaption data-i18n="automationImage2Caption">
+
+              Implemented solution: a controlled ramp-down sequence with restart lockout during deceleration.
+
+            </figcaption>
+
+          </figure>
+
+ 
+
+ 
+
+        </div>
+
+ 
+
+        <div class="automation-summary">
+
+          <strong data-i18n="automationHighlightsTitle">
+
+            Key outcomes
+
+          </strong>
+
+          <ul>
+
+            <li data-i18n="automationHighlight1">
+
+              Controlled shutdown to zero within a user-defined time.
+
+            </li>
+
+            <li data-i18n="automationHighlight2">
+
+              Correct voltage calculations maintained during deceleration.
+
+            </li>
+
+            <li data-i18n="automationHighlight3">
+
+              Restart blocked until the test bench reaches complete standstill.
+
+            </li>
+
+          </ul>
+
+        </div>
+
+ 
+
+        <!-- Upload your video as nuevo35-demo.mp4. -->
+
+        <div class="project-video-wrap">
+
+          <h3 data-i18n="automationVideoTitle">Result and demonstration</h3>
+
+          <video
+
+            class="project-video"
+
+            controls
+
+            preload="metadata"
+
+            poster="nuevo35-solution.png"
+
+          >
+
+            <source src="nuevo35-demo.mp4" type="video/mp4">
+
+            <span data-i18n="videoFallback">
+
+              Your browser does not support embedded video.
+
+            </span>
+
+          </video>
+
+ 
+
+          <p class="video-caption" data-i18n="automationVideoCaption">
+
+            The video shows the controlled ramp-down sequence and confirms that
+
+            restart remains blocked until the test bench reaches complete standstill.
+
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+ 
+
+ 
+
+  <div
+
+    class="project-modal"
+
+    id="solidworksModal"
+
+    role="dialog"
+
+    aria-modal="true"
+
+    aria-labelledby="solidworksModalTitle"
+
+    aria-hidden="true"
+
+  >
+
+    <div class="project-modal-overlay" onclick="closeSolidWorksModal()"></div>
+
+ 
+
+    <div class="project-modal-content solidworks-modal-content">
+
+      <button
+
+        class="modal-close"
+
+        type="button"
+
+        aria-label="Close SolidWorks projects"
+
+        onclick="closeSolidWorksModal()"
+
+      >
+
+        ×
+
+      </button>
+
+ 
+
+      <div class="modal-visual solidworks-hero" aria-hidden="true">
+
+        <div class="modal-visual-ring"></div>
+
+        <div class="modal-visual-core">SW</div>
+
+      </div>
+
+ 
+
+      <div class="modal-body">
+
+        <span class="section-label" data-i18n="solidworksLabel">CAD Portfolio</span>
+
+ 
+
+        <h2 id="solidworksModalTitle" data-i18n="solidworksTitle">
+
+          SolidWorks Design Projects
+
+        </h2>
+
+ 
+
+        <p class="modal-intro" data-i18n="solidworksIntro">
+
+          A selection of parametric part, assembly, sheet-metal and technical-drawing work completed in SolidWorks.
+
+        </p>
+
+ 
+
+        <div class="solidworks-project-grid">
+
+          <article class="solidworks-project solidworks-project-wide">
+
+            <div class="solidworks-project-copy">
+
+              <div class="solidworks-project-heading">
+
+                <h3 data-i18n="swBottleTitle">Bottle and Drinking-Lid Assembly</h3>
+
+                <span class="solidworks-tag" data-i18n="swTagAssembly">Assembly</span>
+
+              </div>
+
+              <p data-i18n="swBottleText">
+
+                Parametric bottle and offset drinking-lid concept developed as a multi-part assembly, including ergonomic body geometry, threaded interfaces, assembly fit and production drawings.
+
+              </p>
+
+            </div>
+
+            <div class="solidworks-gallery">
+
+              <figure>
+
+                <img loading="lazy" src="assets/solidworks/bottle-assembly-cad-render.jpg" alt="SolidWorks bottle and lid assembly render">
+
+                <figcaption data-i18n="swCaptionAssembly">Assembly</figcaption>
+
+              </figure>
+
+              <figure>
+
+                <img loading="lazy" src="assets/solidworks/bottle-body-cad-render.jpg" alt="SolidWorks bottle body CAD render">
+
+                <figcaption data-i18n="swCaptionPart">Part model</figcaption>
+
+              </figure>
+
+              <figure>
+
+                <img loading="lazy" src="assets/solidworks/bottle-lid-cad-render.jpg" alt="SolidWorks drinking lid CAD render">
+
+                <figcaption data-i18n="swCaptionPart">Part model</figcaption>
+
+              </figure>
+
+              <figure>
+
+                <img loading="lazy" src="assets/solidworks/bottle-body-technical-drawing.jpg" alt="Bottle body technical drawing">
+
+                <figcaption data-i18n="swCaptionDrawing">Drawing</figcaption>
+
+              </figure>
+
+              <figure>
+
+                <img loading="lazy" src="assets/solidworks/bottle-lid-technical-drawing.jpg" alt="Bottle lid technical drawing">
+
+                <figcaption data-i18n="swCaptionDrawing">Drawing</figcaption>
+
+              </figure>
+
+            </div>
+
+          </article>
+
+ 
+
+          <article class="solidworks-project">
+
+            <div class="solidworks-project-copy">
+
+              <div class="solidworks-project-heading">
+
+                <h3 data-i18n="swBracketTitle">Formed Sheet-Metal Bracket</h3>
+
+                <span class="solidworks-tag" data-i18n="swTagSheetMetal">Sheet metal</span>
+
+              </div>
+
+              <p data-i18n="swBracketText">
+
+                Manufacturing-oriented bracket modeled with bends, edge returns, mounting holes and cutouts, then documented with the dimensions required for fabrication.
+
+              </p>
+
+            </div>
+
+            <div class="solidworks-gallery">
+
+              <figure>
+
+                <img loading="lazy" src="assets/solidworks/sheet-metal-bracket-cad-render.jpg" alt="Formed sheet-metal bracket CAD render">
+
+                <figcaption data-i18n="swCaptionModel">3D model</figcaption>
+
+              </figure>
+
+              <figure>
+
+                <img loading="lazy" src="assets/solidworks/sheet-metal-bracket-technical-drawing.jpg" alt="Sheet-metal bracket technical drawing">
+
+                <figcaption data-i18n="swCaptionDrawing">Drawing</figcaption>
+
+              </figure>
+
+            </div>
+
+          </article>
+
+ 
+
+          <article class="solidworks-project">
+
+            <div class="solidworks-project-copy">
+
+              <div class="solidworks-project-heading">
+
+                <h3 data-i18n="swFrameTitle">Multi-Bend Support Frame</h3>
+
+                <span class="solidworks-tag" data-i18n="swTagSheetMetal">Sheet metal</span>
+
+              </div>
+
+              <p data-i18n="swFrameText">
+
+                A multi-bend support frame with mounting tabs, openings and formed sections. The model was completed with a manufacturable flat pattern and detailed drawing.
+
+              </p>
+
+            </div>
+
+            <div class="solidworks-gallery">
+
+              <figure>
+
+                <img loading="lazy" src="assets/solidworks/sheet-metal-frame-cad-render.jpg" alt="Multi-bend sheet-metal support frame CAD render">
+
+                <figcaption data-i18n="swCaptionModel">3D model</figcaption>
+
+              </figure>
+
+              <figure>
+
+                <img loading="lazy" src="assets/solidworks/sheet-metal-frame-flat-pattern.jpg" alt="Sheet-metal support frame flat pattern">
+
+                <figcaption data-i18n="swCaptionFlatPattern">Flat pattern</figcaption>
+
+              </figure>
+
+              <figure>
+
+                <img loading="lazy" src="assets/solidworks/sheet-metal-frame-technical-drawing.jpg" alt="Sheet-metal support frame technical drawing">
+
+                <figcaption data-i18n="swCaptionDrawing">Drawing</figcaption>
+
+              </figure>
+
+            </div>
+
+          </article>
+
+ 
+
+          <article class="solidworks-project">
+
+            <div class="solidworks-project-copy">
+
+              <div class="solidworks-project-heading">
+
+                <h3 data-i18n="swChassisTitle">Electronics and Motor Chassis</h3>
+
+                <span class="solidworks-tag" data-i18n="swTagChassis">Chassis</span>
+
+              </div>
+
+              <p data-i18n="swChassisText">
+
+                Compact folded chassis designed around mounting, motor and ventilation requirements, with side plates, fan openings and documented fabrication geometry.
+
+              </p>
+
+            </div>
+
+            <div class="solidworks-gallery">
+
+              <figure>
+
+                <img loading="lazy" src="assets/solidworks/electronics-chassis-cad-render.jpg" alt="Electronics and motor chassis CAD render">
+
+                <figcaption data-i18n="swCaptionModel">3D model</figcaption>
+
+              </figure>
+
+              <figure>
+
+                <img loading="lazy" src="assets/solidworks/electronics-chassis-top-view.jpg" alt="Electronics chassis top view">
+
+                <figcaption data-i18n="swCaptionTopView">Top view</figcaption>
+
+              </figure>
+
+              <figure>
+
+                <img loading="lazy" src="assets/solidworks/electronics-chassis-technical-drawing.jpg" alt="Electronics chassis technical drawing">
+
+                <figcaption data-i18n="swCaptionDrawing">Drawing</figcaption>
+
+              </figure>
+
+            </div>
+
+          </article>
+
+ 
+
+          <article class="solidworks-project">
+
+            <div class="solidworks-project-copy">
+
+              <div class="solidworks-project-heading">
+
+                <h3 data-i18n="swValveTitle">Threaded Valve Housing</h3>
+
+                <span class="solidworks-tag" data-i18n="swTagMachined">Machined part</span>
+
+              </div>
+
+              <p data-i18n="swValveText">
+
+                Detailed threaded housing exercise featuring internal and external threads, a hexagonal body, a branch port and a section view used to verify the internal geometry.
+
+              </p>
+
+            </div>
+
+            <div class="solidworks-gallery">
+
+              <figure>
+
+                <img loading="lazy" src="assets/solidworks/threaded-valve-cad-render.jpg" alt="Threaded valve housing CAD render">
+
+                <figcaption data-i18n="swCaptionModel">3D model</figcaption>
+
+              </figure>
+
+              <figure>
+
+                <img loading="lazy" src="assets/solidworks/threaded-valve-section-view.jpg" alt="Threaded valve housing section view">
+
+                <figcaption data-i18n="swCaptionSection">Section view</figcaption>
+
+              </figure>
+
+            </div>
 
           </article>
 
@@ -1529,932 +4508,1339 @@
 
       </div>
 
-    </section>
-
-    <section id="skills">
-
-      <div class="section-heading">
-
-        <span class="section-label" data-i18n="skillsLabel">Capabilities</span>
-
-        <h2 data-i18n="skillsTitle">Technical skills</h2>
-
-        <p class="section-intro" data-i18n="skillsIntro">
-
-          Tools and disciplines I use to design, build, test and improve
-
-          engineering systems.
-
-        </p>
-
-      </div>
-
-      <div class="skills">
-
-        <span>SolidWorks</span>
-
-        <span>SolidCAM</span>
-
-        <span>NI LabVIEW</span>
-
-        <span data-i18n="skillCnc">CNC Manufacturing</span>
-
-        <span data-i18n="skill3d">3D Printing</span>
-
-        <span data-i18n="skillQuality">Quality Control</span>
-
-        <span data-i18n="skillProduct">Product Development</span>
-
-        <span data-i18n="skillSimulation">Simulation</span>
-
-        <span data-i18n="skillAutomation">Automation</span>
-
-        <span>Microsoft Office</span>
-
-      </div>
-
-    </section>
-
-    <section id="contact">
-
-      <div class="contact-card">
-
-        <span
-
-          class="section-label"
-
-          style="color: #67e8f9;"
-
-          data-i18n="contactLabel"
-
-        >
-
-          Get in touch
-
-        </span>
-
-        <h2 data-i18n="contactTitle">Let’s build something meaningful.</h2>
-
-        <p data-i18n="contactText">
-
-          I am open to engineering opportunities, technical collaborations
-
-          and conversations about product development, robotics and
-
-          manufacturing.
-
-        </p>
-
-        <div class="contact-links">
-
-          <a
-
-            class="button button-primary"
-
-            href="mailto:assemamer13@gmail.com"
-
-            data-i18n="emailButton"
-
-          >
-
-            Email Me
-
-          </a>
-
-          <a
-
-            class="button button-secondary"
-
-            href="https://www.linkedin.com/in/assem-ryan-014516189/"
-
-            target="_blank"
-
-            rel="noopener noreferrer"
-
-          >
-
-            LinkedIn
-
-          </a>
-
-          <a
-
-            class="button button-secondary"
-
-            href="assem-ryan-resume-en.pdf"
-
-            target="_blank"
-
-            rel="noopener noreferrer"
-
-          >
-
-            🇬🇧 <span data-i18n="resumeEnglish">Resume (English)</span>
-
-          </a>
-
-          <a
-
-            class="button button-secondary"
-
-            href="assem-ryan-resume-de.pdf"
-
-            target="_blank"
-
-            rel="noopener noreferrer"
-
-          >
-
-            🇩🇪 <span data-i18n="resumeGerman">Lebenslauf (Deutsch)</span>
-
-          </a>
-
-        </div>
-
-      </div>
-
-    </section>
-
-  </main>
-
-
-  <div
-    class="project-modal"
-    id="projectModal"
-    role="dialog"
-    aria-modal="true"
-    aria-labelledby="projectModalTitle"
-    aria-hidden="true"
-  >
-
-    <div class="project-modal-overlay" onclick="closeProjectModal()"></div>
-
-    <div class="project-modal-content">
-
-      <button
-        class="modal-close"
-        type="button"
-        aria-label="Close project overview"
-        onclick="closeProjectModal()"
-      >
-        ×
-      </button>
-
-      <div class="modal-visual" aria-hidden="true">
-        <div class="modal-visual-ring"></div>
-        <div class="modal-visual-core">MR</div>
-      </div>
-
-      <div class="modal-body">
-
-        <span class="section-label" data-i18n="caseStudyLabel">
-          Selected Project
-        </span>
-
-        <h2 id="projectModalTitle" data-i18n="modalProjectTitle">
-          Medical Robot Gripper
-        </h2>
-
-        <p class="modal-intro" data-i18n="modalProjectIntro">
-          A quick-change concept for robotic surgical instruments, developed
-          with a focus on cleanability, reduced component complexity and
-          suitability for medical environments.
-        </p>
-
-        <div class="project-details-grid">
-
-          <div class="detail-box">
-            <h3 data-i18n="challengeTitle">The Challenge</h3>
-            <p data-i18n="challengeText">
-              Conventional industrial tool-changing concepts are often not
-              suitable for medical environments because cleaning,
-              sterilization and safe handling require additional design
-              considerations.
-            </p>
-          </div>
-
-          <div class="detail-box">
-            <h3 data-i18n="approachTitle">My Approach</h3>
-            <p data-i18n="approachText">
-              The project explored a simplified mechanical concept intended
-              to reduce unnecessary complexity and support easier cleaning
-              while maintaining the required tool-changing function.
-            </p>
-          </div>
-
-          <div class="detail-box">
-            <h3 data-i18n="focusTitle">Focus Areas</h3>
-            <p data-i18n="focusText">
-              Product development, mechanical design, design for
-              manufacturing, medical robotics, cleanability and sterilization
-              considerations.
-            </p>
-          </div>
-
-          <div class="detail-box">
-            <h3 data-i18n="statusTitle">Current Status</h3>
-            <p data-i18n="statusText">
-              Further technical development, simulation and intellectual
-              property evaluation are ongoing.
-            </p>
-          </div>
-
-        </div>
-
-        <div class="award-box">
-          <strong data-i18n="awardTitle">
-            🥉 3rd Place – MittelstandsMakerthon NRW
-          </strong>
-          <p data-i18n="awardText">
-            Recognized for an innovative concept in surgical robotics.
-          </p>
-        </div>
-
-        <p class="confidential-note" data-i18n="confidentialNote">
-          Detailed technical information is currently withheld while
-          intellectual property protection is being evaluated.
-        </p>
-
-      </div>
-
     </div>
 
   </div>
 
+ 
 
-  <div
-    class="project-modal"
-    id="automationModal"
-    role="dialog"
-    aria-modal="true"
-    aria-labelledby="automationModalTitle"
-    aria-hidden="true"
-  >
-    <div class="project-modal-overlay" onclick="closeAutomationModal()"></div>
-
-    <div class="project-modal-content">
-      <button
-        class="modal-close"
-        type="button"
-        aria-label="Close automation project"
-        onclick="closeAutomationModal()"
-      >
-        ×
-      </button>
-
-      <div class="modal-visual">
-        <div class="modal-visual-ring"></div>
-        <div class="modal-visual-core">NI</div>
-      </div>
-
-      <div class="modal-body">
-        <span class="section-label" data-i18n="automationCaseLabel">
-          Automation Project
-        </span>
-
-        <h2 id="automationModalTitle" data-i18n="automationModalTitle">
-          Nuevo 35 Test Bench Automation
-        </h2>
-
-        <p class="modal-intro" data-i18n="automationModalIntro">
-          Improvement of the stop behavior of a test-bench control program
-          using NI LabVIEW.
-        </p>
-
-        <div class="project-details-grid">
-          <div class="detail-box">
-            <h3 data-i18n="automationProblemTitle">Initial Situation</h3>
-            <p data-i18n="automationProblemText">
-              Pressing Stop immediately terminated the program without a
-              controlled deceleration, creating a potential safety risk.
-            </p>
-          </div>
-
-          <div class="detail-box">
-            <h3 data-i18n="automationGoalTitle">Goal</h3>
-            <p data-i18n="automationGoalText">
-              Implement a smooth, user-defined shutdown sequence instead of
-              an abrupt stop.
-            </p>
-          </div>
-
-          <div class="detail-box">
-            <h3 data-i18n="automationSolutionTitle">Implemented Solution</h3>
-            <p data-i18n="automationSolutionText">
-              The LabVIEW logic was extended with a ramp-down sequence,
-              controlled voltage calculations, stop-state handling and a
-              restart lockout during deceleration.
-            </p>
-          </div>
-
-          <div class="detail-box">
-            <h3 data-i18n="automationResultTitle">Result</h3>
-            <p data-i18n="automationResultText">
-              The test bench now shuts down to zero within a configurable
-              time, while restart is only permitted after complete standstill.
-            </p>
-          </div>
-        </div>
-
-        <h3 class="project-gallery-title" data-i18n="automationGalleryTitle">Project gallery</h3>
-
-        <!-- Upload your cropped images using the filenames below. -->
-        <div class="project-media-grid">
-          <figure class="project-media-item">
-            <img
-              src="nuevo35-problem.png"
-              alt="Initial LabVIEW program state before the controlled shutdown improvement"
-            >
-            <figcaption data-i18n="automationImage1Caption">
-              Initial situation: pressing Stop ended the program immediately without controlled deceleration.
-            </figcaption>
-          </figure>
-
-          <figure class="project-media-item">
-            <img
-              src="nuevo35-solution.png"
-              alt="Updated LabVIEW implementation with controlled ramp-down logic"
-            >
-            <figcaption data-i18n="automationImage2Caption">
-              Implemented solution: a controlled ramp-down sequence with restart lockout during deceleration.
-            </figcaption>
-          </figure>
-
-
-        </div>
-
-        <div class="automation-summary">
-          <strong data-i18n="automationHighlightsTitle">
-            Key outcomes
-          </strong>
-          <ul>
-            <li data-i18n="automationHighlight1">
-              Controlled shutdown to zero within a user-defined time.
-            </li>
-            <li data-i18n="automationHighlight2">
-              Correct voltage calculations maintained during deceleration.
-            </li>
-            <li data-i18n="automationHighlight3">
-              Restart blocked until the test bench reaches complete standstill.
-            </li>
-          </ul>
-        </div>
-
-        <!-- Upload your video as nuevo35-demo.mp4. -->
-        <div class="project-video-wrap">
-          <h3 data-i18n="automationVideoTitle">Result and demonstration</h3>
-          <video
-            class="project-video"
-            controls
-            preload="metadata"
-            poster="nuevo35-solution.png"
-          >
-            <source src="nuevo35-demo.mp4" type="video/mp4">
-            <span data-i18n="videoFallback">
-              Your browser does not support embedded video.
-            </span>
-          </video>
-
-          <p class="video-caption" data-i18n="automationVideoCaption">
-            The video shows the controlled ramp-down sequence and confirms that
-            restart remains blocked until the test bench reaches complete standstill.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
+ 
 
   <footer>
 
+ 
+
     <p data-i18n="footerText">
+
+ 
 
       © 2026 Assem Ryan. Designed with precision.
 
+ 
+
     </p>
+
+ 
 
   </footer>
 
+ 
+
   <script>
+
+ 
 
     const translations = {
 
+ 
+
       en: {
+
+ 
 
         pageTitle: "Assem Ryan | Mechanical Engineer",
 
+ 
+
         pageDescription:
+
+ 
 
           "Portfolio of Assem Ryan, a mechanical engineer specializing in product development, robotics, manufacturing and simulation.",
 
+ 
+
         eyebrow: "Engineering ideas into reality",
 
+ 
+
         heroSubtitle:
+
+ 
 
           "Mechanical Engineer focused on product development, robotics, manufacturing, automation and simulation.",
 
+ 
+
         navAbout: "About Me",
+
+ 
 
         navProjects: "Projects",
 
+ 
+
         navSkills: "Skills",
+
+ 
 
         navContact: "Contact",
 
+ 
+
         aboutLabel: "Who I Am",
+
+ 
 
         aboutTitle: "Engineering with purpose and precision.",
 
+ 
+
         aboutText:
+
+ 
 
           "I am a Mechanical Engineering master's student at Dortmund University of Applied Sciences, specializing in Product Development and Simulation. I enjoy turning technical challenges into practical solutions through mechanical design, manufacturing, automation and analytical thinking.",
 
+ 
+
         projectsLabel: "Selected Work",
+
+ 
 
         projectsTitle: "Engineering projects",
 
+ 
+
         projectsIntro:
+
+ 
 
           "A selection of projects involving robotics, automation and manufacturing technology.",
 
+ 
+
         project1Title: "Medical Robot Gripper",
 
+ 
+
         project1Text:
+
+ 
 
           "Development of a sterilization-oriented quick-change concept for robotic surgical instruments. The project received third place at the MittelstandsMakerthon NRW.",
 
+ 
+
         project2Title: "Nuevo 35 Test Bench Automation",
 
+ 
+
         project2Text:
+
+ 
 
           "Development of a controlled shutdown sequence in NI LabVIEW to improve test-bench safety and system behavior.",
 
+ 
+
         automationReadMore: "View automation project →",
+
+ 
 
         automationCaseLabel: "Automation Project",
 
+ 
+
         automationModalTitle: "Nuevo 35 Test Bench Automation",
 
+ 
+
         automationModalIntro:
+
           "Improvement of the stop behavior of a test-bench control program using NI LabVIEW.",
+
+ 
 
         automationProblemTitle: "Initial Situation",
 
+ 
+
         automationProblemText:
+
           "Pressing Stop immediately terminated the program without a controlled deceleration, creating a potential safety risk.",
+
+ 
 
         automationGoalTitle: "Goal",
 
+ 
+
         automationGoalText:
+
           "Implement a smooth, user-defined shutdown sequence instead of an abrupt stop.",
+
+ 
 
         automationSolutionTitle: "Implemented Solution",
 
+ 
+
         automationSolutionText:
+
           "The LabVIEW logic was extended with a ramp-down sequence, controlled voltage calculations, stop-state handling and a restart lockout during deceleration.",
+
+ 
 
         automationResultTitle: "Result",
 
+ 
+
         automationResultText:
+
           "The test bench now shuts down to zero within a configurable time, while restart is only permitted after complete standstill.",
+
+ 
 
         automationGalleryTitle: "Project gallery",
 
+ 
+
         automationImage1Caption:
+
           "Initial situation: pressing Stop ended the program immediately without controlled deceleration.",
 
+ 
+
         automationImage2Caption:
+
           "Implemented solution: a controlled ramp-down sequence with restart lockout during deceleration.",
 
+ 
+
         automationImage3Caption:
+
           "Results: controlled shutdown to zero and restart only after complete standstill.",
+
+ 
 
         automationHighlightsTitle: "Key outcomes",
 
+ 
+
         automationHighlight1:
+
           "Controlled shutdown to zero within a user-defined time.",
 
+ 
+
         automationHighlight2:
+
           "Correct voltage calculations maintained during deceleration.",
 
+ 
+
         automationHighlight3:
+
           "Restart blocked until the test bench reaches complete standstill.",
+
+ 
 
         automationVideoTitle: "Result and demonstration",
 
+ 
+
         automationVideoCaption:
+
           "The video shows the controlled ramp-down sequence and confirms that restart remains blocked until the test bench reaches complete standstill.",
+
+ 
 
         videoFallback: "Your browser does not support embedded video.",
 
+ 
+
         project3Title: "3D Printer with Laser Engraver",
 
+ 
+
         project3Text:
+
+ 
 
           "Bachelor's thesis focused on the design and development of a 3D printer with an integrated laser engraving system.",
 
+ 
+
         readMore: "Project overview →",
+
+ 
 
         caseStudyLabel: "Selected Project",
 
+ 
+
         modalProjectTitle: "Medical Robot Gripper",
 
+ 
+
         modalProjectIntro:
+
+ 
 
           "A quick-change concept for robotic surgical instruments, developed with a focus on cleanability, reduced component complexity and suitability for medical environments.",
 
+ 
+
         challengeTitle: "The Challenge",
 
+ 
+
         challengeText:
+
+ 
 
           "Conventional industrial tool-changing concepts are often not suitable for medical environments because cleaning, sterilization and safe handling require additional design considerations.",
 
+ 
+
         approachTitle: "My Approach",
 
+ 
+
         approachText:
+
+ 
 
           "The project explored a simplified mechanical concept intended to reduce unnecessary complexity and support easier cleaning while maintaining the required tool-changing function.",
 
+ 
+
         focusTitle: "Focus Areas",
 
+ 
+
         focusText:
+
+ 
 
           "Product development, mechanical design, design for manufacturing, medical robotics, cleanability and sterilization considerations.",
 
+ 
+
         statusTitle: "Current Status",
 
+ 
+
         statusText:
+
+ 
 
           "Further technical development, simulation and intellectual property evaluation are ongoing.",
 
+ 
+
         awardTitle: "🥉 3rd Place – MittelstandsMakerthon NRW",
 
+ 
+
         awardText:
+
+ 
 
           "Recognized for an innovative concept in surgical robotics.",
 
+ 
+
         confidentialNote:
+
+ 
 
           "Detailed technical information is currently withheld while intellectual property protection is being evaluated.",
 
+ 
+
+        solidworksLabel: "CAD Portfolio",
+
+ 
+
+        solidworksTitle: "SolidWorks Design Projects",
+
+ 
+
+        solidworksIntro:
+
+          "A selection of parametric part, assembly, sheet-metal and technical-drawing work completed in SolidWorks.",
+
+ 
+
+        swBottleTitle: "Bottle and Drinking-Lid Assembly",
+
+ 
+
+        swBottleText:
+
+          "Parametric bottle and offset drinking-lid concept developed as a multi-part assembly, including ergonomic body geometry, threaded interfaces, assembly fit and production drawings.",
+
+ 
+
+        swBracketTitle: "Formed Sheet-Metal Bracket",
+
+ 
+
+        swBracketText:
+
+          "Manufacturing-oriented bracket modeled with bends, edge returns, mounting holes and cutouts, then documented with the dimensions required for fabrication.",
+
+ 
+
+        swFrameTitle: "Multi-Bend Support Frame",
+
+ 
+
+        swFrameText:
+
+          "A multi-bend support frame with mounting tabs, openings and formed sections. The model was completed with a manufacturable flat pattern and detailed drawing.",
+
+ 
+
+        swChassisTitle: "Electronics and Motor Chassis",
+
+ 
+
+        swChassisText:
+
+          "Compact folded chassis designed around mounting, motor and ventilation requirements, with side plates, fan openings and documented fabrication geometry.",
+
+ 
+
+        swValveTitle: "Threaded Valve Housing",
+
+ 
+
+        swValveText:
+
+          "Detailed threaded housing exercise featuring internal and external threads, a hexagonal body, a branch port and a section view used to verify the internal geometry.",
+
+ 
+
+        swTagAssembly: "Assembly",
+
+ 
+
+        swTagSheetMetal: "Sheet metal",
+
+ 
+
+        swTagChassis: "Chassis",
+
+ 
+
+        swTagMachined: "Machined part",
+
+ 
+
+        swCaptionAssembly: "Assembly",
+
+ 
+
+        swCaptionPart: "Part model",
+
+ 
+
+        swCaptionModel: "3D model",
+
+ 
+
+        swCaptionDrawing: "Drawing",
+
+ 
+
+        swCaptionFlatPattern: "Flat pattern",
+
+ 
+
+        swCaptionTopView: "Top view",
+
+ 
+
+        swCaptionSection: "Section view",
+
+ 
+
         skillsLabel: "Capabilities",
+
+ 
 
         skillsTitle: "Technical skills",
 
+ 
+
         skillsIntro:
+
+ 
 
           "Tools and disciplines I use to design, build, test and improve engineering systems.",
 
+ 
+
         skillCnc: "CNC Manufacturing",
+
+ 
 
         skill3d: "3D Printing",
 
+ 
+
         skillQuality: "Quality Control",
+
+ 
 
         skillProduct: "Product Development",
 
+ 
+
         skillSimulation: "Simulation",
+
+ 
 
         skillAutomation: "Automation",
 
+ 
+
         contactLabel: "Get in touch",
+
+ 
 
         contactTitle: "Let’s build something meaningful.",
 
+ 
+
         contactText:
+
+ 
 
           "I am open to engineering opportunities, technical collaborations and conversations about product development, robotics and manufacturing.",
 
+ 
+
         emailButton: "Email Me",
+
+ 
 
         resumeEnglish: "Resume (English)",
 
+ 
+
         resumeGerman: "Lebenslauf (Deutsch)",
+
+ 
 
         footerText: "© 2026 Assem Ryan. Designed with precision."
 
+ 
+
       },
+
+ 
 
       de: {
 
+ 
+
         pageTitle: "Assem Ryan | Maschinenbauingenieur",
+
+ 
 
         pageDescription:
 
+ 
+
           "Portfolio von Assem Ryan, Maschinenbauingenieur mit Schwerpunkt Produktentwicklung, Robotik, Fertigung und Simulation.",
+
+ 
 
         eyebrow: "Technische Ideen werden Realität",
 
+ 
+
         heroSubtitle:
+
+ 
 
           "Maschinenbauingenieur mit Schwerpunkt Produktentwicklung, Robotik, Fertigung, Automatisierung und Simulation.",
 
+ 
+
         navAbout: "Über mich",
+
+ 
 
         navProjects: "Projekte",
 
+ 
+
         navSkills: "Kenntnisse",
+
+ 
 
         navContact: "Kontakt",
 
+ 
+
         aboutLabel: "Über mich",
+
+ 
 
         aboutTitle: "Ingenieurwesen mit Ziel und Präzision.",
 
+ 
+
         aboutText:
+
+ 
 
           "Ich bin Masterstudent im Studiengang Maschinenbau an der Fachhochschule Dortmund mit dem Schwerpunkt Produktentwicklung und Simulation. Ich entwickle gerne praktische Lösungen für technische Herausforderungen durch mechanische Konstruktion, Fertigung, Automatisierung und analytisches Denken.",
 
+ 
+
         projectsLabel: "Ausgewählte Arbeiten",
+
+ 
 
         projectsTitle: "Technische Projekte",
 
+ 
+
         projectsIntro:
+
+ 
 
           "Eine Auswahl meiner Projekte aus den Bereichen Robotik, Automatisierung und Fertigungstechnik.",
 
+ 
+
         project1Title: "Medizinischer Robotergreifer",
+
+ 
 
         project1Text:
 
+ 
+
           "Entwicklung eines sterilisationsorientierten Schnellwechselkonzepts für robotische chirurgische Instrumente. Das Projekt erreichte den dritten Platz beim MittelstandsMakerthon NRW.",
+
+ 
 
         project2Title: "Automatisierung des Nuevo-35-Prüfstands",
 
+ 
+
         project2Text:
+
+ 
 
           "Entwicklung einer kontrollierten Abschaltsequenz in NI LabVIEW zur Verbesserung der Prüfstandsicherheit und des Systemverhaltens.",
 
+ 
+
         automationReadMore: "Automatisierungsprojekt ansehen →",
+
+ 
 
         automationCaseLabel: "Automatisierungsprojekt",
 
+ 
+
         automationModalTitle: "Automatisierung des Nuevo-35-Prüfstands",
 
+ 
+
         automationModalIntro:
+
           "Verbesserung des Stoppverhaltens eines Prüfstandsprogramms mit NI LabVIEW.",
+
+ 
 
         automationProblemTitle: "Ausgangssituation",
 
+ 
+
         automationProblemText:
+
           "Beim Drücken von Stop wurde das Programm sofort und ohne kontrolliertes Abbremsen beendet, wodurch ein mögliches Sicherheitsrisiko entstand.",
+
+ 
 
         automationGoalTitle: "Ziel",
 
+ 
+
         automationGoalText:
+
           "Umsetzung einer sanften, benutzerdefinierten Abschaltsequenz anstelle eines abrupten Stopps.",
+
+ 
 
         automationSolutionTitle: "Umgesetzte Lösung",
 
+ 
+
         automationSolutionText:
+
           "Die LabVIEW-Logik wurde um eine Ramp-Down-Sequenz, kontrollierte Spannungsberechnungen, eine Zustandsverwaltung und eine Neustartsperre während des Abbremsens erweitert.",
+
+ 
 
         automationResultTitle: "Ergebnis",
 
+ 
+
         automationResultText:
+
           "Der Prüfstand fährt nun innerhalb einer konfigurierbaren Zeit kontrolliert auf null herunter. Ein Neustart ist erst nach vollständigem Stillstand möglich.",
+
+ 
 
         automationGalleryTitle: "Projektgalerie",
 
+ 
+
         automationImage1Caption:
+
           "Ausgangssituation: Beim Drücken von Stop wurde das Programm sofort und ohne kontrolliertes Abbremsen beendet.",
 
+ 
+
         automationImage2Caption:
+
           "Umgesetzte Lösung: kontrollierte Ramp-Down-Sequenz mit Neustartsperre während der Abbremsphase.",
 
+ 
+
         automationImage3Caption:
+
           "Ergebnisse: kontrolliertes Herunterfahren auf null und Neustart erst nach vollständigem Stillstand.",
+
+ 
 
         automationHighlightsTitle: "Wichtigste Ergebnisse",
 
+ 
+
         automationHighlight1:
+
           "Kontrolliertes Herunterfahren auf null innerhalb einer benutzerdefinierten Zeit.",
 
+ 
+
         automationHighlight2:
+
           "Korrekte Spannungsberechnungen während der Abbremsphase.",
 
+ 
+
         automationHighlight3:
+
           "Neustart erst nach vollständigem Stillstand des Prüfstands.",
+
+ 
 
         automationVideoTitle: "Ergebnis und Demonstration",
 
+ 
+
         automationVideoCaption:
+
           "Das Video zeigt die kontrollierte Ramp-Down-Sequenz und bestätigt, dass ein Neustart bis zum vollständigen Stillstand des Prüfstands gesperrt bleibt.",
+
+ 
 
         videoFallback: "Ihr Browser unterstützt eingebettete Videos nicht.",
 
+ 
+
         project3Title: "3D-Drucker mit Lasergravur",
+
+ 
 
         project3Text:
 
+ 
+
           "Bachelorarbeit über die Konstruktion und Entwicklung eines 3D-Druckers mit integriertem Lasergravursystem.",
+
+ 
 
         readMore: "Projektübersicht →",
 
+ 
+
         caseStudyLabel: "Ausgewähltes Projekt",
+
+ 
 
         modalProjectTitle: "Medizinischer Robotergreifer",
 
+ 
+
         modalProjectIntro:
+
+ 
 
           "Ein Schnellwechselkonzept für robotische chirurgische Instrumente mit Schwerpunkt auf Reinigbarkeit, reduzierter Bauteilkomplexität und Eignung für medizinische Umgebungen.",
 
+ 
+
         challengeTitle: "Die Herausforderung",
+
+ 
 
         challengeText:
 
+ 
+
           "Konventionelle industrielle Werkzeugwechselkonzepte sind für medizinische Umgebungen häufig ungeeignet, da Reinigung, Sterilisation und sichere Handhabung zusätzliche konstruktive Anforderungen stellen.",
+
+ 
 
         approachTitle: "Mein Ansatz",
 
+ 
+
         approachText:
+
+ 
 
           "Im Projekt wurde ein vereinfachtes mechanisches Konzept untersucht, das unnötige Komplexität reduzieren und die Reinigung erleichtern soll, während die erforderliche Werkzeugwechselfunktion erhalten bleibt.",
 
+ 
+
         focusTitle: "Schwerpunkte",
+
+ 
 
         focusText:
 
+ 
+
           "Produktentwicklung, mechanische Konstruktion, fertigungsgerechte Gestaltung, Medizinrobotik sowie Reinigungs- und Sterilisationsaspekte.",
+
+ 
 
         statusTitle: "Aktueller Stand",
 
+ 
+
         statusText:
+
+ 
 
           "Die weitere technische Entwicklung, Simulation und Prüfung des geistigen Eigentums dauern an.",
 
+ 
+
         awardTitle: "🥉 3. Platz – MittelstandsMakerthon NRW",
+
+ 
 
         awardText:
 
+ 
+
           "Auszeichnung für ein innovatives Konzept im Bereich der chirurgischen Robotik.",
+
+ 
 
         confidentialNote:
 
+ 
+
           "Detaillierte technische Informationen werden derzeit zurückgehalten, während der Schutz des geistigen Eigentums geprüft wird.",
+
+ 
+
+        solidworksLabel: "CAD-Portfolio",
+
+ 
+
+        solidworksTitle: "SolidWorks-Konstruktionsprojekte",
+
+ 
+
+        solidworksIntro:
+
+          "Eine Auswahl parametrischer Bauteile, Baugruppen, Blechkonstruktionen und technischer Zeichnungen, die in SolidWorks erstellt wurden.",
+
+ 
+
+        swBottleTitle: "Flaschen- und Trinkdeckelbaugruppe",
+
+ 
+
+        swBottleText:
+
+          "Parametrisches Flaschen- und Trinkdeckelkonzept als mehrteilige Baugruppe mit ergonomischer Geometrie, Gewindeschnittstellen, Passungsprüfung und Fertigungszeichnungen.",
+
+ 
+
+        swBracketTitle: "Geformter Blechhalter",
+
+ 
+
+        swBracketText:
+
+          "Fertigungsgerechter Halter mit Biegungen, Umschlägen, Befestigungsbohrungen und Ausschnitten sowie einer bemaßten Zeichnung für die Herstellung.",
+
+ 
+
+        swFrameTitle: "Mehrfach gekanteter Tragrahmen",
+
+ 
+
+        swFrameText:
+
+          "Tragrahmen mit mehreren Biegungen, Befestigungslaschen, Öffnungen und geformten Bereichen. Ergänzt durch eine fertigungsgerechte Abwicklung und Detailzeichnung.",
+
+ 
+
+        swChassisTitle: "Elektronik- und Motorgehäuse",
+
+ 
+
+        swChassisText:
+
+          "Kompaktes Blechchassis für Befestigungs-, Motor- und Belüftungsanforderungen mit Seitenplatten, Lüfteröffnungen und dokumentierter Fertigungsgeometrie.",
+
+ 
+
+        swValveTitle: "Gewinde-Ventilgehäuse",
+
+ 
+
+        swValveText:
+
+          "Detaillierte Modellierübung mit Innen- und Außengewinden, Sechskantkörper, Abzweiganschluss und Schnittansicht zur Kontrolle der Innengeometrie.",
+
+ 
+
+        swTagAssembly: "Baugruppe",
+
+ 
+
+        swTagSheetMetal: "Blech",
+
+ 
+
+        swTagChassis: "Gehäuse",
+
+ 
+
+        swTagMachined: "Dreh-/Frästeil",
+
+ 
+
+        swCaptionAssembly: "Baugruppe",
+
+ 
+
+        swCaptionPart: "Bauteil",
+
+ 
+
+        swCaptionModel: "3D-Modell",
+
+ 
+
+        swCaptionDrawing: "Zeichnung",
+
+ 
+
+        swCaptionFlatPattern: "Abwicklung",
+
+ 
+
+        swCaptionTopView: "Draufsicht",
+
+ 
+
+        swCaptionSection: "Schnittansicht",
+
+ 
 
         skillsLabel: "Kompetenzen",
 
+ 
+
         skillsTitle: "Technische Kenntnisse",
+
+ 
 
         skillsIntro:
 
+ 
+
           "Werkzeuge und Fachgebiete, mit denen ich technische Systeme konstruiere, fertige, prüfe und optimiere.",
+
+ 
 
         skillCnc: "CNC-Fertigung",
 
+ 
+
         skill3d: "3D-Druck",
+
+ 
 
         skillQuality: "Qualitätskontrolle",
 
+ 
+
         skillProduct: "Produktentwicklung",
+
+ 
 
         skillSimulation: "Simulation",
 
+ 
+
         skillAutomation: "Automatisierung",
+
+ 
 
         contactLabel: "Kontakt aufnehmen",
 
+ 
+
         contactTitle: "Lassen Sie uns etwas Sinnvolles entwickeln.",
+
+ 
 
         contactText:
 
+ 
+
           "Ich bin offen für berufliche Möglichkeiten, technische Kooperationen und Gespräche über Produktentwicklung, Robotik und Fertigung.",
+
+ 
 
         emailButton: "E-Mail senden",
 
+ 
+
         resumeEnglish: "Lebenslauf (Englisch)",
+
+ 
 
         resumeGerman: "Lebenslauf (Deutsch)",
 
+ 
+
         footerText: "© 2026 Assem Ryan. Mit Präzision gestaltet."
 
+ 
+
       }
+
+ 
 
     };
 
+ 
+
     const languageButtons = document.querySelectorAll(".language-button");
+
+ 
 
     const translatableElements = document.querySelectorAll("[data-i18n]");
 
+ 
+
     const descriptionMeta = document.querySelector('meta[name="description"]');
+
+ 
 
     function setLanguage(language) {
 
+ 
+
       const selected = translations[language] || translations.en;
+
+ 
 
       document.documentElement.lang = language;
 
+ 
+
       document.title = selected.pageTitle;
+
+ 
 
       descriptionMeta.setAttribute("content", selected.pageDescription);
 
+ 
+
       translatableElements.forEach((element) => {
+
+ 
 
         const key = element.dataset.i18n;
 
+ 
+
         if (selected[key]) {
+
+ 
 
           element.textContent = selected[key];
 
+ 
+
         }
 
+ 
+
       });
+
+ 
 
       languageButtons.forEach((button) => {
 
+ 
+
         const isActive = button.dataset.language === language;
+
+ 
 
         button.classList.toggle("active", isActive);
 
+ 
+
         button.setAttribute("aria-pressed", String(isActive));
 
+ 
+
       });
+
+ 
 
       localStorage.setItem("portfolio-language", language);
 
+ 
+
     }
+
+ 
 
     languageButtons.forEach((button) => {
 
+ 
+
       button.addEventListener("click", () => {
+
+ 
 
         setLanguage(button.dataset.language);
 
+ 
+
       });
+
+ 
 
     });
 
+ 
 
+ 
+
+ 
 
     const projectModal = document.getElementById("projectModal");
 
+ 
+
     function openProjectModal() {
+
       projectModal.classList.add("open");
+
       projectModal.setAttribute("aria-hidden", "false");
+
       document.body.style.overflow = "hidden";
+
       projectModal.querySelector(".modal-close").focus();
+
     }
+
+ 
 
     function closeProjectModal() {
+
       projectModal.classList.remove("open");
+
       projectModal.setAttribute("aria-hidden", "true");
+
       document.body.style.overflow = "";
+
     }
+
+ 
 
     function handleProjectKey(event) {
+
       if (event.key === "Enter" || event.key === " ") {
+
         event.preventDefault();
+
         openProjectModal();
+
       }
+
     }
 
+ 
+
     document.addEventListener("keydown", (event) => {
+
       if (event.key !== "Escape") return;
 
+ 
+
       if (projectModal.classList.contains("open")) {
+
         closeProjectModal();
+
       }
+
+ 
 
       if (automationModal.classList.contains("open")) {
+
         closeAutomationModal();
+
       }
+
+ 
+
+      if (solidworksModal.classList.contains("open")) {
+
+        closeSolidWorksModal();
+
+      }
+
     });
 
+ 
+
+ 
 
     const automationModal = document.getElementById("automationModal");
 
+ 
+
     function openAutomationModal() {
+
       automationModal.classList.add("open");
+
       automationModal.setAttribute("aria-hidden", "false");
+
       document.body.style.overflow = "hidden";
+
       automationModal.querySelector(".modal-close").focus();
+
     }
+
+ 
 
     function closeAutomationModal() {
+
       automationModal.classList.remove("open");
+
       automationModal.setAttribute("aria-hidden", "true");
+
       document.body.style.overflow = "";
+
     }
 
+ 
+
     function handleAutomationKey(event) {
+
       if (event.key === "Enter" || event.key === " ") {
+
         event.preventDefault();
+
         openAutomationModal();
+
       }
+
     }
+
+ 
+
+ 
+
+ 
+
+    const solidworksModal = document.getElementById("solidworksModal");
+
+ 
+
+    function openSolidWorksModal() {
+
+      solidworksModal.classList.add("open");
+
+      solidworksModal.setAttribute("aria-hidden", "false");
+
+      document.body.style.overflow = "hidden";
+
+      solidworksModal.querySelector(".modal-close").focus();
+
+    }
+
+ 
+
+    function closeSolidWorksModal() {
+
+      solidworksModal.classList.remove("open");
+
+      solidworksModal.setAttribute("aria-hidden", "true");
+
+      document.body.style.overflow = "";
+
+    }
+
+ 
+
+ 
 
     const savedLanguage = localStorage.getItem("portfolio-language");
 
+ 
+
     const browserLanguage = navigator.language.toLowerCase().startsWith("de")
+
+ 
 
       ? "de"
 
+ 
+
       : "en";
+
+ 
 
     setLanguage(savedLanguage || browserLanguage);
 
+ 
+
   </script>
+
+ 
 
 </body>
 
+ 
+
 </html>
+
