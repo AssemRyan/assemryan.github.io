@@ -1408,157 +1408,225 @@
 
     .skills {
 
- 
+      display: grid;
 
-      display: flex;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
 
- 
-
-      flex-wrap: wrap;
-
- 
-
-      gap: 12px;
-
- 
+      gap: 18px;
 
     }
 
  
 
-    .skills > span,
-
-    .skill-button {
-
- 
-
-      display: inline-flex;
-
- 
-
-      align-items: center;
-
- 
-
-      padding: 11px 17px;
-
- 
-
-      color: var(--navy);
-
- 
-
-      font-weight: 700;
-
- 
-
-      border: 1px solid rgba(37, 99, 235, 0.15);
-
- 
-
-      border-radius: 999px;
-
- 
-
-      background:
-
- 
-
-        linear-gradient(
-
- 
-
-          135deg,
-
- 
-
-          rgba(255, 255, 255, 0.95),
-
- 
-
-          rgba(219, 234, 254, 0.65)
-
- 
-
-        );
-
- 
-
-      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.08);
-
- 
-
-      transition:
-
- 
-
-        transform 0.25s ease,
-
- 
-
-        background 0.25s ease;
-
- 
-
-    }
-
- 
-
-    .skills > span:hover,
-
-    .skill-button:hover {
-
- 
-
-      transform: translateY(-3px) scale(1.03);
-
- 
-
-      color: white;
-
- 
-
-      background: linear-gradient(135deg, var(--blue), var(--purple));
-
- 
-
-    }
-
- 
-
- 
-
- 
-
-    .skill-button {
+    .skill-category-button {
 
       appearance: none;
 
-      font: inherit;
+      position: relative;
 
-      line-height: inherit;
+      overflow: hidden;
+
+      min-height: 150px;
+
+      padding: 25px;
+
+      color: var(--navy);
+
+      text-align: left;
+
+      font: inherit;
 
       cursor: pointer;
 
+      border: 1px solid rgba(37, 99, 235, 0.16);
+
+      border-radius: 20px;
+
+      background:
+
+        linear-gradient(
+
+          135deg,
+
+          rgba(255, 255, 255, 0.98),
+
+          rgba(219, 234, 254, 0.72)
+
+        );
+
+      box-shadow: 0 12px 30px rgba(37, 99, 235, 0.09);
+
+      transition:
+
+        transform 0.28s ease,
+
+        box-shadow 0.28s ease,
+
+        border-color 0.28s ease;
+
     }
 
  
 
-    .skill-button:focus-visible {
+    .skill-category-button::after {
+
+      content: "";
+
+      position: absolute;
+
+      width: 120px;
+
+      height: 120px;
+
+      right: -45px;
+
+      bottom: -55px;
+
+      border-radius: 50%;
+
+      opacity: 0.12;
+
+      background: var(--blue);
+
+      transition: transform 0.3s ease;
+
+    }
+
+ 
+
+    .skill-category-button:nth-child(2)::after {
+
+      background: var(--orange);
+
+    }
+
+ 
+
+    .skill-category-button:nth-child(3)::after {
+
+      background: var(--purple);
+
+    }
+
+ 
+
+    .skill-category-button:nth-child(4)::after {
+
+      background: var(--green);
+
+    }
+
+ 
+
+    .skill-category-button:hover {
+
+      transform: translateY(-6px);
+
+      border-color: rgba(37, 99, 235, 0.32);
+
+      box-shadow: 0 22px 42px rgba(15, 23, 42, 0.14);
+
+    }
+
+ 
+
+    .skill-category-button:hover::after {
+
+      transform: scale(1.28);
+
+    }
+
+ 
+
+    .skill-category-button:focus-visible {
 
       outline: 4px solid rgba(37, 99, 235, 0.24);
 
-      outline-offset: 4px;
+      outline-offset: 5px;
 
     }
 
  
 
-    .skill-button .skill-link-icon {
+    .skill-category-topline {
 
-      margin-left: 7px;
+      position: relative;
 
-      font-size: 14px;
+      z-index: 1;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      gap: 15px;
+
+      margin-bottom: 15px;
+
+    }
+
+ 
+
+    .skill-category-code {
+
+      display: inline-grid;
+
+      place-items: center;
+
+      min-width: 48px;
+
+      height: 48px;
+
+      padding: 0 10px;
+
+      color: white;
+
+      font-size: 13px;
+
+      font-weight: 900;
+
+      letter-spacing: 0.7px;
+
+      border-radius: 14px;
+
+      background: linear-gradient(135deg, var(--cyan), var(--blue));
+
+    }
+
+ 
+
+    .skill-category-button:nth-child(2) .skill-category-code {
+
+      background: linear-gradient(135deg, #f59e0b, var(--orange));
+
+    }
+
+ 
+
+    .skill-category-button:nth-child(3) .skill-category-code {
+
+      background: linear-gradient(135deg, #a855f7, var(--purple));
+
+    }
+
+ 
+
+    .skill-category-button:nth-child(4) .skill-category-code {
+
+      background: linear-gradient(135deg, #34d399, var(--green));
+
+    }
+
+ 
+
+    .skill-category-arrow {
+
+      color: var(--blue);
+
+      font-size: 21px;
+
+      font-weight: 900;
 
       transition: transform 0.25s ease;
 
@@ -1566,9 +1634,49 @@
 
  
 
-    .skill-button:hover .skill-link-icon {
+    .skill-category-button:hover .skill-category-arrow {
 
-      transform: translate(2px, -2px);
+      transform: translate(3px, -3px);
+
+    }
+
+ 
+
+    .skill-category-title {
+
+      position: relative;
+
+      z-index: 1;
+
+      display: block;
+
+      margin-bottom: 8px;
+
+      color: var(--navy);
+
+      font-size: 20px;
+
+      font-weight: 850;
+
+      line-height: 1.25;
+
+    }
+
+ 
+
+    .skill-category-summary {
+
+      position: relative;
+
+      z-index: 1;
+
+      display: block;
+
+      color: var(--muted);
+
+      font-size: 15px;
+
+      line-height: 1.55;
 
     }
 
@@ -2476,6 +2584,282 @@
 
  
 
+    .capability-modal-content {
+
+      width: min(1040px, 100%);
+
+    }
+
+ 
+
+    .capability-hero-design {
+
+      background:
+
+        radial-gradient(circle at 22% 28%, rgba(103, 232, 249, 0.32), transparent 25%),
+
+        linear-gradient(135deg, #0b2942, #2563eb 58%, #06b6d4);
+
+    }
+
+ 
+
+    .capability-hero-manufacturing {
+
+      background:
+
+        radial-gradient(circle at 22% 28%, rgba(253, 186, 116, 0.35), transparent 25%),
+
+        linear-gradient(135deg, #431407, #ea580c 58%, #f59e0b);
+
+    }
+
+ 
+
+    .capability-hero-automation {
+
+      background:
+
+        radial-gradient(circle at 22% 28%, rgba(216, 180, 254, 0.36), transparent 25%),
+
+        linear-gradient(135deg, #2e1065, #7c3aed 58%, #2563eb);
+
+    }
+
+ 
+
+    .capability-hero-quality {
+
+      background:
+
+        radial-gradient(circle at 22% 28%, rgba(167, 243, 208, 0.38), transparent 25%),
+
+        linear-gradient(135deg, #064e3b, #059669 58%, #06b6d4);
+
+    }
+
+ 
+
+    .capability-grid {
+
+      display: grid;
+
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+
+      gap: 18px;
+
+      margin: 32px 0;
+
+    }
+
+ 
+
+    .capability-box {
+
+      padding: 24px;
+
+      border: 1px solid var(--border);
+
+      border-radius: 18px;
+
+      background: #f8fafc;
+
+    }
+
+ 
+
+    .capability-box h3 {
+
+      margin: 0 0 10px;
+
+      color: var(--navy);
+
+      font-size: 20px;
+
+    }
+
+ 
+
+    .capability-box p {
+
+      margin: 0;
+
+      color: var(--muted);
+
+    }
+
+ 
+
+    .capability-tools {
+
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 10px;
+
+      margin: 26px 0 0;
+
+    }
+
+ 
+
+    .capability-tools span {
+
+      padding: 8px 12px;
+
+      color: var(--navy);
+
+      font-size: 13px;
+
+      font-weight: 800;
+
+      border: 1px solid rgba(37, 99, 235, 0.16);
+
+      border-radius: 999px;
+
+      background: #eff6ff;
+
+    }
+
+ 
+
+    .capability-workflow {
+
+      margin: 30px 0 0;
+
+      padding: 25px;
+
+      border-left: 5px solid var(--blue);
+
+      border-radius: 16px;
+
+      background: #eff6ff;
+
+    }
+
+ 
+
+    .capability-workflow.manufacturing {
+
+      border-left-color: var(--orange);
+
+      background: #fff7ed;
+
+    }
+
+ 
+
+    .capability-workflow.automation {
+
+      border-left-color: var(--purple);
+
+      background: #faf5ff;
+
+    }
+
+ 
+
+    .capability-workflow.quality {
+
+      border-left-color: var(--green);
+
+      background: #ecfdf5;
+
+    }
+
+ 
+
+    .capability-workflow h3 {
+
+      margin: 0 0 12px;
+
+      color: var(--navy);
+
+    }
+
+ 
+
+    .capability-workflow ol,
+
+    .capability-workflow ul {
+
+      margin: 0;
+
+      padding-left: 22px;
+
+      color: #475569;
+
+    }
+
+ 
+
+    .capability-workflow li + li {
+
+      margin-top: 8px;
+
+    }
+
+ 
+
+    .capability-section-title {
+
+      margin: 38px 0 15px;
+
+      color: var(--navy);
+
+      font-size: 26px;
+
+    }
+
+ 
+
+    .modal-action-button {
+
+      display: inline-flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      margin-top: 22px;
+
+      min-height: 46px;
+
+      padding: 10px 18px;
+
+      color: white;
+
+      font: inherit;
+
+      font-weight: 800;
+
+      cursor: pointer;
+
+      border: 0;
+
+      border-radius: 12px;
+
+      background: linear-gradient(135deg, var(--blue), var(--purple));
+
+      box-shadow: 0 12px 25px rgba(37, 99, 235, 0.22);
+
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+    }
+
+ 
+
+    .modal-action-button:hover {
+
+      transform: translateY(-3px);
+
+      box-shadow: 0 18px 32px rgba(37, 99, 235, 0.28);
+
+    }
+
+ 
+
     .solidworks-modal-content {
 
       width: min(1160px, 100%);
@@ -2801,6 +3185,24 @@
         grid-template-columns: 1fr;
 
  
+
+      }
+
+ 
+
+      .skills,
+
+      .capability-grid {
+
+        grid-template-columns: 1fr;
+
+      }
+
+ 
+
+      .skill-category-button {
+
+        min-height: 135px;
 
       }
 
@@ -3408,7 +3810,7 @@
 
         <button
 
-          class="skill-button"
+          class="skill-category-button"
 
           type="button"
 
@@ -3416,51 +3818,153 @@
 
           aria-controls="solidworksModal"
 
-          aria-label="View SolidWorks projects"
+          aria-label="View CAD and product-development capability"
 
           onclick="openSolidWorksModal()"
 
         >
 
-          SolidWorks <span class="skill-link-icon" aria-hidden="true">↗</span>
+          <span class="skill-category-topline">
+
+            <span class="skill-category-code">CAD</span>
+
+            <span class="skill-category-arrow" aria-hidden="true">↗</span>
+
+          </span>
+
+          <span class="skill-category-title" data-i18n="skillDesignTitle">
+
+            CAD &amp; Product Development
+
+          </span>
+
+          <span class="skill-category-summary" data-i18n="skillDesignSummary">
+
+            SolidWorks, parametric design, assemblies, drawings and simulation.
+
+          </span>
 
         </button>
 
  
 
-        <span>SolidCAM</span>
+        <button
+
+          class="skill-category-button"
+
+          type="button"
+
+          aria-haspopup="dialog"
+
+          aria-controls="manufacturingSkillModal"
+
+          aria-label="View manufacturing and prototyping capability"
+
+          onclick="openManufacturingSkillModal()"
+
+        >
+
+          <span class="skill-category-topline">
+
+            <span class="skill-category-code">MFG</span>
+
+            <span class="skill-category-arrow" aria-hidden="true">↗</span>
+
+          </span>
+
+          <span class="skill-category-title" data-i18n="skillManufacturingTitle">
+
+            Manufacturing &amp; Prototyping
+
+          </span>
+
+          <span class="skill-category-summary" data-i18n="skillManufacturingSummary">
+
+            SolidCAM, CNC manufacturing, process planning and 3D printing.
+
+          </span>
+
+        </button>
 
  
 
-        <span>NI LabVIEW</span>
+        <button
+
+          class="skill-category-button"
+
+          type="button"
+
+          aria-haspopup="dialog"
+
+          aria-controls="automationSkillModal"
+
+          aria-label="View automation and test-engineering capability"
+
+          onclick="openAutomationSkillModal()"
+
+        >
+
+          <span class="skill-category-topline">
+
+            <span class="skill-category-code">AUTO</span>
+
+            <span class="skill-category-arrow" aria-hidden="true">↗</span>
+
+          </span>
+
+          <span class="skill-category-title" data-i18n="skillAutomationTitle">
+
+            Automation &amp; Test Engineering
+
+          </span>
+
+          <span class="skill-category-summary" data-i18n="skillAutomationSummary">
+
+            NI LabVIEW, test-bench logic, controlled sequences and safety behavior.
+
+          </span>
+
+        </button>
 
  
 
-        <span data-i18n="skillCnc">CNC Manufacturing</span>
+        <button
 
- 
+          class="skill-category-button"
 
-        <span data-i18n="skill3d">3D Printing</span>
+          type="button"
 
- 
+          aria-haspopup="dialog"
 
-        <span data-i18n="skillQuality">Quality Control</span>
+          aria-controls="qualitySkillModal"
 
- 
+          aria-label="View quality and engineering-documentation capability"
 
-        <span data-i18n="skillProduct">Product Development</span>
+          onclick="openQualitySkillModal()"
 
- 
+        >
 
-        <span data-i18n="skillSimulation">Simulation</span>
+          <span class="skill-category-topline">
 
- 
+            <span class="skill-category-code">QA</span>
 
-        <span data-i18n="skillAutomation">Automation</span>
+            <span class="skill-category-arrow" aria-hidden="true">↗</span>
 
- 
+          </span>
 
-        <span>Microsoft Office</span>
+          <span class="skill-category-title" data-i18n="skillQualityTitle">
+
+            Quality &amp; Engineering Documentation
+
+          </span>
+
+          <span class="skill-category-summary" data-i18n="skillQualitySummary">
+
+            Inspection, technical reports, data evaluation and Microsoft Office.
+
+          </span>
+
+        </button>
 
  
 
@@ -4192,7 +4696,7 @@
 
  
 
-    <div class="project-modal-content solidworks-modal-content">
+    <div class="project-modal-content solidworks-modal-content capability-modal-content">
 
       <button
 
@@ -4212,7 +4716,7 @@
 
  
 
-      <div class="modal-visual solidworks-hero" aria-hidden="true">
+      <div class="modal-visual solidworks-hero capability-hero-design" aria-hidden="true">
 
         <div class="modal-visual-ring"></div>
 
@@ -4224,13 +4728,13 @@
 
       <div class="modal-body">
 
-        <span class="section-label" data-i18n="solidworksLabel">CAD Portfolio</span>
+        <span class="section-label" data-i18n="solidworksLabel">Capability Area</span>
 
  
 
         <h2 id="solidworksModalTitle" data-i18n="solidworksTitle">
 
-          SolidWorks Design Projects
+          CAD &amp; Product Development
 
         </h2>
 
@@ -4238,9 +4742,87 @@
 
         <p class="modal-intro" data-i18n="solidworksIntro">
 
-          A selection of parametric part, assembly, sheet-metal and technical-drawing work completed in SolidWorks.
+          Parametric mechanical design from early concepts through assemblies, technical drawings, design evaluation and manufacturing-ready documentation.
 
         </p>
+
+ 
+
+        <div class="capability-grid">
+
+          <div class="capability-box">
+
+            <h3 data-i18n="designParametricTitle">Parametric CAD</h3>
+
+            <p data-i18n="designParametricText">
+
+              Creation of robust parts and assemblies using design intent, reusable features, configurations and controlled dimensions.
+
+            </p>
+
+          </div>
+
+          <div class="capability-box">
+
+            <h3 data-i18n="designDevelopmentTitle">Product Development</h3>
+
+            <p data-i18n="designDevelopmentText">
+
+              Converting functional requirements into concepts, refining geometry through iteration and considering manufacturability and assembly from the beginning.
+
+            </p>
+
+          </div>
+
+          <div class="capability-box">
+
+            <h3 data-i18n="designDrawingsTitle">Technical Drawings</h3>
+
+            <p data-i18n="designDrawingsText">
+
+              Preparation of clear production drawings with dimensions, sections, details and the information needed to communicate design intent.
+
+            </p>
+
+          </div>
+
+          <div class="capability-box">
+
+            <h3 data-i18n="designEvaluationTitle">Design Evaluation</h3>
+
+            <p data-i18n="designEvaluationText">
+
+              Checking fit, interfaces, motion, clearances and basic simulation results before committing a design to manufacturing.
+
+            </p>
+
+          </div>
+
+        </div>
+
+ 
+
+        <div class="capability-tools" aria-label="CAD and product development tools">
+
+          <span>SolidWorks</span>
+
+          <span data-i18n="designToolProduct">Product Development</span>
+
+          <span data-i18n="designToolSimulation">Simulation</span>
+
+          <span data-i18n="designToolDrawings">Technical Drawings</span>
+
+          <span data-i18n="designToolSheetMetal">Sheet Metal</span>
+
+        </div>
+
+ 
+
+        <h3 class="capability-section-title" data-i18n="solidworksGalleryTitle">
+
+          Selected SolidWorks work
+
+        </h3>
 
  
 
@@ -4503,6 +5085,528 @@
             </div>
 
           </article>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+ 
+
+ 
+
+  <div
+
+    class="project-modal"
+
+    id="manufacturingSkillModal"
+
+    role="dialog"
+
+    aria-modal="true"
+
+    aria-labelledby="manufacturingSkillModalTitle"
+
+    aria-hidden="true"
+
+  >
+
+    <div class="project-modal-overlay" onclick="closeManufacturingSkillModal()"></div>
+
+ 
+
+    <div class="project-modal-content capability-modal-content">
+
+      <button
+
+        class="modal-close"
+
+        type="button"
+
+        aria-label="Close manufacturing capability"
+
+        onclick="closeManufacturingSkillModal()"
+
+      >
+
+        ×
+
+      </button>
+
+ 
+
+      <div class="modal-visual capability-hero-manufacturing" aria-hidden="true">
+
+        <div class="modal-visual-ring"></div>
+
+        <div class="modal-visual-core">MFG</div>
+
+      </div>
+
+ 
+
+      <div class="modal-body">
+
+        <span class="section-label" data-i18n="capabilityLabel">Capability Area</span>
+
+ 
+
+        <h2 id="manufacturingSkillModalTitle" data-i18n="manufacturingModalTitle">
+
+          Manufacturing &amp; Prototyping
+
+        </h2>
+
+ 
+
+        <p class="modal-intro" data-i18n="manufacturingModalIntro">
+
+          Planning practical routes from a finished CAD model to a physical component or prototype using CAM, CNC manufacturing and additive manufacturing.
+
+        </p>
+
+ 
+
+        <div class="capability-grid">
+
+          <div class="capability-box">
+
+            <h3 data-i18n="manufacturingCamTitle">CAM Preparation</h3>
+
+            <p data-i18n="manufacturingCamText">
+
+              Preparing machining operations in SolidCAM, selecting suitable strategies and organizing toolpaths around the component geometry.
+
+            </p>
+
+          </div>
+
+          <div class="capability-box">
+
+            <h3 data-i18n="manufacturingCncTitle">CNC Manufacturing</h3>
+
+            <p data-i18n="manufacturingCncText">
+
+              Considering workholding, tool access, operation order, cutting conditions and safe machine execution when planning a machined part.
+
+            </p>
+
+          </div>
+
+          <div class="capability-box">
+
+            <h3 data-i18n="manufacturingPrintTitle">3D Printing</h3>
+
+            <p data-i18n="manufacturingPrintText">
+
+              Adapting models for additive manufacturing, choosing a useful build orientation and using prototypes to evaluate fit, form and function quickly.
+
+            </p>
+
+          </div>
+
+          <div class="capability-box">
+
+            <h3 data-i18n="manufacturingDfmTitle">Design for Manufacturing</h3>
+
+            <p data-i18n="manufacturingDfmText">
+
+              Reviewing geometry against process limitations so that features, tolerances and assembly decisions remain realistic to produce.
+
+            </p>
+
+          </div>
+
+        </div>
+
+ 
+
+        <div class="capability-tools" aria-label="Manufacturing and prototyping tools">
+
+          <span>SolidCAM</span>
+
+          <span data-i18n="skillCnc">CNC Manufacturing</span>
+
+          <span data-i18n="skill3d">3D Printing</span>
+
+          <span data-i18n="manufacturingToolProcess">Process Planning</span>
+
+          <span data-i18n="manufacturingToolDfm">Design for Manufacturing</span>
+
+        </div>
+
+ 
+
+        <div class="capability-workflow manufacturing">
+
+          <h3 data-i18n="manufacturingWorkflowTitle">Typical workflow</h3>
+
+          <ol>
+
+            <li data-i18n="manufacturingWorkflow1">Review the CAD model and identify the suitable manufacturing process.</li>
+
+            <li data-i18n="manufacturingWorkflow2">Plan workholding, tools, operation order and required setup changes.</li>
+
+            <li data-i18n="manufacturingWorkflow3">Generate and verify CAM toolpaths or prepare the additive-manufacturing build.</li>
+
+            <li data-i18n="manufacturingWorkflow4">Produce the prototype, inspect the result and feed findings back into the design.</li>
+
+          </ol>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+ 
+
+ 
+
+  <div
+
+    class="project-modal"
+
+    id="automationSkillModal"
+
+    role="dialog"
+
+    aria-modal="true"
+
+    aria-labelledby="automationSkillModalTitle"
+
+    aria-hidden="true"
+
+  >
+
+    <div class="project-modal-overlay" onclick="closeAutomationSkillModal()"></div>
+
+ 
+
+    <div class="project-modal-content capability-modal-content">
+
+      <button
+
+        class="modal-close"
+
+        type="button"
+
+        aria-label="Close automation capability"
+
+        onclick="closeAutomationSkillModal()"
+
+      >
+
+        ×
+
+      </button>
+
+ 
+
+      <div class="modal-visual capability-hero-automation" aria-hidden="true">
+
+        <div class="modal-visual-ring"></div>
+
+        <div class="modal-visual-core">AUTO</div>
+
+      </div>
+
+ 
+
+      <div class="modal-body">
+
+        <span class="section-label" data-i18n="capabilityLabel">Capability Area</span>
+
+ 
+
+        <h2 id="automationSkillModalTitle" data-i18n="automationSkillModalTitleText">
+
+          Automation &amp; Test Engineering
+
+        </h2>
+
+ 
+
+        <p class="modal-intro" data-i18n="automationSkillModalIntro">
+
+          Development and improvement of test and control sequences with NI LabVIEW, with attention to predictable system states, measurement handling and safe machine behavior.
+
+        </p>
+
+ 
+
+        <div class="capability-grid">
+
+          <div class="capability-box">
+
+            <h3 data-i18n="automationLabviewTitle">NI LabVIEW Programming</h3>
+
+            <p data-i18n="automationLabviewText">
+
+              Building and modifying graphical control logic, calculations, user inputs and program states for engineering test applications.
+
+            </p>
+
+          </div>
+
+          <div class="capability-box">
+
+            <h3 data-i18n="automationBenchTitle">Test-Bench Control</h3>
+
+            <p data-i18n="automationBenchText">
+
+              Connecting operating sequences with test-bench behavior so commands, measurements and transitions are handled in a controlled way.
+
+            </p>
+
+          </div>
+
+          <div class="capability-box">
+
+            <h3 data-i18n="automationSequenceTitle">Sequence &amp; State Logic</h3>
+
+            <p data-i18n="automationSequenceText">
+
+              Defining ramp-up, normal operation, ramp-down, stop and restart conditions to prevent conflicting actions and unpredictable transitions.
+
+            </p>
+
+          </div>
+
+          <div class="capability-box">
+
+            <h3 data-i18n="automationSafetyTitle">Safety-Oriented Behavior</h3>
+
+            <p data-i18n="automationSafetyText">
+
+              Improving shutdown and interlock behavior so equipment reaches a safe state before a new operating cycle can begin.
+
+            </p>
+
+          </div>
+
+        </div>
+
+ 
+
+        <div class="capability-tools" aria-label="Automation and test engineering tools">
+
+          <span>NI LabVIEW</span>
+
+          <span data-i18n="skillAutomation">Automation</span>
+
+          <span data-i18n="automationToolBench">Test Benches</span>
+
+          <span data-i18n="automationToolControl">Control Logic</span>
+
+          <span data-i18n="automationToolSafety">Safety Sequences</span>
+
+        </div>
+
+ 
+
+        <div class="capability-workflow automation">
+
+          <h3 data-i18n="automationExampleTitle">Applied example</h3>
+
+          <p data-i18n="automationExampleText">
+
+            In the Nuevo 35 test-bench project, an abrupt stop was replaced with a configurable controlled ramp-down and a restart lockout until complete standstill.
+
+          </p>
+
+          <button
+
+            class="modal-action-button"
+
+            type="button"
+
+            onclick="closeAutomationSkillModal(); openAutomationModal();"
+
+            data-i18n="automationExampleButton"
+
+          >
+
+            View the Nuevo 35 project →
+
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+ 
+
+ 
+
+  <div
+
+    class="project-modal"
+
+    id="qualitySkillModal"
+
+    role="dialog"
+
+    aria-modal="true"
+
+    aria-labelledby="qualitySkillModalTitle"
+
+    aria-hidden="true"
+
+  >
+
+    <div class="project-modal-overlay" onclick="closeQualitySkillModal()"></div>
+
+ 
+
+    <div class="project-modal-content capability-modal-content">
+
+      <button
+
+        class="modal-close"
+
+        type="button"
+
+        aria-label="Close quality and documentation capability"
+
+        onclick="closeQualitySkillModal()"
+
+      >
+
+        ×
+
+      </button>
+
+ 
+
+      <div class="modal-visual capability-hero-quality" aria-hidden="true">
+
+        <div class="modal-visual-ring"></div>
+
+        <div class="modal-visual-core">QA</div>
+
+      </div>
+
+ 
+
+      <div class="modal-body">
+
+        <span class="section-label" data-i18n="capabilityLabel">Capability Area</span>
+
+ 
+
+        <h2 id="qualitySkillModalTitle" data-i18n="qualityModalTitle">
+
+          Quality &amp; Engineering Documentation
+
+        </h2>
+
+ 
+
+        <p class="modal-intro" data-i18n="qualityModalIntro">
+
+          Structured verification and communication of engineering work through dimensional checks, technical drawings, measurement records, reports and clear project documentation.
+
+        </p>
+
+ 
+
+        <div class="capability-grid">
+
+          <div class="capability-box">
+
+            <h3 data-i18n="qualityInspectionTitle">Inspection &amp; Verification</h3>
+
+            <p data-i18n="qualityInspectionText">
+
+              Comparing manufactured or assembled results with defined dimensions, requirements and expected system behavior.
+
+            </p>
+
+          </div>
+
+          <div class="capability-box">
+
+            <h3 data-i18n="qualityDataTitle">Data Evaluation</h3>
+
+            <p data-i18n="qualityDataText">
+
+              Organizing measurement results and calculations so trends, deviations and conclusions can be reviewed efficiently.
+
+            </p>
+
+          </div>
+
+          <div class="capability-box">
+
+            <h3 data-i18n="qualityReportsTitle">Technical Reports</h3>
+
+            <p data-i18n="qualityReportsText">
+
+              Documenting objectives, methods, design decisions, test results and outcomes in a clear engineering structure.
+
+            </p>
+
+          </div>
+
+          <div class="capability-box">
+
+            <h3 data-i18n="qualityCommunicationTitle">Engineering Communication</h3>
+
+            <p data-i18n="qualityCommunicationText">
+
+              Using drawings, spreadsheets and presentations to make technical information understandable to different project stakeholders.
+
+            </p>
+
+          </div>
+
+        </div>
+
+ 
+
+        <div class="capability-tools" aria-label="Quality and documentation tools">
+
+          <span data-i18n="skillQuality">Quality Control</span>
+
+          <span>Microsoft Excel</span>
+
+          <span>Microsoft Word</span>
+
+          <span>Microsoft PowerPoint</span>
+
+          <span data-i18n="qualityToolDrawings">Technical Drawings</span>
+
+          <span data-i18n="qualityToolReports">Engineering Reports</span>
+
+        </div>
+
+ 
+
+        <div class="capability-workflow quality">
+
+          <h3 data-i18n="qualityOutputsTitle">Typical outputs</h3>
+
+          <ul>
+
+            <li data-i18n="qualityOutput1">Dimensioned manufacturing and assembly drawings.</li>
+
+            <li data-i18n="qualityOutput2">Measurement tables, calculations and inspection records.</li>
+
+            <li data-i18n="qualityOutput3">Structured project, test and design reports.</li>
+
+            <li data-i18n="qualityOutput4">Presentations that summarize technical decisions and results.</li>
+
+          </ul>
 
         </div>
 
@@ -4860,17 +5964,77 @@
 
  
 
-        solidworksLabel: "CAD Portfolio",
+        solidworksLabel: "Capability Area",
 
  
 
-        solidworksTitle: "SolidWorks Design Projects",
+        solidworksTitle: "CAD & Product Development",
 
  
 
         solidworksIntro:
 
-          "A selection of parametric part, assembly, sheet-metal and technical-drawing work completed in SolidWorks.",
+          "Parametric mechanical design from early concepts through assemblies, technical drawings, design evaluation and manufacturing-ready documentation.",
+
+ 
+
+        solidworksGalleryTitle: "Selected SolidWorks work",
+
+ 
+
+        designParametricTitle: "Parametric CAD",
+
+ 
+
+        designParametricText:
+
+          "Creation of robust parts and assemblies using design intent, reusable features, configurations and controlled dimensions.",
+
+ 
+
+        designDevelopmentTitle: "Product Development",
+
+ 
+
+        designDevelopmentText:
+
+          "Converting functional requirements into concepts, refining geometry through iteration and considering manufacturability and assembly from the beginning.",
+
+ 
+
+        designDrawingsTitle: "Technical Drawings",
+
+ 
+
+        designDrawingsText:
+
+          "Preparation of clear production drawings with dimensions, sections, details and the information needed to communicate design intent.",
+
+ 
+
+        designEvaluationTitle: "Design Evaluation",
+
+ 
+
+        designEvaluationText:
+
+          "Checking fit, interfaces, motion, clearances and basic simulation results before committing a design to manufacturing.",
+
+ 
+
+        designToolProduct: "Product Development",
+
+ 
+
+        designToolSimulation: "Simulation",
+
+ 
+
+        designToolDrawings: "Technical Drawings",
+
+ 
+
+        designToolSheetMetal: "Sheet Metal",
 
  
 
@@ -4980,7 +6144,291 @@
 
  
 
-          "Tools and disciplines I use to design, build, test and improve engineering systems.",
+          "Four connected capability areas covering the path from concept and design to manufacturing, testing, verification and documentation.",
+
+ 
+
+        skillDesignTitle: "CAD & Product Development",
+
+ 
+
+        skillDesignSummary:
+
+          "SolidWorks, parametric design, assemblies, drawings and simulation.",
+
+ 
+
+        skillManufacturingTitle: "Manufacturing & Prototyping",
+
+ 
+
+        skillManufacturingSummary:
+
+          "SolidCAM, CNC manufacturing, process planning and 3D printing.",
+
+ 
+
+        skillAutomationTitle: "Automation & Test Engineering",
+
+ 
+
+        skillAutomationSummary:
+
+          "NI LabVIEW, test-bench logic, controlled sequences and safety behavior.",
+
+ 
+
+        skillQualityTitle: "Quality & Engineering Documentation",
+
+ 
+
+        skillQualitySummary:
+
+          "Inspection, technical reports, data evaluation and Microsoft Office.",
+
+ 
+
+        capabilityLabel: "Capability Area",
+
+ 
+
+        manufacturingModalTitle: "Manufacturing & Prototyping",
+
+ 
+
+        manufacturingModalIntro:
+
+          "Planning practical routes from a finished CAD model to a physical component or prototype using CAM, CNC manufacturing and additive manufacturing.",
+
+ 
+
+        manufacturingCamTitle: "CAM Preparation",
+
+ 
+
+        manufacturingCamText:
+
+          "Preparing machining operations in SolidCAM, selecting suitable strategies and organizing toolpaths around the component geometry.",
+
+ 
+
+        manufacturingCncTitle: "CNC Manufacturing",
+
+ 
+
+        manufacturingCncText:
+
+          "Considering workholding, tool access, operation order, cutting conditions and safe machine execution when planning a machined part.",
+
+ 
+
+        manufacturingPrintTitle: "3D Printing",
+
+ 
+
+        manufacturingPrintText:
+
+          "Adapting models for additive manufacturing, choosing a useful build orientation and using prototypes to evaluate fit, form and function quickly.",
+
+ 
+
+        manufacturingDfmTitle: "Design for Manufacturing",
+
+ 
+
+        manufacturingDfmText:
+
+          "Reviewing geometry against process limitations so that features, tolerances and assembly decisions remain realistic to produce.",
+
+ 
+
+        manufacturingToolProcess: "Process Planning",
+
+ 
+
+        manufacturingToolDfm: "Design for Manufacturing",
+
+ 
+
+        manufacturingWorkflowTitle: "Typical workflow",
+
+ 
+
+        manufacturingWorkflow1:
+
+          "Review the CAD model and identify the suitable manufacturing process.",
+
+ 
+
+        manufacturingWorkflow2:
+
+          "Plan workholding, tools, operation order and required setup changes.",
+
+ 
+
+        manufacturingWorkflow3:
+
+          "Generate and verify CAM toolpaths or prepare the additive-manufacturing build.",
+
+ 
+
+        manufacturingWorkflow4:
+
+          "Produce the prototype, inspect the result and feed findings back into the design.",
+
+ 
+
+        automationSkillModalTitleText: "Automation & Test Engineering",
+
+ 
+
+        automationSkillModalIntro:
+
+          "Development and improvement of test and control sequences with NI LabVIEW, with attention to predictable system states, measurement handling and safe machine behavior.",
+
+ 
+
+        automationLabviewTitle: "NI LabVIEW Programming",
+
+ 
+
+        automationLabviewText:
+
+          "Building and modifying graphical control logic, calculations, user inputs and program states for engineering test applications.",
+
+ 
+
+        automationBenchTitle: "Test-Bench Control",
+
+ 
+
+        automationBenchText:
+
+          "Connecting operating sequences with test-bench behavior so commands, measurements and transitions are handled in a controlled way.",
+
+ 
+
+        automationSequenceTitle: "Sequence & State Logic",
+
+ 
+
+        automationSequenceText:
+
+          "Defining ramp-up, normal operation, ramp-down, stop and restart conditions to prevent conflicting actions and unpredictable transitions.",
+
+ 
+
+        automationSafetyTitle: "Safety-Oriented Behavior",
+
+ 
+
+        automationSafetyText:
+
+          "Improving shutdown and interlock behavior so equipment reaches a safe state before a new operating cycle can begin.",
+
+ 
+
+        automationToolBench: "Test Benches",
+
+ 
+
+        automationToolControl: "Control Logic",
+
+ 
+
+        automationToolSafety: "Safety Sequences",
+
+ 
+
+        automationExampleTitle: "Applied example",
+
+ 
+
+        automationExampleText:
+
+          "In the Nuevo 35 test-bench project, an abrupt stop was replaced with a configurable controlled ramp-down and a restart lockout until complete standstill.",
+
+ 
+
+        automationExampleButton: "View the Nuevo 35 project →",
+
+ 
+
+        qualityModalTitle: "Quality & Engineering Documentation",
+
+ 
+
+        qualityModalIntro:
+
+          "Structured verification and communication of engineering work through dimensional checks, technical drawings, measurement records, reports and clear project documentation.",
+
+ 
+
+        qualityInspectionTitle: "Inspection & Verification",
+
+ 
+
+        qualityInspectionText:
+
+          "Comparing manufactured or assembled results with defined dimensions, requirements and expected system behavior.",
+
+ 
+
+        qualityDataTitle: "Data Evaluation",
+
+ 
+
+        qualityDataText:
+
+          "Organizing measurement results and calculations so trends, deviations and conclusions can be reviewed efficiently.",
+
+ 
+
+        qualityReportsTitle: "Technical Reports",
+
+ 
+
+        qualityReportsText:
+
+          "Documenting objectives, methods, design decisions, test results and outcomes in a clear engineering structure.",
+
+ 
+
+        qualityCommunicationTitle: "Engineering Communication",
+
+ 
+
+        qualityCommunicationText:
+
+          "Using drawings, spreadsheets and presentations to make technical information understandable to different project stakeholders.",
+
+ 
+
+        qualityToolDrawings: "Technical Drawings",
+
+ 
+
+        qualityToolReports: "Engineering Reports",
+
+ 
+
+        qualityOutputsTitle: "Typical outputs",
+
+ 
+
+        qualityOutput1: "Dimensioned manufacturing and assembly drawings.",
+
+ 
+
+        qualityOutput2: "Measurement tables, calculations and inspection records.",
+
+ 
+
+        qualityOutput3: "Structured project, test and design reports.",
+
+ 
+
+        qualityOutput4: "Presentations that summarize technical decisions and results.",
 
  
 
@@ -5360,17 +6808,77 @@
 
  
 
-        solidworksLabel: "CAD-Portfolio",
+        solidworksLabel: "Kompetenzbereich",
 
  
 
-        solidworksTitle: "SolidWorks-Konstruktionsprojekte",
+        solidworksTitle: "Konstruktion & Produktentwicklung",
 
  
 
         solidworksIntro:
 
-          "Eine Auswahl parametrischer Bauteile, Baugruppen, Blechkonstruktionen und technischer Zeichnungen, die in SolidWorks erstellt wurden.",
+          "Parametrische mechanische Konstruktion vom ersten Konzept über Baugruppen und technische Zeichnungen bis zur Konstruktionsbewertung und fertigungsgerechten Dokumentation.",
+
+ 
+
+        solidworksGalleryTitle: "Ausgewählte SolidWorks-Arbeiten",
+
+ 
+
+        designParametricTitle: "Parametrische CAD-Konstruktion",
+
+ 
+
+        designParametricText:
+
+          "Erstellung robuster Bauteile und Baugruppen mit Konstruktionsabsicht, wiederverwendbaren Features, Konfigurationen und kontrollierten Abmessungen.",
+
+ 
+
+        designDevelopmentTitle: "Produktentwicklung",
+
+ 
+
+        designDevelopmentText:
+
+          "Überführung funktionaler Anforderungen in Konzepte, iterative Geometrieoptimierung sowie frühzeitige Berücksichtigung von Fertigung und Montage.",
+
+ 
+
+        designDrawingsTitle: "Technische Zeichnungen",
+
+ 
+
+        designDrawingsText:
+
+          "Erstellung verständlicher Fertigungszeichnungen mit Maßen, Schnitten, Details und allen Angaben zur eindeutigen Vermittlung der Konstruktionsabsicht.",
+
+ 
+
+        designEvaluationTitle: "Konstruktionsbewertung",
+
+ 
+
+        designEvaluationText:
+
+          "Prüfung von Passungen, Schnittstellen, Bewegungen, Freiräumen und grundlegenden Simulationsergebnissen vor der Fertigungsfreigabe.",
+
+ 
+
+        designToolProduct: "Produktentwicklung",
+
+ 
+
+        designToolSimulation: "Simulation",
+
+ 
+
+        designToolDrawings: "Technische Zeichnungen",
+
+ 
+
+        designToolSheetMetal: "Blechkonstruktion",
 
  
 
@@ -5480,7 +6988,291 @@
 
  
 
-          "Werkzeuge und Fachgebiete, mit denen ich technische Systeme konstruiere, fertige, prüfe und optimiere.",
+          "Vier miteinander verbundene Kompetenzbereiche vom Konzept und der Konstruktion über Fertigung und Prüfung bis zur Verifikation und Dokumentation.",
+
+ 
+
+        skillDesignTitle: "Konstruktion & Produktentwicklung",
+
+ 
+
+        skillDesignSummary:
+
+          "SolidWorks, parametrische Konstruktion, Baugruppen, Zeichnungen und Simulation.",
+
+ 
+
+        skillManufacturingTitle: "Fertigung & Prototyping",
+
+ 
+
+        skillManufacturingSummary:
+
+          "SolidCAM, CNC-Fertigung, Prozessplanung und 3D-Druck.",
+
+ 
+
+        skillAutomationTitle: "Automatisierung & Prüftechnik",
+
+ 
+
+        skillAutomationSummary:
+
+          "NI LabVIEW, Prüfstandslogik, kontrollierte Abläufe und Sicherheitsverhalten.",
+
+ 
+
+        skillQualityTitle: "Qualität & technische Dokumentation",
+
+ 
+
+        skillQualitySummary:
+
+          "Prüfung, technische Berichte, Datenauswertung und Microsoft Office.",
+
+ 
+
+        capabilityLabel: "Kompetenzbereich",
+
+ 
+
+        manufacturingModalTitle: "Fertigung & Prototyping",
+
+ 
+
+        manufacturingModalIntro:
+
+          "Planung praktikabler Wege vom fertigen CAD-Modell zum physischen Bauteil oder Prototyp mithilfe von CAM, CNC-Fertigung und additiver Fertigung.",
+
+ 
+
+        manufacturingCamTitle: "CAM-Vorbereitung",
+
+ 
+
+        manufacturingCamText:
+
+          "Vorbereitung von Bearbeitungsoperationen in SolidCAM, Auswahl geeigneter Strategien und Strukturierung der Werkzeugwege entsprechend der Bauteilgeometrie.",
+
+ 
+
+        manufacturingCncTitle: "CNC-Fertigung",
+
+ 
+
+        manufacturingCncText:
+
+          "Berücksichtigung von Aufspannung, Werkzeugzugänglichkeit, Bearbeitungsreihenfolge, Schnittbedingungen und sicherer Maschinenausführung bei der Planung eines Bauteils.",
+
+ 
+
+        manufacturingPrintTitle: "3D-Druck",
+
+ 
+
+        manufacturingPrintText:
+
+          "Anpassung von Modellen an die additive Fertigung, Wahl einer sinnvollen Bauorientierung und schneller Einsatz von Prototypen zur Bewertung von Passung, Form und Funktion.",
+
+ 
+
+        manufacturingDfmTitle: "Fertigungsgerechte Konstruktion",
+
+ 
+
+        manufacturingDfmText:
+
+          "Abgleich der Geometrie mit Prozessgrenzen, damit Features, Toleranzen und Montageentscheidungen realistisch herstellbar bleiben.",
+
+ 
+
+        manufacturingToolProcess: "Prozessplanung",
+
+ 
+
+        manufacturingToolDfm: "Fertigungsgerechte Konstruktion",
+
+ 
+
+        manufacturingWorkflowTitle: "Typischer Ablauf",
+
+ 
+
+        manufacturingWorkflow1:
+
+          "CAD-Modell prüfen und ein geeignetes Fertigungsverfahren bestimmen.",
+
+ 
+
+        manufacturingWorkflow2:
+
+          "Aufspannung, Werkzeuge, Bearbeitungsreihenfolge und notwendige Umspannungen planen.",
+
+ 
+
+        manufacturingWorkflow3:
+
+          "CAM-Werkzeugwege erzeugen und prüfen oder den additiven Fertigungsauftrag vorbereiten.",
+
+ 
+
+        manufacturingWorkflow4:
+
+          "Prototyp fertigen, Ergebnis prüfen und Erkenntnisse in die Konstruktion zurückführen.",
+
+ 
+
+        automationSkillModalTitleText: "Automatisierung & Prüftechnik",
+
+ 
+
+        automationSkillModalIntro:
+
+          "Entwicklung und Verbesserung von Prüf- und Steuerungsabläufen mit NI LabVIEW unter Berücksichtigung eindeutiger Systemzustände, Messwertverarbeitung und sicherem Maschinenverhalten.",
+
+ 
+
+        automationLabviewTitle: "NI-LabVIEW-Programmierung",
+
+ 
+
+        automationLabviewText:
+
+          "Aufbau und Anpassung grafischer Steuerungslogik, Berechnungen, Benutzereingaben und Programmzustände für technische Prüfanwendungen.",
+
+ 
+
+        automationBenchTitle: "Prüfstandssteuerung",
+
+ 
+
+        automationBenchText:
+
+          "Verknüpfung von Betriebsabläufen mit dem Prüfstandsverhalten, damit Befehle, Messwerte und Zustandswechsel kontrolliert verarbeitet werden.",
+
+ 
+
+        automationSequenceTitle: "Ablauf- und Zustandslogik",
+
+ 
+
+        automationSequenceText:
+
+          "Definition von Hochlauf, Normalbetrieb, Abbremsen, Stopp und Neustartbedingungen zur Vermeidung widersprüchlicher Aktionen und unvorhersehbarer Übergänge.",
+
+ 
+
+        automationSafetyTitle: "Sicherheitsorientiertes Verhalten",
+
+ 
+
+        automationSafetyText:
+
+          "Verbesserung von Abschalt- und Verriegelungslogik, damit die Anlage vor einem neuen Betriebszyklus einen sicheren Zustand erreicht.",
+
+ 
+
+        automationToolBench: "Prüfstände",
+
+ 
+
+        automationToolControl: "Steuerungslogik",
+
+ 
+
+        automationToolSafety: "Sicherheitsabläufe",
+
+ 
+
+        automationExampleTitle: "Anwendungsbeispiel",
+
+ 
+
+        automationExampleText:
+
+          "Im Nuevo-35-Prüfstandsprojekt wurde ein abrupter Stopp durch ein konfigurierbares kontrolliertes Abbremsen und eine Neustartsperre bis zum vollständigen Stillstand ersetzt.",
+
+ 
+
+        automationExampleButton: "Nuevo-35-Projekt ansehen →",
+
+ 
+
+        qualityModalTitle: "Qualität & technische Dokumentation",
+
+ 
+
+        qualityModalIntro:
+
+          "Strukturierte Verifikation und Vermittlung technischer Arbeit durch Maßprüfungen, technische Zeichnungen, Messprotokolle, Berichte und nachvollziehbare Projektdokumentation.",
+
+ 
+
+        qualityInspectionTitle: "Prüfung & Verifikation",
+
+ 
+
+        qualityInspectionText:
+
+          "Vergleich gefertigter oder montierter Ergebnisse mit definierten Abmessungen, Anforderungen und dem erwarteten Systemverhalten.",
+
+ 
+
+        qualityDataTitle: "Datenauswertung",
+
+ 
+
+        qualityDataText:
+
+          "Strukturierung von Messergebnissen und Berechnungen, damit Trends, Abweichungen und Schlussfolgerungen effizient geprüft werden können.",
+
+ 
+
+        qualityReportsTitle: "Technische Berichte",
+
+ 
+
+        qualityReportsText:
+
+          "Dokumentation von Zielen, Methoden, Konstruktionsentscheidungen, Prüfergebnissen und Resultaten in einer klaren technischen Struktur.",
+
+ 
+
+        qualityCommunicationTitle: "Technische Kommunikation",
+
+ 
+
+        qualityCommunicationText:
+
+          "Einsatz von Zeichnungen, Tabellen und Präsentationen, um technische Informationen für unterschiedliche Projektbeteiligte verständlich aufzubereiten.",
+
+ 
+
+        qualityToolDrawings: "Technische Zeichnungen",
+
+ 
+
+        qualityToolReports: "Technische Berichte",
+
+ 
+
+        qualityOutputsTitle: "Typische Ergebnisse",
+
+ 
+
+        qualityOutput1: "Bemaßte Fertigungs- und Montagezeichnungen.",
+
+ 
+
+        qualityOutput2: "Messtabellen, Berechnungen und Prüfprotokolle.",
+
+ 
+
+        qualityOutput3: "Strukturierte Projekt-, Prüf- und Konstruktionsberichte.",
+
+ 
+
+        qualityOutput4: "Präsentationen zur Zusammenfassung technischer Entscheidungen und Ergebnisse.",
 
  
 
@@ -5728,6 +7520,30 @@
 
       }
 
+ 
+
+      if (manufacturingSkillModal.classList.contains("open")) {
+
+        closeManufacturingSkillModal();
+
+      }
+
+ 
+
+      if (automationSkillModal.classList.contains("open")) {
+
+        closeAutomationSkillModal();
+
+      }
+
+ 
+
+      if (qualitySkillModal.classList.contains("open")) {
+
+        closeQualitySkillModal();
+
+      }
+
     });
 
  
@@ -5805,6 +7621,102 @@
       solidworksModal.classList.remove("open");
 
       solidworksModal.setAttribute("aria-hidden", "true");
+
+      document.body.style.overflow = "";
+
+    }
+
+ 
+
+ 
+
+    const manufacturingSkillModal = document.getElementById("manufacturingSkillModal");
+
+ 
+
+    function openManufacturingSkillModal() {
+
+      manufacturingSkillModal.classList.add("open");
+
+      manufacturingSkillModal.setAttribute("aria-hidden", "false");
+
+      document.body.style.overflow = "hidden";
+
+      manufacturingSkillModal.querySelector(".modal-close").focus();
+
+    }
+
+ 
+
+    function closeManufacturingSkillModal() {
+
+      manufacturingSkillModal.classList.remove("open");
+
+      manufacturingSkillModal.setAttribute("aria-hidden", "true");
+
+      document.body.style.overflow = "";
+
+    }
+
+ 
+
+ 
+
+    const automationSkillModal = document.getElementById("automationSkillModal");
+
+ 
+
+    function openAutomationSkillModal() {
+
+      automationSkillModal.classList.add("open");
+
+      automationSkillModal.setAttribute("aria-hidden", "false");
+
+      document.body.style.overflow = "hidden";
+
+      automationSkillModal.querySelector(".modal-close").focus();
+
+    }
+
+ 
+
+    function closeAutomationSkillModal() {
+
+      automationSkillModal.classList.remove("open");
+
+      automationSkillModal.setAttribute("aria-hidden", "true");
+
+      document.body.style.overflow = "";
+
+    }
+
+ 
+
+ 
+
+    const qualitySkillModal = document.getElementById("qualitySkillModal");
+
+ 
+
+    function openQualitySkillModal() {
+
+      qualitySkillModal.classList.add("open");
+
+      qualitySkillModal.setAttribute("aria-hidden", "false");
+
+      document.body.style.overflow = "hidden";
+
+      qualitySkillModal.querySelector(".modal-close").focus();
+
+    }
+
+ 
+
+    function closeQualitySkillModal() {
+
+      qualitySkillModal.classList.remove("open");
+
+      qualitySkillModal.setAttribute("aria-hidden", "true");
 
       document.body.style.overflow = "";
 
