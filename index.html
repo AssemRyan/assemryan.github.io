@@ -1,3 +1,7 @@
+Copy everything below into your GitHub index.html file. Upload these media files to the same folder: nuevo35-problem.png, nuevo35-solution.png, and nuevo35-demo.mp4.
+
+The video is used as the result and demonstration; no separate results image is required.
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -1184,6 +1188,13 @@
       box-shadow: 0 18px 42px rgba(15, 23, 42, 0.16);
     }
 
+    .video-caption {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
     .automation-summary {
       margin-top: 24px;
       padding: 22px;
@@ -1873,15 +1884,7 @@
             </figcaption>
           </figure>
 
-          <figure class="project-media-item">
-            <img
-              src="nuevo35-results.png"
-              alt="Summary of the Nuevo 35 automation project results"
-            >
-            <figcaption data-i18n="automationImage3Caption">
-              Results: controlled shutdown to zero and restart only after complete standstill.
-            </figcaption>
-          </figure>
+
         </div>
 
         <div class="automation-summary">
@@ -1903,7 +1906,7 @@
 
         <!-- Upload your video as nuevo35-demo.mp4. -->
         <div class="project-video-wrap">
-          <h3 data-i18n="automationVideoTitle">Project demonstration</h3>
+          <h3 data-i18n="automationVideoTitle">Result and demonstration</h3>
           <video
             class="project-video"
             controls
@@ -1915,6 +1918,11 @@
               Your browser does not support embedded video.
             </span>
           </video>
+
+          <p class="video-caption" data-i18n="automationVideoCaption">
+            The video shows the controlled ramp-down sequence and confirms that
+            restart remains blocked until the test bench reaches complete standstill.
+          </p>
         </div>
       </div>
     </div>
@@ -2035,7 +2043,10 @@
         automationHighlight3:
           "Restart blocked until the test bench reaches complete standstill.",
 
-        automationVideoTitle: "Project demonstration",
+        automationVideoTitle: "Result and demonstration",
+
+        automationVideoCaption:
+          "The video shows the controlled ramp-down sequence and confirms that restart remains blocked until the test bench reaches complete standstill.",
 
         videoFallback: "Your browser does not support embedded video.",
 
@@ -2228,7 +2239,10 @@
         automationHighlight3:
           "Neustart erst nach vollständigem Stillstand des Prüfstands.",
 
-        automationVideoTitle: "Projektdemonstration",
+        automationVideoTitle: "Ergebnis und Demonstration",
+
+        automationVideoCaption:
+          "Das Video zeigt die kontrollierte Ramp-Down-Sequenz und bestätigt, dass ein Neustart bis zum vollständigen Stillstand des Prüfstands gesperrt bleibt.",
 
         videoFallback: "Ihr Browser unterstützt eingebettete Videos nicht.",
 
