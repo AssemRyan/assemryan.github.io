@@ -2107,6 +2107,39 @@ footer p {
   }
 }
 
+
+/* Dynamic portfolio enhancement */
+:root { --glow-x: 50%; --glow-y: 50%; }
+body::after {
+  content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background: radial-gradient(520px circle at var(--glow-x) var(--glow-y), rgba(37,99,235,.10), transparent 42%);
+  transition: background .08s linear;
+}
+header { background-size: 160% 160%; animation: heroGradient 14s ease infinite; }
+header .hero-content { perspective: 1200px; }
+.profile-photo { transform-style: preserve-3d; }
+.project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.card { transform-style: preserve-3d; will-change: transform; }
+.card .project-card-content, .card .project-card-media { transform: translateZ(0); }
+.card:hover .project-card-content { transform: translateZ(18px); }
+.card:hover .project-card-media { transform: translateZ(10px); }
+.reveal { opacity: 0; transform: translateY(34px) scale(.985); transition: opacity .75s ease, transform .75s cubic-bezier(.2,.75,.2,1); }
+.reveal.is-visible { opacity: 1; transform: translateY(0) scale(1); }
+.matlab-project-card { --accent: #f4c430; --accent-2: #c26a00; }
+.matlab-project-card .project-card-media { background: #101010; }
+.matlab-project-card .project-card-media img { object-fit: cover; }
+.matlab-hero { background: radial-gradient(circle at 20% 22%, rgba(255,214,64,.32), transparent 28%), linear-gradient(135deg,#101010,#3b2600 56%,#b55a00); }
+.matlab-hero .modal-visual-ring { border-top-color: #ffd84d; }
+.matlab-gallery { grid-template-columns: repeat(2,minmax(0,1fr)); }
+.matlab-gallery .project-media-item:first-child { grid-column: 1 / -1; }
+.matlab-gallery .project-media-item img { height: 250px; object-fit: cover; }
+.project-metrics { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; margin:26px 0; }
+.project-metric { padding:18px; border:1px solid var(--border); border-radius:16px; background:#f8fafc; }
+.project-metric strong { display:block; color:var(--ink); font-size:22px; line-height:1.1; }
+.project-metric span { color:var(--muted); font-size:12px; font-weight:750; }
+@keyframes heroGradient { 0%,100%{background-position:0% 50%} 50%{background-position:100% 50%} }
+@media (max-width:680px){ .project-grid,.matlab-gallery,.project-metrics{grid-template-columns:1fr}.matlab-gallery .project-media-item:first-child{grid-column:auto} }
+
   </style>
 
 </head>
@@ -2366,6 +2399,29 @@ footer p {
               </span>
             </div>
 
+          </article>
+
+          <article
+            class="card matlab-project-card"
+            role="button"
+            tabindex="0"
+            aria-haspopup="dialog"
+            aria-controls="matlabModal"
+            onclick="openMatlabModal()"
+            onkeydown="handleMatlabKey(event)"
+          >
+            <div class="project-card-media">
+              <img src="assets/matlab-energy-flow.png" alt="MATLAB and Simulink energy-flow simulation results" loading="lazy">
+            </div>
+            <div class="project-card-content">
+              <div class="project-number">04</div>
+              <h3 data-i18n="project4Title">PV–Battery Energy Management in MATLAB/Simulink</h3>
+              <p data-i18n="project4Text">Simulation of a photovoltaic system with battery storage, grid interaction, state-based energy management and cost evaluation.</p>
+              <div class="project-tags" aria-label="Project technologies">
+                <span>MATLAB</span><span>Simulink</span><span>Stateflow</span><span data-i18n="tagEnergyManagement">Energy Management</span>
+              </div>
+              <span class="read-more" data-i18n="project4ReadMore">View simulation project →</span>
+            </div>
           </article>
 
         </div>
@@ -3561,6 +3617,44 @@ footer p {
   </div>
 
 
+  <div class="project-modal" id="matlabModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="matlabModalTitle">
+    <div class="project-modal-overlay" onclick="closeMatlabModal()"></div>
+    <div class="project-modal-content capability-modal-content">
+      <button class="modal-close" type="button" aria-label="Close" onclick="closeMatlabModal()">×</button>
+      <div class="modal-visual matlab-hero">
+        <div class="modal-visual-ring"></div><div class="modal-visual-core">MAT</div>
+      </div>
+      <div class="modal-body">
+        <span class="section-label" data-i18n="project4CaseLabel">MATLAB / Simulink Project</span>
+        <h2 id="matlabModalTitle" data-i18n="project4ModalTitle">PV–Battery Energy Management System</h2>
+        <p class="modal-intro" data-i18n="project4ModalIntro">A simulation-based energy-management project combining photovoltaic generation, battery storage, grid exchange, weather input and Stateflow control logic.</p>
+        <div class="project-metrics">
+          <div class="project-metric"><strong>7</strong><span data-i18n="project4MetricPlots">simulation result plots</span></div>
+          <div class="project-metric"><strong>5</strong><span data-i18n="project4MetricStates">control states</span></div>
+          <div class="project-metric"><strong>€</strong><span data-i18n="project4MetricCost">cost evaluation</span></div>
+        </div>
+        <div class="project-details-grid">
+          <div class="detail-box"><h3 data-i18n="project4ObjectiveTitle">Objective</h3><p data-i18n="project4ObjectiveText">Model the interaction between PV generation, electrical demand, battery state of charge and grid import while maintaining a transparent control strategy.</p></div>
+          <div class="detail-box"><h3 data-i18n="project4ControlTitle">Control Logic</h3><p data-i18n="project4ControlText">A Stateflow-based energy-management controller selects operating states according to generation, load and battery conditions.</p></div>
+          <div class="detail-box"><h3 data-i18n="project4AnalysisTitle">Simulation Analysis</h3><p data-i18n="project4AnalysisText">The results visualize PV output, battery behavior, power flow, weather influence, grid import and accumulated costs over the simulation period.</p></div>
+          <div class="detail-box"><h3 data-i18n="project4ResultTitle">Result</h3><p data-i18n="project4ResultText">The model demonstrates coordinated energy distribution and provides a clear basis for evaluating system behavior and control decisions.</p></div>
+        </div>
+        <h3 class="project-gallery-title" data-i18n="project4GalleryTitle">Simulation results</h3>
+        <div class="project-media-grid matlab-gallery">
+          <figure class="project-media-item"><img src="assets/matlab-energy-flow.png" alt="Combined PV, load, battery and grid power flows" loading="lazy"><figcaption data-i18n="project4Image3Caption">Combined energy flows between PV generation, load, battery and grid.</figcaption></figure>
+          <figure class="project-media-item"><img src="assets/matlab-pv-generation.png" alt="PV generation simulation" loading="lazy"><figcaption data-i18n="project4Image1Caption">Photovoltaic generation profile throughout the simulation.</figcaption></figure>
+          <figure class="project-media-item"><img src="assets/matlab-battery-soc.png" alt="Battery state of charge" loading="lazy"><figcaption data-i18n="project4Image2Caption">Battery state-of-charge response with charge and discharge phases.</figcaption></figure>
+          <figure class="project-media-item"><img src="assets/matlab-state-transitions.png" alt="Stateflow state transitions" loading="lazy"><figcaption data-i18n="project4Image4Caption">State transitions generated by the energy-management controller.</figcaption></figure>
+          <figure class="project-media-item"><img src="assets/matlab-cloud-cover.png" alt="Weather input and PV generation" loading="lazy"><figcaption data-i18n="project4Image5Caption">Relationship between weather input and photovoltaic generation.</figcaption></figure>
+          <figure class="project-media-item"><img src="assets/matlab-battery-grid.png" alt="Battery state and grid import" loading="lazy"><figcaption data-i18n="project4Image6Caption">Battery state compared with grid-import behavior.</figcaption></figure>
+          <figure class="project-media-item"><img src="assets/matlab-costs.png" alt="Accumulated energy costs in euros" loading="lazy"><figcaption data-i18n="project4Image7Caption">Accumulated cost development over the simulation period.</figcaption></figure>
+        </div>
+        <div class="capability-tools"><span>MATLAB</span><span>Simulink</span><span>Stateflow</span><span data-i18n="tagPVSystems">PV Systems</span><span data-i18n="tagBatteryStorage">Battery Storage</span><span data-i18n="tagDataAnalysis">Data Analysis</span></div>
+      </div>
+    </div>
+  </div>
+
+
   <footer>
 
     <p data-i18n="footerText">
@@ -3714,6 +3808,36 @@ footer p {
           "Bachelor's thesis focused on a dual-purpose machine combining FDM 3D printing and laser engraving on one motion platform.",
 
         project3ReadMore: "View thesis project →",
+
+        project4Title: "PV–Battery Energy Management in MATLAB/Simulink",
+        project4Text: "Simulation of a photovoltaic system with battery storage, grid interaction, state-based energy management and cost evaluation.",
+        project4ReadMore: "View simulation project →",
+        tagEnergyManagement: "Energy Management",
+        project4CaseLabel: "MATLAB / Simulink Project",
+        project4ModalTitle: "PV–Battery Energy Management System",
+        project4ModalIntro: "A simulation-based energy-management project combining photovoltaic generation, battery storage, grid exchange, weather input and Stateflow control logic.",
+        project4MetricPlots: "simulation result plots",
+        project4MetricStates: "control states",
+        project4MetricCost: "cost evaluation",
+        project4ObjectiveTitle: "Objective",
+        project4ObjectiveText: "Model the interaction between PV generation, electrical demand, battery state of charge and grid import while maintaining a transparent control strategy.",
+        project4ControlTitle: "Control Logic",
+        project4ControlText: "A Stateflow-based energy-management controller selects operating states according to generation, load and battery conditions.",
+        project4AnalysisTitle: "Simulation Analysis",
+        project4AnalysisText: "The results visualize PV output, battery behavior, power flow, weather influence, grid import and accumulated costs over the simulation period.",
+        project4ResultTitle: "Result",
+        project4ResultText: "The model demonstrates coordinated energy distribution and provides a clear basis for evaluating system behavior and control decisions.",
+        project4GalleryTitle: "Simulation results",
+        project4Image1Caption: "Photovoltaic generation profile throughout the simulation.",
+        project4Image2Caption: "Battery state-of-charge response with charge and discharge phases.",
+        project4Image3Caption: "Combined energy flows between PV generation, load, battery and grid.",
+        project4Image4Caption: "State transitions generated by the energy-management controller.",
+        project4Image5Caption: "Relationship between weather input and photovoltaic generation.",
+        project4Image6Caption: "Battery state compared with grid-import behavior.",
+        project4Image7Caption: "Accumulated cost development over the simulation period.",
+        tagPVSystems: "PV Systems",
+        tagBatteryStorage: "Battery Storage",
+        tagDataAnalysis: "Data Analysis",
 
         project3CaseLabel: "Bachelor's Thesis",
 
@@ -4261,6 +4385,36 @@ footer p {
 
         project3ReadMore: "Bachelorprojekt ansehen →",
 
+        project4Title: "PV-Batterie-Energiemanagement in MATLAB/Simulink",
+        project4Text: "Simulation eines Photovoltaiksystems mit Batteriespeicher, Netzinteraktion, zustandsbasiertem Energiemanagement und Kostenauswertung.",
+        project4ReadMore: "Simulationsprojekt ansehen →",
+        tagEnergyManagement: "Energiemanagement",
+        project4CaseLabel: "MATLAB-/Simulink-Projekt",
+        project4ModalTitle: "PV-Batterie-Energiemanagementsystem",
+        project4ModalIntro: "Ein simulationsbasiertes Energiemanagementprojekt, das PV-Erzeugung, Batteriespeicher, Netzaustausch, Wetterdaten und Stateflow-Steuerungslogik verbindet.",
+        project4MetricPlots: "Simulationsergebnis-Diagramme",
+        project4MetricStates: "Steuerungszustände",
+        project4MetricCost: "Kostenauswertung",
+        project4ObjectiveTitle: "Zielsetzung",
+        project4ObjectiveText: "Modellierung des Zusammenspiels von PV-Erzeugung, elektrischem Verbrauch, Batterieladezustand und Netzbezug mit einer transparenten Regelstrategie.",
+        project4ControlTitle: "Steuerungslogik",
+        project4ControlText: "Ein Stateflow-basiertes Energiemanagement wählt die Betriebszustände abhängig von Erzeugung, Last und Batteriezustand aus.",
+        project4AnalysisTitle: "Simulationsauswertung",
+        project4AnalysisText: "Die Ergebnisse visualisieren PV-Leistung, Batterieverhalten, Energieflüsse, Wettereinfluss, Netzbezug und kumulierte Kosten über den Simulationszeitraum.",
+        project4ResultTitle: "Ergebnis",
+        project4ResultText: "Das Modell zeigt eine koordinierte Energieverteilung und schafft eine klare Grundlage zur Bewertung von Systemverhalten und Steuerungsentscheidungen.",
+        project4GalleryTitle: "Simulationsergebnisse",
+        project4Image1Caption: "Verlauf der Photovoltaikerzeugung über den gesamten Simulationszeitraum.",
+        project4Image2Caption: "Reaktion des Batterieladezustands mit Lade- und Entladephasen.",
+        project4Image3Caption: "Kombinierte Energieflüsse zwischen PV-Erzeugung, Last, Batterie und Netz.",
+        project4Image4Caption: "Zustandsübergänge der Energiemanagement-Steuerung.",
+        project4Image5Caption: "Zusammenhang zwischen Wettereingang und Photovoltaikerzeugung.",
+        project4Image6Caption: "Vergleich von Batteriezustand und Netzbezugsverhalten.",
+        project4Image7Caption: "Entwicklung der kumulierten Kosten über den Simulationszeitraum.",
+        tagPVSystems: "PV-Systeme",
+        tagBatteryStorage: "Batteriespeicher",
+        tagDataAnalysis: "Datenanalyse",
+
         project3CaseLabel: "Bachelorarbeit",
 
         project3ModalTitle: "3D-Drucker mit integriertem Lasergravierer",
@@ -4774,6 +4928,10 @@ footer p {
       if (qualitySkillModal.classList.contains("open")) {
         closeQualitySkillModal();
       }
+
+      if (matlabModal.classList.contains("open")) {
+        closeMatlabModal();
+      }
     });
 
 
@@ -4888,6 +5046,22 @@ footer p {
 
       document.body.style.overflow = "";
     }
+
+
+    const matlabModal = document.getElementById("matlabModal");
+    function openMatlabModal() { matlabModal.classList.add("open"); matlabModal.setAttribute("aria-hidden", "false"); document.body.style.overflow = "hidden"; matlabModal.querySelector(".modal-close").focus(); }
+    function closeMatlabModal() { matlabModal.classList.remove("open"); matlabModal.setAttribute("aria-hidden", "true"); document.body.style.overflow = ""; }
+    function handleMatlabKey(event) { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); openMatlabModal(); } }
+
+    document.querySelectorAll("section, .hero-stat, .card, .credential-card, .skill-category-button").forEach((el) => el.classList.add("reveal"));
+    const revealObserver = new IntersectionObserver((entries) => entries.forEach((entry) => { if (entry.isIntersecting) { entry.target.classList.add("is-visible"); revealObserver.unobserve(entry.target); } }), { threshold: 0.12 });
+    document.querySelectorAll(".reveal").forEach((el) => revealObserver.observe(el));
+
+    window.addEventListener("pointermove", (event) => { document.documentElement.style.setProperty("--glow-x", `${event.clientX}px`); document.documentElement.style.setProperty("--glow-y", `${event.clientY}px`); });
+    document.querySelectorAll(".card").forEach((card) => {
+      card.addEventListener("pointermove", (event) => { if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return; const r=card.getBoundingClientRect(); const x=(event.clientX-r.left)/r.width-.5; const y=(event.clientY-r.top)/r.height-.5; card.style.transform=`translateY(-10px) rotateX(${(-y*4).toFixed(2)}deg) rotateY(${(x*5).toFixed(2)}deg)`; });
+      card.addEventListener("pointerleave", () => { card.style.transform=""; });
+    });
 
 
     const savedLanguage = localStorage.getItem("portfolio-language");
