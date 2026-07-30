@@ -211,8 +211,7 @@ header::after {
     "photo eyebrow"
     "photo title"
     "photo subtitle"
-    "photo nav"
-    "stats stats";
+    "photo nav";
   column-gap: clamp(42px, 7vw, 94px);
   align-items: center;
   text-align: left;
@@ -367,56 +366,6 @@ nav a:hover::after {
   transform: scaleX(1);
 }
 
-.hero-stats {
-  grid-area: stats;
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 12px;
-  width: 100%;
-  margin: 68px 0 0;
-  padding-top: 22px;
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
-}
-
-.hero-stat {
-  position: relative;
-  min-height: 100px;
-  padding: 20px 22px;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 18px;
-  background: rgba(255, 255, 255, 0.045);
-  backdrop-filter: blur(12px);
-}
-
-.hero-stat::after {
-  content: "";
-  position: absolute;
-  width: 60px;
-  height: 60px;
-  right: -28px;
-  bottom: -30px;
-  border-radius: 50%;
-  background: rgba(34, 211, 238, 0.16);
-}
-
-.hero-stat strong {
-  display: block;
-  margin-bottom: 7px;
-  color: white;
-  font-size: 28px;
-  font-weight: 850;
-  line-height: 1;
-  letter-spacing: -0.04em;
-}
-
-.hero-stat span {
-  display: block;
-  color: rgba(255, 255, 255, 0.56);
-  font-size: 12px;
-  font-weight: 750;
-  line-height: 1.4;
-}
 
 main {
   overflow: hidden;
@@ -1852,8 +1801,7 @@ footer p {
       "eyebrow"
       "title"
       "subtitle"
-      "nav"
-      "stats";
+      "nav";
     text-align: center;
   }
 
@@ -1886,9 +1834,6 @@ footer p {
     justify-content: center;
   }
 
-  .hero-stats {
-    margin-top: 48px;
-  }
 
   .about-card {
     grid-template-columns: 1fr;
@@ -1956,15 +1901,6 @@ footer p {
     grid-column: 1 / -1;
   }
 
-  .hero-stats {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 9px;
-  }
-
-  .hero-stat {
-    min-height: 90px;
-    padding: 17px;
-  }
 
   section {
     padding: 82px 18px;
@@ -2197,28 +2133,7 @@ header::before{opacity:.12}.eyebrow{color:#d9e2ea;border-color:rgba(255,255,255,
         <a href="#contact" data-i18n="navContact">Contact</a>
 
       </nav>
-
-      <div class="hero-stats" aria-label="Portfolio highlights">
-        <div class="hero-stat">
-          <strong>6+</strong>
-          <span data-i18n="statProjects">Engineering projects</span>
-        </div>
-        <div class="hero-stat">
-          <strong>3rd</strong>
-          <span data-i18n="statAward">Makerthon award</span>
-        </div>
-        <div class="hero-stat">
-          <strong>C1</strong>
-          <span data-i18n="statGerman">German proficiency</span>
-        </div>
-        <div class="hero-stat">
-          <strong>7.5</strong>
-          <span data-i18n="statEnglish">IELTS Academic</span>
-        </div>
-      </div>
-
     </div>
-
   </header>
 
   <main>
@@ -3682,14 +3597,6 @@ header::before{opacity:.12}.eyebrow{color:#d9e2ea;border-color:rgba(255,255,255,
 
         navContact: "Contact",
 
-        statProjects: "Engineering projects",
-
-        statAward: "Makerthon award",
-
-        statGerman: "German proficiency",
-
-        statEnglish: "IELTS Academic",
-
         aboutLabel: "Who I Am",
 
         aboutTitle: "Engineering with purpose and precision.",
@@ -4272,14 +4179,6 @@ header::before{opacity:.12}.eyebrow{color:#d9e2ea;border-color:rgba(255,255,255,
         navCredentials: "Auszeichnungen & Zertifikate",
 
         navContact: "Kontakt",
-
-        statProjects: "Technische Projekte",
-
-        statAward: "Makerthon-Auszeichnung",
-
-        statGerman: "Deutschkenntnisse",
-
-        statEnglish: "IELTS Academic",
 
         aboutLabel: "Über mich",
 
