@@ -1167,6 +1167,15 @@ h2 {
   gap: 11px;
 }
 
+.contact-links .contact-icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 9px;
+  flex: none;
+  fill: currentColor;
+}
+
 .button {
   border: 1px solid rgba(255, 255, 255, 0.16);
 }
@@ -2562,18 +2571,14 @@ header::before{opacity:.12}.eyebrow{color:#d9e2ea;border-color:rgba(255,255,255,
 
         <div class="contact-links">
 
-          <a
+          <a class="button button-primary" href="mailto:assemamer13@gmail.com" aria-label="Email Assem Ryan">
+            <svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4.1-8 5.4-8-5.4V6l8 5.4L20 6v2.1Z"/></svg>
+            <span data-i18n="emailButton">Email Me</span>
+          </a>
 
-            class="button button-primary"
-
-            href="mailto:assemamer13@gmail.com"
-
-            data-i18n="emailButton"
-
-          >
-
-            Email Me
-
+          <a class="button button-secondary" href="https://wa.me/4915737820426" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Assem Ryan at +49 157 37820426">
+            <svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2a9.93 9.93 0 0 0-8.5 15.08L2 22l5.08-1.5A9.98 9.98 0 1 0 12.04 2Zm0 18.16a8.1 8.1 0 0 1-4.12-1.12l-.3-.18-3.05.9.92-2.97-.2-.31a8.14 8.14 0 1 1 6.75 3.68Zm4.48-6.1c-.25-.12-1.47-.73-1.7-.81-.23-.08-.4-.12-.56.12-.17.25-.64.81-.79.98-.14.16-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.51.11-.11.25-.29.37-.44.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.44-.06-.12-.56-1.35-.77-1.85-.2-.49-.4-.42-.56-.43h-.48c-.17 0-.44.06-.66.31-.23.25-.87.85-.87 2.06s.89 2.39 1.01 2.55c.13.17 1.75 2.68 4.24 3.75.59.25 1.05.4 1.41.51.59.19 1.12.16 1.54.1.47-.07 1.47-.6 1.68-1.19.21-.58.21-1.08.15-1.18-.06-.1-.23-.17-.48-.29Z"/></svg>
+            <span data-i18n="whatsappButton">WhatsApp Me</span>
           </a>
 
           <a
@@ -4124,6 +4129,8 @@ header::before{opacity:.12}.eyebrow{color:#d9e2ea;border-color:rgba(255,255,255,
 
         emailButton: "Email Me",
 
+        whatsappButton: "Message on WhatsApp",
+
         resumeEnglish: "Resume (English)",
 
         resumeGerman: "Lebenslauf (Deutsch)",
@@ -4684,6 +4691,8 @@ header::before{opacity:.12}.eyebrow{color:#d9e2ea;border-color:rgba(255,255,255,
           "Ich bin offen für berufliche Möglichkeiten, technische Kooperationen und Gespräche über Produktentwicklung, Robotik und Fertigung.",
 
         emailButton: "E-Mail senden",
+
+        whatsappButton: "Per WhatsApp schreiben",
 
         resumeEnglish: "Lebenslauf (Englisch)",
 
