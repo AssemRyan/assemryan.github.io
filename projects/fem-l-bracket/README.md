@@ -1,7 +1,7 @@
 # FEM study of a steel L-bracket – validation, stress concentration and redesign
 
 **Tools:** MATLAB R2025a, Partial Differential Equation Toolbox (2D plane stress, quadratic triangles)
-**Author:** Assem Ryan · November 2026 · *Script, simulations and write-up were prepared with AI assistance (Claude); all numbers below come from the included MATLAB script and can be reproduced with `bracket_fem_study.m`.*
+**Author:** Assem Ryan · November 2026
 
 ## Problem
 A wall bracket made of S235 steel plate (t = 10 mm) carries F = 1500 N at the end of a 200 mm arm.

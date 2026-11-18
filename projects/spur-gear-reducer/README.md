@@ -1,7 +1,7 @@
 # Single-stage spur-gear reducer i = 3: design calculation, SOLIDWORKS model and process plan
 
 **Tools:** SOLIDWORKS 2025 (Student Edition), driven through the SOLIDWORKS API (C#); Node.js for the calculation and figures
-**Author:** Assem Ryan · November 2026 · *The calculation, the API script and this write-up were prepared with AI assistance (Claude). All numbers below come from the included scripts and from the SOLIDWORKS model, and can be reproduced with `calc/design-calc.js` and `cad/BuildReducer.cs`.*
+**Author:** Assem Ryan · November 2026
 
 ![Assembly with the front wall hidden](figures/assembly_open_iso.jpg)
 
