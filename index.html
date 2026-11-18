@@ -119,6 +119,7 @@ h1 .u{background:linear-gradient(transparent 62%,color-mix(in srgb,var(--accent)
 #cb{position:fixed;left:12px;right:12px;bottom:12px;z-index:50;max-width:560px;margin:0 auto;background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,.18);padding:12px 14px;font-size:.88rem;display:none}
 #cb p{margin:0 0 10px}#cb .b{display:flex;gap:8px;justify-content:flex-end}#cb button{border:1px solid var(--line);background:var(--chip);color:var(--ink);border-radius:999px;padding:6px 14px;font:inherit;cursor:pointer}#cb button.ok{background:var(--brand);border-color:var(--brand);color:#fff}
 #privacy{max-width:900px;margin:0 auto;padding:0 16px 24px;font-size:.8rem;color:var(--muted)}
+#season{background:linear-gradient(90deg,#0f4c81,#1d7ac8);color:#fff;text-align:center;font-size:.92rem;padding:8px 40px;position:relative}#season button{position:absolute;right:10px;top:50%;transform:translateY(-50%);background:none;border:0;color:#fff;font-size:1.1rem;cursor:pointer}
 </style>
 <script>
 window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
@@ -410,6 +411,19 @@ d.addEventListener('keydown',function(e){if(!lb.classList.contains('open'))retur
 
 <script>
 document.addEventListener("click",function(e){var b=e.target.closest(".ptabs button");if(!b)return;var box=b.closest(".db");box.querySelectorAll(".ptabs button").forEach(function(x){x.setAttribute("aria-selected",x===b)});box.querySelectorAll(".ppanel").forEach(function(p){p.hidden=p.id!==b.dataset.tab});box.scrollTop=0;});
+</script>
+<script>
+(function(){var d=new Date(),y=d.getFullYear(),m=d.getMonth()+1,day=d.getDate(),t=d.getTime();
+function easter(Y){var a=Y%19,b=Math.floor(Y/100),c=Y%100,dd=Math.floor(b/4),e=b%4,f=Math.floor((b+8)/25),g=Math.floor((b-f+1)/3),h=(19*a+b-dd-g+15)%30,i=Math.floor(c/4),k=c%4,l=(32+2*e+2*i-h-k)%7,mm=Math.floor((a+11*h+22*l)/451),mo=Math.floor((h+l-7*mm+114)/31),da=((h+l-7*mm+114)%31)+1;return new Date(Y,mo-1,da)}
+var msg=null,E=easter(y),day0=new Date(y,m-1,day).getTime(),es=E.getTime(),D=864e5;
+if(m===12&&day<=26)msg=['🎄 Merry Christmas and happy holidays – thank you for visiting!','🎄 Frohe Weihnachten und schöne Feiertage – danke für Ihren Besuch!'];
+else if((m===12&&day>=27)||(m===1&&day<=6))msg=['✨ Happy New Year '+(m===12?y+1:y)+'!','✨ Frohes neues Jahr '+(m===12?y+1:y)+'!'];
+else if(day0>=es-2*D&&day0<=es+D)msg=['🐣 Happy Easter!','🐣 Frohe Ostern!'];
+if(!msg)return;try{if(sessionStorage.getItem('seasonClosed')===msg[0])return}catch(e){}
+var b=document.createElement('div');b.id='season';b.setAttribute('role','note');
+b.innerHTML='<span class="en">'+msg[0]+'</span><span class="de">'+msg[1]+'</span><button aria-label="Close">×</button>';
+document.body.insertBefore(b,document.body.firstChild);
+b.querySelector('button').onclick=function(){b.remove();try{sessionStorage.setItem('seasonClosed',msg[0])}catch(e){}};})();
 </script>
 </body>
 </html>
