@@ -1,0 +1,93 @@
+{
+  "assumptions": {
+    "p_test_bar_g": 6,
+    "p_atm_mbar": 1013,
+    "V_ml": 40,
+    "Q_lim": 0.01,
+    "T_K": 293,
+    "dT0_K": 1.5,
+    "tau_s": 6,
+    "t_fill": 3,
+    "t_vent": 2,
+    "sensor_res_mbar": 0.1
+  },
+  "p_abs_mbar": 7013,
+  "dpdt_limit_mbar_s": 0.25,
+  "dp_per_0p1K_mbar": 2.39,
+  "thermalAtFill_mbar": 35.9,
+  "options": [
+    {
+      "tm": 5,
+      "ts": 31,
+      "method": "absolute pressure decay",
+      "signal": 1.25,
+      "drift": 0.116,
+      "cycle": 41
+    },
+    {
+      "tm": 10,
+      "ts": 29,
+      "method": "absolute pressure decay",
+      "signal": 2.5,
+      "drift": 0.232,
+      "cycle": 44
+    },
+    {
+      "tm": 15,
+      "ts": 27,
+      "method": "absolute pressure decay",
+      "signal": 3.75,
+      "drift": 0.366,
+      "cycle": 47
+    },
+    {
+      "tm": 20,
+      "ts": 25.5,
+      "method": "absolute pressure decay",
+      "signal": 5,
+      "drift": 0.494,
+      "cycle": 50.5
+    }
+  ],
+  "chosen": {
+    "tm": 10,
+    "ts": 29,
+    "method": "absolute pressure decay",
+    "signal": 2.5,
+    "drift": 0.232,
+    "cycle": 44
+  },
+  "diff": [
+    {
+      "tm": 5,
+      "ts": 17,
+      "method": "differential vs. reference part (90 % thermal compensation)",
+      "signal": 1.25,
+      "drift": 0.119,
+      "cycle": 27
+    },
+    {
+      "tm": 10,
+      "ts": 15,
+      "method": "differential vs. reference part (90 % thermal compensation)",
+      "signal": 2.5,
+      "drift": 0.239,
+      "cycle": 30
+    }
+  ],
+  "chosenDiff": {
+    "tm": 10,
+    "ts": 15,
+    "method": "differential vs. reference part (90 % thermal compensation)",
+    "signal": 2.5,
+    "drift": 0.239,
+    "cycle": 30
+  },
+  "partsPerHourDiff": 120,
+  "gauge": {
+    "T_band_mbar": 2.5,
+    "s_max_mbar": 0.0627,
+    "resolution_ok": true
+  },
+  "partsPerHour": 81
+}

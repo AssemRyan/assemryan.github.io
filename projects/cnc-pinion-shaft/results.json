@@ -1,0 +1,46 @@
+{
+  "setups": [
+    {
+      "id": "O1001",
+      "name": "Aufspannung 1 – Antriebsseite (Zapfen Ø18)",
+      "clamp": "Dreibackenfutter auf Rohteil Ø50, Ausspannlänge 80 mm",
+      "roughingPasses": 7,
+      "t_cut_min": 1.36,
+      "t_rapid_min": 0.068,
+      "t_toolchange_min": 0.133,
+      "t_total_min": 1.56
+    },
+    {
+      "id": "O1002",
+      "name": "Aufspannung 2 – Lagerseite",
+      "clamp": "weiche Backen auf Zapfen Ø18 + mitlaufende Reitstockspitze",
+      "roughingPasses": 7,
+      "t_cut_min": 0.73,
+      "t_rapid_min": 0.046,
+      "t_toolchange_min": 0.133,
+      "t_total_min": 0.9
+    }
+  ],
+  "tools": {
+    "T01": {
+      "name": "CNMG 120408 - SCHRUPPEN PLANDREHEN",
+      "vc": 180,
+      "f_rough": 0.3,
+      "f_face": 0.2,
+      "ap": 2.5
+    },
+    "T03": {
+      "name": "VNMG 160404 - SCHLICHTEN",
+      "vc": 220,
+      "f": 0.1
+    }
+  },
+  "machine": {
+    "rapid_mm_min": 15000,
+    "nmax": 3000,
+    "toolChange_s": 4,
+    "rawD": 50
+  },
+  "turningTotal_min": 2.46,
+  "turningCut_min": 2.09
+}

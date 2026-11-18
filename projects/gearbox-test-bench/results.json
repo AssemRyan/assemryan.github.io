@@ -1,0 +1,122 @@
+{
+  "gearbox": {
+    "P_kW": 1.5,
+    "n1": 1440,
+    "i": 3,
+    "eta_design": 0.98
+  },
+  "T1N": 9.95,
+  "sensors": {
+    "A": {
+      "label": "Class 0.1 (20 Nm in / 50 Nm out)",
+      "in": {
+        "nom": 20,
+        "cls": 0.1
+      },
+      "out": {
+        "nom": 50,
+        "cls": 0.1
+      }
+    },
+    "B": {
+      "label": "Class 0.05 (20 Nm in / 50 Nm out)",
+      "in": {
+        "nom": 20,
+        "cls": 0.05
+      },
+      "out": {
+        "nom": 50,
+        "cls": 0.05
+      }
+    },
+    "C": {
+      "label": "Class 0.1, oversized (50 Nm in / 100 Nm out)",
+      "in": {
+        "nom": 50,
+        "cls": 0.1
+      },
+      "out": {
+        "nom": 100,
+        "cls": 0.1
+      }
+    }
+  },
+  "extra": {
+    "daq": 0.0002,
+    "temp_zero": 0.0004
+  },
+  "table": [
+    {
+      "load": 0.25,
+      "A": 1.26,
+      "B": 0.69,
+      "C": 2.83
+    },
+    {
+      "load": 0.5,
+      "A": 0.63,
+      "B": 0.35,
+      "C": 1.41
+    },
+    {
+      "load": 0.75,
+      "A": 0.42,
+      "B": 0.24,
+      "C": 0.94
+    },
+    {
+      "load": 1,
+      "A": 0.32,
+      "B": 0.18,
+      "C": 0.71
+    },
+    {
+      "load": 1.25,
+      "A": 0.26,
+      "B": 0.15,
+      "C": 0.57
+    }
+  ],
+  "minLoad_for_0p5pt": {
+    "A": 0.65,
+    "B": 0.35,
+    "C": 1.4
+  },
+  "procedure": [
+    [
+      "Run-in",
+      "2 h at 50 % load, both directions, oil change afterwards"
+    ],
+    [
+      "Warm-up",
+      "100 % load until oil sump temperature changes < 1 K in 10 min (target ≈ 60 °C)"
+    ],
+    [
+      "Zero / tare",
+      "Both torque flanges tared unloaded at test temperature (reduces zero drift)"
+    ],
+    [
+      "Load steps",
+      "25 / 50 / 75 / 100 / 125 % of 9.95 Nm input torque at 1440 rpm, each held 5 min"
+    ],
+    [
+      "Recording",
+      "1 kHz raw, 10 s averages; T1, T2, n1, n2, oil temperature, motor current"
+    ],
+    [
+      "Repeat",
+      "3 runs, rising and falling load (hysteresis check)"
+    ],
+    [
+      "Evaluation",
+      "η = T2 / (T1·i); check n2 = n1/i as plausibility test (slip/encoder fault)"
+    ]
+  ],
+  "budget100_A": {
+    "u_in_pct": 0.116,
+    "u_out_pct": 0.099,
+    "u_zero_pct": 0.04,
+    "U_rel_pct": 0.32,
+    "U_eta_pctpt": 0.314
+  }
+}
