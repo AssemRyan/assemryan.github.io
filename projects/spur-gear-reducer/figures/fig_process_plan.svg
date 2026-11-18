@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 350" font-family="Segoe UI,Arial,sans-serif">
+<rect width="760" height="350" fill="#ffffff"/>
+<text x="20" y="30" font-size="18" font-weight="600" fill="#1d2733">Arbeitsplan Ritzelwelle – main machining time t_h per operation</text>
+<text x="20" y="50" font-size="12" fill="#5b6675">t_h = L·i / (f·n), n = 1000·v_c/(π·d); hobbing t_h = (b+2·overrun)·z / (n_hob·f_a) · total 3.49 min</text><text x="20" y="88" font-size="12" fill="#1d2733">10 · Plandrehen + Zentrieren beidseitig (Länge 104)</text>
+<rect x="400" y="74" width="50" height="20" fill="#2e86c1"/>
+<text x="456" y="89" font-size="12" fill="#1d2733">0.22 min</text><text x="20" y="128" font-size="12" fill="#1d2733">20 · Schruppen Ø50 → Ø44.5 (gesamte Länge)</text>
+<rect x="400" y="114" width="68.18181818181817" height="20" fill="#2e86c1"/>
+<text x="474.1818181818182" y="129" font-size="12" fill="#1d2733">0.30 min</text><text x="20" y="168" font-size="12" fill="#1d2733">30 · Schruppen Absätze Ø44.5 → Ø18.5–24.5</text>
+<rect x="400" y="154" width="247.72727272727275" height="20" fill="#2e86c1"/>
+<text x="653.7272727272727" y="169" font-size="12" fill="#1d2733">1.09 min</text><text x="20" y="208" font-size="12" fill="#1d2733">40 · Schlichten Kopfkreis Ø44 h11, Absätze Ø24, La…</text>
+<rect x="400" y="194" width="81.81818181818181" height="20" fill="#2e86c1"/>
+<text x="487.8181818181818" y="209" font-size="12" fill="#1d2733">0.36 min</text><text x="20" y="248" font-size="12" fill="#1d2733">50 · Wälzfräsen Verzahnung m=2, z=20</text>
+<rect x="400" y="234" width="300" height="20" fill="#e67e22"/>
+<text x="706" y="249" font-size="12" fill="#1d2733">1.32 min</text><text x="20" y="288" font-size="12" fill="#1d2733">60 · Passfedernut 6x3.5 im Zapfen Ø18 fräsen</text>
+<rect x="400" y="274" width="45.45454545454545" height="20" fill="#27ae60"/>
+<text x="451.45454545454544" y="289" font-size="12" fill="#1d2733">0.20 min</text><text x="400" y="338" font-size="11" fill="#5b6675">■ blue: CNC lathe · ■ orange: gear hobbing · ■ green: machining centre</text></svg>

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 380" font-family="Segoe UI,Arial,sans-serif">
+<rect width="760" height="380" fill="#ffffff"/>
+<text x="20" y="30" font-size="18" font-weight="600" fill="#1d2733">Utilisation of each design check (computed ÷ permissible)</text>
+<text x="20" y="50" font-size="12" fill="#5b6675">Values from design-calc.js · 1.5 kW, 1440 rpm, i = 3, K_A = 1.25 · 100 % = limit</text><text x="20" y="86" font-size="13" fill="#1d2733">Tooth root bending – pinion (Lewis)</text>
+<rect x="300" y="72" width="400" height="20" fill="#eef1f4"/>
+<rect x="300" y="72" width="92.288" height="20" fill="#2e86c1"/>
+<text x="398.288" y="87" font-size="12" fill="#1d2733">29 %</text><text x="20" y="132" font-size="13" fill="#1d2733">Tooth root bending – gear (Lewis)</text>
+<rect x="300" y="118" width="400" height="20" fill="#eef1f4"/>
+<rect x="300" y="118" width="70.39999999999999" height="20" fill="#2e86c1"/>
+<text x="376.4" y="133" font-size="12" fill="#1d2733">22 %</text><text x="20" y="178" font-size="13" fill="#1d2733">Flank contact stress (Hertz)</text>
+<rect x="300" y="164" width="400" height="20" fill="#eef1f4"/>
+<rect x="300" y="164" width="258.0676923076923" height="20" fill="#e67e22"/>
+<text x="564.0676923076924" y="179" font-size="12" fill="#1d2733">81 %</text><text x="20" y="224" font-size="13" fill="#1d2733">Input shaft Ø20 – torsion τ/τ_zul</text>
+<rect x="300" y="210" width="400" height="20" fill="#eef1f4"/>
+<rect x="300" y="210" width="81.93531999999999" height="20" fill="#2e86c1"/>
+<text x="387.93532" y="225" font-size="12" fill="#1d2733">26 %</text><text x="20" y="270" font-size="13" fill="#1d2733">Output shaft Ø25 – torsion τ/τ_zul</text>
+<rect x="300" y="256" width="400" height="20" fill="#eef1f4"/>
+<rect x="300" y="256" width="121.44109568000003" height="20" fill="#2e86c1"/>
+<text x="427.44109568000005" y="271" font-size="12" fill="#1d2733">38 %</text><text x="20" y="316" font-size="13" fill="#1d2733">Bearing 6204 – required / L10h</text>
+<rect x="300" y="302" width="400" height="20" fill="#eef1f4"/>
+<rect x="300" y="302" width="4.166308624519247" height="20" fill="#2e86c1"/>
+<text x="310.1663086245193" y="317" font-size="12" fill="#1d2733">1.3 %</text><line x1="620" y1="64" x2="620" y2="340" stroke="#c0392b" stroke-dasharray="4 3"/>
+<text x="606" y="358" font-size="12" fill="#c0392b">100 %</text></svg>

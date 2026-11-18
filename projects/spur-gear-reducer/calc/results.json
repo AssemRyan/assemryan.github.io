@@ -1,0 +1,160 @@
+{
+  "inputs": {
+    "P_kW": 1.5,
+    "n1": 1440,
+    "i": 3,
+    "KA": 1.25,
+    "eta": 0.98,
+    "m": 2,
+    "z1": 20,
+    "z2": 60,
+    "alpha": 20,
+    "b": 20,
+    "E": 210000,
+    "nu": 0.3,
+    "sigF_allow": 250,
+    "sigH_allow": 650,
+    "tau_allow": 25,
+    "C_6204": 13.5,
+    "C_6205": 14.8,
+    "life_req_h": 20000
+  },
+  "kinematics": {
+    "n1": 1440,
+    "n2": 480,
+    "T1": 9.95,
+    "T2": 29.25
+  },
+  "geometry": {
+    "d1": 40,
+    "d2": 120,
+    "a": 80,
+    "da1": 44,
+    "da2": 124,
+    "df1": 35,
+    "df2": 115,
+    "db1": 37.59,
+    "db2": 112.76,
+    "contactRatio": 1.671
+  },
+  "forces": {
+    "Ft": 497.4,
+    "Fr": 181,
+    "Fn": 529.3,
+    "v": 3.02,
+    "Kv": 1.494
+  },
+  "bending": {
+    "sigF1": 72.1,
+    "sigF2": 55,
+    "allow": 250,
+    "SF1": 3.47,
+    "SF2": 4.54
+  },
+  "contact": {
+    "ZE": 191.6,
+    "ZH": 2.495,
+    "Zeps": 0.881,
+    "sigH": 524.2,
+    "allow": 650,
+    "SH": 1.24
+  },
+  "shafts": {
+    "d_in_min": 12.7,
+    "d_out_min": 18.1,
+    "d_in": 20,
+    "d_out": 25
+  },
+  "bearings": {
+    "P_kN": 0.265,
+    "L10h_6204": 1536132,
+    "L10h_6205": 6072027,
+    "required": 20000
+  },
+  "processPlan": {
+    "part": "Ritzelwelle (pinion shaft) z=20, m=2, 42CrMo4+QT, Rohteil Ø50x110 (vergütet geliefert)",
+    "ops": [
+      {
+        "name": "Plandrehen + Zentrieren beidseitig (Länge 104)",
+        "machine": "CNC-Drehmaschine",
+        "d": 50,
+        "L": 50,
+        "vc": 180,
+        "f": 0.2,
+        "passes": 1,
+        "n": 1146,
+        "th_min": 0.22,
+        "note": "radial facing 2 x 25 mm"
+      },
+      {
+        "name": "Schruppen Ø50 → Ø44.5 (gesamte Länge)",
+        "machine": "CNC-Drehmaschine",
+        "d": 50,
+        "L": 104,
+        "vc": 180,
+        "f": 0.3,
+        "passes": 1,
+        "n": 1146,
+        "th_min": 0.3,
+        "note": "ap = 2.75 mm"
+      },
+      {
+        "name": "Schruppen Absätze Ø44.5 → Ø18.5–24.5",
+        "machine": "CNC-Drehmaschine",
+        "d": 44.5,
+        "L": 84,
+        "vc": 180,
+        "f": 0.3,
+        "passes": 5,
+        "n": 1288,
+        "th_min": 1.09,
+        "note": "ap ≈ 2.6 mm/pass, both sides of the gear"
+      },
+      {
+        "name": "Schlichten Kopfkreis Ø44 h11, Absätze Ø24, Lagersitze Ø20 k6, Zapfen Ø18 k6",
+        "machine": "CNC-Drehmaschine",
+        "d": 24,
+        "L": 104,
+        "vc": 220,
+        "f": 0.1,
+        "passes": 1,
+        "n": 2918,
+        "th_min": 0.36,
+        "note": "finishing contour"
+      },
+      {
+        "name": "Wälzfräsen Verzahnung m=2, z=20",
+        "machine": "Wälzfräsmaschine",
+        "d": 44,
+        "L": 40,
+        "vc": 80,
+        "f": 1.5,
+        "passes": 1,
+        "n": 404,
+        "th_min": 1.32,
+        "note": "Wälzfräser Ø63, eingängig, axialer Vorschub 1.5 mm/WU"
+      },
+      {
+        "name": "Passfedernut 6x3.5 im Zapfen Ø18 fräsen",
+        "machine": "Bearbeitungszentrum",
+        "d": 6,
+        "L": 28,
+        "vc": 60,
+        "f": 0.03,
+        "passes": 2,
+        "n": 3183,
+        "th_min": 0.2,
+        "note": "VHM-Fräser Ø6, z=3, fz=0.03"
+      }
+    ],
+    "th_total_min": 3.49
+  },
+  "checks": {
+    "noUndercut": true,
+    "contactRatioOK": true,
+    "bendingOK": true,
+    "contactOK": true,
+    "shaftOK": true,
+    "bearingOK": true
+  }
+}

@@ -1,0 +1,10 @@
+﻿{"pinionShaft":{"file":"Ritzelwelle_z20_m2.SLDPRT","material":"1.7225 (42CrMo4)","mass_kg":0.395,"volume_cm3":50.64,"density":7800},
+"gear":{"file":"Zahnrad_z60_m2.SLDPRT","material":"1.7225 (42CrMo4)","mass_kg":1.3488,"volume_cm3":172.93,"density":7800},
+"outputShaft":{"file":"Abtriebswelle.SLDPRT","material":"1.7225 (42CrMo4)","mass_kg":0.4468,"volume_cm3":57.28,"density":7800},
+"Distanzhuelse_30x36x8":{"file":"Distanzhuelse_30x36x8.SLDPRT","material":"1.0503 (C45)","mass_kg":0.0194,"volume_cm3":2.49,"density":7800},
+"Lager_6204_vereinfacht":{"file":"Lager_6204_vereinfacht.SLDPRT","material":"1.7225 (42CrMo4)","mass_kg":0.1328,"volume_cm3":17.03,"density":7800},
+"Lager_6205_vereinfacht":{"file":"Lager_6205_vereinfacht.SLDPRT","material":"1.7225 (42CrMo4)","mass_kg":0.1635,"volume_cm3":20.97,"density":7800},
+"sideWall":{"file":"Seitenwand.SLDPRT","material":"0.6025 (EN-GJL-250)","mass_kg":2.8968,"volume_cm3":399.55,"density":7250},
+"basePlate":{"file":"Grundplatte.SLDPRT","material":"1.0037 (S235JR)","mass_kg":1.599,"volume_cm3":205,"density":7800},
+"interferences":{"count":0,"items":[]},
+"assembly":{"mass_kg":10.215}}
