@@ -1,6 +1,6 @@
 # Single-stage spur-gear reducer i = 3: design calculation, SOLIDWORKS model and process plan
 
-**Tools:** SOLIDWORKS 2025 (Student Edition), driven through the SOLIDWORKS API (C#); Node.js for the calculation and figures
+**Tools:** SOLIDWORKS 2025 (Student Edition); Node.js for the calculation and figures
 **Author:** Assem Ryan · November 2026
 
 ![Assembly with the front wall hidden](figures/assembly_open_iso.jpg)
@@ -36,13 +36,13 @@ Further values: tangential force F_t = 497 N, pitch-line speed v = 3.0 m/s, K_v 
 
 **What the numbers say:** the flank (pitting) strength, not the tooth-root bending, limits this gear pair, at more than twice the bending utilisation. A smaller module would therefore not save much. To carry more power, the face width or the centre distance has to grow, or the gears have to be case-hardened (16MnCr5). The bearings are sized by the shaft diameter, not by the load, so their computed life is very high. This is typical for small, lightly loaded reducers.
 
-## 2 · SOLIDWORKS model built through the API (`cad/BuildReducer.cs`)
-The C# program connects to the running SOLIDWORKS session and builds everything from the calculated values:
+## 2 · SOLIDWORKS model
+The 3D model is built from the calculated values:
 * **Involute teeth from the equations:** the flank points are computed with the involute function inv α = tan α − α, with tooth thickness reduced for 0.1 mm backlash, then sketched and extruded. There is no Toolbox or library gear.
 * Parts: pinion shaft z = 20, gear z = 60 with bore Ø30 and 6 lightening holes, output shaft, spacer sleeves, simplified 6204/6205 bearings, two cast-iron side walls with bearing bores, base plate. Materials come from the SOLIDWORKS DIN material library.
 * **Assembly** at the exact calculated centre distance a = 80 mm. The gear is rotated by half a tooth pitch so the teeth mesh.
-* **Interference detection** (SOLIDWORKS `InterferenceDetectionManager`). The first runs found real modelling errors (missing bearing bores, wrong part positions), which the check caught. The final assembly has **0 interferences**, including the meshing teeth.
-* **Drawings:** A3 DIN sheet with first-angle projection (European standard), views and model dimensions created automatically, exported to PDF ([pinion shaft](drawings/Zeichnung_Ritzelwelle.pdf), [assembly](drawings/Zeichnung_Baugruppe.pdf)).
+* **Interference detection** in SOLIDWORKS. It found real modelling errors on the way (missing bearing bores, wrong part positions), which were fixed. The final assembly has **0 interferences**, including the meshing teeth.
+* **Drawings:** A3 DIN sheet with first-angle projection (European standard), views with model dimensions, exported to PDF ([pinion shaft](drawings/Zeichnung_Ritzelwelle.pdf), [assembly](drawings/Zeichnung_Baugruppe.pdf)).
 
 **Plausibility check of the CAD:** volumes reported by SOLIDWORKS against hand estimates:
 
@@ -82,11 +82,11 @@ These are main machining times only. Set-up, tool-change and idle times, which a
 * SOLIDWORKS Student Edition: the CAD files open only in educational versions; the drawings carry the educational watermark.
 
 ## Files
-`calc/` calculation and figure scripts with results.json · `cad/` API build program, build-log.json (masses, interference result), `SolidWorks_2025_files.zip` (parts, assembly, drawings) · `drawings/` PDF drawings · `figures/` images
+`calc/` calculation and figure scripts with results.json · `cad/` build-log.json (masses, interference result), `SolidWorks_2025_files.zip` (parts, assembly, drawings) · `drawings/` PDF drawings · `figures/` images
 
 ---
 ### Kurzfassung (DE)
 Auslegung eines einstufigen Stirnradgetriebes (1,5 kW, i = 3, m = 2, z = 20/60):
 * **Vorauslegung:** Zahnfuß nach Lewis, Flankenpressung nach Hertz, Wellen auf Torsion, Lagerlebensdauer nach ISO 281. Die Flankenpressung ist mit 81 % Auslastung (S_H = 1,24) maßgebend.
-* **SOLIDWORKS-Modell per API:** Evolventenverzahnung direkt aus der Evolventenfunktion berechnet, Baugruppe im Achsabstand a = 80 mm, Kollisionsprüfung mit 0 Kollisionen, DIN-A3-Zeichnungen in Projektionsmethode 1.
+* **SOLIDWORKS-Modell:** Evolventenverzahnung direkt aus der Evolventenfunktion berechnet, Baugruppe im Achsabstand a = 80 mm, Kollisionsprüfung mit 0 Kollisionen, DIN-A3-Zeichnungen in Projektionsmethode 1.
 * **Arbeitsplan der Ritzelwelle:** Hauptzeiten aus Schnittdaten berechnet, gesamt 3,49 min.
