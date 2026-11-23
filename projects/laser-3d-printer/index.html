@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3D Printer with Laser Engraver – Assem Ryan</title>
+<meta name="description" content="Bachelor's thesis project (team of 7): a hybrid FDM 3D printer and laser engraver built on a Graber i3 frame with Arduino Mega 2560 / RAMPS 1.4. 3D-Drucker mit Lasergravur – Konstruktion, Mechatronik, Prototypenbau.">
+<meta name="keywords" content="3D-Druck, FDM, Lasergravur, Mechatronik, Prototypenbau, Konstruktion, Kalibrierung, G-Code, Cura, Arduino, RAMPS, Schrittmotor, Bachelorarbeit, Maschinenbau">
+<meta property="og:title" content="3D printer with laser engraver – Assem Ryan">
+<meta property="og:image" content="https://assemryan.github.io/project3-laser-engraving-process.png">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%230f4c81'/><text x='32' y='42' font-size='28' font-family='Arial' font-weight='700' fill='white' text-anchor='middle'>AR</text></svg>">
+<style>
+:root{--bg:#f6f8fb;--card:#fff;--ink:#0f172a;--muted:#5b6578;--line:#e3e8ef;--brand:#0f4c81;--brand2:#1d7ac8;--chip:#eaf2fb;--shadow:0 6px 24px rgba(15,23,42,.07);--accent:#ff7a1a;--grid:rgba(15,76,129,.05)}
+@media (prefers-color-scheme:dark){:root{--bg:#0b1220;--card:#121a2b;--ink:#e6ebf3;--muted:#9aa6ba;--line:#22304a;--brand:#6fb3ff;--brand2:#8cc4ff;--chip:#17263f;--shadow:none;--grid:rgba(111,179,255,.06)}}
+body.dark{--bg:#0b1220;--card:#121a2b;--ink:#e6ebf3;--muted:#9aa6ba;--line:#22304a;--brand:#6fb3ff;--brand2:#8cc4ff;--chip:#17263f;--shadow:none;--grid:rgba(111,179,255,.06)}
+body.light{--bg:#f6f8fb;--card:#fff;--ink:#0f172a;--muted:#5b6578;--line:#e3e8ef;--brand:#0f4c81;--brand2:#1d7ac8;--chip:#eaf2fb;--shadow:0 6px 24px rgba(15,23,42,.07);--grid:rgba(15,76,129,.05)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;overflow-x:hidden;overflow-wrap:anywhere;font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:44px 44px;background-attachment:fixed}
+a{color:var(--brand)}img{max-width:100%;display:block}
+.wrap{max-width:1000px;margin:0 auto;padding:0 20px}
+header{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;gap:14px;height:60px}
+nav .logo{font-weight:800;color:var(--ink);text-decoration:none;margin-right:auto}
+nav a.l{color:var(--muted);text-decoration:none;font-size:.95rem}nav a.l:hover{color:var(--ink)}
+.lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
+.lang button{border:0;background:none;color:var(--muted);padding:4px 10px;font-weight:700;cursor:pointer}
+.lang button[aria-pressed=true]{background:var(--brand);color:#fff}
+.theme{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;width:34px;height:34px;cursor:pointer;font-size:1rem}
+body.de .en,body:not(.de) .de{display:none!important}
+.kicker{color:var(--brand2);font-weight:700;letter-spacing:.04em;text-transform:uppercase;font-size:.85rem;margin-top:36px}
+h1{font-size:clamp(1.9rem,4.6vw,2.8rem);line-height:1.15;margin:.25em 0 .3em}
+.lead{font-size:1.08rem;color:var(--muted);max-width:62ch;margin:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 6px}
+.chip{background:var(--chip);color:var(--ink);border-radius:999px;padding:5px 12px;font-size:.88rem}
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:26px 0 8px}
+@media(max-width:820px){.facts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.fact{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.fact b{display:block;font-size:1.05rem}.fact span{color:var(--muted);font-size:.88rem}
+section{padding:30px 0 6px}
+h2{font-size:1.45rem;margin:0 0 10px}
+h2:before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;background:var(--accent);margin-right:10px;vertical-align:middle}
+p,li{color:var(--muted)}ul{padding-left:20px;margin:6px 0}
+.box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;box-shadow:var(--shadow)}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}@media(max-width:720px){.two{grid-template-columns:minmax(0,1fr)}}
+.box h3{margin:0 0 6px;font-size:1.05rem;color:var(--ink)}
+table{width:100%;border-collapse:collapse;font-size:.93rem}
+th,td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--ink);width:34%}td{color:var(--muted)}
+.tw{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:14px}
+.steps{counter-reset:s;list-style:none;padding:0;margin:0;display:grid;gap:10px}
+.steps li{counter-increment:s;position:relative;padding:12px 14px 12px 52px;background:var(--card);border:1px solid var(--line);border-radius:12px}
+.steps li:before{content:counter(s);position:absolute;left:14px;top:12px;width:26px;height:26px;border-radius:50%;background:var(--brand);color:#fff;font-weight:700;font-size:.85rem;display:flex;align-items:center;justify-content:center}
+.steps b{color:var(--ink)}
+.gal{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:12px}
+@media(max-width:820px){.gal{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:520px){.gal{grid-template-columns:minmax(0,1fr)}}
+.gal figure{margin:0;background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden;display:flex;flex-direction:column}
+.gal img{width:100%;height:220px;object-fit:cover}
+.gal.small img{height:180px;object-fit:contain;background:#222}
+.gal figcaption{font-size:.82rem;color:#5b6578;padding:6px 10px;background:#fafbfd;flex:1}
+.note{background:var(--chip);border-radius:10px;padding:10px 14px;font-size:.9rem;margin-top:12px;color:var(--ink)}
+.tags{display:flex;flex-wrap:wrap;gap:6px}.tag{font-size:.82rem;background:var(--chip);border-radius:6px;padding:3px 9px}
+.back{display:inline-flex;gap:6px;align-items:center;font-weight:700;text-decoration:none;margin:34px 0 0}
+footer{color:var(--muted);font-size:.85rem;padding:30px 0 40px;text-align:center}
+</style>
+</head>
+<body>
+<header><div class="wrap"><nav>
+  <a class="logo" href="../../index.html">Assem Ryan</a>
+  <a class="l" href="../../index.html#projects"><span class="en">← All projects</span><span class="de">← Alle Projekte</span></a>
+  <div class="lang" role="group" aria-label="Language"><button data-l="en" aria-pressed="true">EN</button><button data-l="de" aria-pressed="false">DE</button></div>
+</nav></div></header>
+
+<main class="wrap">
+<div class="kicker"><span class="en">Bachelor's thesis · team project · 2019/2020</span><span class="de">Bachelorarbeit · Teamprojekt · 2019/2020</span></div>
+<h1><span class="en">3D printer with integrated laser engraver</span><span class="de">3D-Drucker mit integrierter Lasergravur</span></h1>
+<p class="lead"><span class="en">A hybrid desktop machine that prints polymer parts (FDM) and engraves surfaces with a laser, using one Cartesian motion system, one controller and one frame. Built and tested by a team of seven students at Kafr El-Sheikh University, Faculty of Engineering (Production &amp; Mechanical Design).</span><span class="de">Eine hybride Tischmaschine, die Kunststoffteile druckt (FDM) und Oberflächen per Laser graviert – mit einem gemeinsamen kartesischen Bewegungssystem, einer Steuerung und einem Rahmen. Aufgebaut und getestet von einem Team aus sieben Studierenden der Kafr El-Sheikh University, Fakultät für Ingenieurwesen (Produktion &amp; mechanisches Design).</span></p>
+<div class="chips"><span class="chip"><span class="en">3D printing (FDM)</span><span class="de">3D-Druck (FDM)</span></span><span class="chip"><span class="en">Laser engraving</span><span class="de">Lasergravur</span></span><span class="chip"><span class="en">Mechatronics</span><span class="de">Mechatronik</span></span><span class="chip"><span class="en">Prototyping</span><span class="de">Prototypenbau</span></span><span class="chip"><span class="en">Calibration</span><span class="de">Kalibrierung</span></span><span class="chip">G-Code</span></div>
+
+<div class="facts">
+  <div class="fact"><b>200 × 200 × 200 mm</b><span><span class="en">build volume (Graber i3 design)</span><span class="de">Bauraum (Graber-i3-Design)</span></span></div>
+  <div class="fact"><b>650 nm · 200 mW</b><span><span class="en">red laser module</span><span class="de">rotes Lasermodul</span></span></div>
+  <div class="fact"><b>12 V → 5 V</b><span><span class="en">supply switch: print → engrave</span><span class="de">Umschaltung: Druck → Gravur</span></span></div>
+  <div class="fact"><b>5,081 EGP</b><span><span class="en">total component cost (30 BOM items)</span><span class="de">Komponentenkosten gesamt (30 Stücklistenpositionen)</span></span></div>
+</div>
+
+<div class="gal">
+  <figure><img src="../../project3-laser-engraving-process.png" alt="Laser engraving on a wooden plate in the prototype"><figcaption><span class="en">Engraving mode: red laser on a wooden plate</span><span class="de">Gravurmodus: roter Laser auf einer Holzplatte</span></figcaption></figure>
+  <figure><img src="../../project3-fdm-printing-process.png" alt="FDM printing with the hot end on the build plate"><figcaption><span class="en">Printing mode: FDM hot end on the build plate</span><span class="de">Druckmodus: FDM-Hotend auf der Druckplatte</span></figcaption></figure>
+  <figure><img src="../../project3-finished-printed-parts.jpg" alt="Printed pendant and bust"><figcaption><span class="en">Printed parts</span><span class="de">Gedruckte Teile</span></figcaption></figure>
+</div>
+
+<section>
+  <h2><span class="en">Problem &amp; goal</span><span class="de">Problemstellung &amp; Ziel</span></h2>
+  <p><span class="en">FDM printers and laser engravers share the same core: a gantry that moves a tool in X/Y/Z under G-code control. The goal was to show that one low-cost machine can do both jobs – additive manufacturing of polymer parts and marking/engraving of flat workpieces – by swapping the tool instead of buying two machines. The thesis positions it for specific, low-volume components rather than series production.</span><span class="de">FDM-Drucker und Lasergravierer haben denselben Kern: ein Portal, das ein Werkzeug G-Code-gesteuert in X/Y/Z bewegt. Ziel war zu zeigen, dass eine kostengünstige Maschine beide Aufgaben erfüllen kann – additive Fertigung von Kunststoffteilen und Markieren/Gravieren flacher Werkstücke – durch Wechsel des Werkzeugs statt Kauf zweier Maschinen. Die Arbeit sieht den Einsatz bei speziellen Einzel- und Kleinserienteilen, nicht in der Serienfertigung.</span></p>
+</section>
+
+<section>
+  <h2><span class="en">My role</span><span class="de">Meine Rolle</span></h2>
+  <div class="box"><p style="margin:0"><span class="en">Team member in a seven-person bachelor's thesis team (supervisor: Dr. Ibrahim Maher). The machine was designed, built, calibrated and tested jointly; the thesis received the grade <b>excellent</b>. The work covered component selection, mechanical assembly of the frame and axes, wiring of the electronics, integration of the laser module, calibration, test prints and engravings, cost analysis and documentation.</span><span class="de">Teammitglied in einem siebenköpfigen Bachelorarbeits-Team (Betreuer: Dr. Ibrahim Maher). Die Maschine wurde gemeinsam ausgelegt, aufgebaut, kalibriert und getestet; die Arbeit wurde mit <b>ausgezeichnet</b> bewertet. Umfang: Komponentenauswahl, mechanischer Aufbau von Rahmen und Achsen, Verdrahtung der Elektronik, Integration des Lasermoduls, Kalibrierung, Testdrucke und -gravuren, Kostenanalyse und Dokumentation.</span></p></div>
+</section>
+
+<section>
+  <h2><span class="en">Design &amp; components</span><span class="de">Konstruktion &amp; Komponenten</span></h2>
+  <p><span class="en">The machine is based on the open <b>Graber i3</b> design, a derivative of the Prusa i3 in which the printed frame parts are replaced by wooden parts that can be laser- or CNC-cut. The thesis documents the frame parts, the full parts list and the assembly drawings.</span><span class="de">Die Maschine basiert auf dem offenen <b>Graber-i3</b>-Design, einer Variante des Prusa i3, bei der die gedruckten Rahmenteile durch laser- oder CNC-geschnittene Holzteile ersetzt sind. Die Arbeit dokumentiert die Rahmenteile, die vollständige Stückliste und die Baugruppenzeichnungen.</span></p>
+  <div class="tw"><table>
+    <tr><th><span class="en">Frame &amp; motion</span><span class="de">Rahmen &amp; Bewegung</span></th><td><span class="en">Wooden Graber i3 frame; 8 mm smooth rods with LM8UU linear bearings; GT2 belts (6 mm) with 20-tooth pulleys for X/Y; 8 mm lead screw for Z; flexible 5 × 8 mm couplers</span><span class="de">Graber-i3-Holzrahmen; 8-mm-Führungswellen mit LM8UU-Linearlagern; GT2-Riemen (6 mm) mit 20-Zahn-Riemenscheiben für X/Y; 8-mm-Gewindespindel für Z; flexible Kupplungen 5 × 8 mm</span></td></tr>
+    <tr><th><span class="en">Drives</span><span class="de">Antriebe</span></th><td><span class="en">NEMA 17 stepper motors with A4988 stepper drivers</span><span class="de">NEMA-17-Schrittmotoren mit A4988-Schrittmotortreibern</span></td></tr>
+    <tr><th><span class="en">Controller</span><span class="de">Steuerung</span></th><td><span class="en">Arduino Mega 2560 + RAMPS 1.4; 2004 LCD; SD card for stand-alone jobs; mechanical endstops on each axis</span><span class="de">Arduino Mega 2560 + RAMPS 1.4; LCD 2004; SD-Karte für autarken Betrieb; mechanische Endschalter an jeder Achse</span></td></tr>
+    <tr><th><span class="en">Printing tool</span><span class="de">Druckwerkzeug</span></th><td><span class="en">E3D V6 hot end, metal extruder, 12 V turbo fan, PCB heated bed 210 × 210 mm with NTC sensor, glass print plate on spring mounts</span><span class="de">E3D-V6-Hotend, Metall-Extruder, 12-V-Turbolüfter, PCB-Heizbett 210 × 210 mm mit NTC-Sensor, Glasdruckplatte auf Federhalterungen</span></td></tr>
+    <tr><th><span class="en">Engraving tool</span><span class="de">Gravurwerkzeug</span></th><td><span class="en">650 nm, 200 mW red laser module mounted on the tool carriage</span><span class="de">Rotes Lasermodul 650 nm, 200 mW, am Werkzeugschlitten montiert</span></td></tr>
+    <tr><th><span class="en">Power</span><span class="de">Energieversorgung</span></th><td><span class="en">12 V / 20 A power supply with switch</span><span class="de">Netzteil 12 V / 20 A mit Schalter</span></td></tr>
+  </table></div>
+</section>
+
+<section>
+  <h2><span class="en">Switching between printing and engraving</span><span class="de">Umschalten zwischen Druck und Gravur</span></h2>
+  <div class="two">
+    <div class="box"><h3><span class="en">What changes</span><span class="de">Was sich ändert</span></h3><ul>
+      <li><span class="en">The laser module takes the place of the proximity (bed-levelling) sensor of a standard printer.</span><span class="de">Das Lasermodul ersetzt den Näherungssensor (Bettnivellierung) eines Standarddruckers.</span></li>
+      <li><span class="en">When switching from printing to engraving, the supply voltage changes from 12 V to 5 V.</span><span class="de">Beim Umschalten von Druck auf Gravur wechselt die Spannung von 12 V auf 5 V.</span></li>
+    </ul></div>
+    <div class="box"><h3><span class="en">Consequence</span><span class="de">Konsequenz</span></h3><ul>
+      <li><span class="en">No automatic bed levelling – the bed is levelled manually with the four spring-loaded screws.</span><span class="de">Keine automatische Bettnivellierung – das Bett wird manuell über vier gefederte Schrauben ausgerichtet.</span></li>
+      <li><span class="en">After every mode switch the machine has to be recalibrated before the next job.</span><span class="de">Nach jedem Moduswechsel muss die Maschine vor dem nächsten Auftrag neu kalibriert werden.</span></li>
+    </ul></div>
+  </div>
+</section>
+
+<section>
+  <h2><span class="en">Workflow</span><span class="de">Arbeitsablauf</span></h2>
+  <ol class="steps">
+    <li><b><span class="en">Model &amp; slice</span><span class="de">Modell &amp; Slicing</span></b> – <span class="en">G-code generated in Cura (layer height, shell and top/bottom thickness, infill density, print speed, nozzle and bed temperature, filament diameter, flow, nozzle size).</span><span class="de">G-Code-Erzeugung in Cura (Schichthöhe, Wand- und Boden-/Deckendicke, Fülldichte, Druckgeschwindigkeit, Düsen- und Betttemperatur, Filamentdurchmesser, Fluss, Düsengröße).</span></li>
+    <li><b><span class="en">Home</span><span class="de">Referenzfahrt</span></b> – <span class="en">auto-home to the endstops on X, Y and Z to define the zero point.</span><span class="de">Referenzfahrt auf die Endschalter in X, Y und Z zur Definition des Nullpunkts.</span></li>
+    <li><b><span class="en">Level the bed</span><span class="de">Bett nivellieren</span></b> – <span class="en">move the head over the whole bed at constant Z and adjust the bed screws until a sheet of paper just fits between head and bed at every point.</span><span class="de">Kopf bei konstantem Z über das ganze Bett fahren und die Bettschrauben einstellen, bis an jeder Stelle gerade ein Blatt Papier zwischen Kopf und Bett passt.</span></li>
+    <li><b><span class="en">Preheat &amp; run</span><span class="de">Vorheizen &amp; starten</span></b> – <span class="en">preheat hot end and bed (e.g. PLA preset) and start the job from the SD card via the LCD.</span><span class="de">Hotend und Bett vorheizen (z. B. PLA-Voreinstellung) und den Auftrag über das LCD von der SD-Karte starten.</span></li>
+    <li><b><span class="en">Switch mode &amp; recalibrate</span><span class="de">Modus wechseln &amp; neu kalibrieren</span></b> – <span class="en">for engraving, switch the supply to the laser and repeat homing and levelling before the job.</span><span class="de">Für die Gravur die Versorgung auf den Laser umschalten und Referenzfahrt und Nivellierung vor dem Auftrag wiederholen.</span></li>
+  </ol>
+</section>
+
+<section>
+  <h2><span class="en">Results</span><span class="de">Ergebnisse</span></h2>
+  <ul>
+    <li><span class="en">A working combined machine: the thesis concludes that a combined 3D printing and laser engraving machine is feasible on one platform.</span><span class="de">Eine funktionsfähige Kombimaschine: Die Arbeit kommt zu dem Ergebnis, dass Druck und Lasergravur auf einer Plattform machbar sind.</span></li>
+    <li><span class="en">FDM test parts printed and engraving tests on wood carried out (see photos).</span><span class="de">FDM-Testteile gedruckt und Gravurversuche auf Holz durchgeführt (siehe Fotos).</span></li>
+    <li><span class="en">Cost analysis: bill of materials with 30 positions, total component cost 5,081 EGP; cost model for printed parts covering material, printing time, labour, machine depreciation and post-processing.</span><span class="de">Kostenanalyse: Stückliste mit 30 Positionen, Komponentenkosten gesamt 5.081 EGP; Kostenmodell für Druckteile mit Material, Druckzeit, Personal, Maschinenabschreibung und Nachbearbeitung.</span></li>
+  </ul>
+  <div class="gal small">
+    <figure><img src="figures/thesis-fig108-tool-head.jpg" alt="Tool head on the X carriage of the prototype" loading="lazy"><figcaption><span class="en">Tool head on the X carriage (thesis Fig. 108)</span><span class="de">Werkzeugkopf am X-Schlitten (Abb. 108 der Arbeit)</span></figcaption></figure>
+    <figure><img src="figures/thesis-fig107-mode-switch.jpg" alt="Switch and wiring of the prototype" loading="lazy"><figcaption><span class="en">Switch and wiring on the prototype (thesis Fig. 107)</span><span class="de">Schalter und Verdrahtung am Prototyp (Abb. 107 der Arbeit)</span></figcaption></figure>
+    <figure><img src="figures/thesis-fig109-engraving-result.jpg" alt="Engraved lines on a wooden plate" loading="lazy"><figcaption><span class="en">Engraving test on wood (thesis Fig. 109)</span><span class="de">Gravurtest auf Holz (Abb. 109 der Arbeit)</span></figcaption></figure>
+  </div>
+</section>
+
+<section>
+  <h2><span class="en">Limitations &amp; lessons learned</span><span class="de">Grenzen &amp; Erkenntnisse</span></h2>
+  <ul>
+    <li><span class="en"><b>Manual levelling:</b> giving up the proximity sensor for the laser removes automatic bed levelling, so setup time and operator skill matter.</span><span class="de"><b>Manuelle Nivellierung:</b> Da der Laser den Näherungssensor ersetzt, entfällt die automatische Bettnivellierung – Rüstzeit und Bedienerkönnen werden wichtig.</span></li>
+    <li><span class="en"><b>Recalibration after each mode switch</b> adds changeover time – a fixed, repeatable tool mount or a separate levelling probe would be the next design step.</span><span class="de"><b>Neukalibrierung nach jedem Moduswechsel</b> verlängert die Umrüstzeit – eine feste, wiederholgenaue Werkzeugaufnahme oder ein separater Nivelliersensor wäre der nächste Konstruktionsschritt.</span></li>
+    <li><span class="en"><b>Not for series production:</b> the production rate is slow; the machine fits one-off and special parts.</span><span class="de"><b>Nicht für Serienfertigung:</b> Die Ausbringung ist gering; die Maschine eignet sich für Einzel- und Sonderteile.</span></li>
+    <li><span class="en"><b>Operator know-how:</b> running both modes well requires a skilled operator with knowledge of G-code and slicing/simulation software.</span><span class="de"><b>Bedienerwissen:</b> Beide Modi sicher zu betreiben erfordert einen qualifizierten Bediener mit Kenntnissen in G-Code und Slicing-/Simulationssoftware.</span></li>
+  </ul>
+</section>
+
+<section>
+  <h2><span class="en">Skills &amp; keywords</span><span class="de">Kenntnisse &amp; Schlagworte</span></h2>
+  <div class="tags">
+    <span class="tag"><span class="en">Machine design</span><span class="de">Konstruktion</span></span><span class="tag"><span class="en">Mechatronics</span><span class="de">Mechatronik</span></span><span class="tag"><span class="en">Prototyping</span><span class="de">Prototypenbau</span></span><span class="tag"><span class="en">3D printing (FDM)</span><span class="de">3D-Druck (FDM)</span></span><span class="tag"><span class="en">Laser engraving</span><span class="de">Lasergravur</span></span><span class="tag">G-Code</span><span class="tag">Cura</span><span class="tag"><span class="en">Calibration</span><span class="de">Kalibrierung</span></span><span class="tag"><span class="en">Linear guides &amp; belt drives</span><span class="de">Linearführungen &amp; Riementriebe</span></span><span class="tag"><span class="en">Stepper motors</span><span class="de">Schrittmotoren</span></span><span class="tag">Arduino / RAMPS</span><span class="tag"><span class="en">Bill of materials</span><span class="de">Stückliste</span></span><span class="tag"><span class="en">Cost analysis</span><span class="de">Kostenanalyse</span></span><span class="tag"><span class="en">Teamwork</span><span class="de">Teamarbeit</span></span>
+  </div>
+</section>
+
+<section>
+  <h2><span class="en">Credits</span><span class="de">Mitwirkende</span></h2>
+  <p><span class="en">Bachelor's thesis “Laser engraving and 3D printing machine”, Kafr El-Sheikh University, Faculty of Engineering, Mechanical Department, Production &amp; Mechanical Design section, August 2020. Supervisor: Dr. Ibrahim Maher.</span><span class="de">Bachelorarbeit „Laser engraving and 3D printing machine“, Kafr El-Sheikh University, Fakultät für Ingenieurwesen, Mechanical Department, Bereich Produktion &amp; mechanisches Design, August 2020. Betreuer: Dr. Ibrahim Maher.</span></p>
+  <p><span class="en">Team:</span><span class="de">Team:</span> Assem Ryan, Ahmed Mohsen Hafez, Salwa' Elzoghby, Ahmed Ali Nasef Khalifa, Mohamed Samy Ibrahim, Karim Saad Khalifa, Ahmed Lotfy Abo El-magd.</p>
+  <p class="note"><span class="en">Frame design: Graber i3 (open-source derivative of the Prusa i3). All photos show the team's prototype.</span><span class="de">Rahmendesign: Graber i3 (Open-Source-Variante des Prusa i3). Alle Fotos zeigen den Prototyp des Teams.</span></p>
+  <a class="back" href="../../index.html#projects"><span class="en">← Back to all projects</span><span class="de">← Zurück zu allen Projekten</span></a>
+</section>
+</main>
+<footer>© 2026 Assem Ryan · Duisburg · <a href="../../index.html#privacy"><span class="en">Privacy</span><span class="de">Datenschutz</span></a></footer>
+<script>
+(function(){
+var b=document.body,btns=document.querySelectorAll('.lang button');
+function set(l){b.classList.toggle('de',l==='de');document.documentElement.lang=l;btns.forEach(function(x){x.setAttribute('aria-pressed',x.dataset.l===l)});try{localStorage.setItem('lang',l)}catch(e){}}
+var saved=null;try{saved=localStorage.getItem('lang')}catch(e){}
+set(saved||((navigator.language||'').slice(0,2)==='de'?'de':'en'));
+btns.forEach(function(x){x.onclick=function(){set(x.dataset.l)}});
+var lang=document.querySelector('.lang'),tb=document.createElement('button');tb.className='theme';tb.setAttribute('aria-label','Toggle theme');tb.textContent='◐';lang.parentNode.insertBefore(tb,lang);
+try{var t=localStorage.getItem('theme');if(t)b.classList.add(t)}catch(e){}
+tb.onclick=function(){var dark=b.classList.contains('dark')||(!b.classList.contains('light')&&matchMedia('(prefers-color-scheme:dark)').matches);b.classList.remove('dark','light');var n=dark?'light':'dark';b.classList.add(n);try{localStorage.setItem('theme',n)}catch(e){}};
+})();
+</script>
+</body>
+</html>
