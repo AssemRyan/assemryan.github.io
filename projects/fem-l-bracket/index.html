@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FEM Study Steel L-Bracket – Assem Ryan</title>
+<meta name="description" content="FEM study of an S235 steel L-bracket in MATLAB PDE Toolbox: validation against beam theory, corner singularity vs. fillet convergence, lightening holes and redesign from safety 0.74 to 2.05. FEM, Festigkeitsberechnung, Konstruktion.">
+<meta name="keywords" content="FEM, Finite-Elemente-Methode, Simulation, Festigkeitsberechnung, Festigkeitsnachweis, MATLAB, PDE Toolbox, Netzkonvergenz, Validierung, Balkentheorie, Kerbwirkung, Spannungskonzentration, Leichtbau, Konstruktion, Redesign, S235">
+<meta property="og:title" content="FEM study of a steel L-bracket – Assem Ryan">
+<meta property="og:image" content="https://assemryan.github.io/projects/fem-l-bracket/figures/fig3_variants_vonmises.png">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%230f4c81'/><text x='32' y='42' font-size='28' font-family='Arial' font-weight='700' fill='white' text-anchor='middle'>AR</text></svg>">
+<style>
+:root{--bg:#f6f8fb;--card:#fff;--ink:#0f172a;--muted:#5b6578;--line:#e3e8ef;--brand:#0f4c81;--brand2:#1d7ac8;--chip:#eaf2fb;--shadow:0 6px 24px rgba(15,23,42,.07);--accent:#ff7a1a;--grid:rgba(15,76,129,.05)}
+@media (prefers-color-scheme:dark){:root{--bg:#0b1220;--card:#121a2b;--ink:#e6ebf3;--muted:#9aa6ba;--line:#22304a;--brand:#6fb3ff;--brand2:#8cc4ff;--chip:#17263f;--shadow:none;--grid:rgba(111,179,255,.06)}}
+body.dark{--bg:#0b1220;--card:#121a2b;--ink:#e6ebf3;--muted:#9aa6ba;--line:#22304a;--brand:#6fb3ff;--brand2:#8cc4ff;--chip:#17263f;--shadow:none;--grid:rgba(111,179,255,.06)}
+body.light{--bg:#f6f8fb;--card:#fff;--ink:#0f172a;--muted:#5b6578;--line:#e3e8ef;--brand:#0f4c81;--brand2:#1d7ac8;--chip:#eaf2fb;--shadow:0 6px 24px rgba(15,23,42,.07);--grid:rgba(15,76,129,.05)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;overflow-x:hidden;overflow-wrap:anywhere;font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:44px 44px;background-attachment:fixed}
+a{color:var(--brand)}img{max-width:100%;display:block}
+.wrap{max-width:1000px;margin:0 auto;padding:0 20px}
+header{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;gap:14px;height:60px}
+nav .logo{font-weight:800;color:var(--ink);text-decoration:none;margin-right:auto}
+nav a.l{color:var(--muted);text-decoration:none;font-size:.95rem}nav a.l:hover{color:var(--ink)}
+.lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
+.lang button{border:0;background:none;color:var(--muted);padding:4px 10px;font-weight:700;cursor:pointer}
+.lang button[aria-pressed=true]{background:var(--brand);color:#fff}
+.theme{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;width:34px;height:34px;cursor:pointer;font-size:1rem}
+body.de .en,body:not(.de) .de{display:none!important}
+.kicker{color:var(--brand2);font-weight:700;letter-spacing:.04em;text-transform:uppercase;font-size:.85rem;margin-top:36px}
+h1{font-size:clamp(1.9rem,4.6vw,2.8rem);line-height:1.15;margin:.25em 0 .3em}
+.lead{font-size:1.08rem;color:var(--muted);max-width:62ch;margin:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 6px}
+.chip{background:var(--chip);color:var(--ink);border-radius:999px;padding:5px 12px;font-size:.88rem}
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:26px 0 8px}
+@media(max-width:820px){.facts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.fact{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.fact b{display:block;font-size:1.05rem}.fact span{color:var(--muted);font-size:.88rem}
+section{padding:30px 0 6px}
+h2{font-size:1.45rem;margin:0 0 10px}
+h2:before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;background:var(--accent);margin-right:10px;vertical-align:middle}
+p,li{color:var(--muted)}ul{padding-left:20px;margin:6px 0}
+.box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;box-shadow:var(--shadow)}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}@media(max-width:720px){.two{grid-template-columns:minmax(0,1fr)}}
+.box h3{margin:0 0 6px;font-size:1.05rem;color:var(--ink)}
+table{width:100%;border-collapse:collapse;font-size:.93rem}
+th,td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--ink);width:34%}td{color:var(--muted)}
+.tw{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:14px}
+.steps{counter-reset:s;list-style:none;padding:0;margin:0;display:grid;gap:10px}
+.steps li{counter-increment:s;position:relative;padding:12px 14px 12px 52px;background:var(--card);border:1px solid var(--line);border-radius:12px}
+.steps li:before{content:counter(s);position:absolute;left:14px;top:12px;width:26px;height:26px;border-radius:50%;background:var(--brand);color:#fff;font-weight:700;font-size:.85rem;display:flex;align-items:center;justify-content:center}
+.steps b{color:var(--ink)}
+.gal{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:12px}
+@media(max-width:820px){.gal{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:520px){.gal{grid-template-columns:minmax(0,1fr)}}
+.gal figure{margin:0;background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden;display:flex;flex-direction:column}
+.gal img{width:100%;height:220px;object-fit:cover}
+.gal.small img{height:180px;object-fit:contain;background:#222}
+.gal figcaption{font-size:.82rem;color:#5b6578;padding:6px 10px;background:#fafbfd;flex:1}
+.note{background:var(--chip);border-radius:10px;padding:10px 14px;font-size:.9rem;margin-top:12px;color:var(--ink)}
+.tags{display:flex;flex-wrap:wrap;gap:6px}.tag{font-size:.82rem;background:var(--chip);border-radius:6px;padding:3px 9px}
+.back{display:inline-flex;gap:6px;align-items:center;font-weight:700;text-decoration:none;margin:34px 0 0}
+footer{color:var(--muted);font-size:.85rem;padding:30px 0 40px;text-align:center}
+.gal.shots img{height:auto;aspect-ratio:auto;object-fit:contain;background:#fff}
+.gal.shots.two-up{grid-template-columns:repeat(2,minmax(0,1fr))}@media(max-width:620px){.gal.shots.two-up{grid-template-columns:minmax(0,1fr)}}
+.wide{margin:12px 0 0;background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.wide img{width:100%;height:auto}
+.wide figcaption{font-size:.82rem;color:#5b6578;padding:6px 10px;background:#fafbfd}
+.formula{font-family:ui-monospace,Consolas,"Courier New",monospace;font-size:.88rem;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;color:var(--ink);overflow-x:auto;white-space:pre;line-height:1.55}
+video{width:100%;border-radius:10px;border:1px solid var(--line);background:#000;margin-top:12px}
+.data th{width:auto;white-space:nowrap;background:color-mix(in srgb,var(--chip) 60%,transparent)}
+.data td b,.data th b{color:var(--ink)}
+.data tr.hl td{color:var(--ink);font-weight:700}
+.dls{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+.dl{display:inline-flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:8px 14px;text-decoration:none;font-weight:600;font-size:.92rem}
+.dl:hover{border-color:var(--brand)}
+.dl small{color:var(--muted);font-weight:400}
+.gal.shots img{background:#fff}
+.wide.tall img{max-height:520px;object-fit:cover;object-position:center 62%}
+.formula.code{font-size:.82rem;max-height:none}
+.badge{display:inline-block;background:#fff4e8;color:#8a3d00;border:1px solid #ffd2a8;border-radius:8px;padding:8px 12px;font-size:.9rem;margin-top:14px}
+body.dark .badge{background:#2a1a0c;color:#ffcf9e;border-color:#5a3616}
+@media (prefers-color-scheme:dark){body:not(.light) .badge{background:#2a1a0c;color:#ffcf9e;border-color:#5a3616}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><nav>
+  <a class="logo" href="../../index.html">Assem Ryan</a>
+  <a class="l" href="../../index.html#projects"><span class="en">← All projects</span><span class="de">← Alle Projekte</span></a>
+  <div class="lang" role="group" aria-label="Language"><button data-l="en" aria-pressed="true">EN</button><button data-l="de" aria-pressed="false">DE</button></div>
+</nav></div></header>
+
+<main class="wrap">
+<div class="kicker"><span class="en">Simulation project · MATLAB R2025a · November 2026</span><span class="de">Simulationsprojekt · MATLAB R2025a · November 2026</span></div>
+<h1><span class="en">FEM study of a steel L-bracket – validation, stress concentration and redesign</span><span class="de">FEM-Studie eines Stahlwinkels – Validierung, Kerbspannung und Redesign</span></h1>
+<p class="lead"><span class="en">A wall bracket made of S235 steel plate (t = 10 mm) carries F = 1500 N at the end of a 200 mm arm. With my own MATLAB script (PDE Toolbox, 2D plane stress) I validated the model against beam theory, studied the inner corner and its fillet, tried lightening holes – and found that the original design yields, then redesigned it to a safety factor of about 2.</span><span class="de">Ein Wandwinkel aus S235-Blech (t = 10 mm) trägt F = 1500 N am Ende eines 200-mm-Arms. Mit meinem eigenen MATLAB-Skript (PDE Toolbox, ebener Spannungszustand) habe ich das Modell gegen die Balkentheorie validiert, die Innenecke und ihren Radius untersucht, Erleichterungsbohrungen getestet – und festgestellt, dass das Ausgangsdesign fließt; das Redesign erreicht eine Sicherheit von etwa 2.</span></p>
+<div class="chips"><span class="chip">FEM</span><span class="chip">MATLAB PDE Toolbox</span><span class="chip"><span class="en">Model validation</span><span class="de">Modellvalidierung</span></span><span class="chip"><span class="en">Mesh convergence</span><span class="de">Netzkonvergenz</span></span><span class="chip"><span class="en">Lightweight design</span><span class="de">Leichtbau</span></span></div>
+
+<div class="facts">
+  <div class="fact"><b>−0.4 %</b><span><span class="en">FEM tip deflection vs. Timoshenko</span><span class="de">FEM-Durchbiegung vs. Timoshenko</span></span></div>
+  <div class="fact"><b>0.74 → 2.05</b><span><span class="en">safety against yield, original → redesign</span><span class="de">Sicherheit gegen Fließen, Ausgang → Redesign</span></span></div>
+  <div class="fact"><b>−64 %</b><span><span class="en">peak stress (318 → 115 MPa)</span><span class="de">Spitzenspannung (318 → 115 MPa)</span></span></div>
+  <div class="fact"><b>−5.4 %</b><span><span class="en">mass from holes on the neutral axis</span><span class="de">Masse durch Bohrungen in der neutralen Faser</span></span></div>
+</div>
+
+<figure class="wide"><img src="figures/fig3_variants_vonmises.png" alt="Von Mises stress plots of the four bracket variants"><figcaption><span class="en">Von Mises stress of the four design variants A–D</span><span class="de">Vergleichsspannung (von Mises) der vier Varianten A–D</span></figcaption></figure>
+
+<section>
+  <h2><span class="en">Questions</span><span class="de">Fragestellungen</span></h2>
+  <ol class="steps">
+    <li><span class="en">Does the FE model reproduce beam theory? (model validation)</span><span class="de">Bildet das FE-Modell die Balkentheorie ab? (Modellvalidierung)</span></li>
+    <li><span class="en">How large is the stress at the inner corner, and how does the fillet radius change it?</span><span class="de">Wie groß ist die Spannung in der Innenecke, und wie verändert der Radius sie?</span></li>
+    <li><span class="en">Can the part be lightened without losing strength – and is the original design safe at all?</span><span class="de">Lässt sich das Bauteil ohne Festigkeitsverlust erleichtern – und ist das Ausgangsdesign überhaupt sicher?</span></li>
+  </ol>
+</section>
+
+<section>
+  <h2><span class="en">Model</span><span class="de">Modell</span></h2>
+  <div class="tw"><table>
+    <tr><th><span class="en">Material</span><span class="de">Werkstoff</span></th><td>S235: E = 210 GPa, ν = 0.3, R_e = 235 MPa</td></tr>
+    <tr><th><span class="en">Thickness / load</span><span class="de">Dicke / Last</span></th><td><span class="en">t = 10 mm, F = 1500 N as edge traction at x = 200 mm</span><span class="de">t = 10 mm, F = 1500 N als Randlast bei x = 200 mm</span></td></tr>
+    <tr><th><span class="en">Support</span><span class="de">Lagerung</span></th><td><span class="en">wall leg bolted along 120 mm of its height, modelled as a fixed edge</span><span class="de">Wandschenkel auf 120 mm Höhe verschraubt, als feste Einspannung modelliert</span></td></tr>
+    <tr><th><span class="en">Elements</span><span class="de">Elemente</span></th><td><span class="en">quadratic triangles, plane stress, H_max = 1.5 mm (convergence studied)</span><span class="de">quadratische Dreiecke, ebener Spannungszustand, H_max = 1,5 mm (Konvergenz untersucht)</span></td></tr>
+    <tr><th><span class="en">Evaluation</span><span class="de">Auswertung</span></th><td><span class="en">von Mises stress; region x ≤ 5 mm excluded (end of the ideal clamp is an artificial singularity)</span><span class="de">Vergleichsspannung nach von Mises; Bereich x ≤ 5 mm ausgeschlossen (Ende der idealen Einspannung ist eine künstliche Singularität)</span></td></tr>
+  </table></div>
+</section>
+
+<section>
+  <h2><span class="en">1 · Validation against beam theory</span><span class="de">1 · Validierung gegen Balkentheorie</span></h2>
+  <p><span class="en">Straight cantilever 200 × 40 mm, same load:</span><span class="de">Gerader Kragbalken 200 × 40 mm, gleiche Last:</span></p>
+  <div class="tw"><table class="data">
+    <tr><th></th><th><span class="en">Tip deflection</span><span class="de">Durchbiegung am Ende</span></th><th><span class="en">σ_xx mid-span, top fibre</span><span class="de">σ_xx Balkenmitte, Randfaser</span></th></tr>
+    <tr><td>Euler–Bernoulli</td><td>0.357 mm</td><td>56.25 MPa</td></tr>
+    <tr><td><span class="en">Timoshenko (with shear)</span><span class="de">Timoshenko (mit Schub)</span></td><td>0.368 mm</td><td>–</td></tr>
+    <tr class="hl"><td>FEM (H_max = 1.25 mm)</td><td><span class="en">0.367 mm (−0.4 % vs. Timoshenko)</span><span class="de">0,367 mm (−0,4 % vs. Timoshenko)</span></td><td>56.25 MPa</td></tr>
+  </table></div>
+  <p class="note"><span class="en">The deflection converges to the Timoshenko value because a 200/40 beam is short enough for shear deformation to matter (~3 %).</span><span class="de">Die Durchbiegung konvergiert gegen den Timoshenko-Wert, weil ein Balken 200/40 kurz genug ist, dass die Schubverformung zählt (~3 %).</span></p>
+  <figure class="wide"><img src="figures/fig1_validation.png" alt="Validation of the FE model against beam theory" loading="lazy"><figcaption><span class="en">Validation against beam theory and mesh convergence</span><span class="de">Validierung gegen Balkentheorie und Netzkonvergenz</span></figcaption></figure>
+</section>
+
+<section>
+  <h2><span class="en">2 · Inner corner: singularity vs. fillet</span><span class="de">2 · Innenecke: Singularität vs. Radius</span></h2>
+  <ul>
+    <li><span class="en"><b>Sharp corner:</b> the peak stress keeps rising with mesh refinement (270 → 357 → 472 → 675 MPa for H_max = 8 → 1 mm). This is a geometric singularity – the number has no physical meaning and must not be used for sizing.</span><span class="de"><b>Scharfe Ecke:</b> Die Spitzenspannung steigt mit jeder Netzverfeinerung weiter (270 → 357 → 472 → 675 MPa für H_max = 8 → 1 mm). Das ist eine geometrische Singularität – der Wert hat keine physikalische Bedeutung und darf nicht zur Auslegung genutzt werden.</span></li>
+    <li><span class="en"><b>Fillet r = 10 mm:</b> the peak converges (317–323 MPa over the same meshes).</span><span class="de"><b>Radius r = 10 mm:</b> Die Spitze konvergiert (317–323 MPa über dieselben Netze).</span></li>
+    <li><span class="en"><b>Fillet sweep (H_max = 1.5 mm):</b> 682 MPa (r = 2) → 318 MPa (r = 10) → 214 MPa (r = 20). The r = 2 mm value is less well resolved (few elements on the arc).</span><span class="de"><b>Radiusstudie (H_max = 1,5 mm):</b> 682 MPa (r = 2) → 318 MPa (r = 10) → 214 MPa (r = 20). Der Wert für r = 2 mm ist schlechter aufgelöst (wenige Elemente auf dem Bogen).</span></li>
+  </ul>
+  <figure class="wide"><img src="figures/fig2_fillet_convergence.png" alt="Corner singularity vs fillet convergence and fillet radius sweep" loading="lazy"><figcaption><span class="en">Corner singularity vs. fillet convergence; fillet radius sweep</span><span class="de">Eckensingularität vs. Radius-Konvergenz; Radiusstudie</span></figcaption></figure>
+</section>
+
+<section>
+  <h2><span class="en">3 · Design variants</span><span class="de">3 · Konstruktionsvarianten</span></h2>
+  <div class="tw"><table class="data">
+    <tr><th><span class="en">Variant</span><span class="de">Variante</span></th><th><span class="en">Peak von Mises</span><span class="de">Max. Vergleichsspannung</span></th><th><span class="en">Tip deflection</span><span class="de">Durchbiegung</span></th><th><span class="en">Mass</span><span class="de">Masse</span></th><th><span class="en">Safety vs. R_e</span><span class="de">Sicherheit gg. R_e</span></th></tr>
+    <tr><td><span class="en">A: sharp inner corner</span><span class="de">A: scharfe Innenecke</span></td><td>529 MPa*</td><td>0.718 mm</td><td>0.863 kg</td><td>–</td></tr>
+    <tr><td><span class="en">B: fillet r = 10 mm</span><span class="de">B: Radius r = 10 mm</span></td><td>318 MPa</td><td>0.618 mm</td><td>0.865 kg</td><td>0.74 ✗</td></tr>
+    <tr><td><span class="en">C: B + 3 holes Ø16 on the arm neutral axis</span><span class="de">C: B + 3 Bohrungen Ø16 in der neutralen Faser des Arms</span></td><td>318 MPa</td><td>0.629 mm</td><td>0.818 kg</td><td>0.74 ✗</td></tr>
+    <tr class="hl"><td><span class="en">D: leg 45 mm, fillet r = 20 mm + holes</span><span class="de">D: Schenkel 45 mm, Radius r = 20 mm + Bohrungen</span></td><td>115 MPa</td><td>0.285 mm</td><td>1.012 kg</td><td>2.05 ✓</td></tr>
+  </table></div>
+  <p class="note"><span class="en">* mesh-dependent (singular), shown for comparison only.</span><span class="de">* netzabhängig (singulär), nur zum Vergleich.</span></p>
+</section>
+
+<section>
+  <h2><span class="en">Findings</span><span class="de">Ergebnisse</span></h2>
+  <ul>
+    <li><span class="en">The original geometry (25 mm leg) <b>yields under 1500 N</b>, even with a 10 mm fillet: the critical point is the leg-side end of the fillet, where the bending moment of the arm is transferred into the leg.</span><span class="de">Die Ausgangsgeometrie (Schenkel 25 mm) <b>fließt unter 1500 N</b>, selbst mit 10-mm-Radius: kritisch ist das schenkelseitige Ende des Radius, wo das Biegemoment des Arms in den Schenkel übergeht.</span></li>
+    <li><span class="en"><b>Lightening holes on the neutral axis</b> remove 5.4 % mass and change the peak stress by &lt; 0.1 % and the deflection by +1.8 % – worth it, but they do not solve the strength problem.</span><span class="de"><b>Erleichterungsbohrungen in der neutralen Faser</b> sparen 5,4 % Masse und ändern die Spitzenspannung um &lt; 0,1 % und die Durchbiegung um +1,8 % – sinnvoll, lösen aber das Festigkeitsproblem nicht.</span></li>
+    <li><span class="en">Widening the leg to 45 mm with r = 20 mm reduces the peak stress by 64 % and the deflection by 54 % compared with variant B, for +17 % mass – a safety factor of about 2 against yielding.</span><span class="de">Schenkel auf 45 mm verbreitert und r = 20 mm: Spitzenspannung −64 % und Durchbiegung −54 % gegenüber Variante B, bei +17 % Masse – Sicherheit gegen Fließen etwa 2.</span></li>
+  </ul>
+</section>
+
+<section>
+  <h2><span class="en">Limitations</span><span class="de">Grenzen</span></h2>
+  <p><span class="en">2D plane-stress model; linear-elastic material; ideal fixed edge instead of real bolts (no contact, no bolt preload); static load only – no fatigue assessment (for cyclic loads, the fillet would need a notch-fatigue check, e.g. FKM guideline); no buckling or weld check.</span><span class="de">2D-Modell im ebenen Spannungszustand; linear-elastischer Werkstoff; ideale Einspannung statt realer Schrauben (kein Kontakt, keine Vorspannung); nur statische Last – kein Ermüdungsnachweis (bei zyklischer Last bräuchte der Radius einen Kerb-Ermüdungsnachweis, z. B. nach FKM-Richtlinie); kein Beul- oder Schweißnahtnachweis.</span></p>
+  <div class="dls">
+    <a class="dl" href="bracket_fem_study.m" download>⬇ <span class="en">Download MATLAB script</span><span class="de">MATLAB-Skript herunterladen</span> <small>bracket_fem_study.m</small></a>
+    <a class="dl" href="results.json" download>⬇ results.json <small><span class="en">all numerical results</span><span class="de">alle Zahlenergebnisse</span></small></a>
+  </div>
+  <p class="note"><span class="en">The script is complete and reproducible: geometry, mesh, solve and plots.</span><span class="de">Das Skript ist vollständig und reproduzierbar: Geometrie, Netz, Lösung und Diagramme.</span></p>
+</section>
+
+<section>
+  <h2><span class="en">What I learned</span><span class="de">Was ich gelernt habe</span></h2>
+  <ul>
+    <li><span class="en">Validate first: an FE model has to reproduce a known analytical case before its results are trusted.</span><span class="de">Erst validieren: Ein FE-Modell muss einen bekannten analytischen Fall abbilden, bevor man seinen Ergebnissen traut.</span></li>
+    <li><span class="en">Telling a stress singularity from a real stress concentration with a mesh convergence study.</span><span class="de">Mit einer Netzkonvergenzstudie eine Spannungssingularität von einer echten Kerbspannung unterscheiden.</span></li>
+    <li><span class="en">Simulation as a design tool: the numbers showed that the original part is not safe and which change (leg width, radius) fixes it.</span><span class="de">Simulation als Konstruktionswerkzeug: Die Zahlen zeigten, dass das Ausgangsbauteil nicht sicher ist und welche Änderung (Schenkelbreite, Radius) es behebt.</span></li>
+  </ul>
+</section>
+
+<section>
+  <h2><span class="en">Skills &amp; keywords</span><span class="de">Kenntnisse &amp; Schlagworte</span></h2>
+  <div class="tags">
+    <span class="tag">FEM</span><span class="tag"><span class="en">Finite element method</span><span class="de">Finite-Elemente-Methode</span></span><span class="tag"><span class="en">Simulation</span><span class="de">Simulation</span></span><span class="tag"><span class="en">Strength calculation</span><span class="de">Festigkeitsberechnung</span></span><span class="tag">MATLAB</span><span class="tag">PDE Toolbox</span><span class="tag"><span class="en">Mesh convergence</span><span class="de">Netzkonvergenz</span></span><span class="tag"><span class="en">Model validation</span><span class="de">Modellvalidierung</span></span><span class="tag"><span class="en">Beam theory</span><span class="de">Balkentheorie</span></span><span class="tag"><span class="en">Stress concentration</span><span class="de">Kerbwirkung</span></span><span class="tag"><span class="en">Lightweight design</span><span class="de">Leichtbau</span></span><span class="tag"><span class="en">Mechanical design</span><span class="de">Konstruktion</span></span><span class="tag"><span class="en">Design variants</span><span class="de">Variantenvergleich</span></span><span class="tag">S235</span>
+  </div>
+</section>
+  <a class="back" href="../../index.html#projects"><span class="en">← Back to all projects</span><span class="de">← Zurück zu allen Projekten</span></a>
+</main>
+<footer>© 2026 Assem Ryan · Duisburg · <a href="../../index.html#privacy"><span class="en">Privacy</span><span class="de">Datenschutz</span></a></footer>
+<script>
+(function(){
+var b=document.body,btns=document.querySelectorAll('.lang button');
+function set(l){b.classList.toggle('de',l==='de');document.documentElement.lang=l;btns.forEach(function(x){x.setAttribute('aria-pressed',x.dataset.l===l)});try{localStorage.setItem('lang',l)}catch(e){}}
+var saved=null;try{saved=localStorage.getItem('lang')}catch(e){}
+set(saved||((navigator.language||'').slice(0,2)==='de'?'de':'en'));
+btns.forEach(function(x){x.onclick=function(){set(x.dataset.l)}});
+var lang=document.querySelector('.lang'),tb=document.createElement('button');tb.className='theme';tb.setAttribute('aria-label','Toggle theme');tb.textContent='◐';lang.parentNode.insertBefore(tb,lang);
+try{var t=localStorage.getItem('theme');if(t)b.classList.add(t)}catch(e){}
+tb.onclick=function(){var dark=b.classList.contains('dark')||(!b.classList.contains('light')&&matchMedia('(prefers-color-scheme:dark)').matches);b.classList.remove('dark','light');var n=dark?'light':'dark';b.classList.add(n);try{localStorage.setItem('theme',n)}catch(e){}};
+})();
+</script>
+</body>
+</html>
