@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300" class="qfig" role="img" aria-label="Schematic illustration, top view: conveyor and die plates aligned on one axis with a laser alignment tool, mould halves parallel">
+<style>
+.qbg{fill:var(--card,#fff)}.qln{stroke:var(--ink,#0f172a);stroke-width:2;fill:none}.qthin{stroke:var(--muted,#5b6578);stroke-width:1.2;fill:none}
+.qmach{fill:var(--chip,#eaf2fb);stroke:var(--brand,#0f4c81);stroke-width:2}.qsteel{fill:var(--muted,#5b6578)}.qhatch{stroke:var(--muted,#5b6578);stroke-width:1;opacity:.45}
+.qh{font:700 15px system-ui,"Segoe UI",Arial,sans-serif}.qt{fill:var(--ink,#0f172a);font:600 13px system-ui,"Segoe UI",Arial,sans-serif}.qs{fill:var(--muted,#5b6578);font:italic 11.5px system-ui,"Segoe UI",Arial,sans-serif}
+.qbad{stroke:#d64545;stroke-width:2.5;fill:none}.qbadf{fill:#d64545}.qok{stroke:#1f9d55;stroke-width:2.5;fill:none}.qokf{fill:#1f9d55}
+.qrub{fill:#334155;stroke:var(--ink,#0f172a);stroke-width:1.2}.qlaser{stroke:#e5484d;stroke-width:2.5;stroke-dasharray:9 5;fill:none}
+/*F*/.qfig .de{display:none}/*F*/
+</style>
+<rect width="400" height="300" class="qbg"/>
+<text x="16" y="27" class="qh qokf en">After: laser-aligned (top view)</text>
+<text x="16" y="27" class="qh qokf de">Nachher: mit Laser ausgerichtet (Draufsicht)</text>
+<text x="16" y="45" class="qs en">schematic illustration</text>
+<text x="16" y="45" class="qs de">schematische Darstellung</text>
+<!-- laser tool -->
+<rect x="12" y="138" width="30" height="24" rx="4" class="qrub"/>
+<circle cx="42" cy="150" r="3" fill="#e5484d"/>
+<text x="10" y="186" class="qt en">Laser</text>
+<text x="10" y="186" class="qt de">Laser</text>
+<!-- conveyor -->
+<text x="58" y="118" class="qt en">Conveyor</text>
+<text x="58" y="118" class="qt de">Förderband</text>
+<rect x="52" y="128" width="180" height="44" rx="6" class="qmach"/>
+<g class="qthin"><line x1="78" y1="128" x2="78" y2="172"/><line x1="106" y1="128" x2="106" y2="172"/><line x1="134" y1="128" x2="134" y2="172"/><line x1="162" y1="128" x2="162" y2="172"/><line x1="190" y1="128" x2="190" y2="172"/></g>
+<!-- parallel plates -->
+<text x="246" y="84" class="qt en">Die / mould plates</text>
+<text x="246" y="84" class="qt de">Formplatten</text>
+<rect x="252" y="108" width="84" height="22" rx="2" class="qmach"/>
+<rect x="252" y="170" width="84" height="22" rx="2" class="qmach"/>
+<!-- laser line -->
+<line x1="45" y1="150" x2="392" y2="150" class="qlaser"/>
+<line x1="345" y1="112" x2="345" y2="126" class="qok"/><line x1="345" y1="174" x2="345" y2="188" class="qok"/>
+<text x="350" y="124" class="qt qokf">∥</text><text x="350" y="186" class="qt qokf">∥</text>
+<text x="200" y="236" text-anchor="middle" class="qt en">Conveyor and all plates aligned on one axis;</text>
+<text x="200" y="254" text-anchor="middle" class="qt en">mould halves parallel again</text>
+<text x="200" y="236" text-anchor="middle" class="qt de">Förderband und alle Platten auf einer Achse;</text>
+<text x="200" y="254" text-anchor="middle" class="qt de">Formhälften wieder parallel</text>
+<text x="200" y="284" text-anchor="middle" class="qs en">dashed red: laser reference line</text>
+<text x="200" y="284" text-anchor="middle" class="qs de">rot gestrichelt: Laser-Referenzlinie</text>
+</svg>

@@ -1,0 +1,469 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Root-cause analysis: deformed nails on a nail press – Assem Ryan</title>
+<meta name="description" content="Industry case from Qallins Steel Nail Factory (Egypt): a new nail-making press produced deformed nails. Root causes: no vibration damping and misaligned conveyor/die plates. Fix: rubber damping elements and laser alignment; documented in an FMEA. Ursachenanalyse an einer Nagelpresse.">
+<meta name="keywords" content="Instandhaltung, Ursachenanalyse, Root-Cause-Analyse, Schwingungsdämpfung, Laserausrichtung, FMEA, Produktion, Fehlerbehebung, Maschinenaufstellung, Kontinuierliche Verbesserung, Nagelpresse, Maschinenbau">
+<meta property="og:title" content="Root-cause analysis: deformed nails on a nail-making press – Assem Ryan">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%230f4c81'/><text x='32' y='42' font-size='28' font-family='Arial' font-weight='700' fill='white' text-anchor='middle'>AR</text></svg>">
+<style>
+:root{--bg:#f6f8fb;--card:#fff;--ink:#0f172a;--muted:#5b6578;--line:#e3e8ef;--brand:#0f4c81;--brand2:#1d7ac8;--chip:#eaf2fb;--shadow:0 6px 24px rgba(15,23,42,.07);--accent:#ff7a1a;--grid:rgba(15,76,129,.05)}
+@media (prefers-color-scheme:dark){:root{--bg:#0b1220;--card:#121a2b;--ink:#e6ebf3;--muted:#9aa6ba;--line:#22304a;--brand:#6fb3ff;--brand2:#8cc4ff;--chip:#17263f;--shadow:none;--grid:rgba(111,179,255,.06)}}
+body.dark{--bg:#0b1220;--card:#121a2b;--ink:#e6ebf3;--muted:#9aa6ba;--line:#22304a;--brand:#6fb3ff;--brand2:#8cc4ff;--chip:#17263f;--shadow:none;--grid:rgba(111,179,255,.06)}
+body.light{--bg:#f6f8fb;--card:#fff;--ink:#0f172a;--muted:#5b6578;--line:#e3e8ef;--brand:#0f4c81;--brand2:#1d7ac8;--chip:#eaf2fb;--shadow:0 6px 24px rgba(15,23,42,.07);--grid:rgba(15,76,129,.05)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;overflow-x:hidden;overflow-wrap:anywhere;font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:44px 44px;background-attachment:fixed}
+a{color:var(--brand)}img{max-width:100%;display:block}
+.wrap{max-width:1000px;margin:0 auto;padding:0 20px}
+header{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;gap:14px;height:60px}
+nav .logo{font-weight:800;color:var(--ink);text-decoration:none;margin-right:auto}
+nav a.l{color:var(--muted);text-decoration:none;font-size:.95rem}nav a.l:hover{color:var(--ink)}
+.lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
+.lang button{border:0;background:none;color:var(--muted);padding:4px 10px;font-weight:700;cursor:pointer}
+.lang button[aria-pressed=true]{background:var(--brand);color:#fff}
+.theme{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;width:34px;height:34px;cursor:pointer;font-size:1rem}
+body.de .en,body:not(.de) .de{display:none!important}
+.kicker{color:var(--brand2);font-weight:700;letter-spacing:.04em;text-transform:uppercase;font-size:.85rem;margin-top:36px}
+h1{font-size:clamp(1.9rem,4.6vw,2.8rem);line-height:1.15;margin:.25em 0 .3em}
+.lead{font-size:1.08rem;color:var(--muted);max-width:62ch;margin:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 6px}
+.chip{background:var(--chip);color:var(--ink);border-radius:999px;padding:5px 12px;font-size:.88rem}
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:26px 0 8px}
+@media(max-width:820px){.facts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.fact{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.fact b{display:block;font-size:1.05rem}.fact span{color:var(--muted);font-size:.88rem}
+section{padding:30px 0 6px}
+h2{font-size:1.45rem;margin:0 0 10px}
+h2:before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;background:var(--accent);margin-right:10px;vertical-align:middle}
+p,li{color:var(--muted)}ul{padding-left:20px;margin:6px 0}
+.box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;box-shadow:var(--shadow)}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}@media(max-width:720px){.two{grid-template-columns:minmax(0,1fr)}}
+.box h3{margin:0 0 6px;font-size:1.05rem;color:var(--ink)}
+table{width:100%;border-collapse:collapse;font-size:.93rem}
+th,td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--ink);width:34%}td{color:var(--muted)}
+.tw{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:14px}
+.steps{counter-reset:s;list-style:none;padding:0;margin:0;display:grid;gap:10px}
+.steps li{counter-increment:s;position:relative;padding:12px 14px 12px 52px;background:var(--card);border:1px solid var(--line);border-radius:12px}
+.steps li:before{content:counter(s);position:absolute;left:14px;top:12px;width:26px;height:26px;border-radius:50%;background:var(--brand);color:#fff;font-weight:700;font-size:.85rem;display:flex;align-items:center;justify-content:center}
+.steps b{color:var(--ink)}
+.gal{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:12px}
+@media(max-width:820px){.gal{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:520px){.gal{grid-template-columns:minmax(0,1fr)}}
+.gal figure{margin:0;background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden;display:flex;flex-direction:column}
+.gal img{width:100%;height:220px;object-fit:cover}
+.gal.small img{height:180px;object-fit:contain;background:#222}
+.gal figcaption{font-size:.82rem;color:#5b6578;padding:6px 10px;background:#fafbfd;flex:1}
+.note{background:var(--chip);border-radius:10px;padding:10px 14px;font-size:.9rem;margin-top:12px;color:var(--ink)}
+.tags{display:flex;flex-wrap:wrap;gap:6px}.tag{font-size:.82rem;background:var(--chip);border-radius:6px;padding:3px 9px}
+.back{display:inline-flex;gap:6px;align-items:center;font-weight:700;text-decoration:none;margin:34px 0 0}
+footer{color:var(--muted);font-size:.85rem;padding:30px 0 40px;text-align:center}
+.gal.shots img{height:auto;aspect-ratio:auto;object-fit:contain;background:#fff}
+.gal.shots.two-up{grid-template-columns:repeat(2,minmax(0,1fr))}@media(max-width:620px){.gal.shots.two-up{grid-template-columns:minmax(0,1fr)}}
+.wide{margin:12px 0 0;background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.wide img{width:100%;height:auto}
+.wide figcaption{font-size:.82rem;color:#5b6578;padding:6px 10px;background:#fafbfd}
+.formula{font-family:ui-monospace,Consolas,"Courier New",monospace;font-size:.88rem;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;color:var(--ink);overflow-x:auto;white-space:pre;line-height:1.55}
+video{width:100%;border-radius:10px;border:1px solid var(--line);background:#000;margin-top:12px}
+.sch{margin:12px 0 0;background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.sch svg{display:block;width:100%;height:auto}
+.sch figcaption{font-size:.82rem;color:var(--muted);padding:6px 10px;border-top:1px solid var(--line)}
+.sch.tall{max-width:460px;margin-left:auto;margin-right:auto}
+.pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:2px}@media(max-width:620px){.pair{grid-template-columns:minmax(0,1fr)}}
+.flowfig{margin-top:22px}
+.flow{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:22px;padding:14px}
+.fs{position:relative;border:2px solid var(--line);border-radius:10px;padding:10px 12px;background:var(--bg)}
+.fs b{display:block;color:var(--ink);font-size:.95rem}.fs span{color:var(--muted);font-size:.86rem}
+.fs.bad{border-color:#d64545}.fs.try{border-style:dashed;border-color:var(--muted)}.fs.rc{border-color:var(--accent)}.fs.ok{border-color:#1f9d55}
+.fs:not(:last-child):after{content:"→";position:absolute;right:-18px;top:50%;transform:translateY(-50%);color:var(--brand);font-weight:800}
+@media(max-width:820px){.flow{grid-template-columns:minmax(0,1fr);gap:20px}.fs:not(:last-child):after{content:"↓";right:auto;left:50%;top:auto;bottom:-21px;transform:translateX(-50%)}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><nav>
+  <a class="logo" href="../../index.html">Assem Ryan</a>
+  <a class="l" href="../../index.html#projects"><span class="en">← All projects</span><span class="de">← Alle Projekte</span></a>
+  <div class="lang" role="group" aria-label="Language"><button data-l="en" aria-pressed="true">EN</button><button data-l="de" aria-pressed="false">DE</button></div>
+</nav></div></header>
+
+<main class="wrap">
+<div class="kicker"><span class="en">Industry case · Qallins Steel Nail Factory · Kafrelsheikh, Egypt</span><span class="de">Praxisfall · Qallins Stahlnagelfabrik · Kafrelsheikh, Ägypten</span></div>
+<h1><span class="en">Root-cause analysis: deformed nails on a nail-making press</span><span class="de">Ursachenanalyse: Formfehler an einer Nagelpresse</span></h1>
+<p class="lead"><span class="en">A newly imported nail-making machine kept producing deformed nails. Checking the control and cleaning the surfaces helped only for a while. The real causes were mechanical: missing vibration damping between machine and floor, and a conveyor and die plates that were not aligned. After fixing both, the machine ran perfectly.</span><span class="de">Eine neu importierte Nagelmaschine produzierte immer wieder verformte Nägel. Steuerung prüfen und Oberflächen reinigen half nur vorübergehend. Die eigentlichen Ursachen waren mechanisch: fehlende Schwingungsdämpfung zwischen Maschine und Boden sowie ein nicht ausgerichtetes Förderband mit nicht ausgerichteten Formplatten. Nach Behebung beider Ursachen lief die Maschine einwandfrei.</span></p>
+<div class="chips"><span class="chip"><span class="en">Maintenance</span><span class="de">Instandhaltung</span></span><span class="chip"><span class="en">Root-cause analysis</span><span class="de">Ursachenanalyse</span></span><span class="chip"><span class="en">Vibration damping</span><span class="de">Schwingungsdämpfung</span></span><span class="chip"><span class="en">Laser alignment</span><span class="de">Laserausrichtung</span></span><span class="chip">FMEA</span></div>
+
+<div class="facts">
+  <div class="fact"><b><span class="en">2 root causes</span><span class="de">2 Ursachen</span></b><span><span class="en">vibration and misalignment</span><span class="de">Schwingungen und Fehlausrichtung</span></span></div>
+  <div class="fact"><b><span class="en">≈ 15 people</span><span class="de">≈ 15 Personen</span></b><span><span class="en">lifted the machine by hand – no lifting gear fit in the room</span><span class="de">hoben die Maschine von Hand an – kein Hebezeug passte in den Raum</span></span></div>
+  <div class="fact"><b>Laser</b><span><span class="en">alignment of the conveyor and all plates</span><span class="de">Ausrichtung von Förderband und allen Platten</span></span></div>
+  <div class="fact"><b>FMEA</b><span><span class="en">case documented at Qallins</span><span class="de">Fall bei Qallins dokumentiert</span></span></div>
+</div>
+
+<figure class="sch flowfig">
+  <div class="flow">
+    <div class="fs bad"><b><span class="en">Symptom</span><span class="de">Symptom</span></b><span><span class="en">deformed nails</span><span class="de">verformte Nägel</span></span></div>
+    <div class="fs try"><b><span class="en">Temporary fix</span><span class="de">Provisorische Lösung</span></b><span><span class="en">control checked, surfaces cleaned</span><span class="de">Steuerung geprüft, Oberflächen gereinigt</span></span></div>
+    <div class="fs bad"><b><span class="en">Recurrence</span><span class="de">Wiederauftreten</span></b><span><span class="en">the fault came back</span><span class="de">der Fehler kam zurück</span></span></div>
+    <div class="fs rc"><b><span class="en">Root causes</span><span class="de">Grundursachen</span></b><span><span class="en">no damping · misalignment</span><span class="de">keine Dämpfung · Fehlausrichtung</span></span></div>
+    <div class="fs ok"><b><span class="en">Permanent fix</span><span class="de">Dauerhafte Lösung</span></b><span><span class="en">rubber dampers · laser alignment</span><span class="de">Gummidämpfer · Laserausrichtung</span></span></div>
+  </div>
+  <figcaption><span class="en">From symptom fixing to a permanent solution (schematic illustration)</span><span class="de">Vom Symptom zur dauerhaften Lösung (schematische Darstellung)</span></figcaption>
+</figure>
+
+<section>
+  <h2><span class="en">Situation</span><span class="de">Situation</span></h2>
+  <p><span class="en">Qallins Steel Nail Factory in Kafrelsheikh, Egypt, had imported a new nail-making machine from China – a new technology for the plant. It kept producing <b>deformed nails (shape defects)</b>. I was first brought in to solve this problem, before I was employed there; afterwards the factory offered me a job, and I worked there from 03/2022 to 07/2024 in maintenance and production.</span><span class="de">Die Qallins Stahlnagelfabrik in Kafrelsheikh, Ägypten, hatte eine neue Nagelmaschine aus China importiert – eine neue Technologie für das Werk. Die Maschine produzierte immer wieder <b>verformte Nägel (Formfehler)</b>. Ich wurde zunächst geholt, um dieses Problem zu lösen, noch bevor ich dort angestellt war; danach bot mir die Fabrik eine Stelle an, und ich arbeitete dort von 03/2022 bis 07/2024 in Instandhaltung und Produktion.</span></p>
+</section>
+
+<section>
+  <h2><span class="en">Task</span><span class="de">Aufgabe</span></h2>
+  <p><span class="en">Find out why the new machine produced deformed nails and make it run reliably – not just for a few days, but permanently.</span><span class="de">Herausfinden, warum die neue Maschine verformte Nägel produzierte, und sie zuverlässig zum Laufen bringen – nicht nur für ein paar Tage, sondern dauerhaft.</span></p>
+</section>
+
+<section>
+  <h2><span class="en">What I tried first – and why it was not enough</span><span class="de">Erster Versuch – und warum er nicht reichte</span></h2>
+  <div class="box"><p style="margin:0"><span class="en">I started with the obvious suspects: I checked the <b>control</b> and <b>cleaned the surfaces</b>. This fixed the problem – but only temporarily. After a while the deformed nails came back. That was the important clue: if a fault returns after the obvious fix, the fix only treated a symptom, and the cause must be somewhere else.</span><span class="de">Ich begann mit den naheliegenden Verdächtigen: Ich prüfte die <b>Steuerung</b> und <b>reinigte die Oberflächen</b>. Das behob das Problem – aber nur vorübergehend. Nach einiger Zeit kamen die verformten Nägel zurück. Genau das war der wichtige Hinweis: Wenn ein Fehler nach der naheliegenden Lösung wiederkommt, wurde nur ein Symptom behandelt, und die Ursache liegt woanders.</span></p></div>
+</section>
+
+<section>
+  <h2><span class="en">Root-cause analysis</span><span class="de">Ursachenanalyse</span></h2>
+  <p><span class="en">So I looked beyond the control at how the machine was installed and how its mechanical parts were set up. I found two root causes:</span><span class="de">Deshalb schaute ich über die Steuerung hinaus darauf, wie die Maschine aufgestellt war und wie ihre mechanischen Teile eingestellt waren. Ich fand zwei Grundursachen:</span></p>
+  <div class="two">
+    <div class="box"><h3><span class="en">1 · Vibration</span><span class="de">1 · Schwingungen</span></h3><p style="margin:0"><span class="en">There were <b>no rubber damping elements</b> between the machine and the floor. The machine stood directly on the floor, so the vibrations it generated were fed back into the machine.</span><span class="de">Zwischen Maschine und Boden gab es <b>keine Gummi-Dämpfungselemente</b>. Die Maschine stand direkt auf dem Boden, sodass ihre eigenen Schwingungen auf die Maschine zurückwirkten.</span></p></div>
+    <div class="box"><h3><span class="en">2 · Alignment</span><span class="de">2 · Ausrichtung</span></h3><p style="margin:0"><span class="en">The <b>conveyor and the die/mould plates were not aligned</b> – the two mould halves were not parallel to each other.</span><span class="de"><b>Förderband und Formplatten waren nicht ausgerichtet</b> – die beiden Formhälften standen nicht parallel zueinander.</span></p></div>
+  </div>
+  <div class="pair">
+    <figure class="sch"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" class="qfig" role="img" aria-label="Schematic illustration: nail-making press standing directly on the floor, vibrations feed back into the machine">
+<style>
+.qbg{fill:var(--card,#fff)}.qln{stroke:var(--ink,#0f172a);stroke-width:2;fill:none}.qthin{stroke:var(--muted,#5b6578);stroke-width:1.2;fill:none}
+.qmach{fill:var(--chip,#eaf2fb);stroke:var(--brand,#0f4c81);stroke-width:2}.qsteel{fill:var(--muted,#5b6578)}.qhatch{stroke:var(--muted,#5b6578);stroke-width:1;opacity:.45}
+.qh{font:700 15px system-ui,"Segoe UI",Arial,sans-serif}.qt{fill:var(--ink,#0f172a);font:600 13px system-ui,"Segoe UI",Arial,sans-serif}.qs{fill:var(--muted,#5b6578);font:italic 11.5px system-ui,"Segoe UI",Arial,sans-serif}
+.qbad{stroke:#d64545;stroke-width:2.5;fill:none}.qbadf{fill:#d64545}.qok{stroke:#1f9d55;stroke-width:2.5;fill:none}.qokf{fill:#1f9d55}
+.qrub{fill:#334155;stroke:var(--ink,#0f172a);stroke-width:1.2}.qlaser{stroke:#e5484d;stroke-width:2.5;stroke-dasharray:9 5;fill:none}
+
+</style>
+<defs>
+<marker id="q1a-ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0L10,5L0,10z" class="qbadf"/></marker>
+<pattern id="q1a-h" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="10" class="qhatch"/></pattern>
+</defs>
+<rect width="400" height="300" class="qbg"/>
+<text x="16" y="27" class="qh qbadf en">Before: standing directly on the floor</text>
+<text x="16" y="27" class="qh qbadf de">Vorher: direkt auf dem Boden</text>
+<text x="16" y="45" class="qs en">schematic illustration</text>
+<text x="16" y="45" class="qs de">schematische Darstellung</text>
+<!-- floor -->
+<rect x="0" y="236" width="400" height="34" fill="url(#q1a-h)"/>
+<line x1="0" y1="236" x2="400" y2="236" class="qln"/>
+<!-- machine -->
+<rect x="120" y="92" width="170" height="122" rx="8" class="qmach"/>
+<rect x="108" y="214" width="194" height="12" rx="2" class="qmach"/>
+<rect x="118" y="226" width="24" height="10" class="qsteel"/>
+<rect x="268" y="226" width="24" height="10" class="qsteel"/>
+<circle cx="164" cy="140" r="30" class="qmach"/><circle cx="164" cy="140" r="6" class="qsteel"/>
+<line x1="164" y1="140" x2="230" y2="134" class="qthin"/>
+<rect x="226" y="122" width="48" height="26" rx="3" class="qmach"/>
+<text x="205" y="196" text-anchor="middle" class="qt en">Nail press</text>
+<text x="205" y="196" text-anchor="middle" class="qt de">Nagelpresse</text>
+<!-- vibration feeding back -->
+<line x1="130" y1="266" x2="130" y2="242" class="qbad" marker-end="url(#q1a-ar)"/>
+<line x1="280" y1="266" x2="280" y2="242" class="qbad" marker-end="url(#q1a-ar)"/>
+<path d="M104,112 q-9,10 0,20 q9,10 0,20 q-9,10 0,20" class="qbad"/>
+<path d="M90,118 q-9,10 0,20 q9,10 0,20" class="qbad" opacity=".55"/>
+<path d="M306,112 q9,10 0,20 q-9,10 0,20 q9,10 0,20" class="qbad"/>
+<path d="M320,118 q9,10 0,20 q-9,10 0,20" class="qbad" opacity=".55"/>
+<text x="394" y="108" text-anchor="end" class="qt qbadf en">vibration</text>
+<text x="394" y="108" text-anchor="end" class="qt qbadf de">Schwingung</text>
+<text x="200" y="291" text-anchor="middle" class="qt en">No damping → vibrations feed back into the machine</text>
+<text x="200" y="291" text-anchor="middle" class="qt de">Keine Dämpfung → Schwingungen wirken zurück</text>
+</svg><figcaption><span class="en">Fig. 1a – Press standing directly on the floor: vibrations feed back into the machine (schematic illustration)</span><span class="de">Abb. 1a – Presse direkt auf dem Boden: Schwingungen wirken auf die Maschine zurück (schematische Darstellung)</span></figcaption></figure>
+    <figure class="sch"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" class="qfig" role="img" aria-label="Schematic illustration: nail-making press on rubber damping elements, vibrations are damped">
+<style>
+.qbg{fill:var(--card,#fff)}.qln{stroke:var(--ink,#0f172a);stroke-width:2;fill:none}.qthin{stroke:var(--muted,#5b6578);stroke-width:1.2;fill:none}
+.qmach{fill:var(--chip,#eaf2fb);stroke:var(--brand,#0f4c81);stroke-width:2}.qsteel{fill:var(--muted,#5b6578)}.qhatch{stroke:var(--muted,#5b6578);stroke-width:1;opacity:.45}
+.qh{font:700 15px system-ui,"Segoe UI",Arial,sans-serif}.qt{fill:var(--ink,#0f172a);font:600 13px system-ui,"Segoe UI",Arial,sans-serif}.qs{fill:var(--muted,#5b6578);font:italic 11.5px system-ui,"Segoe UI",Arial,sans-serif}
+.qbad{stroke:#d64545;stroke-width:2.5;fill:none}.qbadf{fill:#d64545}.qok{stroke:#1f9d55;stroke-width:2.5;fill:none}.qokf{fill:#1f9d55}
+.qrub{fill:#334155;stroke:var(--ink,#0f172a);stroke-width:1.2}.qlaser{stroke:#e5484d;stroke-width:2.5;stroke-dasharray:9 5;fill:none}
+
+</style>
+<defs>
+<pattern id="q1b-h" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="10" class="qhatch"/></pattern>
+</defs>
+<rect width="400" height="300" class="qbg"/>
+<text x="16" y="27" class="qh qokf en">After: on rubber damping elements</text>
+<text x="16" y="27" class="qh qokf de">Nachher: auf Gummi-Dämpfungselementen</text>
+<text x="16" y="45" class="qs en">schematic illustration</text>
+<text x="16" y="45" class="qs de">schematische Darstellung</text>
+<!-- floor -->
+<rect x="0" y="236" width="400" height="34" fill="url(#q1b-h)"/>
+<line x1="0" y1="236" x2="400" y2="236" class="qln"/>
+<!-- machine (same as before) -->
+<rect x="120" y="92" width="170" height="122" rx="8" class="qmach"/>
+<rect x="108" y="214" width="194" height="12" rx="2" class="qmach"/>
+<circle cx="164" cy="140" r="30" class="qmach"/><circle cx="164" cy="140" r="6" class="qsteel"/>
+<line x1="164" y1="140" x2="230" y2="134" class="qthin"/>
+<rect x="226" y="122" width="48" height="26" rx="3" class="qmach"/>
+<text x="205" y="196" text-anchor="middle" class="qt en">Nail press</text>
+<text x="205" y="196" text-anchor="middle" class="qt de">Nagelpresse</text>
+<!-- rubber damping elements -->
+<rect x="112" y="226" width="36" height="10" rx="4" class="qrub"/>
+<rect x="262" y="226" width="36" height="10" rx="4" class="qrub"/>
+<path d="M298,231 L332,206" class="qthin"/>
+<text x="334" y="196" class="qt en">rubber</text>
+<text x="334" y="211" class="qt en">damping</text>
+<text x="334" y="196" class="qt de">Gummi-</text>
+<text x="334" y="211" class="qt de">dämpfer</text>
+<!-- damped (small, fading) waves -->
+<path d="M122,262 q5,-4 10,0 q5,4 10,0" class="qok" opacity=".8"/>
+<path d="M272,262 q5,-4 10,0 q5,4 10,0" class="qok" opacity=".8"/>
+<!-- check mark -->
+<circle cx="360" cy="110" r="18" class="qok"/><path d="M351,110 l6,7 l12,-14" class="qok"/>
+<text x="200" y="291" text-anchor="middle" class="qt en">Damping decouples the machine from the floor</text>
+<text x="200" y="291" text-anchor="middle" class="qt de">Dämpfung entkoppelt Maschine und Boden</text>
+</svg><figcaption><span class="en">Fig. 1b – Press on rubber damping elements (schematic illustration)</span><span class="de">Abb. 1b – Presse auf Gummi-Dämpfungselementen (schematische Darstellung)</span></figcaption></figure>
+    <figure class="sch"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" class="qfig" role="img" aria-label="Schematic illustration, top view: conveyor and die plates misaligned, the two mould halves are not parallel">
+<style>
+.qbg{fill:var(--card,#fff)}.qln{stroke:var(--ink,#0f172a);stroke-width:2;fill:none}.qthin{stroke:var(--muted,#5b6578);stroke-width:1.2;fill:none}
+.qmach{fill:var(--chip,#eaf2fb);stroke:var(--brand,#0f4c81);stroke-width:2}.qsteel{fill:var(--muted,#5b6578)}.qhatch{stroke:var(--muted,#5b6578);stroke-width:1;opacity:.45}
+.qh{font:700 15px system-ui,"Segoe UI",Arial,sans-serif}.qt{fill:var(--ink,#0f172a);font:600 13px system-ui,"Segoe UI",Arial,sans-serif}.qs{fill:var(--muted,#5b6578);font:italic 11.5px system-ui,"Segoe UI",Arial,sans-serif}
+.qbad{stroke:#d64545;stroke-width:2.5;fill:none}.qbadf{fill:#d64545}.qok{stroke:#1f9d55;stroke-width:2.5;fill:none}.qokf{fill:#1f9d55}
+.qrub{fill:#334155;stroke:var(--ink,#0f172a);stroke-width:1.2}.qlaser{stroke:#e5484d;stroke-width:2.5;stroke-dasharray:9 5;fill:none}
+.qdash{stroke:var(--muted,#5b6578);stroke-width:1.4;stroke-dasharray:6 4;fill:none}
+
+</style>
+<rect width="400" height="300" class="qbg"/>
+<text x="16" y="27" class="qh qbadf en">Before: not aligned (top view)</text>
+<text x="16" y="27" class="qh qbadf de">Vorher: nicht ausgerichtet (Draufsicht)</text>
+<text x="16" y="45" class="qs en">schematic illustration</text>
+<text x="16" y="45" class="qs de">schematische Darstellung</text>
+<!-- conveyor -->
+<text x="30" y="118" class="qt en">Conveyor</text>
+<text x="30" y="118" class="qt de">Förderband</text>
+<rect x="24" y="128" width="196" height="44" rx="6" class="qmach"/>
+<g class="qthin"><line x1="48" y1="128" x2="48" y2="172"/><line x1="76" y1="128" x2="76" y2="172"/><line x1="104" y1="128" x2="104" y2="172"/><line x1="132" y1="128" x2="132" y2="172"/><line x1="160" y1="128" x2="160" y2="172"/><line x1="188" y1="128" x2="188" y2="172"/></g>
+<line x1="10" y1="150" x2="390" y2="150" class="qdash"/>
+<!-- die / mould plates, skewed and offset -->
+<text x="246" y="84" class="qt en">Die / mould plates</text>
+<text x="246" y="84" class="qt de">Formplatten</text>
+<rect x="252" y="108" width="84" height="22" rx="2" class="qmach" transform="rotate(-7 294 119)"/>
+<rect x="252" y="180" width="84" height="22" rx="2" class="qmach" transform="rotate(4 294 191)"/>
+<line x1="236" y1="164" x2="352" y2="164" class="qbad" stroke-dasharray="6 4"/>
+<!-- offset marker -->
+<line x1="362" y1="150" x2="362" y2="164" class="qbad"/>
+<text x="368" y="162" class="qt qbadf">Δ</text>
+<!-- angle hint -->
+<path d="M336,104 L350,98" class="qbad"/>
+<text x="200" y="236" text-anchor="middle" class="qt en">Conveyor and die plates not aligned;</text>
+<text x="200" y="254" text-anchor="middle" class="qt en">the two mould halves are not parallel</text>
+<text x="200" y="236" text-anchor="middle" class="qt de">Förderband und Formplatten nicht ausgerichtet;</text>
+<text x="200" y="254" text-anchor="middle" class="qt de">die beiden Formhälften sind nicht parallel</text>
+<text x="200" y="284" text-anchor="middle" class="qs en">dashed grey: conveyor axis · dashed red: die axis</text>
+<text x="200" y="284" text-anchor="middle" class="qs de">grau gestrichelt: Förderachse · rot gestrichelt: Formachse</text>
+</svg><figcaption><span class="en">Fig. 2a – Top view: conveyor and die plates not aligned, mould halves not parallel (schematic illustration)</span><span class="de">Abb. 2a – Draufsicht: Förderband und Formplatten nicht ausgerichtet, Formhälften nicht parallel (schematische Darstellung)</span></figcaption></figure>
+    <figure class="sch"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" class="qfig" role="img" aria-label="Schematic illustration, top view: conveyor and die plates aligned on one axis with a laser alignment tool, mould halves parallel">
+<style>
+.qbg{fill:var(--card,#fff)}.qln{stroke:var(--ink,#0f172a);stroke-width:2;fill:none}.qthin{stroke:var(--muted,#5b6578);stroke-width:1.2;fill:none}
+.qmach{fill:var(--chip,#eaf2fb);stroke:var(--brand,#0f4c81);stroke-width:2}.qsteel{fill:var(--muted,#5b6578)}.qhatch{stroke:var(--muted,#5b6578);stroke-width:1;opacity:.45}
+.qh{font:700 15px system-ui,"Segoe UI",Arial,sans-serif}.qt{fill:var(--ink,#0f172a);font:600 13px system-ui,"Segoe UI",Arial,sans-serif}.qs{fill:var(--muted,#5b6578);font:italic 11.5px system-ui,"Segoe UI",Arial,sans-serif}
+.qbad{stroke:#d64545;stroke-width:2.5;fill:none}.qbadf{fill:#d64545}.qok{stroke:#1f9d55;stroke-width:2.5;fill:none}.qokf{fill:#1f9d55}
+.qrub{fill:#334155;stroke:var(--ink,#0f172a);stroke-width:1.2}.qlaser{stroke:#e5484d;stroke-width:2.5;stroke-dasharray:9 5;fill:none}
+
+</style>
+<rect width="400" height="300" class="qbg"/>
+<text x="16" y="27" class="qh qokf en">After: laser-aligned (top view)</text>
+<text x="16" y="27" class="qh qokf de">Nachher: mit Laser ausgerichtet (Draufsicht)</text>
+<text x="16" y="45" class="qs en">schematic illustration</text>
+<text x="16" y="45" class="qs de">schematische Darstellung</text>
+<!-- laser tool -->
+<rect x="12" y="138" width="30" height="24" rx="4" class="qrub"/>
+<circle cx="42" cy="150" r="3" fill="#e5484d"/>
+<text x="10" y="186" class="qt en">Laser</text>
+<text x="10" y="186" class="qt de">Laser</text>
+<!-- conveyor -->
+<text x="58" y="118" class="qt en">Conveyor</text>
+<text x="58" y="118" class="qt de">Förderband</text>
+<rect x="52" y="128" width="180" height="44" rx="6" class="qmach"/>
+<g class="qthin"><line x1="78" y1="128" x2="78" y2="172"/><line x1="106" y1="128" x2="106" y2="172"/><line x1="134" y1="128" x2="134" y2="172"/><line x1="162" y1="128" x2="162" y2="172"/><line x1="190" y1="128" x2="190" y2="172"/></g>
+<!-- parallel plates -->
+<text x="246" y="84" class="qt en">Die / mould plates</text>
+<text x="246" y="84" class="qt de">Formplatten</text>
+<rect x="252" y="108" width="84" height="22" rx="2" class="qmach"/>
+<rect x="252" y="170" width="84" height="22" rx="2" class="qmach"/>
+<!-- laser line -->
+<line x1="45" y1="150" x2="392" y2="150" class="qlaser"/>
+<line x1="345" y1="112" x2="345" y2="126" class="qok"/><line x1="345" y1="174" x2="345" y2="188" class="qok"/>
+<text x="350" y="124" class="qt qokf">∥</text><text x="350" y="186" class="qt qokf">∥</text>
+<text x="200" y="236" text-anchor="middle" class="qt en">Conveyor and all plates aligned on one axis;</text>
+<text x="200" y="254" text-anchor="middle" class="qt en">mould halves parallel again</text>
+<text x="200" y="236" text-anchor="middle" class="qt de">Förderband und alle Platten auf einer Achse;</text>
+<text x="200" y="254" text-anchor="middle" class="qt de">Formhälften wieder parallel</text>
+<text x="200" y="284" text-anchor="middle" class="qs en">dashed red: laser reference line</text>
+<text x="200" y="284" text-anchor="middle" class="qs de">rot gestrichelt: Laser-Referenzlinie</text>
+</svg><figcaption><span class="en">Fig. 2b – Top view: conveyor and plates aligned with a laser line (schematic illustration)</span><span class="de">Abb. 2b – Draufsicht: Förderband und Platten mit Laserlinie ausgerichtet (schematische Darstellung)</span></figcaption></figure>
+  </div>
+  <figure class="sch tall"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600" class="qfig" role="img" aria-label="Schematic cause tree: symptom deformed nails, first attempt only temporary, two root causes (no damping, misalignment) and the two permanent fixes">
+<style>
+.qbg{fill:var(--card,#fff)}.qln{stroke:var(--ink,#0f172a);stroke-width:2;fill:none}.qthin{stroke:var(--muted,#5b6578);stroke-width:1.2;fill:none}
+.qh{fill:var(--ink,#0f172a);font:700 15px system-ui,"Segoe UI",Arial,sans-serif}.qt{fill:var(--ink,#0f172a);font:600 13px system-ui,"Segoe UI",Arial,sans-serif}.qs{fill:var(--muted,#5b6578);font:italic 11.5px system-ui,"Segoe UI",Arial,sans-serif}
+.qb{fill:var(--ink,#0f172a);font:12.5px system-ui,"Segoe UI",Arial,sans-serif}.qm{fill:var(--muted,#5b6578);font:12.5px system-ui,"Segoe UI",Arial,sans-serif}
+.qbx{fill:var(--card,#fff);stroke:var(--line,#c9d3e0);stroke-width:1.5}
+.qbxbad{fill:var(--card,#fff);stroke:#d64545;stroke-width:2}.qbxtry{fill:var(--card,#fff);stroke:var(--muted,#5b6578);stroke-width:1.5;stroke-dasharray:6 4}
+.qbxrc{fill:var(--chip,#eaf2fb);stroke:var(--accent,#ff7a1a);stroke-width:2}.qbxok{fill:var(--card,#fff);stroke:#1f9d55;stroke-width:2}
+.qbadf{fill:#d64545}.qokf{fill:#1f9d55}.qacf{fill:var(--accent,#ff7a1a)}.qarr{stroke:var(--brand,#0f4c81);stroke-width:2;fill:none}.qarrf{fill:var(--brand,#0f4c81)}
+
+</style>
+<defs><marker id="q3-ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0L10,5L0,10z" class="qarrf"/></marker></defs>
+<rect width="400" height="600" class="qbg"/>
+<text x="16" y="24" class="qh en">Cause analysis</text>
+<text x="16" y="24" class="qh de">Ursachenanalyse</text>
+<text x="384" y="24" text-anchor="end" class="qs en">schematic illustration</text>
+<text x="384" y="24" text-anchor="end" class="qs de">schematische Darstellung</text>
+
+<!-- symptom -->
+<rect x="20" y="40" width="360" height="46" rx="10" class="qbxbad"/>
+<text x="200" y="68" text-anchor="middle" class="qt qbadf en">Symptom: deformed nails (shape defects)</text>
+<text x="200" y="68" text-anchor="middle" class="qt qbadf de">Symptom: verformte Nägel (Formfehler)</text>
+<line x1="200" y1="86" x2="200" y2="108" class="qarr" marker-end="url(#q3-ar)"/>
+
+<!-- first attempt -->
+<rect x="20" y="110" width="360" height="62" rx="10" class="qbxtry"/>
+<text x="200" y="135" text-anchor="middle" class="qb en">First attempt: checked the control, cleaned surfaces</text>
+<text x="200" y="156" text-anchor="middle" class="qm en">→ fixed only temporarily – the fault came back</text>
+<text x="200" y="135" text-anchor="middle" class="qb de">Erster Versuch: Steuerung geprüft, Flächen gereinigt</text>
+<text x="200" y="156" text-anchor="middle" class="qm de">→ nur vorübergehend behoben – Fehler kam zurück</text>
+<line x1="200" y1="172" x2="200" y2="194" class="qarr" marker-end="url(#q3-ar)"/>
+
+<!-- why -->
+<rect x="20" y="196" width="360" height="56" rx="10" class="qbx"/>
+<text x="200" y="219" text-anchor="middle" class="qt en">Why does the fault come back?</text>
+<text x="200" y="238" text-anchor="middle" class="qb en">→ look at machine installation and mechanics</text>
+<text x="200" y="219" text-anchor="middle" class="qt de">Warum kommt der Fehler zurück?</text>
+<text x="200" y="238" text-anchor="middle" class="qb de">→ Aufstellung und Mechanik untersuchen</text>
+<path d="M200,252 L200,262 L106,262 L106,282" class="qarr" marker-end="url(#q3-ar)"/>
+<path d="M200,262 L294,262 L294,282" class="qarr" marker-end="url(#q3-ar)"/>
+
+<!-- root causes -->
+<rect x="20" y="284" width="172" height="124" rx="10" class="qbxrc"/>
+<rect x="208" y="284" width="172" height="124" rx="10" class="qbxrc"/>
+<g class="en">
+<text x="34" y="306" class="qt qacf">Root cause 1</text>
+<text x="34" y="328" class="qb">No rubber damping</text>
+<text x="34" y="345" class="qb">between machine</text>
+<text x="34" y="362" class="qb">and floor →</text>
+<text x="34" y="379" class="qb">vibrations fed back</text>
+<text x="34" y="396" class="qb">into the machine</text>
+<text x="222" y="306" class="qt qacf">Root cause 2</text>
+<text x="222" y="328" class="qb">Conveyor and die</text>
+<text x="222" y="345" class="qb">plates not aligned →</text>
+<text x="222" y="362" class="qb">the two mould</text>
+<text x="222" y="379" class="qb">halves not parallel</text>
+</g>
+<g class="de">
+<text x="34" y="306" class="qt qacf">Ursache 1</text>
+<text x="34" y="328" class="qb">Keine Gummidämpfung</text>
+<text x="34" y="345" class="qb">zwischen Maschine</text>
+<text x="34" y="362" class="qb">und Boden →</text>
+<text x="34" y="379" class="qb">Schwingungen wirken</text>
+<text x="34" y="396" class="qb">auf die Maschine zurück</text>
+<text x="222" y="306" class="qt qacf">Ursache 2</text>
+<text x="222" y="328" class="qb">Förderband und</text>
+<text x="222" y="345" class="qb">Formplatten nicht</text>
+<text x="222" y="362" class="qb">ausgerichtet →</text>
+<text x="222" y="379" class="qb">Formhälften nicht</text>
+<text x="222" y="396" class="qb">parallel</text>
+</g>
+<line x1="106" y1="408" x2="106" y2="430" class="qarr" marker-end="url(#q3-ar)"/>
+<line x1="294" y1="408" x2="294" y2="430" class="qarr" marker-end="url(#q3-ar)"/>
+
+<!-- fixes -->
+<rect x="20" y="432" width="172" height="90" rx="10" class="qbxok"/>
+<rect x="208" y="432" width="172" height="90" rx="10" class="qbxok"/>
+<g class="en">
+<text x="34" y="454" class="qt qokf">Fix 1</text>
+<text x="34" y="476" class="qb">Machine lifted,</text>
+<text x="34" y="493" class="qb">rubber damping</text>
+<text x="34" y="510" class="qb">elements installed</text>
+<text x="222" y="454" class="qt qokf">Fix 2</text>
+<text x="222" y="476" class="qb">Conveyor and all</text>
+<text x="222" y="493" class="qb">plates aligned with</text>
+<text x="222" y="510" class="qb">a laser tool</text>
+</g>
+<g class="de">
+<text x="34" y="454" class="qt qokf">Maßnahme 1</text>
+<text x="34" y="476" class="qb">Maschine angehoben,</text>
+<text x="34" y="493" class="qb">Gummi-Dämpfungs-</text>
+<text x="34" y="510" class="qb">elemente eingebaut</text>
+<text x="222" y="454" class="qt qokf">Maßnahme 2</text>
+<text x="222" y="476" class="qb">Förderband und alle</text>
+<text x="222" y="493" class="qb">Platten mit Laser</text>
+<text x="222" y="510" class="qb">ausgerichtet</text>
+</g>
+<path d="M106,522 L106,538 L200,538 L200,548" class="qarr"/>
+<path d="M294,522 L294,538 L200,538" class="qarr"/>
+<line x1="200" y1="538" x2="200" y2="548" class="qarr" marker-end="url(#q3-ar)"/>
+
+<!-- result -->
+<rect x="20" y="550" width="360" height="40" rx="10" class="qbxok"/>
+<text x="200" y="575" text-anchor="middle" class="qt qokf en">Machine ran perfectly · documented in an FMEA</text>
+<text x="200" y="575" text-anchor="middle" class="qt qokf de">Maschine lief einwandfrei · in FMEA dokumentiert</text>
+</svg><figcaption><span class="en">Fig. 3 – Cause tree from symptom to the two root causes and fixes (schematic illustration)</span><span class="de">Abb. 3 – Ursachenbaum vom Symptom zu den zwei Grundursachen und Maßnahmen (schematische Darstellung)</span></figcaption></figure>
+</section>
+
+<section>
+  <h2><span class="en">Actions</span><span class="de">Maßnahmen</span></h2>
+  <ol class="steps">
+    <li><b><span class="en">Lift the machine and install damping</span><span class="de">Maschine anheben und Dämpfung einbauen</span></b> – <span class="en">the machine was heavy and stood in a very small room where no lifting equipment fit. So about 15 people lifted it by hand, and we installed rubber damping elements underneath.</span><span class="de">Die Maschine war schwer und stand in einem sehr kleinen Raum, in den kein Hebezeug passte. Deshalb hoben etwa 15 Personen sie von Hand an, und wir setzten Gummi-Dämpfungselemente darunter.</span></li>
+    <li><b><span class="en">Align with a laser</span><span class="de">Mit Laser ausrichten</span></b> – <span class="en">I aligned the conveyor and all plates with a laser alignment tool, so that the two mould halves were parallel again.</span><span class="de">Ich richtete Förderband und alle Platten mit einem Laser-Ausrichtwerkzeug aus, sodass die beiden Formhälften wieder parallel standen.</span></li>
+    <li><b><span class="en">Document the case</span><span class="de">Fall dokumentieren</span></b> – <span class="en">I documented the failure, its causes and the measures in an FMEA at Qallins.</span><span class="de">Ich dokumentierte Fehler, Ursachen und Maßnahmen in einer FMEA bei Qallins.</span></li>
+  </ol>
+</section>
+
+<section>
+  <h2><span class="en">Result</span><span class="de">Ergebnis</span></h2>
+  <div class="box"><p style="margin:0"><span class="en">After both measures the machine <b>ran perfectly</b> – no more deformed nails from this cause. The case is documented in an FMEA at the factory.</span><span class="de">Nach beiden Maßnahmen <b>lief die Maschine einwandfrei</b> – keine verformten Nägel mehr aus dieser Ursache. Der Fall ist in einer FMEA im Werk dokumentiert.</span></p></div>
+</section>
+
+<section>
+  <h2><span class="en">What I learned</span><span class="de">Was ich gelernt habe</span></h2>
+  <ul>
+    <li><span class="en"><b>Find the root cause instead of fixing symptoms:</b> a fault that comes back is a signal to keep asking “why”.</span><span class="de"><b>Grundursache finden statt Symptome beheben:</b> Ein Fehler, der wiederkommt, ist ein Signal, weiter nach dem „Warum“ zu fragen.</span></li>
+    <li><span class="en"><b>Installation matters:</b> how a machine is set up – its foundation, damping and alignment – directly affects product quality.</span><span class="de"><b>Die Aufstellung zählt:</b> Wie eine Maschine aufgestellt ist – Fundament, Dämpfung und Ausrichtung – wirkt sich direkt auf die Produktqualität aus.</span></li>
+    <li><span class="en"><b>Document it:</b> recording the case in an FMEA keeps the knowledge in the plant and helps to prevent the same failure elsewhere.</span><span class="de"><b>Dokumentieren:</b> Die Erfassung in einer FMEA hält das Wissen im Werk und hilft, denselben Fehler an anderer Stelle zu vermeiden.</span></li>
+    <li><span class="en"><b>Teamwork:</b> lifting a heavy machine by hand in a tight room only worked because many people coordinated well.</span><span class="de"><b>Teamarbeit:</b> Eine schwere Maschine in einem engen Raum von Hand anzuheben, gelang nur durch gute Abstimmung vieler Personen.</span></li>
+  </ul>
+</section>
+
+<section>
+  <h2><span class="en">Context: my role at Qallins</span><span class="de">Kontext: meine Rolle bei Qallins</span></h2>
+  <div class="box"><p style="margin:0 0 6px"><span class="en">Maintenance and production, 03/2022 – 07/2024. From my CV:</span><span class="de">Instandhaltung und Produktion, 03/2022 – 07/2024. Aus meinem Lebenslauf:</span></p><ul>
+    <li><span class="en">Planned about 12 maintenance actions per month for 20 wire-drawing machines and nail presses, with over 90 % completed on schedule.</span><span class="de">Planung von ca. 12 Instandhaltungsmaßnahmen pro Monat für 20 Drahtziehmaschinen und Nagelpressen, über 90 % termingerecht umgesetzt.</span></li>
+    <li><span class="en">About 15 % fewer unplanned stoppages through technical improvements.</span><span class="de">Ca. 15 % weniger ungeplante Stillstände durch technische Verbesserungen.</span></li>
+    <li><span class="en">Condition monitoring with SKF software; about 6 documented calibrations per month.</span><span class="de">Zustandsüberwachung mit SKF-Software; ca. 6 dokumentierte Kalibrierungen pro Monat.</span></li>
+  </ul>
+  <p class="note"><span class="en">These figures describe my overall role at Qallins, not results of this single case.</span><span class="de">Diese Zahlen beschreiben meine Gesamtrolle bei Qallins, nicht Ergebnisse dieses einzelnen Falls.</span></p></div>
+</section>
+
+<section>
+  <h2><span class="en">Skills &amp; keywords</span><span class="de">Kenntnisse &amp; Schlagworte</span></h2>
+  <div class="tags">
+    <span class="tag">Instandhaltung</span><span class="tag">Ursachenanalyse / Root-Cause-Analyse</span><span class="tag">Schwingungsdämpfung</span><span class="tag">Laserausrichtung</span><span class="tag">FMEA</span><span class="tag">Produktion</span><span class="tag">Fehlerbehebung</span><span class="tag">Maschinenaufstellung</span><span class="tag">Kontinuierliche Verbesserung</span>
+  </div>
+  <p class="note"><span class="en">There are no photos of this case. All figures are my own schematic illustrations and are not to scale.</span><span class="de">Von diesem Fall gibt es keine Fotos. Alle Abbildungen sind eigene schematische Darstellungen und nicht maßstäblich.</span></p>
+  <a class="back" href="../../index.html#projects"><span class="en">← Back to all projects</span><span class="de">← Zurück zu allen Projekten</span></a>
+</section>
+</main>
+<footer>© 2026 Assem Ryan · Duisburg · <a href="../../index.html#privacy"><span class="en">Privacy</span><span class="de">Datenschutz</span></a></footer>
+<script>
+(function(){
+var b=document.body,btns=document.querySelectorAll('.lang button');
+function set(l){b.classList.toggle('de',l==='de');document.documentElement.lang=l;btns.forEach(function(x){x.setAttribute('aria-pressed',x.dataset.l===l)});try{localStorage.setItem('lang',l)}catch(e){}}
+var saved=null;try{saved=localStorage.getItem('lang')}catch(e){}
+set(saved||((navigator.language||'').slice(0,2)==='de'?'de':'en'));
+btns.forEach(function(x){x.onclick=function(){set(x.dataset.l)}});
+var lang=document.querySelector('.lang'),tb=document.createElement('button');tb.className='theme';tb.setAttribute('aria-label','Toggle theme');tb.textContent='◐';lang.parentNode.insertBefore(tb,lang);
+try{var t=localStorage.getItem('theme');if(t)b.classList.add(t)}catch(e){}
+tb.onclick=function(){var dark=b.classList.contains('dark')||(!b.classList.contains('light')&&matchMedia('(prefers-color-scheme:dark)').matches);b.classList.remove('dark','light');var n=dark?'light':'dark';b.classList.add(n);try{localStorage.setItem('theme',n)}catch(e){}};
+})();
+</script>
+</body>

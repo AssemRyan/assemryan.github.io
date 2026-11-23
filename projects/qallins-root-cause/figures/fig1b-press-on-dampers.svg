@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300" class="qfig" role="img" aria-label="Schematic illustration: nail-making press on rubber damping elements, vibrations are damped">
+<style>
+.qbg{fill:var(--card,#fff)}.qln{stroke:var(--ink,#0f172a);stroke-width:2;fill:none}.qthin{stroke:var(--muted,#5b6578);stroke-width:1.2;fill:none}
+.qmach{fill:var(--chip,#eaf2fb);stroke:var(--brand,#0f4c81);stroke-width:2}.qsteel{fill:var(--muted,#5b6578)}.qhatch{stroke:var(--muted,#5b6578);stroke-width:1;opacity:.45}
+.qh{font:700 15px system-ui,"Segoe UI",Arial,sans-serif}.qt{fill:var(--ink,#0f172a);font:600 13px system-ui,"Segoe UI",Arial,sans-serif}.qs{fill:var(--muted,#5b6578);font:italic 11.5px system-ui,"Segoe UI",Arial,sans-serif}
+.qbad{stroke:#d64545;stroke-width:2.5;fill:none}.qbadf{fill:#d64545}.qok{stroke:#1f9d55;stroke-width:2.5;fill:none}.qokf{fill:#1f9d55}
+.qrub{fill:#334155;stroke:var(--ink,#0f172a);stroke-width:1.2}.qlaser{stroke:#e5484d;stroke-width:2.5;stroke-dasharray:9 5;fill:none}
+/*F*/.qfig .de{display:none}/*F*/
+</style>
+<defs>
+<pattern id="q1b-h" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="10" class="qhatch"/></pattern>
+</defs>
+<rect width="400" height="300" class="qbg"/>
+<text x="16" y="27" class="qh qokf en">After: on rubber damping elements</text>
+<text x="16" y="27" class="qh qokf de">Nachher: auf Gummi-Dämpfungselementen</text>
+<text x="16" y="45" class="qs en">schematic illustration</text>
+<text x="16" y="45" class="qs de">schematische Darstellung</text>
+<!-- floor -->
+<rect x="0" y="236" width="400" height="34" fill="url(#q1b-h)"/>
+<line x1="0" y1="236" x2="400" y2="236" class="qln"/>
+<!-- machine (same as before) -->
+<rect x="120" y="92" width="170" height="122" rx="8" class="qmach"/>
+<rect x="108" y="214" width="194" height="12" rx="2" class="qmach"/>
+<circle cx="164" cy="140" r="30" class="qmach"/><circle cx="164" cy="140" r="6" class="qsteel"/>
+<line x1="164" y1="140" x2="230" y2="134" class="qthin"/>
+<rect x="226" y="122" width="48" height="26" rx="3" class="qmach"/>
+<text x="205" y="196" text-anchor="middle" class="qt en">Nail press</text>
+<text x="205" y="196" text-anchor="middle" class="qt de">Nagelpresse</text>
+<!-- rubber damping elements -->
+<rect x="112" y="226" width="36" height="10" rx="4" class="qrub"/>
+<rect x="262" y="226" width="36" height="10" rx="4" class="qrub"/>
+<path d="M298,231 L332,206" class="qthin"/>
+<text x="334" y="196" class="qt en">rubber</text>
+<text x="334" y="211" class="qt en">damping</text>
+<text x="334" y="196" class="qt de">Gummi-</text>
+<text x="334" y="211" class="qt de">dämpfer</text>
+<!-- damped (small, fading) waves -->
+<path d="M122,262 q5,-4 10,0 q5,4 10,0" class="qok" opacity=".8"/>
+<path d="M272,262 q5,-4 10,0 q5,4 10,0" class="qok" opacity=".8"/>
+<!-- check mark -->
+<circle cx="360" cy="110" r="18" class="qok"/><path d="M351,110 l6,7 l12,-14" class="qok"/>
+<text x="200" y="291" text-anchor="middle" class="qt en">Damping decouples the machine from the floor</text>
+<text x="200" y="291" text-anchor="middle" class="qt de">Dämpfung entkoppelt Maschine und Boden</text>
+</svg>

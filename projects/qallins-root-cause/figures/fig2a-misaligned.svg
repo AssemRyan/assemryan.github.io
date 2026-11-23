@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300" class="qfig" role="img" aria-label="Schematic illustration, top view: conveyor and die plates misaligned, the two mould halves are not parallel">
+<style>
+.qbg{fill:var(--card,#fff)}.qln{stroke:var(--ink,#0f172a);stroke-width:2;fill:none}.qthin{stroke:var(--muted,#5b6578);stroke-width:1.2;fill:none}
+.qmach{fill:var(--chip,#eaf2fb);stroke:var(--brand,#0f4c81);stroke-width:2}.qsteel{fill:var(--muted,#5b6578)}.qhatch{stroke:var(--muted,#5b6578);stroke-width:1;opacity:.45}
+.qh{font:700 15px system-ui,"Segoe UI",Arial,sans-serif}.qt{fill:var(--ink,#0f172a);font:600 13px system-ui,"Segoe UI",Arial,sans-serif}.qs{fill:var(--muted,#5b6578);font:italic 11.5px system-ui,"Segoe UI",Arial,sans-serif}
+.qbad{stroke:#d64545;stroke-width:2.5;fill:none}.qbadf{fill:#d64545}.qok{stroke:#1f9d55;stroke-width:2.5;fill:none}.qokf{fill:#1f9d55}
+.qrub{fill:#334155;stroke:var(--ink,#0f172a);stroke-width:1.2}.qlaser{stroke:#e5484d;stroke-width:2.5;stroke-dasharray:9 5;fill:none}
+.qdash{stroke:var(--muted,#5b6578);stroke-width:1.4;stroke-dasharray:6 4;fill:none}
+/*F*/.qfig .de{display:none}/*F*/
+</style>
+<rect width="400" height="300" class="qbg"/>
+<text x="16" y="27" class="qh qbadf en">Before: not aligned (top view)</text>
+<text x="16" y="27" class="qh qbadf de">Vorher: nicht ausgerichtet (Draufsicht)</text>
+<text x="16" y="45" class="qs en">schematic illustration</text>
+<text x="16" y="45" class="qs de">schematische Darstellung</text>
+<!-- conveyor -->
+<text x="30" y="118" class="qt en">Conveyor</text>
+<text x="30" y="118" class="qt de">Förderband</text>
+<rect x="24" y="128" width="196" height="44" rx="6" class="qmach"/>
+<g class="qthin"><line x1="48" y1="128" x2="48" y2="172"/><line x1="76" y1="128" x2="76" y2="172"/><line x1="104" y1="128" x2="104" y2="172"/><line x1="132" y1="128" x2="132" y2="172"/><line x1="160" y1="128" x2="160" y2="172"/><line x1="188" y1="128" x2="188" y2="172"/></g>
+<line x1="10" y1="150" x2="390" y2="150" class="qdash"/>
+<!-- die / mould plates, skewed and offset -->
+<text x="246" y="84" class="qt en">Die / mould plates</text>
+<text x="246" y="84" class="qt de">Formplatten</text>
+<rect x="252" y="108" width="84" height="22" rx="2" class="qmach" transform="rotate(-7 294 119)"/>
+<rect x="252" y="180" width="84" height="22" rx="2" class="qmach" transform="rotate(4 294 191)"/>
+<line x1="236" y1="164" x2="352" y2="164" class="qbad" stroke-dasharray="6 4"/>
+<!-- offset marker -->
+<line x1="362" y1="150" x2="362" y2="164" class="qbad"/>
+<text x="368" y="162" class="qt qbadf">Δ</text>
+<!-- angle hint -->
+<path d="M336,104 L350,98" class="qbad"/>
+<text x="200" y="236" text-anchor="middle" class="qt en">Conveyor and die plates not aligned;</text>
+<text x="200" y="254" text-anchor="middle" class="qt en">the two mould halves are not parallel</text>
+<text x="200" y="236" text-anchor="middle" class="qt de">Förderband und Formplatten nicht ausgerichtet;</text>
+<text x="200" y="254" text-anchor="middle" class="qt de">die beiden Formhälften sind nicht parallel</text>
+<text x="200" y="284" text-anchor="middle" class="qs en">dashed grey: conveyor axis · dashed red: die axis</text>
+<text x="200" y="284" text-anchor="middle" class="qs de">grau gestrichelt: Förderachse · rot gestrichelt: Formachse</text>
+</svg>

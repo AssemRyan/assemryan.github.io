@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600" width="400" height="600" class="qfig" role="img" aria-label="Schematic cause tree: symptom deformed nails, first attempt only temporary, two root causes (no damping, misalignment) and the two permanent fixes">
+<style>
+.qbg{fill:var(--card,#fff)}.qln{stroke:var(--ink,#0f172a);stroke-width:2;fill:none}.qthin{stroke:var(--muted,#5b6578);stroke-width:1.2;fill:none}
+.qh{fill:var(--ink,#0f172a);font:700 15px system-ui,"Segoe UI",Arial,sans-serif}.qt{fill:var(--ink,#0f172a);font:600 13px system-ui,"Segoe UI",Arial,sans-serif}.qs{fill:var(--muted,#5b6578);font:italic 11.5px system-ui,"Segoe UI",Arial,sans-serif}
+.qb{fill:var(--ink,#0f172a);font:12.5px system-ui,"Segoe UI",Arial,sans-serif}.qm{fill:var(--muted,#5b6578);font:12.5px system-ui,"Segoe UI",Arial,sans-serif}
+.qbx{fill:var(--card,#fff);stroke:var(--line,#c9d3e0);stroke-width:1.5}
+.qbxbad{fill:var(--card,#fff);stroke:#d64545;stroke-width:2}.qbxtry{fill:var(--card,#fff);stroke:var(--muted,#5b6578);stroke-width:1.5;stroke-dasharray:6 4}
+.qbxrc{fill:var(--chip,#eaf2fb);stroke:var(--accent,#ff7a1a);stroke-width:2}.qbxok{fill:var(--card,#fff);stroke:#1f9d55;stroke-width:2}
+.qbadf{fill:#d64545}.qokf{fill:#1f9d55}.qacf{fill:var(--accent,#ff7a1a)}.qarr{stroke:var(--brand,#0f4c81);stroke-width:2;fill:none}.qarrf{fill:var(--brand,#0f4c81)}
+/*F*/.qfig .de{display:none}/*F*/
+</style>
+<defs><marker id="q3-ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0L10,5L0,10z" class="qarrf"/></marker></defs>
+<rect width="400" height="600" class="qbg"/>
+<text x="16" y="24" class="qh en">Cause analysis</text>
+<text x="16" y="24" class="qh de">Ursachenanalyse</text>
+<text x="384" y="24" text-anchor="end" class="qs en">schematic illustration</text>
+<text x="384" y="24" text-anchor="end" class="qs de">schematische Darstellung</text>
+
+<!-- symptom -->
+<rect x="20" y="40" width="360" height="46" rx="10" class="qbxbad"/>
+<text x="200" y="68" text-anchor="middle" class="qt qbadf en">Symptom: deformed nails (shape defects)</text>
+<text x="200" y="68" text-anchor="middle" class="qt qbadf de">Symptom: verformte Nägel (Formfehler)</text>
+<line x1="200" y1="86" x2="200" y2="108" class="qarr" marker-end="url(#q3-ar)"/>
+
+<!-- first attempt -->
+<rect x="20" y="110" width="360" height="62" rx="10" class="qbxtry"/>
+<text x="200" y="135" text-anchor="middle" class="qb en">First attempt: checked the control, cleaned surfaces</text>
+<text x="200" y="156" text-anchor="middle" class="qm en">→ fixed only temporarily – the fault came back</text>
+<text x="200" y="135" text-anchor="middle" class="qb de">Erster Versuch: Steuerung geprüft, Flächen gereinigt</text>
+<text x="200" y="156" text-anchor="middle" class="qm de">→ nur vorübergehend behoben – Fehler kam zurück</text>
+<line x1="200" y1="172" x2="200" y2="194" class="qarr" marker-end="url(#q3-ar)"/>
+
+<!-- why -->
+<rect x="20" y="196" width="360" height="56" rx="10" class="qbx"/>
+<text x="200" y="219" text-anchor="middle" class="qt en">Why does the fault come back?</text>
+<text x="200" y="238" text-anchor="middle" class="qb en">→ look at machine installation and mechanics</text>
+<text x="200" y="219" text-anchor="middle" class="qt de">Warum kommt der Fehler zurück?</text>
+<text x="200" y="238" text-anchor="middle" class="qb de">→ Aufstellung und Mechanik untersuchen</text>
+<path d="M200,252 L200,262 L106,262 L106,282" class="qarr" marker-end="url(#q3-ar)"/>
+<path d="M200,262 L294,262 L294,282" class="qarr" marker-end="url(#q3-ar)"/>
+
+<!-- root causes -->
+<rect x="20" y="284" width="172" height="124" rx="10" class="qbxrc"/>
+<rect x="208" y="284" width="172" height="124" rx="10" class="qbxrc"/>
+<g class="en">
+<text x="34" y="306" class="qt qacf">Root cause 1</text>
+<text x="34" y="328" class="qb">No rubber damping</text>
+<text x="34" y="345" class="qb">between machine</text>
+<text x="34" y="362" class="qb">and floor →</text>
+<text x="34" y="379" class="qb">vibrations fed back</text>
+<text x="34" y="396" class="qb">into the machine</text>
+<text x="222" y="306" class="qt qacf">Root cause 2</text>
+<text x="222" y="328" class="qb">Conveyor and die</text>
+<text x="222" y="345" class="qb">plates not aligned →</text>
+<text x="222" y="362" class="qb">the two mould</text>
+<text x="222" y="379" class="qb">halves not parallel</text>
+</g>
+<g class="de">
+<text x="34" y="306" class="qt qacf">Ursache 1</text>
+<text x="34" y="328" class="qb">Keine Gummidämpfung</text>
+<text x="34" y="345" class="qb">zwischen Maschine</text>
+<text x="34" y="362" class="qb">und Boden →</text>
+<text x="34" y="379" class="qb">Schwingungen wirken</text>
+<text x="34" y="396" class="qb">auf die Maschine zurück</text>
+<text x="222" y="306" class="qt qacf">Ursache 2</text>
+<text x="222" y="328" class="qb">Förderband und</text>
+<text x="222" y="345" class="qb">Formplatten nicht</text>
+<text x="222" y="362" class="qb">ausgerichtet →</text>
+<text x="222" y="379" class="qb">Formhälften nicht</text>
+<text x="222" y="396" class="qb">parallel</text>
+</g>
+<line x1="106" y1="408" x2="106" y2="430" class="qarr" marker-end="url(#q3-ar)"/>
+<line x1="294" y1="408" x2="294" y2="430" class="qarr" marker-end="url(#q3-ar)"/>
+
+<!-- fixes -->
+<rect x="20" y="432" width="172" height="90" rx="10" class="qbxok"/>
+<rect x="208" y="432" width="172" height="90" rx="10" class="qbxok"/>
+<g class="en">
+<text x="34" y="454" class="qt qokf">Fix 1</text>
+<text x="34" y="476" class="qb">Machine lifted,</text>
+<text x="34" y="493" class="qb">rubber damping</text>
+<text x="34" y="510" class="qb">elements installed</text>
+<text x="222" y="454" class="qt qokf">Fix 2</text>
+<text x="222" y="476" class="qb">Conveyor and all</text>
+<text x="222" y="493" class="qb">plates aligned with</text>
+<text x="222" y="510" class="qb">a laser tool</text>
+</g>
+<g class="de">
+<text x="34" y="454" class="qt qokf">Maßnahme 1</text>
+<text x="34" y="476" class="qb">Maschine angehoben,</text>
+<text x="34" y="493" class="qb">Gummi-Dämpfungs-</text>
+<text x="34" y="510" class="qb">elemente eingebaut</text>
+<text x="222" y="454" class="qt qokf">Maßnahme 2</text>
+<text x="222" y="476" class="qb">Förderband und alle</text>
+<text x="222" y="493" class="qb">Platten mit Laser</text>
+<text x="222" y="510" class="qb">ausgerichtet</text>
+</g>
+<path d="M106,522 L106,538 L200,538 L200,548" class="qarr"/>
+<path d="M294,522 L294,538 L200,538" class="qarr"/>
+<line x1="200" y1="538" x2="200" y2="548" class="qarr" marker-end="url(#q3-ar)"/>
+
+<!-- result -->
+<rect x="20" y="550" width="360" height="40" rx="10" class="qbxok"/>
+<text x="200" y="575" text-anchor="middle" class="qt qokf en">Machine ran perfectly · documented in an FMEA</text>
+<text x="200" y="575" text-anchor="middle" class="qt qokf de">Maschine lief einwandfrei · in FMEA dokumentiert</text>
+</svg>
