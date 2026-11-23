@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Test-Bench Automation Nuevo 35 – Assem Ryan</title>
+<meta name="description" content="Master's project at FH Dortmund (GREEN-GEN Nuevo 35, work package AP2 – test-bench automation): NI LabVIEW program with controlled ramp-up, ramp-down and restart lockout for a motor test bench. Prüfstandsautomatisierung mit LabVIEW.">
+<meta name="keywords" content="Prüfstandsautomatisierung, Prüfstand, LabVIEW, NI LabVIEW, Formula Node, Rampenfunktion, Sicherheitslogik, Antriebstechnik, Motorsteuerung, Fahrzeugelektronik, Masterprojekt, FH Dortmund, Maschinenbau">
+<meta property="og:title" content="Test-bench automation Nuevo 35 – Assem Ryan">
+<meta property="og:image" content="https://assemryan.github.io/nuevo35-solution.png">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%230f4c81'/><text x='32' y='42' font-size='28' font-family='Arial' font-weight='700' fill='white' text-anchor='middle'>AR</text></svg>">
+<style>
+:root{--bg:#f6f8fb;--card:#fff;--ink:#0f172a;--muted:#5b6578;--line:#e3e8ef;--brand:#0f4c81;--brand2:#1d7ac8;--chip:#eaf2fb;--shadow:0 6px 24px rgba(15,23,42,.07);--accent:#ff7a1a;--grid:rgba(15,76,129,.05)}
+@media (prefers-color-scheme:dark){:root{--bg:#0b1220;--card:#121a2b;--ink:#e6ebf3;--muted:#9aa6ba;--line:#22304a;--brand:#6fb3ff;--brand2:#8cc4ff;--chip:#17263f;--shadow:none;--grid:rgba(111,179,255,.06)}}
+body.dark{--bg:#0b1220;--card:#121a2b;--ink:#e6ebf3;--muted:#9aa6ba;--line:#22304a;--brand:#6fb3ff;--brand2:#8cc4ff;--chip:#17263f;--shadow:none;--grid:rgba(111,179,255,.06)}
+body.light{--bg:#f6f8fb;--card:#fff;--ink:#0f172a;--muted:#5b6578;--line:#e3e8ef;--brand:#0f4c81;--brand2:#1d7ac8;--chip:#eaf2fb;--shadow:0 6px 24px rgba(15,23,42,.07);--grid:rgba(15,76,129,.05)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;overflow-x:hidden;overflow-wrap:anywhere;font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:44px 44px;background-attachment:fixed}
+a{color:var(--brand)}img{max-width:100%;display:block}
+.wrap{max-width:1000px;margin:0 auto;padding:0 20px}
+header{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;gap:14px;height:60px}
+nav .logo{font-weight:800;color:var(--ink);text-decoration:none;margin-right:auto}
+nav a.l{color:var(--muted);text-decoration:none;font-size:.95rem}nav a.l:hover{color:var(--ink)}
+.lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
+.lang button{border:0;background:none;color:var(--muted);padding:4px 10px;font-weight:700;cursor:pointer}
+.lang button[aria-pressed=true]{background:var(--brand);color:#fff}
+.theme{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;width:34px;height:34px;cursor:pointer;font-size:1rem}
+body.de .en,body:not(.de) .de{display:none!important}
+.kicker{color:var(--brand2);font-weight:700;letter-spacing:.04em;text-transform:uppercase;font-size:.85rem;margin-top:36px}
+h1{font-size:clamp(1.9rem,4.6vw,2.8rem);line-height:1.15;margin:.25em 0 .3em}
+.lead{font-size:1.08rem;color:var(--muted);max-width:62ch;margin:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 6px}
+.chip{background:var(--chip);color:var(--ink);border-radius:999px;padding:5px 12px;font-size:.88rem}
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:26px 0 8px}
+@media(max-width:820px){.facts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.fact{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.fact b{display:block;font-size:1.05rem}.fact span{color:var(--muted);font-size:.88rem}
+section{padding:30px 0 6px}
+h2{font-size:1.45rem;margin:0 0 10px}
+h2:before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;background:var(--accent);margin-right:10px;vertical-align:middle}
+p,li{color:var(--muted)}ul{padding-left:20px;margin:6px 0}
+.box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;box-shadow:var(--shadow)}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}@media(max-width:720px){.two{grid-template-columns:minmax(0,1fr)}}
+.box h3{margin:0 0 6px;font-size:1.05rem;color:var(--ink)}
+table{width:100%;border-collapse:collapse;font-size:.93rem}
+th,td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--ink);width:34%}td{color:var(--muted)}
+.tw{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:14px}
+.steps{counter-reset:s;list-style:none;padding:0;margin:0;display:grid;gap:10px}
+.steps li{counter-increment:s;position:relative;padding:12px 14px 12px 52px;background:var(--card);border:1px solid var(--line);border-radius:12px}
+.steps li:before{content:counter(s);position:absolute;left:14px;top:12px;width:26px;height:26px;border-radius:50%;background:var(--brand);color:#fff;font-weight:700;font-size:.85rem;display:flex;align-items:center;justify-content:center}
+.steps b{color:var(--ink)}
+.gal{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:12px}
+@media(max-width:820px){.gal{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:520px){.gal{grid-template-columns:minmax(0,1fr)}}
+.gal figure{margin:0;background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden;display:flex;flex-direction:column}
+.gal img{width:100%;height:220px;object-fit:cover}
+.gal.small img{height:180px;object-fit:contain;background:#222}
+.gal figcaption{font-size:.82rem;color:#5b6578;padding:6px 10px;background:#fafbfd;flex:1}
+.note{background:var(--chip);border-radius:10px;padding:10px 14px;font-size:.9rem;margin-top:12px;color:var(--ink)}
+.tags{display:flex;flex-wrap:wrap;gap:6px}.tag{font-size:.82rem;background:var(--chip);border-radius:6px;padding:3px 9px}
+.back{display:inline-flex;gap:6px;align-items:center;font-weight:700;text-decoration:none;margin:34px 0 0}
+footer{color:var(--muted);font-size:.85rem;padding:30px 0 40px;text-align:center}
+.gal.shots img{height:auto;aspect-ratio:auto;object-fit:contain;background:#fff}
+.gal.shots.two-up{grid-template-columns:repeat(2,minmax(0,1fr))}@media(max-width:620px){.gal.shots.two-up{grid-template-columns:minmax(0,1fr)}}
+.wide{margin:12px 0 0;background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.wide img{width:100%;height:auto}
+.wide figcaption{font-size:.82rem;color:#5b6578;padding:6px 10px;background:#fafbfd}
+.formula{font-family:ui-monospace,Consolas,"Courier New",monospace;font-size:.88rem;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;color:var(--ink);overflow-x:auto;white-space:pre;line-height:1.55}
+video{width:100%;border-radius:10px;border:1px solid var(--line);background:#000;margin-top:12px}
+</style>
+</head>
+<body>
+<header><div class="wrap"><nav>
+  <a class="logo" href="../../index.html">Assem Ryan</a>
+  <a class="l" href="../../index.html#projects"><span class="en">← All projects</span><span class="de">← Alle Projekte</span></a>
+  <div class="lang" role="group" aria-label="Language"><button data-l="en" aria-pressed="true">EN</button><button data-l="de" aria-pressed="false">DE</button></div>
+</nav></div></header>
+
+<main class="wrap">
+<div class="kicker"><span class="en">Master's project · FH Dortmund · SoSe 2025 – WS 2025/26</span><span class="de">Masterprojekt · FH Dortmund · SoSe 2025 – WS 2025/26</span></div>
+<h1><span class="en">Test-bench automation for the Nuevo 35 drive</span><span class="de">Prüfstandsautomatisierung für den Nuevo-35-Antrieb</span></h1>
+<p class="lead"><span class="en">NI LabVIEW program that controls the start-up and shut-down of a motor on the test bench of the FH Dortmund project GREEN-GEN Nuevo 35. I replaced the abrupt stop with a controlled ramp-down, corrected the voltage and time calculations and added a restart lockout – work package AP2 “test-bench automation”, team vehicle electronics.</span><span class="de">NI-LabVIEW-Programm zur Steuerung von Hoch- und Herunterlauf eines Motors am Prüfstand des FH-Dortmund-Projekts GREEN-GEN Nuevo 35. Ich habe den abrupten Stopp durch einen kontrollierten Ramp-Down ersetzt, die Spannungs- und Zeitberechnung korrigiert und eine Neustartsperre ergänzt – Arbeitspaket AP2 „Prüfstandautomatisierung“, Team Fahrzeugelektronik.</span></p>
+<div class="chips"><span class="chip">NI LabVIEW</span><span class="chip"><span class="en">Test-bench automation</span><span class="de">Prüfstandsautomatisierung</span></span><span class="chip"><span class="en">Ramp-up / ramp-down</span><span class="de">Hoch-/Runterlauf (Rampen)</span></span><span class="chip"><span class="en">Safety logic</span><span class="de">Sicherheitslogik</span></span><span class="chip"><span class="en">Vehicle electronics</span><span class="de">Fahrzeugelektronik</span></span></div>
+
+<div class="facts">
+  <div class="fact"><b><span class="en">Ramp-down</span><span class="de">Ramp-Down</span></b><span><span class="en">controlled stop to 0 within a user-defined time</span><span class="de">kontrollierter Stopp auf 0 in einstellbarer Zeit</span></span></div>
+  <div class="fact"><b>Lockout</b><span><span class="en">no restart while the drive decelerates</span><span class="de">kein Neustart während der Abbremsphase</span></span></div>
+  <div class="fact"><b><span class="en">3 test cases</span><span class="de">3 Testfälle</span></b><span><span class="en">simulated: off, start, full cycle</span><span class="de">simuliert: Aus, Start, voller Zyklus</span></span></div>
+  <div class="fact"><b>1/100 s</b><span><span class="en">time base of the control loop</span><span class="de">Zeitbasis der Steuerschleife</span></span></div>
+</div>
+
+<figure class="wide"><img src="figures/front-panel.png" alt="LabVIEW front panel with inputs Offset, Eckzeit, Switch, Solldrehzahl, Synchrondrehzahl, Stoppzeit and charts for voltage and speed"><figcaption><span class="en">Front panel of the LabVIEW program: parameters, start/stop switch, live values and charts for voltage and speed</span><span class="de">Front Panel des LabVIEW-Programms: Parameter, Start/Stop-Switch, aktuelle Werte und Diagramme für Spannung und Drehzahl</span></figcaption></figure>
+
+<section>
+  <h2><span class="en">Project context</span><span class="de">Projektkontext</span></h2>
+  <p><span class="en"><b>GREEN-GEN Nuevo 35</b> is a master's project at FH Dortmund, Faculty of Mechanical Engineering with Prof. Dr. Stefan Hesterberg, Prof. Dr. Vinod Rajamani and Prof. Dr. Markus Thoben as clients, split into work packages. Work package <b>AP2 – test-bench automation</b> (team vehicle electronics) develops the LabVIEW software that drives the motor on the test bench: the user sets offset, ramp time, stop time, target speed and synchronous speed, and the program computes the voltage set-point (in %) and the speed over time and shows both live.</span><span class="de"><b>GREEN-GEN Nuevo 35</b> ist ein Masterprojekt an der FH Dortmund, Fachbereich Maschinenbau mit Prof. Dr. Stefan Hesterberg, Prof. Dr. Vinod Rajamani und Prof. Dr. Markus Thoben als Auftraggebern, aufgeteilt in Arbeitspakete. Das Arbeitspaket <b>AP2 – Prüfstandautomatisierung</b> (Team Fahrzeugelektronik) entwickelt die LabVIEW-Software, die den Motor am Prüfstand ansteuert: Der Bediener gibt Offset, Rampzeit, Stoppzeit, Soll- und Synchrondrehzahl vor, das Programm berechnet daraus den Spannungs-Sollwert (in %) und die Drehzahl über der Zeit und zeigt beide live an.</span></p>
+</section>
+
+<section>
+  <h2><span class="en">Starting situation</span><span class="de">Ausgangssituation</span></h2>
+  <div class="two">
+    <div class="box"><h3><span class="en">Problem</span><span class="de">Problem</span></h3><ul>
+      <li><span class="en">The existing program already ramped the motor up in a controlled way, but <b>pressing Stop ended it immediately</b> – no deceleration, which the project rated as a considerable safety risk.</span><span class="de">Das bestehende Programm fuhr den Motor bereits kontrolliert hoch, aber <b>beim Drücken von Stop hielt es sofort an</b> – ohne Abbremsen, was im Projekt als erhebliches Sicherheitsrisiko bewertet wurde.</span></li>
+      <li><span class="en">Interim state at the end of SoSe 2025: ramp-up and ramp-down existed, but the <b>voltage and time calculations were wrong</b>, so the program behaved incorrectly; in December 2025 the values were still not shown correctly in the charts and indicators.</span><span class="de">Zwischenstand Ende SoSe 2025: Ramp-Up und Ramp-Down waren vorhanden, aber die <b>Spannungs- und Zeitberechnung war fehlerhaft</b> und das Programm verhielt sich falsch; im Dezember 2025 wurden die Werte in Diagrammen und Anzeigen noch nicht korrekt übernommen.</span></li>
+    </ul></div>
+    <div class="box"><h3><span class="en">Goal</span><span class="de">Ziel</span></h3><ul>
+      <li><span class="en">Replace the abrupt stop with a smooth, controlled deceleration.</span><span class="de">Abrupten Stopp durch sanftes, kontrolliertes Abbremsen ersetzen.</span></li>
+      <li><span class="en">Reliable ramp-up and ramp-down functions.</span><span class="de">Zuverlässige Ramp-Up- und Ramp-Down-Funktionen.</span></li>
+      <li><span class="en">Correct voltage and time calculations.</span><span class="de">Korrekte Spannungs- und Zeitberechnung.</span></li>
+      <li><span class="en">Improve system safety.</span><span class="de">Systemsicherheit verbessern.</span></li>
+    </ul></div>
+  </div>
+</section>
+
+<section>
+  <h2><span class="en">My role</span><span class="de">Meine Rolle</span></h2>
+  <div class="box"><p style="margin:0"><span class="en">I was <b>responsible for the NI LabVIEW test-bench software</b> in AP2 and am named as the person in charge (Bearbeiter) in the handover protocol of 25.03.2026. In SoSe 2025 AP2 started as a team of three (Abdallah Abdelnaby, Burak Gül and me); my documentation, final presentation and handover cover WS 2025/26.</span><span class="de">Ich war in AP2 <b>verantwortlich für die NI-LabVIEW-Software des Prüfstands</b> und bin im Übergabeprotokoll vom 25.03.2026 als Bearbeiter genannt. Im SoSe 2025 startete AP2 als Dreierteam (Abdallah Abdelnaby, Burak Gül und ich); meine Dokumentation, Abschlusspräsentation und Übergabe umfassen das WS 2025/26.</span></p>
+  <ul style="margin:10px 0 0">
+    <li><span class="en"><b>Code analysis:</b> analysed the existing program of the previous team and identified the missing part of the code.</span><span class="de"><b>Code-Analyse:</b> bestehendes Programm des Vorgängerteams analysiert und den fehlenden Codeteil identifiziert.</span></li>
+    <li><span class="en"><b>Ramp logic:</b> implemented and corrected the automated ramp-up and ramp-down, including the voltage and time calculations.</span><span class="de"><b>Rampenlogik:</b> automatisierten Ramp-Up und Ramp-Down implementiert und korrigiert, inkl. Spannungs- und Zeitberechnung.</span></li>
+    <li><span class="en"><b>Operating logic:</b> replaced separate Start/Stop buttons with one switch, added the new variables and stored states in shift registers.</span><span class="de"><b>Bedienlogik:</b> getrennte Start/Stop-Tasten durch einen Switch ersetzt, neue Variablen ergänzt und Zustände in Shift-Registern gespeichert.</span></li>
+    <li><span class="en"><b>Safety:</b> restart lockout during the ramp-down phase.</span><span class="de"><b>Sicherheit:</b> Neustartsperre während der Abbremsphase.</span></li>
+    <li><span class="en"><b>Validation &amp; documentation:</b> simulated three operating cases, wrote the program documentation and user guide, presented the results and handed the project over.</span><span class="de"><b>Validierung &amp; Dokumentation:</b> drei Betriebsfälle simuliert, Programmdokumentation und Bedienungsanleitung erstellt, Ergebnisse präsentiert und das Projekt übergeben.</span></li>
+  </ul></div>
+</section>
+
+<section>
+  <h2><span class="en">Solution</span><span class="de">Lösung</span></h2>
+  <p><span class="en">The program follows LabVIEW's data-flow principle: inputs from the front panel go into the block diagram, are processed there, and the results go back to the numeric indicators and charts. A loop with a 1/100 s time base feeds a <b>Formula Node</b> that holds the ramp and safety logic; all states are carried between iterations in <b>shift registers</b>.</span><span class="de">Das Programm folgt dem Datenflussprinzip von LabVIEW: Eingaben aus dem Front Panel gehen ins Blockdiagramm, werden dort verarbeitet und die Ergebnisse an Anzeigen und Diagramme zurückgegeben. Eine Schleife mit Zeitbasis 1/100 s speist einen <b>Formula Node</b> mit der Rampen- und Sicherheitslogik; alle Zustände werden zwischen den Iterationen in <b>Shift-Registern</b> gehalten.</span></p>
+  <figure class="wide"><img src="figures/block-diagram.png" alt="LabVIEW block diagram with Formula Node, shift registers, switch logic and chart outputs" loading="lazy"><figcaption><span class="en">Block diagram: input processing and time base (left), switch/stop logic, Formula Node with the ramp code, shift registers and outputs to indicators and charts (right)</span><span class="de">Blockdiagramm: Eingangsverarbeitung und Zeitbasis (links), Switch-/Stop-Logik, Formula Node mit dem Rampencode, Shift-Register und Ausgaben an Anzeigen und Diagramme (rechts)</span></figcaption></figure>
+
+  <div class="two" style="margin-top:14px">
+    <div class="box"><h3><span class="en">Ramp-up</span><span class="de">Ramp-Up</span></h3><ul>
+      <li><span class="en">On start, target speed and voltage set-point are latched once.</span><span class="de">Beim Start werden Solldrehzahl und Spannungs-Sollwert einmalig gespeichert (Latch).</span></li>
+      <li><span class="en">Voltage rises linearly from the offset to the set-point; speed always starts from zero.</span><span class="de">Die Spannung steigt linear vom Offset zum Sollwert; die Drehzahl startet immer bei null.</span></li>
+      <li><span class="en">After the ramp time both values are held constant.</span><span class="de">Nach der Rampzeit bleiben beide Werte konstant.</span></li>
+    </ul></div>
+    <div class="box"><h3><span class="en">Ramp-down &amp; lockout</span><span class="de">Ramp-Down &amp; Lockout</span></h3><ul>
+      <li><span class="en">A rising edge of Stop is detected and starts the ramp-down from the last output values.</span><span class="de">Eine steigende Flanke von Stop wird erkannt und startet den Ramp-Down von den letzten Ausgangswerten.</span></li>
+      <li><span class="en">Voltage and speed fall linearly to zero within the stop time.</span><span class="de">Spannung und Drehzahl sinken linear innerhalb der Stoppzeit auf null.</span></li>
+      <li><span class="en">During this window the switch is ignored; only after standstill can the drive ramp up again.</span><span class="de">In diesem Zeitfenster wird der Switch ignoriert; erst nach dem Stillstand ist ein erneuter Hochlauf möglich.</span></li>
+    </ul></div>
+  </div>
+
+  <h3 style="margin:18px 0 8px"><span class="en">Core equations in the Formula Node</span><span class="de">Kernformeln im Formula Node</span></h3>
+<div class="formula">U_soll   = (Solldrehzahl / Synchrondrehzahl) · 100   [%]
+stop_rise = (Stop &gt; 0.5) AND (Stop_prev ≤ 0.5)
+t_block_end = t + Stoppzeit                          (lockout)
+Ramp-up:   k = (t − t_start) / Rampzeit,  0 ≤ k ≤ 1
+           Ut = Ut_start0 + (Ut_target − Ut_start0) · k
+           Ft = Ft_start0 + (RPM_latch − Ft_start0) · k
+Ramp-down: k = 1 − (t − t_stop) / Stoppzeit,  0 ≤ k ≤ 1
+           Ut = Ut_stop0 · k,   Ft = Ft_stop0 · k</div>
+  <p class="note"><span class="en"><b>Input guards:</b> ramp time and stop time ≤ 0 are replaced by 0.0001 s (no division by zero); the offset is clamped to 0–100 %; voltage and speed are limited to their set-points and never go below zero.</span><span class="de"><b>Eingangsprüfungen:</b> Rampzeit und Stoppzeit ≤ 0 werden durch 0,0001 s ersetzt (keine Division durch null); der Offset wird auf 0–100 % begrenzt; Spannung und Drehzahl werden auf ihre Sollwerte begrenzt und nie negativ.</span></p>
+</section>
+
+<section>
+  <h2><span class="en">Results</span><span class="de">Ergebnisse</span></h2>
+  <p><span class="en">The logic was validated in simulation with three operating cases, plotting voltage and speed over time:</span><span class="de">Die Logik wurde in der Simulation mit drei Betriebsfällen validiert, mit Verläufen von Spannung und Drehzahl über der Zeit:</span></p>
+  <ol class="steps">
+    <li><b><span class="en">Case 1 – switch OFF at start</span><span class="de">Fall 1 – Schalter AUS am Start</span></b> – <span class="en">voltage and speed stay at zero; no unwanted signals in idle.</span><span class="de">Spannung und Drehzahl bleiben bei null; keine unerwünschten Signale im Ruhezustand.</span></li>
+    <li><b><span class="en">Case 2 – switch ON at start</span><span class="de">Fall 2 – Schalter EIN am Start</span></b> – <span class="en">speed rises linearly from 0 to the target speed, voltage from the offset to the set-point; both then stay constant.</span><span class="de">Die Drehzahl steigt linear von 0 bis zur Solldrehzahl, die Spannung vom Offset bis zum Sollwert; danach bleiben beide konstant.</span></li>
+    <li><b><span class="en">Case 3 – full cycle</span><span class="de">Fall 3 – voller Zyklus</span></b> – <span class="en">ramp-up → constant operation → ramp-down to zero after Stop → new ramp-up only after complete standstill; no restart during deceleration.</span><span class="de">Ramp-Up → konstanter Betrieb → Ramp-Down auf null nach Stop → erneuter Ramp-Up erst nach vollständigem Stillstand; kein Neustart während der Abbremsphase.</span></li>
+  </ol>
+  <div class="gal shots two-up">
+    <figure><img src="figures/run-ramp-up.png" alt="Front panel during ramp-up: voltage and speed rising linearly" loading="lazy"><figcaption><span class="en">Running: ramp-up of voltage and speed (offset 10 %, target 1200 rpm, synchronous 3000 rpm)</span><span class="de">Im Betrieb: Ramp-Up von Spannung und Drehzahl (Offset 10 %, Soll 1200 U/min, synchron 3000 U/min)</span></figcaption></figure>
+    <figure><img src="figures/run-ramp-down.jpg" alt="Front panel during ramp-down: voltage and speed falling from their set-points" loading="lazy"><figcaption><span class="en">Running: after Stop, voltage falls from the 40 % set-point and speed from 1200 rpm</span><span class="de">Im Betrieb: Nach Stop sinkt die Spannung vom Sollwert 40 % und die Drehzahl von 1200 U/min</span></figcaption></figure>
+  </div>
+  <div class="gal">
+    <figure><img src="../../assets/nuevo35/case3-speed.png" alt="Case 3 speed over a full cycle" loading="lazy"><figcaption><span class="en">Case 3 – speed, full cycle</span><span class="de">Fall 3 – Drehzahl, voller Zyklus</span></figcaption></figure>
+    <figure><img src="../../assets/nuevo35/case3-voltage.png" alt="Case 3 voltage over a full cycle" loading="lazy"><figcaption><span class="en">Case 3 – voltage, full cycle</span><span class="de">Fall 3 – Spannung, voller Zyklus</span></figcaption></figure>
+    <figure><img src="../../assets/nuevo35/case1-speed.png" alt="Case 1 speed stays at zero" loading="lazy"><figcaption><span class="en">Case 1 – switch OFF: drive stays at 0</span><span class="de">Fall 1 – Schalter AUS: Antrieb bleibt bei 0</span></figcaption></figure>
+  </div>
+  <h3 style="margin:18px 0 6px"><span class="en">Outcome (final presentation)</span><span class="de">Ergebnis (Abschlusspräsentation)</span></h3>
+  <ul>
+    <li><span class="en">Controlled shut-down to 0 within the user-defined time.</span><span class="de">Kontrolliertes Herunterfahren auf 0 innerhalb der benutzerdefinierten Zeit.</span></li>
+    <li><span class="en">Correct voltage calculations ensured.</span><span class="de">Korrekte Spannungsberechnungen sichergestellt.</span></li>
+    <li><span class="en">Restart blocked during the deceleration phase; restart only after complete standstill.</span><span class="de">Neustart während der Abbremsphase gesperrt; Neustart erst nach vollständigem Stillstand.</span></li>
+    <li><span class="en">The system moved from an unsafe abrupt stop to controlled, safe ramp operation.</span><span class="de">Das System wurde von einem unsicheren abrupten Stopp zu einem kontrollierten, sicheren Rampenbetrieb verbessert.</span></li>
+  </ul>
+  <video controls preload="none" src="../../nuevo35-demo.mp4"></video>
+</section>
+
+<section>
+  <h2><span class="en">Operation</span><span class="de">Bedienung</span></h2>
+  <ol class="steps">
+    <li><b><span class="en">Set parameters</span><span class="de">Parameter einstellen</span></b> – <span class="en">offset, ramp time (Eckzeit), stop time, target and synchronous speed; defaults are preset.</span><span class="de">Offset, Rampzeit (Eckzeit), Stoppzeit, Soll- und Synchrondrehzahl; Standardwerte sind voreingestellt.</span></li>
+    <li><b><span class="en">Start</span><span class="de">Starten</span></b> – <span class="en">flip the switch: speed starts at 0, voltage at the offset.</span><span class="de">Switch betätigen: Drehzahl startet bei 0, Spannung beim Offset.</span></li>
+    <li><b><span class="en">Monitor</span><span class="de">Beobachten</span></b> – <span class="en">numeric indicators and charts show voltage and speed over time.</span><span class="de">Anzeigen und Diagramme zeigen Spannung und Drehzahl über der Zeit.</span></li>
+    <li><b><span class="en">Stop</span><span class="de">Stoppen</span></b> – <span class="en">the drive ramps down instead of stopping abruptly; no restart until standstill.</span><span class="de">Der Antrieb fährt kontrolliert herunter statt abrupt zu stoppen; kein Neustart bis zum Stillstand.</span></li>
+  </ol>
+</section>
+
+<section>
+  <h2><span class="en">Limitations, lessons learned &amp; next steps</span><span class="de">Grenzen, Erkenntnisse &amp; nächste Schritte</span></h2>
+  <ul>
+    <li><span class="en"><b>Validated in simulation only:</b> the test on the small motor and on the Nuevo-35 motor could not be done this semester because the CAN-bus file needed to connect program and motor was missing.</span><span class="de"><b>Nur in der Simulation validiert:</b> Der Test am kleinen Motor und am Motor Nuevo-35 war in diesem Semester nicht möglich, weil das CAN-Bus-File für die Verbindung zwischen Programm und Motor fehlte.</span></li>
+    <li><span class="en"><b>Next steps (handover):</b> build CAN-bus know-how, develop a CAN-bus program, connect it to the existing system and test the complete system under real conditions on the motor.</span><span class="de"><b>Nächste Schritte (Übergabe):</b> Einarbeitung in CAN-Bus, Entwicklung eines CAN-Bus-Programms, Anbindung an das bestehende System und Test des Gesamtsystems unter realen Bedingungen am Motor.</span></li>
+    <li><span class="en"><b>Lessons learned:</b> a structured problem-solving approach – separating what is understood, what is unclear and what the goal is, then ranking possible solutions by plausibility and testing the most promising first; much better at reading and analysing existing code. To improve: apply this method faster, since finding the fix took longer than expected.</span><span class="de"><b>Lessons Learned:</b> strukturierte Problemlösung – trennen, was verstanden ist, was unklar ist und was das Ziel ist, dann Lösungsansätze nach Plausibilität bewerten und die sinnvollsten zuerst testen; deutlich bessere Analyse von bestehendem Code. Verbesserungspotenzial: diese Methode schneller anwenden, da die Lösungsfindung länger dauerte als erwartet.</span></li>
+  </ul>
+</section>
+
+<section>
+  <h2><span class="en">Skills &amp; keywords</span><span class="de">Kenntnisse &amp; Schlagworte</span></h2>
+  <div class="tags">
+    <span class="tag"><span class="en">Test-bench automation</span><span class="de">Prüfstandsautomatisierung</span></span><span class="tag">NI LabVIEW</span><span class="tag">Formula Node</span><span class="tag">Shift-Register</span><span class="tag"><span class="en">Ramp functions</span><span class="de">Rampenfunktionen</span></span><span class="tag"><span class="en">Control &amp; safety logic</span><span class="de">Steuerungs- &amp; Sicherheitslogik</span></span><span class="tag"><span class="en">Edge detection</span><span class="de">Flankenerkennung</span></span><span class="tag"><span class="en">Drive technology</span><span class="de">Antriebstechnik</span></span><span class="tag"><span class="en">Vehicle electronics</span><span class="de">Fahrzeugelektronik</span></span><span class="tag"><span class="en">Simulation &amp; validation</span><span class="de">Simulation &amp; Validierung</span></span><span class="tag"><span class="en">Visualisation</span><span class="de">Visualisierung</span></span><span class="tag"><span class="en">Code analysis</span><span class="de">Code-Analyse</span></span><span class="tag"><span class="en">Technical documentation</span><span class="de">Technische Dokumentation</span></span><span class="tag"><span class="en">Project handover</span><span class="de">Projektübergabe</span></span>
+  </div>
+</section>
+
+<section>
+  <h2><span class="en">Credits</span><span class="de">Mitwirkende</span></h2>
+  <p><span class="en">Master's project “GREEN-GEN Nuevo 35”, FH Dortmund, Faculty of Mechanical Engineering. Work package AP2 – test-bench automation, team vehicle electronics. Mentor: Prof. Dr. Markus Thoben. Clients: Prof. Dr. Stefan Hesterberg, Prof. Dr. Vinod Rajamani, Prof. Dr. Markus Thoben. Reporting period SoSe 2025 – WS 2025/26; handover on 25.03.2026.</span><span class="de">Masterprojekt „GREEN-GEN Nuevo 35“, FH Dortmund, Fachbereich Maschinenbau. Arbeitspaket AP2 – Prüfstandautomatisierung, Team Fahrzeugelektronik. Mentor: Prof. Dr. Markus Thoben. Auftraggeber: Prof. Dr. Stefan Hesterberg, Prof. Dr. Vinod Rajamani, Prof. Dr. Markus Thoben. Berichtszeitraum SoSe 2025 – WS 2025/26; Übergabe am 25.03.2026.</span></p>
+  <p><span class="en">AP2 team in SoSe 2025:</span><span class="de">AP2-Team im SoSe 2025:</span> Abdallah Abdelnaby, Assem Ryan, Burak Gül. <span class="en">The program builds on the code and documentation of the previous project team.</span><span class="de">Das Programm baut auf Code und Dokumentation des Vorgängerteams auf.</span></p>
+  <p class="note"><span class="en">All screenshots and curves are from my own LabVIEW program documentation (March 2026) and final presentation.</span><span class="de">Alle Screenshots und Verläufe stammen aus meiner eigenen LabVIEW-Programmdokumentation (März 2026) und Abschlusspräsentation.</span></p>
+  <a class="back" href="../../index.html#projects"><span class="en">← Back to all projects</span><span class="de">← Zurück zu allen Projekten</span></a>
+</section>
+</main>
+<footer>© 2026 Assem Ryan · Duisburg · <a href="../../index.html#privacy"><span class="en">Privacy</span><span class="de">Datenschutz</span></a></footer>
+<script>
+(function(){
+var b=document.body,btns=document.querySelectorAll('.lang button');
+function set(l){b.classList.toggle('de',l==='de');document.documentElement.lang=l;btns.forEach(function(x){x.setAttribute('aria-pressed',x.dataset.l===l)});try{localStorage.setItem('lang',l)}catch(e){}}
+var saved=null;try{saved=localStorage.getItem('lang')}catch(e){}
+set(saved||((navigator.language||'').slice(0,2)==='de'?'de':'en'));
+btns.forEach(function(x){x.onclick=function(){set(x.dataset.l)}});
+var lang=document.querySelector('.lang'),tb=document.createElement('button');tb.className='theme';tb.setAttribute('aria-label','Toggle theme');tb.textContent='◐';lang.parentNode.insertBefore(tb,lang);
+try{var t=localStorage.getItem('theme');if(t)b.classList.add(t)}catch(e){}
+tb.onclick=function(){var dark=b.classList.contains('dark')||(!b.classList.contains('light')&&matchMedia('(prefers-color-scheme:dark)').matches);b.classList.remove('dark','light');var n=dark?'light':'dark';b.classList.add(n);try{localStorage.setItem('theme',n)}catch(e){}};
+})();
+</script>
+</body>
+</html>
